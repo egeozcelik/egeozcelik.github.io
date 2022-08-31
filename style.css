@@ -549,6 +549,7 @@ form .send-btn:hover{
         --p-font: 0.9rem;
     }
     *{
+        overflow: hidden;
         cursor: none;
 
     }
@@ -557,7 +558,8 @@ form .send-btn:hover{
         grid-gap: 2rem;
         text-align: center;
         margin-top: 80px;
-        height: 100vh;
+        /*height: 100vh;*/
+        height: auto;
         
 
         position: fixed;
