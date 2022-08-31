@@ -542,6 +542,12 @@ form .send-btn:hover{
     }
 }
 @media (max-width: 795px){
+    :root{
+     
+        --big-font: 3rem;
+        --h2-font: 1.2rem;
+        --p-font: 0.9rem;
+    }
     *{
         cursor: none;
 
