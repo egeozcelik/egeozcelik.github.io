@@ -551,7 +551,6 @@ form .send-btn:hover{
     *{
         
         cursor: none;
-
     }
     .home{
         grid-template-columns: 1fr;
@@ -559,9 +558,6 @@ form .send-btn:hover{
         text-align: center;
         margin-top: 80px;
         height: 100vh;
-       
-        
-
     }
     .home-text p{
         max-width: 100%;
