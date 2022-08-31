@@ -558,6 +558,11 @@ form .send-btn:hover{
         text-align: center;
         margin-top: 80px;
         height: 100vh;
+        
+
+        position: fixed;
+        left: 0;
+        right: 0;
     }
     .home-text p{
         max-width: 100%;
