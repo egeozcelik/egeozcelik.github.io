@@ -186,9 +186,13 @@ span{
 }
 .home-img img{
     max-width: 100%;
-    width: 600px;
-     height: auto;
-    
+    width: 500px;
+    height: auto;
+    border: 1px solid #0eaafe;
+    border-radius: 60px 60px;
+    padding: 3px;
+    opacity: 0.8;
+
 }
 .home-text h5{
     color: var(--text-color);
@@ -243,8 +247,12 @@ span{
 }
 .about-img img{
     max-width: 100%;
-    width: 580px;
+    width: 500px;
     height: auto;
+    border: 1px solid #0eaafe;
+    border-radius: 60px 60px;
+    padding: 3px;
+    opacity: 0.8;
 }
 .about-text h3{
     color: var(--text-color);
