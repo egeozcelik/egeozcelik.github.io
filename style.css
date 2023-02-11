@@ -560,7 +560,7 @@ form .send-btn:hover{
         cursor: none;
     }
     .home{
-
+        margin-bottom: -10rem;
         grid-template-columns: 1fr;
         grid-gap: 2rem;
         text-align: center;
@@ -577,6 +577,7 @@ form .send-btn:hover{
 
     }    
     .home-img{
+        display: none;
         max-width: 100%;
         width: 490px;
         height: auto;
@@ -596,6 +597,7 @@ form .send-btn:hover{
      }  
      .about-img{
         order: 2;
+        display: none;
      }
      
     }
