@@ -38,7 +38,9 @@ header{
     padding: 24px 14%;
     transition: .3s;
 }
-
+header a{
+    font-family: 'Libre Franklin', sans-serif;
+}
 
 
 
@@ -191,7 +193,7 @@ span{
     border: 1px solid #0eaafe;
     border-radius: 60px 60px;
     padding: 3px;
-    opacity: 0.8;
+    opacity: 1;
 
 }
 .home-text h5{
@@ -551,8 +553,13 @@ form .send-btn:hover{
 }
 @media (max-width: 795px){
     :root{
-     
-        --big-font: 3.3rem;
+        --bg-color: #10101a;
+        --main-color: #0eaafe;
+        /*#2fbf71  green one*/ 
+        /*#F34213  green one*/ 
+        --2nd-main-color: #ffffffcc;
+        --text-color: #fff;
+        --big-font: 3.9rem;
         --h2-font: 1.5rem;
         --p-font: 1rem;
     }
@@ -560,7 +567,7 @@ form .send-btn:hover{
         cursor: none;
     }
     .home{
-        margin-bottom: -10rem;
+        margin-bottom: 0rem;
         grid-template-columns: 1fr;
         grid-gap: 2rem;
         text-align: center;
@@ -568,26 +575,47 @@ form .send-btn:hover{
         height: 100vh;
         width: 100%;
         overflow:hidden;
-    }   
+        background:  rgb(0, 0, 0);
+        background-image: url("img/pp4\ \(1\).jpg");
+        background-position: center;
+        background-size:cover;
+        background-repeat: no-repeat;        
+    }  
+    .home-text{ 
+        padding-bottom: 10rem;
+        position: absolute;
+        order: 1;
+        margin: 15%;
+    }
     .home-text p{
+
         margin-left: -10;
         max-width: 100%;
-        text-align: center;
-        
+        text-align: center;    
+       
+    }  
+    .home-text a{
 
+        margin-top: 5rem;
+        
+       
     }    
     .home-img{
         display: none;
+        margin: 8%;
+        order: 2;
+        position: relative;
         max-width: 100%;
-        width: 490px;
+        width: 400px;
         height: auto;
         
     }
     .about{
+        
         order: 1;
         grid-template-columns: 1fr;
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 0rem;
     }
      .about-text h2{
         max-width: 100%;
