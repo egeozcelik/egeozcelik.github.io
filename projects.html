@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-projects.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="photos/hazzo.JPG" class="logo">
+                <ul>
+                    <li> <a href="index.html">Portfolio</a></li>
+                    <li> <a href="projects.html">Design</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section class="slider-container">
+        <div class="slider-images">
+          <div class="slider-img">
+            <img src="designs/a.png" alt="1" />
+            <h1>amsterdam</h1>
+            <div class="details">
+              <h2>purple wave</h2>       
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="designs/b.png" alt="2" />
+            <h1>aalborg</h1>
+            <div class="details">
+              <h2>nature</h2>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="designs/c.png" alt="3" />
+            <h1>paris</h1>
+            <div class="details">
+              <h2>romance</h2>
+            </div>
+          </div>
+          <div class="slider-img active">
+            <img src="designs/d.png" alt="4" />
+            <h1>reykjavik</h1>
+            <div class="details">
+              <h2>promised</h2>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="designs/e.png" alt="5" />
+            <h1>smyrna</h1>
+            <div class="details">
+              <h2>ancient</h2>
+              
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      <script src="js/jQuery.js"></script>
+      <script>
+        jQuery(document).ready(function ($) {
+          $(".slider-img").on("click", function () {
+            $(".slider-img").removeClass("active");
+            $(this).addClass("active");
+          });
+        });
+      </script>
+    
+</body>
+</html>
