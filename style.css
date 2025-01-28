@@ -128,19 +128,19 @@ nav ul li a:hover::after{
   @keyframes words {
     0%,
     20%{
-        content: "Electric and Electronics Engineer."
+        content: "Electronics Engineer."
     }
     21%,
     40%{
-        content: "Software Engineer.";
+        content: "Software Developer.";
     }
     41%,
     60%{
-        content: "Camp Lover";
+        content: "a Camper.";
     }
     61%,
     80%{
-        content: "Electric and Electronics Engineer.";
+        content: "Electronics Engineer.";
     }
     81%,
     100%{
@@ -192,6 +192,10 @@ nav ul li a:hover::after{
 .about-col-2{
     flex-basis: 60%;
 }
+.about-col-2 p{
+    font-size: 22px;
+    font-weight: 100;
+}
 .subtitle{
     font-size: 60px;
     font-weight: lighter;
@@ -200,13 +204,18 @@ nav ul li a:hover::after{
 .tab-titles{
     display: flex;
     margin: 20px 0 40px;
+    font-size: 30px;
 }
 .tab-links{
     margin-right: 50px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 300;
     cursor: pointer;
     position: relative;
+}
+.tab-links:hover{
+    color: #fff;
+    
 }
 .tab-links::after{
     content: '';
@@ -223,14 +232,19 @@ nav ul li a:hover::after{
 }
 .tab-content ul li{
     list-style: none;
-    margin: 10px 0;
+    margin: 20px 0;
+    font-size: 18px;
 }
 .tab-content ul li span{
     color: var(--foreground-color);
-    font-size: 14px;
+    font-size: 20px;
 }
 .tab-content{
     display: none;
+}
+.tab-content span:hover{
+    color: #fa9cbb;
+    cursor: pointer;
 }
 .tab-content.active-tab{
     display: block;
