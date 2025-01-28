@@ -13,6 +13,7 @@
                 <img src="photos/logo2.jpg" class="logo">
                 <ul>
                     <li> <a href="">Portfolio</a></li>
+                    
                     <li> <a href="projects.html">Projects</a></li>
                 </ul>
             </nav>
@@ -141,7 +142,32 @@
     <div class="copyright">
         <p>Copyright by Ege Özçelik</p>
     </div>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
 </body>
+<script>
+    const cursorDot = document.querySelector("[data-cursor-dot]");
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", function (e){
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, {duration: 300, fill:"forwards"});
+    });
+    ['contact', 'header', 'about', 'copyright'].forEach(function(elementId) {
+    document.getElementById(elementId).addEventListener('mouseover', function() {
+        cursorDot.style.background = '#fff';
+        cursorOutline.style.border = '2px solid hsla(0, 0%, 100%, 0.5)';
+    });
+});
+</script>
 <script>
 
     var tablinks = document.getElementsByClassName("tab-links");
