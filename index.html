@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nerdwork Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h1>NerdworkStudio</h1>
+    </div>
+    <nav class="nav">
+      <a href="#games" class="nav-btn">Games</a>
+      <a href="#apps" class="nav-btn">Apps</a>
+      <a href="#social" class="nav-btn">Social</a>
+      <a href="#about" class="nav-btn">About</a>
+    </nav>
+  </header>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/bg-video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <section class="section hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        we craft <span class="animated-word" id="animatedWord">apps</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="section games-section" id="games">
+    <div class="games-left">
+      <div class="games-content">
+        <h2>Our Games</h2>
+        <p>We craft experiences that transport players to extraordinary worlds where imagination becomes reality.</p>
+        <p>Every pixel tells a story, every sound creates emotion, and every interaction builds unforgettable memories.</p>
+      </div>
+      
+      <div class="games-carousel">
+        <div class="games-slider">
+          <div class="game-card">
+            <img src="assets/game1.jpg" alt="Game 1">
+            <h4>Hunga Munga</h4>
+          </div>
+          <div class="game-card">
+            <img src="assets/game2.jpg" alt="Game 2">
+            <h4>Cerebrum</h4>
+          </div>
+          <div class="game-card">
+            <img src="assets/game3.jpg" alt="Game 3">
+            <h4>Mingo</h4>
+          </div>
+          <div class="game-card">
+            <img src="assets/game4.jpg" alt="Game 4">
+            <h4>Plant It</h4>
+          </div>
+          <div class="game-card">
+            <img src="assets/game5.png" alt="Game 5">
+            <h4>River Raid</h4>
+          </div>
+          <div class="game-card">
+            <img src="assets/game6.png" alt="Game 5">
+            <h4>HangMan</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="games-right">
+      <img src="assets/img1.png" alt="Games Showcase" class="games-image">
+    </div>
+  </section>
+
+  <!-- Section 3: Accordion with Text -->
+  <section class="section split" id="section3">
+    <!-- Sol taraf (yazılar) -->
+    <div class="text-side">
+      <h2>Our Apps</h2>
+      <p>We design applications that simplify life and create enjoyable digital experiences.</p>
+      <p>Every app is crafted with attention to detail, usability, and innovation.</p>
+    </div>
+
+    <!-- Sağ taraf (akordeon görseller) -->
+    <div class="accordion-container">
+      <div class="accordion-img" onclick="window.open('blank.html', '_blank')">
+        <img src="assets/img5.jpg" alt="App 1">
+      </div>
+      <div class="accordion-img" onclick="window.open('blank.html', '_blank')">
+        <img src="assets/img6.jpg" alt="App 2">
+      </div>
+      <div class="accordion-img" onclick="window.open('blank.html', '_blank')">
+        <img src="assets/img4.jpg" alt="App 3">
+      </div>
+      <div class="accordion-img" onclick="window.open('blank.html', '_blank')">
+        <img src="assets/img2.jpg" alt="App 1">
+      </div>
+      <div class="accordion-img" onclick="window.open('blank.html', '_blank')">
+        <img src="assets/img3.jpg" alt="App 2">
+      </div>
+    </div>
+  </section>
+
+  <section id="footer" class="section footer-section">
+    <!-- Üst kısım: Görsel -->
+    <div class="footer-top">
+      <!-- <img src="assets/img7.PNG" alt="Footer Image"> -->
+    </div>
+  
+    <!-- Alt kısım: Footer içerik -->
+    <footer class="footer">
+      <div class="footer-left">
+        <h2>Nerdwork Studio</h2>
+        <p>We craft games, apps, and social experiences that inspire and connect people worldwide.</p>
+        <div class="social-links">
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+        </div>
+        <p class="footer-copy">&copy; 2025 Nerdwork Studio. All rights reserved.</p>
+      </div>
+  
+      <div class="footer-right">
+        <!-- Google Maps Embed Miami -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d358668.50594994704!2d-80.38293745700265!3d25.782390701272455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69b4d93a69b%3A0x73f5b0f1d5c8df09!2sMiami%2C%20FL%2C%20USA!5e0!3m2!1sen!2str!4v1694056356807!5m2!1sen!2str"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius: 12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </footer>
+  </section>
+  
+
+
+  <script src="script.js"></script>
+</body>
+</html>
