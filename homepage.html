@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumos AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="stylesheet.css"/>
+ 
+    <script>
+    if (window.innerWidth <= 1024) {
+      document.write('<link rel="stylesheet" href="responsiveness.css" id="responsive-css">');
+    }
+  </script>
+  <!-- <link rel="stylesheet" href="responsiveness.css"/> -->
+
+
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo" onclick="showHome()">Lumos AI</div>
+      <nav class="nav-menu">
+        <ul>
+          <li><p>Generate</p></li>
+          <li><a href="#" onclick="showImagePage(event)">Image</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#sound">Sound and Music</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-title">
+        <h2>Generate any Image as you can Imagine</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ana Sayfa -->
+  <main id="home-content" class="page-content active">
+    
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <video class="hero-video" autoplay loop muted playsinline>
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-main-row">
+          <h1 class="hero-title">Lumos AI</h1>
+          <div class="hero-divider">|</div>
+          <div class="hero-subtitle">
+            <p class="promo-text-1">Generative</p>
+            <p class="promo-text-2">media platform</p>
+            <p class="promo-text-2">for everyone.</p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="hero-features-marquee">
+          <div class="marquee-content">
+            <span>Generate Stunning Images</span>
+            <span>Edit and Enhance Photos</span>
+            <span>Create Professional LinkedIn Portraits</span>
+            <span>Remove Backgrounds Instantly</span>
+            <span>Design Custom Illustrations</span>
+            <span>Generate Cinematic Videos</span>
+            <span>Edit Video Content Seamlessly</span>
+            <span>Add Special Effects and Transitions</span>
+            <span>Create Animated Sequences</span>
+            <span>Compose Original Music</span>
+            <span>Generate Sound Effects</span>
+            <span>Edit Audio Tracks Professionally</span>
+            <span>Mix and Master Your Creations</span>
+            <span>Create Voice-Overs and Narrations</span>
+            <span>Transform Sketches Into Art</span>
+            <span>Upscale Image Resolution</span>
+            <span>Apply Artistic Filters and Styles</span>
+            <span>Generate stunning images</span>
+            <span>Edit and enhance photos</span>
+            <span>Create professional LinkedIn portraits</span>
+            <span>Remove backgrounds instantly</span>
+            <span>Design custom illustrations</span>
+            <span>Generate cinematic videos</span>
+            <span>Edit video content seamlessly</span>
+            <span>Add special effects and transitions</span>
+            <span>Create animated sequences</span>
+            <span>Compose original music</span>
+            <span>Generate sound effects</span>
+            <span>Edit audio tracks professionally</span>
+            <span>Mix and master your creations</span>
+            <span>Create voice-overs and narrations</span>
+            <span>Transform sketches into art</span>
+            <span>Upscale image resolution</span>
+            <span>Apply artistic filters and styles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Section -->
+    <section id="image" class="image-section">
+      <div class="content">
+        <h2>Generate Image</h2>
+        <p>Transform your ideas into visuals effortlessly.</p>
+        <button class="explore-btn" onclick="showImagePage(event)">Explore</button>
+
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+      <video class="video-background" autoplay loop muted playsinline>
+        <source src="assets/videos-section.mp4" type="video/mp4">
+      </video>
+      <div class="content">
+        <h2>Generate Video</h2>
+        <p>Bring motion to imagination.</p>
+        <button class="explore-btn">Explore</button>
+
+      </div>
+    </section>
+
+    <!-- Sound Section -->
+    <section id="sound" class="sound-section">
+      <video class="video-background" autoplay loop muted playsinline>
+        <source src="assets/sound-section.mp4" type="video/mp4">
+      </video>
+      <div class="content">
+        <h2>Generate Sound and Music</h2>
+        <p>Compose and generate melodies instantly.</p>
+        <button class="explore-btn">Explore</button>
+
+      </div>
+    </section>
+
+    <!-- Horizontal Scroll Artifacts -->
+  <section id="artifacts" class="horizontal-scroll">
+    <div class="scroll-container">
+      
+<div class="artifact-card card-1">
+        <div class="card-content-left">
+          <h3 class="card1-title">Create<br>Transform<br>Evolve</h3>
+        </div>
+        <div class="card-content-right">
+          <p class="card1-subtitle">Discover how Lumos AI generates stunning visuals.</p>
+        </div>
+      </div>
+      
+      <!-- CARD 2 -->
+      <div class="artifact-card card-2">
+        <div class="card2-text-container">
+          <h3>Tell your Story</h3>
+          <p>Use LumosAI visuals on your <span>social media, website,</span> or <span>blog</span></p>
+        </div>
+        <div class="card2-images-container">
+          <img src="assets/card2.jpg" alt="Tell your Story" class="card2-image">
+          <img src="assets/card2-1.jpg" alt="Tell your Story" class="card2-image">
+          <img src="assets/card2-2.jpg" alt="Tell your Story" class="card2-image">
+        </div>
+      </div>
+      
+      <!-- CARD 3 -->
+      <div class="artifact-card card-3">
+        <div class="card3-text-container">
+          <h3>Your Professional Work</h3>
+          <p>Enhance your <span>presentations</span>, <span>reports</span>, and <span>documents </span> with visuals that look polished and consistent.</p>
+        </div>
+        <div class="card3-images-container">
+          <img src="assets/card3.jpg" alt="Professional Work" class="card3-image">
+          <img src="assets/card3-1.jpg" alt="Professional Work" class="card3-image">
+          <img src="assets/card3-2.jpg" alt="Professional Work" class="card3-image">
+        </div>
+      </div>
+      
+      <!-- CARD 4 -->
+      <div class="artifact-card card-4">
+        <div class="card4-text-container">
+          <h3>Showcase Your Products</h3>
+          <p>Create strong visuals for <span>ads</span> and <span>marketing</span> campaigns. Build your brand identity with Lumos-powered imagery.</p>
+        </div>
+        <div class="card4-images-container">
+          <img src="assets/card4-1.jpg" alt="Product Showcase 1" class="card4-image">
+          <img src="assets/card4-2.jpg" alt="Product Showcase 2" class="card4-image">
+          <img src="assets/card4-3.jpg" alt="Product Showcase 3" class="card4-image">
+        </div>
+      </div>
+          
+    <!-- CARD 5 -->
+    <div class="artifact-card card-5">
+      <video class="card5-video" autoplay loop muted playsinline>
+        <source src="assets/card5.mp4" type="video/mp4">
+      </video>
+      <div class="card5-text-container">
+        <h3>Use in Video Production</h3>
+        <p>Integrate Lumos videos into promotional films, short features, or digital ads as creative scenes or backgrounds.</p>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="artifact-card card-6">
+      <div class="card6-text-container">
+        <h3>Corporate Identity</h3>
+        <p>Use Lumos to make your profile photos and CV visuals more professional – perfect for LinkedIn and portfolios.</p>
+      </div>
+      <div class="card6-images-container">
+        <img src="assets/card5.jpg" alt="Corporate Identity 1" class="card6-image">
+        <img src="assets/card5-1.jpg" alt="Corporate Identity 2" class="card6-image">
+        <img src="assets/card5-2.jpg" alt="Corporate Identity 2" class="card6-image">
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="artifact-card card-7">
+      <div class="card7-text-container">
+        <h3>Catch the Viral</h3>
+        <p>Ghibli style, Claymation style, Cartoon Style and more</p>
+      </div>
+      <div class="card7-images-container">
+        <img src="assets/card7-1.png" alt="Viral Style 1" class="card7-image">
+        <img src="assets/card7-2.png" alt="Viral Style 2" class="card7-image">
+        <img src="assets/card7-3.jpg" alt="Viral Style 3" class="card7-image">
+      </div>
+    </div>
+      
+    </div>
+  </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+      <div class="tech-container">
+        <div class="tech-content">
+          <div class="tech-item">
+            <h3>Next-Gen AI Models</h3>
+            <p>Powered by cutting-edge technology from n8n workflows and fal.ai's latest models, bringing your creative visions to life with unprecedented quality and speed.</p>
+          </div>
+          <div class="tech-item">
+            <h3>Premium Quality Output</h3>
+            <p>Every generation delivers studio-grade results. From crystal-clear images to cinematic videos and pristine audioâ€”crafted for professionals who demand excellence.</p>
+          </div>
+          <div class="tech-item">
+            <h3>Creator-Centric Design</h3>
+            <p>Built by creators for creators. An intuitive workflow that understands your needs, removes friction, and lets you focus purely on bringing ideas to reality.</p>
+          </div>
+        </div>
+        <div class="tech-visual">
+          <video autoplay loop muted playsinline>
+            <source src="assets/tech-section.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans-section">
+      <div class="plans-container">
+        <h2>Choose Your Plan</h2>
+        <p class="plans-subtitle">Unlock unlimited creativity with flexible pricing</p>
+        
+        <div class="plans-grid">
+          <!-- Weekly Plan -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3>Weekly</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">9</span>
+                <span class="period">/week</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li>100 Image Generations</li>
+              <li>20 Video Creations</li>
+              <li>50 Audio Tracks</li>
+              <li>Standard Quality</li>
+              <li>Email Support</li>
+            </ul>
+            <button class="plan-button">Get Started</button>
+          </div>
+
+          <!-- Monthly Plan (Featured) -->
+          <div class="plan-card featured">
+            <div class="badge">Most Popular</div>
+            <div class="plan-header">
+              <h3>Monthly</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">29</span>
+                <span class="period">/month</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li>Unlimited Generations</li>
+              <li>HD Video Quality</li>
+              <li>Premium Audio Library</li>
+              <li>Priority Processing</li>
+              <li>24/7 Support</li>
+            </ul>
+            <button class="plan-button">Get Started</button>
+          </div>
+
+          <!-- Yearly Plan -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3>Yearly</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">299</span>
+                <span class="period">/year</span>
+              </div>
+              <span class="savings">Save 15%</span>
+            </div>
+            <ul class="plan-features">
+              <li>Everything in Monthly</li>
+              <li>4K Video Quality</li>
+              <li>API Access</li>
+              <li>Custom Watermarks</li>
+              <li>Dedicated Support</li>
+            </ul>
+            <button class="plan-button">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h1>LumosAI</h1>
+            <h2>About Us</h2>
+        </div>
+        
+        <div class="about-description">
+            <p>
+            Lumos is designed to empower creators to tell their stories freely. By bringing the most advanced AI models together under a single platform, we make professional content creation accessible to everyone. Transform your ideas into reality without the need for sophisticated equipment or unlimited resources. While maintaining the highest quality in visual, video, and audio production, we turn the creative process into a scalable and attainable experience.
+Art feeds on art, and we redefine this cycle through technology. Every creation comes to life in a shared creative workshop where art and technology intersect.<br> <br> <span>İzmir, Türkiye</span>         
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Lumos AI. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <div id="image-content" class="page-content">
+    <section class="images-section">
+      <div class="images-container">
+        <!-- Mode Toggle -->
+        <div class="mode-toggle">
+          <div class="mode-btn active" id="mode-tti">Text to Image</div>
+          <div class="mode-btn" id="mode-iti">Image to Image</div>
+        </div>
+
+        <!-- Prompt Container -->
+        <div class="prompt-container">
+          <textarea id="prompt" placeholder="Describe the image you want to create... (e.g., Black and white portrait of a man in rain, cinematic lighting)"></textarea>
+          
+          <!-- Generation Options -->
+          <div class="generation-options">
+            <div class="option-group">
+              <label for="style-select">Style</label>
+              <select id="style-select">
+                <option value="realistic">Realistic</option>
+                <option value="cinematic">Cinematic</option>
+                <option value="anime">Anime</option>
+                <option value="digital-art">Digital Art</option>
+                <option value="oil-painting">Oil Painting</option>
+                <option value="watercolor">Watercolor</option>
+                <option value="sketch">Sketch</option>
+                <option value="3d-render">3D Render</option>
+                <option value="abstract">Abstract</option>
+                <option value="minimalist">Minimalist</option>
+              </select>
+            </div>
+
+            <div class="option-group">
+              <label for="aspect-select">Aspect Ratio</label>
+              <select id="aspect-select">
+                <option value="1:1">1:1 (Square)</option>
+                <option value="16:9">16:9 (Landscape)</option>
+                <option value="9:16">9:16 (Portrait)</option>
+                <option value="4:3">4:3 (Standard)</option>
+                <option value="3:2">3:2 (Photo)</option>
+                <option value="21:9">21:9 (Ultrawide)</option>
+              </select>
+            </div>
+
+            <div class="option-group">
+              <label for="count-select">Number of Images</label>
+              <select id="count-select">
+                <option value="1">1 Image</option>
+                <option value="2">2 Images</option>
+                <option value="3">3 Images</option>
+                <option value="4">4 Images</option>
+              </select>
+            </div>
+
+            <button class="generate-btn" id="generate">Generate</button>
+          </div>
+        </div>
+
+        <!-- Section Toggle - Prompt'un altÄ±nda -->
+        <div class="section-toggle">
+          <div class="section-btn active" id="tab-styles">Styles</div>
+          <div class="section-btn" id="tab-tips">Tips</div>
+        </div>
+
+        <!-- Section Content -->
+        <div class="section-content">
+          <!-- Styles Tab -->
+          <div class="tab-content active" id="content-styles">
+            <div class="styles-grid" id="masonry-grid"></div>
+          </div>
+
+          <!-- Tips Tab -->
+          <div class="tab-content" id="content-tips">
+            <div class="tips-container">
+              <h3>Text to Image</h3>
+              <div class="tips-grid">
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1618005198919-578bb51594b4?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Corporate Portrait</h4>
+                    <p>"Professional headshot of a CEO in a modern office, natural light, sharp focus"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Cinematic Scene</h4>
+                    <p>"Cinematic still, golden hour lighting, shallow depth of field, film grain texture"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Studio Shot</h4>
+                    <p>"Studio portrait, soft key light, black backdrop, detailed textures"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Landscape</h4>
+                    <p>"Wide landscape, misty mountains, dramatic sky, volumetric light"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Abstract Art</h4>
+                    <p>"Abstract digital art, vibrant colors, geometric shapes, modern aesthetic, 4K quality"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Fantasy Character</h4>
+                    <p>"Fantasy warrior character, detailed armor, epic pose, dramatic lighting, concept art style"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Futuristic City</h4>
+                    <p>"Futuristic cyberpunk cityscape, neon lights, flying cars, rain-soaked streets, night scene"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Product Photography</h4>
+                    <p>"Luxury product photography, white background, studio lighting, professional composition"</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Image to Image</h3>
+              <div class="tips-grid">
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1604026294078-8f24d63c3f33?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Keep it Simple</h4>
+                    <p>Keep the base image simple â€“ let the model add creative detail.</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1603791452906-b6f8d2e6b9f9?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Natural Lighting</h4>
+                    <p>Use natural light for faces; avoid harsh contrast.</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Be Clear</h4>
+                    <p>Clearly describe your transformation, e.g. "make it cinematic" or "convert to anime style".</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Style Transfer</h4>
+                    <p>Transform photos into paintings: "convert to oil painting style, impressionist technique"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Enhance Details</h4>
+                    <p>Enhance resolution and sharpness: "upscale, add detail, enhance textures, crystal clear"</p>
+                  </div>
+                </div>
+                <div class="tip-card" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80');">
+                  <div class="tip-overlay">
+                    <h4>Change Atmosphere</h4>
+                    <p>Modify mood and time: "change to sunset, add dramatic clouds, golden hour lighting"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
