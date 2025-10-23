@@ -1,0 +1,444 @@
+/* ===============================
+   RESPONSIVE STYLES
+   =============================== */
+
+/* Tablet ve Küçük Dizüstü Bilgisayarlar (768px - 1024px) */
+@media only screen and (max-width: 1024px) {
+    .container {
+        padding: 10px 8%;
+    }
+    
+    .header-text p {
+        font-size: 45px;
+    }
+    
+    .header-text p span {
+        font-size: 60px;
+    }
+    
+    .text-animation {
+        font-size: 28px;
+    }
+    
+    .subtitle {
+        font-size: 50px;
+    }
+    
+    .about-col-2 p {
+        font-size: 20px;
+    }
+    
+    .tab-titles {
+        font-size: 25px;
+    }
+    
+    .tab-links {
+        font-size: 22px;
+        margin-right: 30px;
+    }
+}
+
+/* Tablet Dikey Mod (600px - 768px) */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px 5%;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+    
+    nav ul {
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 10px 10px;
+    }
+    
+    nav ul li a {
+        font-size: 16px;
+    }
+    
+    .header-text {
+        margin-top: 40%;
+    }
+    
+    .header-text p {
+        font-size: 35px;
+    }
+    
+    .header-text p span {
+        font-size: 50px;
+    }
+    
+    .header-text h1 {
+        font-size: 25px;
+    }
+    
+    .text-animation {
+        font-size: 24px;
+        min-width: 240px;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+    
+    .about-col-1 {
+        margin-bottom: 30px;
+    }
+    
+    .subtitle {
+        font-size: 40px;
+    }
+    
+    .about-col-2 p {
+        font-size: 18px;
+    }
+    
+    .tab-titles {
+        flex-wrap: wrap;
+        font-size: 20px;
+    }
+    
+    .tab-links {
+        font-size: 20px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .tab-content ul li {
+        font-size: 16px;
+    }
+    
+    .tab-content ul li span {
+        font-size: 18px;
+    }
+    
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+    }
+    
+    .contact-left {
+        margin-bottom: 30px;
+    }
+    
+    .contact-left h1 {
+        font-size: 40px;
+    }
+    
+    .contact-left p {
+        font-size: 16px;
+    }
+    
+    .social-icons a {
+        margin-right: 20px;
+    }
+}
+
+/* Mobil Cihazlar (Max 600px) */
+@media only screen and (max-width: 600px) {
+    #header {
+        background-image: none;
+        background: var(--bg-color);
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .container {
+        padding: 10px 5%;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        width: 120px;
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        text-align: center;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    nav ul li a {
+        font-size: 16px;
+    }
+    
+    .header-text {
+        margin-top: 50%;
+        font-size: 4px;
+        text-align: center;
+    }
+    
+    .header-text p {
+        font-size: 28px;
+    }
+    
+    .header-text p span {
+        font-size: 40px;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .header-text h1 {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    
+    .text-animation {
+        font-size: 18px;
+        min-width: 200px;
+    }
+    
+    .text-animation span::before {
+        font-size: 18px;
+    }
+    
+    .fa {
+        font-size: 18px;
+        padding-top: 15px;
+    }
+    
+    #about {
+        padding: 50px 0;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+    
+    .about-col-1 {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .about-col-1 img {
+        width: 80%;
+        max-width: 300px;
+    }
+    
+    .subtitle {
+        font-size: 35px;
+        text-align: center;
+    }
+    
+    .about-col-2 p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .tab-titles {
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 18px;
+        margin: 20px 0 30px;
+    }
+    
+    .tab-links {
+        font-size: 18px;
+        margin: 10px 15px;
+    }
+    
+    .tab-links::after {
+        bottom: -5px;
+    }
+    
+    .tab-content ul li {
+        font-size: 14px;
+        margin: 15px 0;
+        line-height: 1.6;
+    }
+    
+    .tab-content ul li span {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    #contact {
+        padding: 50px 0;
+    }
+    
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+    }
+    
+    .contact-left {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .contact-left h1 {
+        font-size: 35px;
+    }
+    
+    .contact-left p {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .contact-left p i,
+    .contact-left a i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .social-icons {
+        margin-top: 25px;
+        text-align: center;
+    }
+    
+    .social-icons a {
+        margin: 0 10px;
+        font-size: 24px;
+    }
+    
+    .btn-cv {
+        font-size: 16px;
+        display: inline-block;
+        margin-top: 20px;
+    }
+    
+    form input,
+    form textarea {
+        font-size: 14px;
+        padding: 12px;
+        margin: 10px 0;
+    }
+    
+    form .btn2 {
+        padding: 12px 40px;
+        font-size: 16px;
+        width: 100%;
+    }
+    
+    .copyright {
+        font-size: 12px;
+        padding: 20px 0;
+    }
+    
+    /* Cursor efektlerini mobilde gizle */
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
+/* Çok Küçük Mobil Cihazlar (Max 380px) */
+@media only screen and (max-width: 380px) {
+    .header-text p {
+        font-size: 24px;
+    }
+    
+    .header-text p span {
+        font-size: 35px;
+    }
+    
+    .header-text h1 {
+        font-size: 18px;
+    }
+    
+    .text-animation {
+        font-size: 16px;
+        min-width: 180px;
+    }
+    
+    .subtitle {
+        font-size: 30px;
+    }
+    
+    .about-col-2 p {
+        font-size: 14px;
+    }
+    
+    .tab-links {
+        font-size: 16px;
+        margin: 8px 10px;
+    }
+    
+    .tab-content ul li {
+        font-size: 13px;
+    }
+    
+    .contact-left h1 {
+        font-size: 30px;
+    }
+    
+    .contact-left p {
+        font-size: 13px;
+    }
+    
+    .social-icons a {
+        font-size: 20px;
+        margin: 0 8px;
+    }
+}
+
+/* Yatay Mod Düzeltmeleri (Landscape) */
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+    #header {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .header-text {
+        margin-top: 15%;
+        margin-bottom: 50px;
+    }
+    
+    .header-text p {
+        font-size: 30px;
+    }
+    
+    .header-text p span {
+        font-size: 45px;
+    }
+    
+    .text-animation {
+        font-size: 20px;
+    }
+}
+
+/* Dokunmatik Cihazlar için İyileştirmeler */
+@media (hover: none) and (pointer: coarse) {
+    nav ul li a:hover::after,
+    .btn-cv:hover::after {
+        width: 0;
+    }
+    
+    .social-icons a:hover {
+        transform: none;
+    }
+    
+    .tab-links:hover {
+        color: var(--secondary-color);
+    }
+}
