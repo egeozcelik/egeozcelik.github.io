@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ege Özçelik - SWE</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: none;
+}
+.cursor-dot{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+.cursor-outline{
+    width: 60px;
+    height: 60px;
+    border: 2px solid hsla(0, 0%, 100%, 0.5);
+}
+.cursor-dot, .cursor-outline{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 1;
+}
+:root {
+    --bg-color: #000;
+    --foreground-color: #ff2167;
+    --text-color: #fff;
+    --secondary-color: #ababab;
+
+}
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+::-webkit-scrollbar{
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--foreground-color);
+    border-radius: 6px;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(backgroun2.JPG);
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:  wrap;
+}
+.logo{
+    width: 200px;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: var(--foreground-color);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+
+}
+nav ul li a:hover::after{
+    width: 100%;
+    cursor: none;
+}
+
+.header-text{
+    margin-top: 20%;
+    font-weight: lighter;
+    /* font-size: 30px; */
+}
+.header-text p{
+    font-size: 50px;
+}
+.header-text p span{
+    font-size: 70px;
+    color:var(--foreground-color)
+}
+.header-text h1{
+    font-weight: lighter;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.fa {
+    padding-top: 20px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+  .fa-instagram {
+    background: transparent;
+    color: white;
+  }
+  /* here icons contiune */
+
+  
+  .text-animation{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+  }
+  .text-animation span{
+    position: relative;
+  }
+  .text-animation span::before{
+    content: "Electric and Electronics Engineer.";
+    color: var(--foreground-color);
+    animation: words 30s infinite;
+  }
+  .text-animation span::after{
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 110%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 30s steps(14) infinite;
+  }
+  @keyframes cursor {
+    to{
+        border-left: 2px solid var(--foreground-color);
+    }
+  }
+  @keyframes words {
+    0%,
+    20%{
+        content: "Electronics Engineer."
+    }
+    21%,
+    40%{
+        content: "Software Developer.";
+    }
+    41%,
+    60%{
+        content: "a Camper.";
+    }
+    61%,
+    80%{
+        content: "Electronics Engineer.";
+    }
+    81%,
+    100%{
+        content: "Software Engineer.";
+    }
+  }
+  @keyframes typing {
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%{
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85%{
+        width: calc(100% + 8px);
+    }
+  }
+
+#about{
+    padding: 80px 0;
+    color: var(--secondary-color)
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: flex;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 10px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.about-col-2 p{
+    font-size: 22px;
+    font-weight: 100;
+}
+.subtitle{
+    font-size: 60px;
+    font-weight: lighter;
+    color: #fff;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+    font-size: 30px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 25px;
+    font-weight: 300;
+    cursor: none;
+    position: relative;
+}
+.tab-links:hover{
+    color: #fff;
+    
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--foreground-color);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-content ul li{
+    list-style: none;
+    margin: 20px 0;
+    font-size: 18px;
+}
+.tab-content ul li span{
+    color: var(--foreground-color);
+    font-size: 20px;
+}
+.tab-content{
+    display: none;
+}
+.tab-content span:hover{
+    color: #fa9cbb;
+    cursor: none;
+}
+.tab-content.active-tab{
+    display: block;
+}
+
+
+/* -----contact------- */
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+    margin-top: 25px;
+}
+.contact-left h1{
+    font-size: 50px;
+    font-weight: lighter;
+}
+.contact-left p i{
+    color: var(--foreground-color);
+    margin-right: 15px;
+    font-size: 25px;
+}
+.contact-left a i{
+    color: var(--foreground-color);
+    margin-right: 15px;
+    font-size: 25px;
+    padding-top: 30px;
+}
+
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    color: #ff2167;
+    text-decoration: none;
+    margin-right: 30px;
+    display: inline-block;
+    transition: 0.5s;
+}
+.social-icons a:hover{
+    color:#ffffff;
+    transform: translateY(-15px);
+}
+
+
+.btn-cv{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+.btn-cv::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: var(--foreground-color);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+.btn-cv:hover::after{
+    width: 100%;
+}
+
+.contact-right form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0.5;
+    border-color: var(--foreground-color);
+    outline: none;
+    background: var(--bg-color);
+    padding: 10px;
+    margin: 15px 0;
+    color: var(--text-color);
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: lighter;
+}
+form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    background: var(--foreground-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 0;
+}
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #0e0e0e;
+    margin-top: 20px;
+    font-weight: lighter;
+}
+
+
+/* -------responsive------ */
+@media only screen and (max-width: 600px){
+    #header{
+        background-image: none;
+        background: var(--bg-color);
+    }
+    .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+        font-weight: lighter;
+    }
+    .header-text h1{
+        font-size: 30px;
+    }
+    .subtitle{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="logo2.jpg" class="logo">
+                <ul>
+                    <li> <a href="">Portfolio</a></li>
+                    
+                    <li> <a href="homepage.html">lumosAI</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Hey, It's<span> Ege Özçelik</span></p>
+                <h1 class="text-animation">I am a <span></span></h1>
+            </div>
+        </div>
+    </div>
+    <div id = "about">
+        <div class=" container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="pic1.JPG" class="pic1">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About</h1>
+                    <p>Experienced in electronics and communication systems, with a strong interest in exploring and
+                        applying innovative solutions in software development.</p>
+                    <p>Makes games and apps in free times.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('certificates')">Certificates</p>
+                    </div>
+                    <div class="tab-content active-tab" id="skills">
+                        <ul>
+                            <li><span>Soft Skills</span><br>- Project Management: Managed a UWB project,
+                                developing a precise positioning system between NXP kits
+                                and iPhones with Apple Nearby Interactions.<br>- Issue Ownership on Test Application Software and CAN
+                                (SAE J1939) Test Simulation. <br>- Cross-Department Collaboration: Often worked
+                                collaboratively with multiple departments within the
+                                company to achieve project goals.</li> 
+                            <li><span>Software Design & Architecture</span> <br>- Specialized in Modular software architecture and real-
+                                time data processing systems<br>- Participated in projects with both monolithic and
+                                microservice-based software architectures<br>- Proficient in utilizing MVC, MVVM, VIPER with N Layer
+                                architecture <br>- Effective comprehensive use of design patterns: Unit of
+                                Work, Factory, Builder, DI, Singleton etc. <br>- Proficient in synchronous and asynchronous
+                                programming for efficient event-driven and concurrent
+                                applications. <br>- Hands-on experience RESTful API design and integration
+                                for reusable and scalable codebase.</li> 
+                            <li><span>Programming Languages and Frameworks</span><br>- Python
+                                <br>- C / C++
+                                <br>- C# (ASP.Net, .Net Core, Unity)
+                                <br>- Swift / Swift UI (iOS Development)
+                                <br>- Html5 & Css3 and Javascript</li> 
+                            <li><span>Data Architecture and DB Management</span><br>- Database Management Systems: MSSQL, MongoDB, SQLite, Firebase Firestore,
+                                CoreData, Apache Hadoop <br>- Cloud & DevOps Tools: Jenkins, Docker, Git, Jira</li>
+                            <li><span>Software Testing</span><br>- NUnit <br>- XUnit</li><br>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="experience">
+                        <ul>
+                            <li><span>02.2024 - Present</span><br>Software Developer at Kentkart R&D</li> 
+                            <li><span>2023</span><br>R&D Intern Engineer at Schneider Electric</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="education">
+                        <ul>
+                            <li><span>2018 - 2023</span><br>Ege University | BE Electrical and Electronics Engineering</li> 
+                            <li><span>2019 - 2020</span><br>Bilge Adam Academy | .Net Development Course </li> 
+                            <li><span>2023</span><br>techcareer.net | IOS Development Course</li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="certificates">
+                        <ul>
+                            <li><span>Microsoft 20486 ASP.Net MVC 5 Web Applications Certificate(MCA) </span><br>Bilge Adam Academy <br>2019</li> 
+                            <li><span>Microsoft 20480 HTML5 with JAVASCRIPT and CSS3 Certificate (MCA) </span><br>Bilge Adam Academy <br>2019</li> 
+                            <li><span>.Net Development Education Certificate (320Hr.) </span><br>Bilge Adam Academy <br>2019</li> 
+                            <li><span>iOS Development Bootcamp</span><br>Techcareer.net <br>2023</li>
+                            <li><span>UI PATH RPA Education Certificate</span><br>Bilge Adam Academy <br>2020</li>
+                            <li><span>BAMBU Gamification Certificate of Participation</span><br>Dokuz Eylul University - DEPARK <br>2021</li>
+                           
+                         
+                        </ul>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><a href=""><i class="fa-regular fa-envelope" style="color: #ff2167;"></i></a> ege.ozcelik@icloud.com</p>
+                    <p><i class="fa-solid fa-phone" style="color: #ff2167;"></i> +(90) 553 417 5130</p>
+                    <a href="photos/Ege Özçelik[CV].pdf" download class="btn-cv"><i class="fa-regular fa-file" style="color: #ff2167;"></i> Download Resume</a></li>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/egeozcelik/" target="_blank">
+                            <i class="fa-brands fa-linkedin-in fa-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/egeozcelik__/" target="_blank">
+                            <i class="fab fa-instagram fa-2xl" style="color: #ff2167"></i>
+                        </a>
+                        <a href="https://x.com/ozcilek__" target="_blank">
+                            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                        </a>
+                        <a href="https://medium.com/@egeozcelik" target="_blank">
+                            <i class="fab fa-medium fa-2xl" style="color: #ff2167;"></i>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/ege_ozcelik" target="_blank">
+                            <i class="fab fa-hackerrank fa-2xl" style="color: #ff2167;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form action="https://formsubmit.co/ege.ozcelik@icloud.com" method="POST">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="hidden" name="_subject" value="Message from ege.ozcelik@github.io">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <textarea name="Message" rows="6" placeholder="We can talk about software projects, job opportunities or how beautiful red colour is.. "></textarea>
+                        <button type="submit" class="btn2">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright by Ege Özçelik</p>
+    </div>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+</body>
+<script>
+    const cursorDot = document.querySelector("[data-cursor-dot]");
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", function (e){
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, {duration: 300, fill:"forwards"});
+    });
+    ['contact', 'header', 'about', 'copyright'].forEach(function(elementId) {
+    document.getElementById(elementId).addEventListener('mouseover', function() {
+        cursorDot.style.background = '#fff';
+        cursorOutline.style.border = '2px solid hsla(0, 0%, 100%, 0.5)';
+    });
+});
+</script>
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-content");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent_ of tabcontents){
+            tabcontent_.classList.remove("active-tab");
+        }
+
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+
+</script>
+<script src="https://kit.fontawesome.com/0ab8ed88c7.js" crossorigin="anonymous"></script>
+</html>
