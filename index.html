@@ -29,21 +29,25 @@
             height: 100%;
         }
 
+        /* DÜZELTME: pointer-events: none eklendi ve z-index düşürüldü */
         .grain {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            pointer-events: none !important;  /* !important eklendi */
             opacity: 0.03;
-            z-index: 1000;
+            z-index: -1;  /* z-index negatif yapıldı */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
+            position: relative;  /* z-index için gerekli */
+            z-index: 1;  /* grain üzerinde olması için */
         }
 
         header {
@@ -127,6 +131,7 @@
             color: #bbb;
         }
 
+        /* DÜZELTME: z-index ve position eklendi */
         .Portfolio-Buttons {
             margin-top: 15px;
             display: inline-block;
@@ -138,12 +143,15 @@
             border-radius: 4px;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;  /* Eklendi */
+            z-index: 10;  /* Eklendi */
         }
 
         .Portfolio-Buttons:hover {
             background: #1a1a1a;
             color: #fff;
             border-color: #888;
+            transform: translateY(-2px);  /* Hover efekti için */
         }
 
         .experience-item {
@@ -208,21 +216,27 @@
             font-size: 0.9rem;
         }
 
+        /* DÜZELTME: z-index ve position eklendi */
         .contact-item a {
             color: #b0b0b0;
             text-decoration: none;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
         .contact-item a:hover {
             color: #fff;
         }
 
+        /* DÜZELTME: z-index ve position eklendi */
         .social-links {
             display: flex;
             gap: 30px;
             margin-top: 50px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
 
         .social-links a {
@@ -231,10 +245,13 @@
             font-size: 0.9rem;
             letter-spacing: 0.1em;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
         .social-links a:hover {
             color: #fff;
+            transform: translateY(-2px);
         }
 
         .separator {
@@ -340,7 +357,7 @@
                        - Practical knowledge with iOS's built-in frameworks such as CoreML, Vision, AR, NearbyInteractions, CoreLocation and etc.<br>
                        - Familiar with App Store submission processes, including compliance with Apple's guidelines and best practices for app optimization and user experience.<br> 
                     </p>
-                    <a href="https://apps.apple.com/tr/app/moneyflow/id6753347918" target="_blank" rel="noopener noreferrer" class="Portfolio-Buttons">My Apps</a>
+                    <a href="https://apps.apple.com/tr/app/moneyflow/id6753347918" target="_blank" rel="noopener noreferrer" class="Portfolio-Buttons">One of My App</a>
                 </div>
             </div>
         </section>
@@ -387,7 +404,7 @@
                 <div class="description">
                     <strong>Major: Software infrastructure of communication systems</strong> 
                 </div>
-                <div class="company">Ege Univerity, 2018 — 2023</div>
+                <div class="company">Ege University, 2018 — 2023</div>
             </div>
 
             <div class="experience-item">
@@ -434,16 +451,24 @@
         </section>
 
         <footer>
-            <p>© 2025 Ege Özçelik. All the rights are reserved.</p>
+            <p>© 2025 Ege Özçelik. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
+        // Scroll indicator
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollIndicator').style.width = scrolled + '%';
+        });
+
+        // Debug için - konsola tıklanan linki yazar
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                console.log('Link tıklandı:', this.href);
+            });
         });
     </script>
 </body>
