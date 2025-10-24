@@ -27,7 +27,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-      
         }
 
         .grain {
@@ -39,13 +38,12 @@
             pointer-events: none;
             opacity: 0.03;
             z-index: 1000;
-            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" /%3E%3C/svg%3E');
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 30px;
+            padding: 60px 20px;
         }
 
         header {
@@ -96,7 +94,7 @@
 
         .section-number {
             font-size: 0.9rem;
-            color: #555;
+            color: #afafaf;
             display: block;
             margin-bottom: 10px;
             letter-spacing: 0.2em;
@@ -110,7 +108,7 @@
         }
 
         .skill-category h3 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: #fff;
             font-weight: 400;
             margin-bottom: 15px;
@@ -121,6 +119,31 @@
             font-size: 0.95rem;
             color: #777;
             line-height: 1.7;
+            transition: color 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-category p:hover {
+            color: #bbb;
+        }
+
+        .Portfolio-Buttons {
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-decoration: none;
+            border: 1px solid #555;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .Portfolio-Buttons:hover {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #888;
         }
 
         .experience-item {
@@ -159,6 +182,12 @@
             font-size: 0.95rem;
             color: #777;
             line-height: 1.7;
+            transition: color 0.3s ease;
+            cursor: default;
+        }
+
+        .description:hover {
+            color: #bbb;
         }
 
         .contact-info {
@@ -193,6 +222,7 @@
             display: flex;
             gap: 30px;
             margin-top: 50px;
+            flex-wrap: wrap;
         }
 
         .social-links a {
@@ -247,19 +277,8 @@
             }
 
             .social-links {
-                flex-wrap: wrap;
                 gap: 20px;
             }
-        }
-
-        .lumos-icon {
-            font-size: 1.2rem;
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .lumos-btn:hover .lumos-icon {
-            transform: rotate(90deg);
         }
 
         ::selection {
@@ -275,47 +294,67 @@
     <div class="container">
         <header>
             <h1 class="name">Ege Özçelik</h1>
-            <p class="title">Software Engineer / Electronics Engineer</p>
+            <p class="title">Software Engineer / AI Enthusiast</p>
             <p class="intro">
-                Yazılım mimarisi ve gerçek zamanlı veri işleme sistemleri üzerine uzmanlaşmış, 
-                modüler tasarım ve yenilikçi çözümler geliştiren bir mühendis.
+                An engineer specializing in software architectures and artificial intelligence applications, 
+                developing modular designs and innovative solutions.
             </p>
         </header>
 
         <section id="expertise">
             <span class="section-number">01</span>
-            <h2>Uzmanlık Alanları</h2>
+            <h2>Specialities</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Yazılım Mimarisi</h3>
-                    <p>MVC, MVVM, VIPER mimarileri. Design patterns: Factory, Builder, Singleton, DI. RESTful API tasarımı.</p>
+                    <h3>Software Architecture</h3>
+                    <p>
+                        - Focused on designing modular, scalable, and maintainable systems that balance performance with architectural integrity. <br>
+                        - Proficient in integrating <strong> MVC, MVVM, and VIPER within multi-layered structures </strong> to achieve clear separation of concerns and long-term stability. <br>
+                        - Experienced in the practical application of design patterns including <strong> Factory, Builder, Unit of Work, Dependency Injection, and Singleton</strong>, ensuring cohesive and extensible system behavior. <br>
+                        - Development expertise covers <strong>mobile, web, and Python-based desktop (GUI) applications,</strong> with a strong emphasis on architectural consistency and clean design principles.
+                    </p>
+                    <a href="https://github.com/egeozcelik" target="_blank" rel="noopener noreferrer" class="Portfolio-Buttons">Github</a>
                 </div>
                 <div class="skill-category">
-                    <h3>Programlama</h3>
-                    <p>Python, C/C++, C# (.NET Core, Unity), Swift/SwiftUI, JavaScript, HTML5/CSS3</p>
+                    <h3>AI Applications</h3>
+                    <p>
+                        - Comprehensive command of <strong>machine learning, deep learning, and natural language processing (NLP) techniques</strong>, with a focus on transforming data into adaptive, intelligent systems. <br>
+                        - Experienced in various projects of <strong>model optimization, and neural network design, applying algorithmic reasoning</strong> to real-world problems in pattern recognition and predictive analytics. <br>
+                        - My approache is, AI not as an auxiliary layer, but as a core architectural component, integrating data-driven intelligence seamlessly into modern software ecosystems.
+                    </p>
+                    <a href="https://github.com/egeozcelik" target="_blank" rel="noopener noreferrer" class="Portfolio-Buttons">Portfolio</a>
                 </div>
                 <div class="skill-category">
-                    <h3>Veri & DevOps</h3>
-                    <p>MSSQL, MongoDB, Firebase. Docker, Jenkins, Git, Apache Hadoop</p>
+                    <h3>Data Analysis</h3>
+                    <p>
+                        - Proficient in Python (Pandas, NumPy, Matplotlib, Seaborn) and SQL for data wrangling, modeling, and visualization.
+                        Skilled at translating complex datasets into strategic insights through statistical modeling and clear visual communication. <br>
+                        - Every analysis aims to transform raw information into structured knowledge and knowledge into meaningful, actionable value.
+                    </p>
                 </div>
                 <div class="skill-category">
-                    <h3>Proje Yönetimi</h3>
-                    <p>UWB pozisyonlama sistemleri, test otomasyon yazılımları, departmanlar arası işbirliği</p>
+                    <h3>iOS Development</h3>
+                    <p>
+                       - Developed different types of mobile apps using Swift and SwiftUI. <br>
+                       - Practical knowledge with third-party frameworks such as Firebase, RevenueCat, Alamofire, Kingfisher and etc. <br> 
+                       - Practical knowledge with iOS's built-in frameworks such as CoreML, Vision, AR, NearbyInteractions, CoreLocation and etc.<br>
+                       - Familiar with App Store submission processes, including compliance with Apple's guidelines and best practices for app optimization and user experience.<br> 
+                    </p>
+                    <a href="https://apps.apple.com/tr/app/moneyflow/id6753347918" target="_blank" rel="noopener noreferrer" class="Portfolio-Buttons">My Apps</a>
                 </div>
             </div>
         </section>
 
         <section id="experience">
             <span class="section-number">02</span>
-            <h2>Deneyim</h2>
+            <h2>Experience</h2>
             
             <div class="experience-item">
-                <span class="year">2024 — Günümüz</span>
-                <div class="role">Software Developer</div>
+                <span class="year">02.2024 — Today</span>
+                <div class="role">Software Engineer</div>
                 <div class="company">Kentkart R&D</div>
                 <div class="description">
-                    Modüler yazılım mimarisi tasarımı, gerçek zamanlı veri işleme sistemleri ve 
-                    test otomasyon çözümleri geliştirme.
+                     Python development and test applications responsible in R&D department.<br>Project manager and main role on the development of Kentkart's Ultra-wide Band based patented R&D project. 
                 </div>
             </div>
 
@@ -324,40 +363,52 @@
                 <div class="role">R&D Intern Engineer</div>
                 <div class="company">Schneider Electric</div>
                 <div class="description">
-                    Endüstriyel otomasyon projeleri ve test simülasyon sistemleri üzerine çalışmalar.
+                    Preparing the test environment, ensuring the test is performed properly, and analyzing the results.
                 </div>
             </div>
         </section>
 
         <section id="education">
             <span class="section-number">03</span>
-            <h2>Eğitim & Sertifikalar</h2>
+            <h2>Education & Certificates</h2>
             
             <div class="experience-item">
-                <span class="year">2018 — 2023</span>
-                <div class="role">Elektrik-Elektronik Mühendisliği</div>
-                <div class="company">Ege Üniversitesi</div>
+                <span class="year">MSc.</span>
+                <div class="role">Computer Engineering</div>
+                <div class="description">
+                    <strong>Major: AI Applications, Machine Learning, Deep Learning, NLP.</strong> 
+                </div>
+                <div class="company">Katip Çelebi University, 2025 — Today </div>
             </div>
 
             <div class="experience-item">
-                <span class="year">2019 — 2020</span>
-                <div class="role">.NET Development Course</div>
-                <div class="company">Bilge Adam Academy</div>
+                <span class="year">Bachelor</span>
+                <div class="role">Electrical and Electronics Engineering</div>
                 <div class="description">
-                    Microsoft ASP.NET MVC 5, HTML5/JavaScript/CSS3 sertifikaları (MCA)
+                    <strong>Major: Software infrastructure of communication systems</strong> 
+                </div>
+                <div class="company">Ege Univerity, 2018 — 2023</div>
+            </div>
+
+            <div class="experience-item">
+                <span class="year">Bilge Adam Academy, 2019 — 2020</span>
+                <div class="role">.Net Certification Program (320Hr.)</div>
+                <div class="description">
+                    20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br>
+                    20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA)
                 </div>
             </div>
 
             <div class="experience-item">
-                <span class="year">2023</span>
+                <span class="year">Techcareer.net, 2023</span>
                 <div class="role">iOS Development Bootcamp</div>
-                <div class="company">Techcareer.net</div>
+                <div class="company">iOS Developer Certificate (techcareer.net)</div>
             </div>
         </section>
 
         <section id="contact">
             <span class="section-number">04</span>
-            <h2>İletişim</h2>
+            <h2>Contact</h2>
             
             <div class="contact-info">
                 <div class="contact-item">
@@ -365,25 +416,25 @@
                     <a href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-label">Telefon</span>
+                    <span class="contact-label">Phone</span>
                     <span>+90 553 417 5130</span>
                 </div>
             </div>
 
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/egeozcelik/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/egeozcelik" target="_blank">GitHub</a>
-                <a href="https://medium.com/@egeozcelik" target="_blank">Medium</a>
-                <a href="https://www.instagram.com/egeozcelik__/" target="_blank">Instagram</a>
-                <a href="https://x.com/ozcilek__" target="_blank">Twitter</a>
-                <a href="https://www.hackerrank.com/profile/ege_ozcelik" target="_blank">HackerRank</a>
+                <a href="https://www.linkedin.com/in/egeozcelik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/egeozcelik" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://medium.com/@egeozcelik" target="_blank" rel="noopener noreferrer">Medium</a>
+                <a href="https://www.instagram.com/egeozcelik__/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://x.com/ozcilek__" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.hackerrank.com/profile/ege_ozcelik" target="_blank" rel="noopener noreferrer">HackerRank</a>
                 <span class="separator">—</span>
-                <a href="homepage.html" class="lumos-link">lumosAI</a>
+                <a href="homepage.html" target="_blank" rel="noopener noreferrer" class="lumos-link">lumosAI</a>
             </div>
         </section>
 
         <footer>
-            <p>© 2025 Ege Özçelik. Tüm hakları saklıdır.</p>
+            <p>© 2025 Ege Özçelik. All the rights are reserved.</p>
         </footer>
     </div>
 
@@ -393,15 +444,6 @@
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollIndicator').style.width = scrolled + '%';
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
     </script>
 </body>
