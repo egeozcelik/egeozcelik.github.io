@@ -448,7 +448,6 @@
                 <a href="https://x.com/ozcilek__" target="_blank" rel="noopener noreferrer">Twitter</a>
                 <a href="https://www.hackerrank.com/profile/ege_ozcelik" target="_blank" rel="noopener noreferrer">HackerRank</a>
                 <span class="separator">—</span>
-                <!-- <a href="homepage.html" target="_blank" rel="noopener noreferrer" class="lumos-link">lumosAI</a> -->
                 <a href="indigoCats/indigoCats.html" target="_blank" rel="noopener noreferrer" class="lumos-link">indigo cats</a>
             </div>
         </section>
@@ -459,19 +458,11 @@
     </div>
 
     <script>
-        // Scroll indicator
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollIndicator').style.width = scrolled + '%';
-        });
-
-        // Debug için - konsola tıklanan linki yazar
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                console.log('Link tıklandı:', this.href);
-            });
         });
     </script>
 </body>
