@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman - Challenge</title>
+    <style>
+        body { 
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .container{
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            padding: 40px 20px; 
+            box-sizing: border-box;
+        }
+
+        .title{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 48px;
+            font-weight: 100;
+            color: #333333;
+            margin-bottom: 30px;
+            line-height: 55px;
+        }
+
+        .description{
+            font-size: 18px;
+            line-height: 28px;
+            color: #666666;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .privacy-btn{
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: 400;
+            color: #ffffff;
+            background-color: #186218;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .privacy-btn:hover{
+            background-color: #2d7f2d;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 36px;
+                line-height: 42px;
+            }
+            
+            .description {
+                font-size: 16px;
+                line-height: 24px;
+            }
+            
+            .privacy-btn {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Hangman - Challenge</h1>
+        
+        <p class="description">
+            Hangman - Challenge is a simple and entertaining word guessing game designed for users of all ages. Players try to guess words letter by letter while attempting to beat their personal high scores. The game operates entirely offline with local data storage, ensuring a private and secure gaming experience without requiring any personal information or user authentication.
+        </p>
+        
+        <a href="/apps/hangman-privacy.html" class="privacy-btn">Privacy Policy</a>
+    </div>
+</body>
+</html>
