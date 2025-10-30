@@ -105,7 +105,7 @@ section {
     font-family: 'Open Sans', sans-serif;
     font-weight: 100;
     text-align: left;
-    font-size: 21px;
+    font-size: 20px;
     margin-top: 20px;
     line-height: 1.6;
 }
@@ -133,15 +133,10 @@ section {
     width: 50%; 
 }
 
-#about2 h2 {
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-    font-weight: 400;
-}
 
 #about2 p {
     text-align: left;
-    font-size: 26px;
+    font-size: 20px;
     margin-top: 20px;
     line-height: 1.6;
     font-weight: 100;
