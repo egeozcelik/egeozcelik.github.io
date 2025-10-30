@@ -278,7 +278,7 @@ function loadResponsiveCSS() {
       const link = document.createElement('link');
       link.id = 'responsive-css';
       link.rel = 'stylesheet';
-      link.href = 'responsiveness.css';
+      link.href = '/lumosAI/responsiveness.css';
       document.head.appendChild(link);
     }
   } else {

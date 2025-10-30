@@ -413,7 +413,7 @@ body {
 
 .image-section {
   height: 600px;
-  background-image: url('assets/images-section.jpg');
+  background-image: url('/assets/images-section.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /* EKLE */
