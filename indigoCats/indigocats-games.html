@@ -50,7 +50,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0);
       z-index: 1;
     }
     
@@ -120,21 +120,41 @@
     }
     
     .games-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    }
+
+    /* Kaydırma çubuğu stili (opsiyonel) */
+    .games-container::-webkit-scrollbar {
+    height: 8px;
+    }
+
+    .games-container::-webkit-scrollbar-track {
+    background: var(--secondary-dark);
+    border-radius: 4px;
+    }
+
+    .games-container::-webkit-scrollbar-thumb {
+    background: var(--accent-purple);
+    border-radius: 4px;
     }
     
     .game-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-color);
-      cursor: pointer;
-      position: relative;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    position: relative;
+    min-width: 320px;  /* Minimum genişlik */
+    max-width: 320px;  /* Maksimum genişlik - sabit kart boyutu */
+    flex-shrink: 0;    /* Kartların küçülmesini engelle */
+    scroll-snap-align: start;  /* Kaydırma noktası */
     }
     
     .game-card:hover {
@@ -292,13 +312,17 @@
       section.featured { 
         padding: 50px 5%; 
       }
-      .games-container {
-        grid-template-columns: 1fr;
-      }
-      .game-card {
-        max-width: 400px;
-        margin: 0 auto;
-      }
+
+    .games-container {
+        gap: 20px;
+        padding: 20px 10px;
+    }
+    
+    .game-card {
+        min-width: 280px;
+        max-width: 280px;
+    }
+
     }
   </style>
 </head>
@@ -429,19 +453,7 @@
         </div>
       </div>
 
-      <!-- Mingo Preview -->
-      <div class="game-card">
-        <div class="game-image">
-          <img src="/assets/mingo-logo.png" alt="Mingo">
-        </div>
-        <div class="game-content">
-          <h3 class="game-title">Mingo</h3>
-          <p class="game-description">Our next big adventure. Something special is coming your way!</p>
-          <div class="store-buttons">
-            <span class="coming-soon-badge">In Development</span>
-          </div>
-        </div>
-      </div>
+      
       
     </div>
   </section>
