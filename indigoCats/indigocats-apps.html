@@ -190,36 +190,28 @@
             font-weight: 300;
         }
 
-        .download-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, var(--c4) 0%, #b6b6b6 100%);
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(168, 147, 16, 0.3);
-        }
+        .download-btn img {
+  height: 60px;
+  transition: transform 0.2s ease;
+}
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(16, 150, 168, 0.5);
-        }
+.download-btn img:hover {
+  transform: scale(1.05);
+}
 
-        .app-icon {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            object-fit:cover;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease;
-        }
+.app-icon {
+  width: 160px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
 
         .app-strip:hover .app-icon {
             transform: scale(1.05);
         }
+
+
 
         /* Future Projects Section */
         /* Future Projects Section */
@@ -419,21 +411,38 @@
         <div class="app-strip">
             <div class="app-content">
                 <h2>TravelerTR</h2>
-                <p>Camp, Explore and Travel. Discover the nature of Turkiye.</p>
-                <a href="" class="download-btn">Will be published soon..</a>
+                <p>Camp, Explore and Travel. Discover the nature of Turkiye. <br><br>Under Maintenance Now..</p>
+               
             </div>
             <img src="/assets/travelerapp.png" alt="Traveler App Icon" class="app-icon">
         </div>
 
         <!-- Moneyflow App -->
         <div class="app-strip">
-            <div class="app-content">
-                <h2>Moneyflow+</h2>
-                <p>Functional Budget Assistant.<br>A clear overview of monthly income, expenses, and daily spending habits - Smart expense distribution analysis - Month-by-month income tracking - Easy access to past records anytime - Multi-language and multi-currency support - Reminders, widgets, PDF exports, and more </p>
-                <a href="https://apps.apple.com/tr/app/moneyflow/id6753347918Moneyflow+" class="download-btn">Download Moneyflow</a>
-            </div>
-            <img src="/assets/moneyflowapp.png" alt="Moneyflow App Icon" class="app-icon">
+        <div class="app-content">
+            <h2>Moneyflow+</h2>
+            <p>
+            Functional Budget Assistant.<br>
+            A clear overview of monthly income, expenses, and daily spending habits —
+            Smart expense distribution analysis — Month-by-month income tracking —
+            Easy access to past records anytime — Multi-language and multi-currency
+            support — Reminders, widgets, PDF exports, and more.
+            </p>
+            <a 
+            href="https://apps.apple.com/tr/app/moneyflow/id6753347918" 
+            class="download-btn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >
+            <img 
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                alt="Download on the App Store"
+            >
+            </a>
         </div>
+        <img src="/assets/moneyflowapp.png" alt="Moneyflow App Icon" class="app-icon">
+        </div>
+
 
         <div class="app-strip">
             <div class="app-content">
@@ -458,18 +467,46 @@
                 - Widget support for home screen tracking
                 - Flexible goal setting
                 - Multiple tracking methods</p>
-                <a href="https://apps.apple.com/tr/app/trackie/id6753588810
-Trackie." class="download-btn">Download Trackie</a>
+
+                <a 
+            href="https://apps.apple.com/tr/app/trackie/id6753588810" 
+            class="download-btn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >
+            <img 
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                alt="Download on the App Store"
+            >
+            </a>
+             
             </div>
             <img src="/assets/trackieapp.png" alt="Trackie App Icon" class="app-icon">
         </div>
+
+
+
+
+
+
+
 
         <div class="app-strip">
             <div class="app-content">
                 <h2>Furever</h2>
                 <p>Pet Care. <br>Furever helps you care for all your pets in one beautiful, functional app.</p>
-                <a href="https://apps.apple.com/tr/app/furever-pet-care/id6753082987
-furever - Pet Care" class="download-btn">Download Furever</a>
+
+                <a 
+            href="https://apps.apple.com/tr/app/furever-pet-care/id6753082987" 
+            class="download-btn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >
+            <img 
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                alt="Download on the App Store"
+            >
+            </a>
             </div>
             <img src="/assets/fureverapp.png" alt="Trackie App Icon" class="app-icon">
         </div>
