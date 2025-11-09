@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -271,10 +273,39 @@
 <body>
 
 <!-- Slide 1: Cover -->
-<div class="slide cover">
-    <h1>MeetNow!</h1>
-    <p class="subtitle">Spontaneous Social Connection</p>
+<!-- Slide 1: Cover -->
+<div class="slide cover" style="
+    background: radial-gradient(circle at 30% 20%, #667eea 0%, #764ba2 60%, #2c2c54 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+">
+    <h1 style="
+        font-size: 96px;
+        font-weight: 300;
+        letter-spacing: -1px;
+        margin-bottom: 25px;
+    ">MeetNow!</h1>
+    <p class="subtitle" style="
+        font-size: 24px;
+        letter-spacing: 4px;
+        font-weight: 300;
+        text-transform: uppercase;
+        opacity: 0.85;
+    ">Spontaneous Social Connection</p>
+    <div style="
+        margin-top: 80px;
+        height: 2px;
+        width: 80px;
+        background: rgba(255,255,255,0.4);
+        border-radius: 2px;
+    "></div>
 </div>
+
 
 <!-- Slide 2: The Problem -->
 <div class="slide">
@@ -513,7 +544,31 @@
     </ul>
     <div class="slide-footer">09</div>
 </div>
-
+<div class="slide">
+    <h2>Our Journey So Far</h2>
+    <p style="font-size: 22px; color: #444; margin-bottom: 40px;">
+        A glimpse into the design, development, and milestones that brought <strong>MeetNow!</strong> to life.
+    </p>
+    <div style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f8f8ff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+    ">
+        <img src="/assets/meetnowpitchdeck.png" alt="MeetNow Showcase" style="
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        ">
+    </div>
+    <p style="text-align: center; margin-top: 25px; font-style: italic; color: #777;">
+        Designs, prototypes, and feature concepts — all leading toward the MeetNow experience.
+    </p>
+    <div class="slide-footer">10</div>
+</div>
 <!-- Slide 10: Closing -->
 <div class="slide cover">
     <h1 style="font-size: 80px; margin-bottom: 40px;">LET'S RECONNECT<br>THE WORLD</h1>
