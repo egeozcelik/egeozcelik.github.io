@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traveler TR - Pitch Deck</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>IndigoCats Games</title>
+    <link rel="icon" type="image/png" href="/assets/indigocats-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
+        /* ---- Reset ---- */
         * {
             margin: 0;
             padding: 0;
@@ -15,613 +15,208 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #000000;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #e6e6e6;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .slide {
-            width: 100%;
-            max-width: 1200px;
-            min-height: 100vh;
-            margin: 0 auto;
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            page-break-after: always;
-            position: relative;
-        }
-
-        /* Cover Slide */
-        .cover {
-            background: #000000;
-            color: #ffffff;
+        header {
             text-align: center;
-            justify-content: center;
-            align-items: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+            color: #fff;
+        }
+
+        header h1 {
             font-family: 'Playfair Display', serif;
-
+            font-size: 3.2rem;
+            letter-spacing: 1.5px;
         }
 
-        .cover h1 {
-              font-family: 'Playfair Display', serif;
-
-            font-size: 120px;
-            font-weight: 300;
-            letter-spacing: -3px;
-            margin-bottom: 30px;
+        header p {
+            font-size: 1.1rem;
+            margin-top: 14px;
+            color: #bbb;
+            letter-spacing: 0.5px;
         }
 
-        .cover .subtitle {
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            opacity: 0.7;
+        section {
+            padding: 80px 10%;
         }
 
-        /* Standard Slides */
-        .slide h2 {
-            font-size: 48px;
-            font-weight: 600;
+        h2.section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.2rem;
             margin-bottom: 50px;
-            letter-spacing: -1px;
-              font-family: 'Playfair Display', serif;
-
+            color: #fff;
+            letter-spacing: 1px;
         }
 
-        .slide h3 {
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 25px;
-            margin-top: 40px;
-        }
-
-        .slide p {
-            font-size: 20px;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .slide ul {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .slide ul li {
-            font-size: 20px;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 20px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .slide ul li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            font-weight: 400;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
+        .games-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 40px;
-            margin: 50px 0;
         }
 
-        .stat-box {
-            padding: 40px;
-            background: #f8f8f8;
+        .game-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 14px;
+            text-align: center;
+            padding: 40px 25px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 0 rgba(255,255,255,0);
+        }
+
+        .game-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+            border-color: #444;
+        }
+
+        .game-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: grayscale(100%) brightness(1.3);
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .game-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 8px 18px;
+            border: 1px solid #fff;
             border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fff;
+            transition: all 0.3s ease;
         }
 
-        .stat-box .number {
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 15px;
+        .btn:hover {
+            background: #fff;
             color: #000;
         }
 
-        .stat-box .label {
-            font-size: 18px;
-            font-weight: 400;
-            color: #666;
-            line-height: 1.6;
+        .coming-soon {
+            background: #fff;
+            color: #000;
+            border: none;
+            cursor: default;
         }
 
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .feature {
-            padding: 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-
-        .feature h4 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .feature p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #666;
-            margin: 0;
-        }
-
-        /* Revenue Model Table */
-        .revenue-table {
-            margin: 40px 0;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .revenue-table th,
-        .revenue-table td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .revenue-table th {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .revenue-table td {
-            font-weight: 300;
-            font-size: 17px;
-            color: #333;
-        }
-
-        /* Highlight Box */
-        .highlight {
+        footer {
+            text-align: center;
+            padding: 80px 10%;
             background: #000;
             color: #fff;
-            padding: 50px;
-            border-radius: 8px;
-            margin: 40px 0;
         }
 
-        .highlight h3 {
-            color: #fff;
-            margin-bottom: 20px;
+        footer h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 18px;
         }
 
-        .highlight p {
-            color: rgba(255,255,255,0.8);
+        footer p {
+            color: #bbb;
+            font-size: 1rem;
         }
 
-        /* Footer */
-        .slide-footer {
-            position: absolute;
-            bottom: 40px;
-            right: 60px;
-            font-size: 14px;
-            font-weight: 300;
-            opacity: 0.5;
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.4rem;
             }
-            .slide {
-                page-break-after: always;
+            section {
+                padding: 60px 6%;
             }
         }
-
-        /* 📱 Responsive Design for TravelerTR Pitch Deck */
-@media (max-width: 1024px) {
-    .slide {
-        padding: 60px 40px;
-    }
-    .slide h2 {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .slide {
-        padding: 50px 30px;
-        min-height: auto;
-    }
-
-    /* ✅ Cover */
-    .cover h1 {
-        font-size: 60px !important;
-        letter-spacing: -1px;
-        margin-bottom: 20px;
-    }
-
-    .cover .subtitle {
-        font-size: 16px !important;
-        letter-spacing: 3px;
-    }
-
-    /* ✅ Headings */
-    .slide h2 {
-        font-size: 34px;
-        margin-bottom: 30px;
-    }
-
-    .slide h3 {
-        font-size: 22px;
-        margin-top: 25px;
-    }
-
-    /* ✅ Text */
-    .slide p,
-    .slide ul li {
-        font-size: 17px;
-        line-height: 1.7;
-    }
-
-    /* ✅ Grids stack vertically */
-    .stats-grid,
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .stat-box,
-    .feature {
-        padding: 25px;
-    }
-
-    .stat-box .number {
-        font-size: 38px;
-    }
-
-    /* ✅ Tables collapse */
-    .revenue-table,
-    .revenue-table thead,
-    .revenue-table tbody,
-    .revenue-table th,
-    .revenue-table td,
-    .revenue-table tr {
-        display: block;
-        width: 100%;
-    }
-
-    .revenue-table th {
-        font-size: 16px;
-    }
-
-    .revenue-table td {
-        font-size: 15px;
-        padding: 8px 0;
-    }
-
-    /* ✅ Highlight Box */
-    .highlight {
-        padding: 30px;
-    }
-
-    /* ✅ Images */
-    .slide img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    /* ✅ Footer */
-    .slide-footer {
-        position: static;
-        text-align: right;
-        font-size: 12px;
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .slide {
-        padding: 40px 20px;
-    }
-
-    .cover h1 {
-        font-size: 42px !important;
-        letter-spacing: -1px;
-    }
-
-    .cover .subtitle {
-        font-size: 14px !important;
-        letter-spacing: 1.5px;
-    }
-
-    .slide h2 {
-        font-size: 26px;
-    }
-
-    .slide h3 {
-        font-size: 18px;
-    }
-
-    .slide p,
-    .slide ul li {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .highlight {
-        padding: 20px;
-    }
-
-    .stat-box .number {
-        font-size: 28px;
-    }
-
-    .feature h4 {
-        font-size: 18px;
-    }
-
-    .slide-footer {
-        font-size: 11px;
-        margin-top: 25px;
-    }
-}
-
     </style>
 </head>
 <body>
+    <header>
+        <h1>IndigoCats Games</h1>
+        <p>Independent Game Studio • Elegant Simplicity in Play</p>
+    </header>
 
-<!-- Slide 1: Cover -->
-<div class="slide cover">
-    <h1>TRAVELER TR</h1>
-    <p class="subtitle">Outdoor Ecosystem</p>
-</div>
+    <section id="published-games">
+        <h2 class="section-title">Published Games</h2>
+        <div class="games-grid">
+            <!-- Circus Fun -->
+            <div class="game-card">
+                <img src="/assets/circusfun-logo.png" alt="Circus Fun Logo">
+                <h3>Circus Fun</h3>
+                <div class="buttons">
+                    <a href="#" class="btn">App Store</a>
+                    <a href="#" class="btn">Google Play</a>
+                </div>
+            </div>
 
-<!-- Slide 2: The Problem -->
-<div class="slide">
-    <h2>The Challenge</h2>
-    <p>Outdoor enthusiasts struggle to discover authentic experiences beyond mainstream tourist destinations. Existing platforms lack:</p>
-    <ul>
-        <li>Intelligent, context-aware location recommendations</li>
-        <li>Community-driven, visual storytelling tools</li>
-        <li>Comprehensive trip planning assistance</li>
-        <li>Curated, expert-verified adventure routes</li>
-    </ul>
-    <div class="slide-footer">02</div>
-</div>
+            <!-- Perfect Stack -->
+            <div class="game-card">
+                <img src="/assets/perfectstack-logo.png" alt="Perfect Stack Logo">
+                <h3>Perfect Stack</h3>
+                <div class="buttons">
+                    <a href="#" class="btn">App Store</a>
+                    <a href="#" class="btn">Google Play</a>
+                </div>
+            </div>
 
-<!-- Slide 3: Solution -->
-<div class="slide">
-    <h2>Our Solution</h2>
-    <p>Traveler TR is a comprehensive outdoor ecosystem designed exclusively for Turkey's explorers. We combine AI-powered discovery, social sharing, and practical tools in one elegant platform.</p>
-    
-    <div class="highlight">
-        <h3>Core Innovation: Agentic AI Architecture</h3>
-        <p>Beyond simple natural language processing, we deploy an <strong>agentic AI system</strong> that understands context, user preferences, and environmental factors. Our AI agents autonomously:</p>
-        <ul style="margin-top: 20px;">
-            <li>Interpret conversational queries with semantic understanding</li>
-            <li>Cross-reference weather, seasons, and local conditions</li>
-            <li>Learn from user behavior to refine recommendations</li>
-            <li>Proactively suggest experiences based on patterns</li>
-        </ul>
-        <p style="margin-top: 25px; font-size: 18px; opacity: 0.9;">This isn't a search engine—it's an intelligent outdoor companion that thinks ahead.</p>
-    </div>
-    <div class="slide-footer">03</div>
-</div>
+            <!-- Hangman - Challenge -->
+            <div class="game-card">
+                <img src="/assets/hangman-logo.png" alt="Hangman Challenge Logo">
+                <h3>Hangman - Challenge</h3>
+                <div class="buttons">
+                    <a href="#" class="btn">App Store</a>
+                    <a href="#" class="btn">Google Play</a>
+                </div>
+            </div>
 
-<!-- Slide 4: Key Features -->
-<div class="slide">
-    <h2>Platform Ecosystem</h2>
-    
-    <div class="features-grid">
-        <div class="feature">
-            <h4>Traveler Explorer</h4>
-            <p>Agentic AI-powered discovery engine. Speak naturally: "I want to drink beer by the sea today"—receive contextually perfect locations, not generic listings.</p>
-        </div>
-        
-        <div class="feature">
-            <h4>Traveler Journeys</h4>
-            <p>Visual-first social platform. Share routes with Instagram-quality templates. Stories over check-ins, inspiration over documentation.</p>
-        </div>
-        
-        <div class="feature">
-            <h4>Traveler Landmarks</h4>
-            <p>Three-tier discovery system: community favorites, editorial picks, and expert-verified premium routes from professional outdoor specialists.</p>
-        </div>
-        
-        <div class="feature">
-            <h4>Traveler Backpacker</h4>
-            <p>Smart packing assistant. Choose your activity—camping, sailing, hiking—receive optimized gear lists. Customize, save, reuse.</p>
-        </div>
-        
-        <div class="feature">
-            <h4>Traveler MyMap</h4>
-            <p>Personal exploration archive. Pin discoveries, annotate hidden gems, build your private atlas. Your outdoor memory bank.</p>
-        </div>
-        
-        <div class="feature">
-            <h4>Traveler Store</h4>
-            <p>Curated premium gear—thermoses, buffs, camp flags. Limited quantities, high quality. Products that match our aesthetic philosophy.</p>
-        </div>
-    </div>
-    
-    <h3 style="margin-top: 50px; font-size: 28px;">Plus: Expert Guides</h3>
-    <p style="margin-top: 15px;">Camp cooking recipes, wilderness first aid, wildlife safety protocols—6-7 comprehensive guides integrated with premium routes.</p>
-    
-    <div class="slide-footer">04</div>
-</div>
+            <!-- AdamAsmaca - Challenge -->
+            <div class="game-card">
+                <img src="/assets/adamasmaca-logo.png" alt="AdamAsmaca Challenge Logo">
+                <h3>AdamAsmaca - Challenge</h3>
+                <div class="buttons">
+                    <a href="#" class="btn">App Store</a>
+                    <a href="#" class="btn">Google Play</a>
+                </div>
+            </div>
 
-<!-- Slide 5: Market Opportunity -->
-<div class="slide">
-    <h2>Market Opportunity</h2>
-    
-    <div class="stats-grid">
-        <div class="stat-box">
-            <div class="number">$10.40B</div>
-            <div class="label">Turkey's travel & tourism market in 2024</div>
+            <!-- River Raid -->
+            <div class="game-card">
+                <img src="/assets/riverraid-logo.png" alt="River Raid Logo">
+                <h3>River Raid</h3>
+                <div class="buttons">
+                    <span class="btn coming-soon">Will be published soon</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="stat-box">
-            <div class="number">$14.08B</div>
-            <div class="label">Projected Turkey travel & tourism market value by 2030</div>
-        </div>
-        
-        <div class="stat-box">
-            <div class="number">$3.55T</div>
-            <div class="label">Global travel apps market forecast for 2034</div>
-        </div>
-        
-        <div class="stat-box">
-            <div class="number">Rising</div>
-            <div class="label">Subscription models increasingly successful in travel applications</div>
-        </div>
-    </div>
-    
-    <p style="margin-top: 40px; font-style: italic; opacity: 0.7;">Sources: IMARC Group, TechSci Research, Market.us</p>
-    <div class="slide-footer">05</div>
-</div>
+    </section>
 
-<!-- Slide 6: Business Model -->
-<div class="slide">
-    <h2>Revenue Streams</h2>
-    
-    <table class="revenue-table">
-        <tr>
-            <th>Stream</th>
-            <th>Model</th>
-        </tr>
-        <tr>
-            <td><strong>Premium Subscriptions</strong></td>
-            <td>₺329/month or ₺799/year — Ad-free experience, exclusive routes, enhanced features</td>
-        </tr>
-        <tr>
-            <td><strong>Premium Content</strong></td>
-            <td>Expert-verified routes and guides from professional outdoor specialists</td>
-        </tr>
-        <tr>
-            <td><strong>Traveler Store Merch</strong></td>
-            <td>High-margin outdoor products (80% margin target) — Limited, curated selection</td>
-        </tr>
-        <tr>
-            <td><strong>Partnerships</strong></td>
-            <td>Sponsored content with outdoor equipment brands and tourism destinations</td>
-        </tr>
-    </table>
-    <div class="slide-footer">06</div>
-</div>
-<div class="slide">
-    <h2>Traveler Store</h2>
-    <p style="font-size: 22px; color: #444; margin-bottom: 40px;">
-        Favorite part of TravelerTR app family: <strong>A unique, high quality merchandies</strong>.
-    </p>
-    <div style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f8f8ff;
-        border-radius: 16px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
-    ">
-        <img src="/assets/travelertrpitchdeck.png" alt="MeetNow Showcase" style="
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        ">
-    </div>
-    <p style="text-align: center; margin-top: 25px; font-style: italic; color: #777;">
-        Designs, prototypes, and product concepts — all orders can be placed to Europe, America and Türkiye.
-    </p>
-    <div class="slide-footer">07</div>
-</div>
-
-<!-- Slide 7: Growth Strategy -->
-<div class="slide">
-    <h2>Growth Strategy</h2>
-    
-    <h3>Phase 1: Community Building</h3>
-    <ul>
-        <li>Micro-influencer partnerships with outdoor enthusiasts</li>
-        <li>Seasonal campaigns targeting peak travel periods</li>
-        <li>User-generated content incentivization</li>
-    </ul>
-    
-    <h3>Phase 2: Scale & Retention</h3>
-    <ul>
-        <li>SEO-optimized editorial content for organic discovery</li>
-        <li>Local partnerships with outdoor equipment retailers</li>
-        <li>Community engagement programs and challenges</li>
-    </ul>
-    
-    <h3>Phase 3: Expansion</h3>
-    <ul>
-        <li>Geographic expansion beyond Turkey</li>
-        <li>B2B offerings for tourism boards and destinations</li>
-        <li>API platform for outdoor industry integration</li>
-    </ul>
-    <div class="slide-footer">08</div>
-</div>
-
-<!-- Slide 8: Competitive Advantage -->
-<div class="slide">
-    <h2>Why We Win</h2>
-    
-    <p style="font-size: 24px; margin-bottom: 50px;">Our differentiation is built on four pillars:</p>
-    
-    <ul style="font-size: 22px;">
-        <li><strong>Agentic AI Technology</strong> — Multi-agent architecture that understands context, learns preferences, and anticipates needs. Not just search—intelligent outdoor companionship</li>
-        <li><strong>Visual-First Experience</strong> — Instagram-quality templates and aesthetic focus appeals to modern travelers seeking inspiration, not just information</li>
-        <li><strong>Expert-Curated Content</strong> — Premium routes from real outdoor professionals create trust, authenticity, and unique value impossible to replicate</li>
-        <li><strong>Integrated Ecosystem</strong> — Six interconnected modules (Explorer, Journeys, Landmarks, Backpacker, MyMap, Store) plus guides—everything in one platform</li>
-    </ul>
-    
-    <div class="highlight" style="margin-top: 50px;">
-        <p style="font-size: 19px; margin: 0;"><strong>Technical Moat:</strong> Our agentic AI learns continuously from user interactions, weather patterns, seasonal trends, and community feedback—creating a self-improving recommendation engine competitors cannot easily replicate.</p>
-    </div>
-    <div class="slide-footer">09</div>
-</div>
-
-<!-- Slide 9: Milestones -->
-<div class="slide">
-    <h2>24-Month Targets</h2>
-    
-    <div class="stats-grid">
-        <div class="stat-box">
-            <div class="number">20,000+</div>
-            <div class="label">Premium subscribers in Turkey</div>
-        </div>
-        
-        <div class="stat-box">
-            <div class="number">50+</div>
-            <div class="label">Expert-verified premium routes</div>
-        </div>
-        
-        <div class="stat-box">
-            <div class="number">₺2.5M+</div>
-            <div class="label">Monthly recurring revenue</div>
-        </div>
-        
-        <div class="stat-box">
-            <div class="number">Launch</div>
-            <div class="label">TravelerUS, TravelerEU</div>
-        </div>
-    </div>
-    <div class="slide-footer">10</div>
-</div>
-
-<!-- Slide 10: Closing -->
-<div class="slide cover">
-    <h1 style="font-size: 80px; margin-bottom: 40px;">LET'S BUILD<br>THE FUTURE OF<br>OUTDOOR DISCOVERY</h1>
-    <p class="subtitle" style="font-size: 18px; margin-top: 60px;">TRAVELER TR</p>
-</div>
-
+    <footer id="future-projects">
+        <h2>Future Projects</h2>
+        <p>Stay tuned for our upcoming title: <strong>Mingo</strong></p>
+    </footer>
 </body>
 </html>
