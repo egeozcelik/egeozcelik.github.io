@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps - Indigo Cats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --c1: #021526;
+            --c2: #03346E;
+            --c3: #6EACDA;
+            --c4: #b3eefe;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
+            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #000000;
+            color: var(--c2);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(168, 147, 16, 0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: white;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            color: var(--c4);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--c4);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 40px 60px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--c4) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Apps Container */
+        .apps-container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .app-strip {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            border: 1px solid rgba(168, 147, 16, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-strip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 148, 168, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .app-strip:hover::before {
+            left: 100%;
+        }
+
+        .app-strip:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 140, 168, 0.3);
+            box-shadow: 0 10px 40px rgba(16, 77, 168, 0.2);
+        }
+
+        .app-strip:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .app-content {
+            flex: 1;
+        }
+
+        .app-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--c4);
+            font-weight: 500;
+        }
+
+        .app-content p {
+            font-size: 1.05rem;
+            line-height: 1.3;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--c4) 0%, #b6b6b6 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(168, 147, 16, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 150, 168, 0.5);
+        }
+
+        .app-icon {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            object-fit:cover;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .app-strip:hover .app-icon {
+            transform: scale(1.05);
+        }
+
+        /* Future Projects Section */
+        /* Future Projects Section */
+        .future-projects {
+            max-width: 1400px;
+            margin: 100px auto 60px;
+            padding: 0 40px;
+        }
+
+        .future-projects h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .project-video {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .project-card p {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(168, 147, 16, 0.1);
+            margin-top: 100px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(168, 147, 16, 0.1);
+            margin-top: 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .app-strip {
+                flex-direction: column !important;
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .app-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .future-projects h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Indigo🐈‍⬛Cats</h1>
+        <nav>
+            <ul>
+                <li><a href="/homepage.html">Indigo Cats</a></li>
+                <li><a href="/apps/traveler.html">Traveler</a></li>
+                <li><a href="/apps/moneyflow.html">Moneyflow</a></li>
+                <li><a href="/apps/trackie.html">Trackie</a></li>
+                <li><a href="/apps/hangman.html">Hangman</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Our Applications</h1>
+        <p>We aim enhance your digital experience with elegance and functionality.<br>Discover our collection</p>
+    </div>
+
+    <div class="apps-container">
+        <!-- Traveler App -->
+        <div class="app-strip">
+            <div class="app-content">
+                <h2>TravelerTR</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <a href="/apps/traveler.html" class="download-btn">Under Maintenance Now..</a>
+            </div>
+            <img src="travelerapp.png" alt="Traveler App Icon" class="app-icon">
+        </div>
+
+        <!-- Moneyflow App -->
+        <div class="app-strip">
+            <div class="app-content">
+                <h2>Moneyflow+</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <a href="/apps/moneyflow.html" class="download-btn">Explore Moneyflow</a>
+            </div>
+            <img src="moneyflowapp.png" alt="Moneyflow App Icon" class="app-icon">
+        </div>
+
+        <!-- Trackie App -->
+        <div class="app-strip">
+            <div class="app-content">
+                <h2>Trackie.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <a href="/apps/trackie.html" class="download-btn">Explore Trackie</a>
+            </div>
+            <img src="trackieapp.png" alt="Trackie App Icon" class="app-icon">
+        </div>
+
+        <div class="app-strip">
+            <div class="app-content">
+                <h2>Furever</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <a href="/apps/trackie.html" class="download-btn">Explore Furever</a>
+            </div>
+            <img src="fureverapp.png" alt="Trackie App Icon" class="app-icon">
+        </div>
+    </div>
+
+    
+    <div class="future-projects">
+        <h2>FUTURE PROJECTS</h2>
+        <div class="projects-grid">
+
+
+            <div class="project-card">
+                <div class="project-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/8UiG0TCZQfI?si=2sy1qet_i0JjE3lG" 
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Traveler TR</h3>
+                    <p>An innovative approach to modern challenges. Experience seamless integration with cutting-edge technology.</p>
+                    <div class="project-image">
+                        <img src="travelerimg1.png" alt="Project Alpha Preview">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/J4PMnuP3YlQ" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Meet Now!</h3>
+                    <p>Revolutionary concepts meeting practical implementation for tomorrow's needs.</p>
+                    <div class="project-image">
+                        <img src="project4.png" alt="Project Delta Preview">
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="project-card">
+                <div class="project-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/b-MAXXaQYas" 
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Noty App</h3>
+                    <p>Redefining user experience through intuitive design and powerful functionality.</p>
+                    <div class="project-image">
+                        <img src="project2.png" alt="Project Beta Preview">
+                    </div>
+                </div>
+            </div>
+          
+
+
+            <div class="project-card">
+                <div class="project-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/a_vwMo-ifJc" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3>WALLS.</h3>
+                    <p>Next-generation solutions that push the boundaries of what's possible.</p>
+                    <div class="project-image">
+                        <img src="project3.png" alt="Project Gamma Preview">
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/rxa9ZyBlSV0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Koi Akademi</h3>
+                    <p>Next-generation solutions that push the boundaries of what's possible.</p>
+                    
+                </div>
+            </div>
+            
+        </div>
+    <footer>
+        <p>&copy; 2024 Indigo 🐈‍⬛ Cats. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
