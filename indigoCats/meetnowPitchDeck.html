@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetNow! - Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-after: always;
+            position: relative;
+        }
+
+        /* Cover Slide */
+        .cover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover h1 {
+            font-size: 110px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+        }
+
+        .cover .subtitle {
+            font-size: 26px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Standard Slides */
+        .slide h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+            color: #667eea;
+        }
+
+        .slide h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+
+        .slide p {
+            font-size: 20px;
+            line-height: 1.8;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .slide ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .slide ul li {
+            font-size: 20px;
+            line-height: 1.8;
+            font-weight: 400;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .slide ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 24px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .stat-box {
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 12px;
+            border: 2px solid #667eea30;
+        }
+
+        .stat-box .number {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .stat-box .label {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .feature h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #667eea;
+        }
+
+        .feature p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Revenue Table */
+        .revenue-table {
+            margin: 40px 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .revenue-table th,
+        .revenue-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .revenue-table th {
+            font-weight: 600;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        .revenue-table td {
+            font-weight: 400;
+            font-size: 17px;
+            color: #333;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .highlight h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .highlight p {
+            color: rgba(255,255,255,0.95);
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.5;
+        }
+
+        /* Three Column Grid */
+        .three-col-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .col-box {
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .col-box h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .col-box ul {
+            margin: 0;
+        }
+
+        .col-box ul li {
+            font-size: 16px;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .col-box ul li::before {
+            font-size: 18px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<div class="slide cover">
+    <h1>MeetNow!</h1>
+    <p class="subtitle">Spontaneous Social Connection</p>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide">
+    <h2>The Gap in Social Connection</h2>
+    <p>Modern urban life has fragmented social communities. People struggle to organize spontaneous gatherings and discover like-minded individuals for everyday activities.</p>
+    
+    <h3>Current Reality</h3>
+    <ul>
+        <li>WhatsApp and Facebook groups are cluttered, chaotic, and inefficient for event coordination</li>
+        <li>Existing dating apps focus solely on romantic relationships, ignoring platonic social needs</li>
+        <li>No centralized platform exists for instant, activity-based meetups</li>
+        <li>Urban isolation grows despite digital connectivity</li>
+    </ul>
+    
+    <p style="margin-top: 40px; font-size: 22px; font-weight: 500;">People want spontaneous coffee, sports, concerts, and adventures—but have no proper tool to make it happen.</p>
+    <div class="slide-footer">02</div>
+</div>
+
+<!-- Slide 3: Solution -->
+<div class="slide">
+    <h2>Our Solution</h2>
+    <p><strong>MeetNow!</strong> is a spontaneous social meetup platform designed for instant, activity-based gatherings. Whether it's a hike, coffee, concert, or game night—create or join events in seconds.</p>
+    
+    <div class="highlight">
+        <h3>Core Value Proposition</h3>
+        <p>We reconnect urban communities by making spontaneous social interaction as easy as sending a text. No romantic pressure, no complex planning—just genuine human connection around shared interests.</p>
+    </div>
+    
+    <h3>Key Differentiators</h3>
+    <ul>
+        <li><strong>Activity-First Design:</strong> Events organized by interest, not romantic intent</li>
+        <li><strong>Instant Spontaneity:</strong> Create gatherings in under 30 seconds</li>
+        <li><strong>Platonic Focus:</strong> Friendship and shared experiences, not dating</li>
+        <li><strong>Verified Safety:</strong> Organizer approval system with chat-based vetting</li>
+    </ul>
+    <div class="slide-footer">03</div>
+</div>
+
+<!-- Slide 4: Platform Features -->
+<div class="slide">
+    <h2>Platform Experience</h2>
+    
+    <div class="features-grid">
+        <div class="feature">
+            <h4>Event Cards</h4>
+            <p>Location-sorted activity cards showing organizer, participant count, and transparent venue details. One screen, all local events.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Map View</h4>
+            <p>Visualize real-time activities around you. Join nearby events with one tap, discover new neighborhoods through shared experiences.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Safe Interaction</h4>
+            <p>Request-based joining system. Chat with organizers before committing. Approval workflow ensures quality and safety for all participants.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Private Locations</h4>
+            <p>Organizers can create events without revealing exact locations until approval, protecting privacy for home gatherings.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Smart Integration</h4>
+            <p>Apple Watch support and iOS widgets keep users connected. Premium feel, constant engagement, notifications for relevant local events.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Universal Appeal</h4>
+            <p>170+ countries, zero localization barriers. Sports, arts, food, fitness—activities transcend language and culture.</p>
+        </div>
+    </div>
+    <div class="slide-footer">04</div>
+</div>
+
+<!-- Slide 5: Market Opportunity -->
+<div class="slide">
+    <h2>Market Opportunity</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="number">$17.28B</div>
+            <div class="label">Global online dating market by 2030—but 40% of users seek friendship, not romance</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">$9.65B</div>
+            <div class="label">Market value in 2022, growing at 7.4% CAGR—MeetNow targets untapped social connection segment</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">37-40%</div>
+            <div class="label">Social dating segment share—casual meetups, companionship, and friendship dominate user intent</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Rising Fast</div>
+            <div class="label">Turkey shows 120% annual growth in digital media investments, signaling massive regional opportunity</div>
+        </div>
+    </div>
+    
+    <p style="margin-top: 40px; font-style: italic; opacity: 0.7;">Sources: Grand View Research, Market.us, Research and Markets</p>
+    <div class="slide-footer">05</div>
+</div>
+
+<!-- Slide 6: Business Model -->
+<div class="slide">
+    <h2>Dual Revenue Model</h2>
+    
+    <h3>Consumer Revenue: In-App Advertising</h3>
+    <p>Free-to-use platform monetized through strategically placed ad cards between event listings.</p>
+    
+    <table class="revenue-table">
+        <tr>
+            <th>Market</th>
+            <th>eCPM Rate</th>
+        </tr>
+        <tr>
+            <td>Turkey (Initial)</td>
+            <td>$0.30 - $1.00 per thousand impressions</td>
+        </tr>
+        <tr>
+            <td>US & Europe (Scale)</td>
+            <td>$10.50 - $14.00 per thousand impressions</td>
+        </tr>
+    </table>
+    
+    <h3 style="margin-top: 50px;">Business Revenue: Premium Event Cards</h3>
+    <p>B2B partnership model for venues and event organizers:</p>
+    
+    <ul style="margin-top: 20px;">
+        <li><strong>Target Clients:</strong> Bars, restaurants, concert venues, sports centers, galleries, municipalities</li>
+        <li><strong>Offering:</strong> City-wide premium event cards with enhanced visibility and design</li>
+        <li><strong>Pricing:</strong> $2,500+ per event</li>
+        <li><strong>Projection:</strong> $500K annual revenue in first 2 years, scaling to $1.3M+ in optimistic scenario</li>
+    </ul>
+    <div class="slide-footer">06</div>
+</div>
+
+<!-- Slide 7: Growth Strategy -->
+<div class="slide">
+    <h2>Go-To-Market Strategy</h2>
+    
+    <div class="three-col-grid">
+        <div class="col-box">
+            <h4>Phase 1: Local Dominance</h4>
+            <ul>
+                <li>Launch in 1-2 pilot cities</li>
+                <li>Target universities and neighborhoods</li>
+                <li>Micro-influencer partnerships (10K-50K followers)</li>
+                <li>Event sponsorships (concerts, exhibitions, tournaments)</li>
+            </ul>
+        </div>
+        
+        <div class="col-box">
+            <h4>Phase 2: Regional Expansion</h4>
+            <ul>
+                <li>Scale to Berlin, Munich, Istanbul, Ankara, Izmir, Antalya</li>
+                <li>B2B onboarding (bars, cafes, sports centers)</li>
+                <li>TikTok & Instagram viral campaigns</li>
+                <li>QR code posters in partner venues</li>
+            </ul>
+        </div>
+        
+        <div class="col-box">
+            <h4>Phase 3: Global Scale</h4>
+            <ul>
+                <li>Europe-wide rollout + Balkans</li>
+                <li>US markets: NY, Florida, California</li>
+                <li>170+ country simultaneous availability</li>
+                <li>B2B platform for municipalities and tourism boards</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="highlight" style="margin-top: 50px;">
+        <h3>User Acquisition Channels</h3>
+        <p><strong>Digital:</strong> Instagram, TikTok, Meta Ads with CPI-focused campaigns | <strong>Organic:</strong> User-generated content ("Check out who I met today!") and viral TikTok/Reels | <strong>Community:</strong> Student organizations, sports clubs, local artist communities | <strong>ASO:</strong> App Store Optimization for organic discovery</p>
+    </div>
+    <div class="slide-footer">07</div>
+</div>
+
+<!-- Slide 8: Competitive Advantage -->
+<div class="slide">
+    <h2>Why We Win</h2>
+    
+    <h3>The Dating App Paradox</h3>
+    <p style="font-size: 22px; margin-bottom: 40px;">Tinder and Bumble dominate with billions in revenue—yet 37-40% of users seek friendship, not romance. <strong>MeetNow!</strong> captures this massive, underserved segment.</p>
+    
+    <ul style="font-size: 22px;">
+        <li><strong>Purpose-Built for Platonic Connection</strong> — No romantic pressure removes friction and widens appeal to all demographics</li>
+        <li><strong>Activity-Centric Design</strong> — Shared interests create natural, authentic connections versus forced profile matching</li>
+        <li><strong>Instant Gratification</strong> — Spontaneous meetups satisfy immediate social needs, not weeks-long chat cycles</li>
+        <li><strong>Universal Scalability</strong> — Activities (sports, food, music) transcend language barriers—170+ countries with zero localization</li>
+        <li><strong>Network Effects</strong> — More users = more events = higher engagement = viral growth loop</li>
+    </ul>
+    
+    <div class="highlight" style="margin-top: 50px;">
+        <p style="font-size: 19px; margin: 0;"><strong>Market Timing:</strong> Post-pandemic social isolation + remote work loneliness + urban anonymity create unprecedented demand for authentic, in-person connection platforms.</p>
+    </div>
+    <div class="slide-footer">08</div>
+</div>
+
+<!-- Slide 9: Financial Projections -->
+<div class="slide">
+    <h2>Financial Outlook</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="number">Year 1</div>
+            <div class="label">Pilot city penetration + B2B onboarding. Target: 50K MAU, $200K revenue (B2B focus)</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Year 2</div>
+            <div class="label">Regional expansion (Turkey + 3 EU cities). Target: 500K MAU, $500K+ B2B revenue</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Year 3</div>
+            <div class="label">European scale + US entry. Ad revenue scales with high eCPM markets. Target: 2M+ MAU</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Year 4+</div>
+            <div class="label">Global presence, $1.3M+ B2B revenue, premium ad rates. Path to profitability</div>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 50px;">Revenue Drivers</h3>
+    <ul>
+        <li><strong>B2B Subscriptions:</strong> Predictable, high-margin revenue from venue partnerships</li>
+        <li><strong>Advertising:</strong> 10-14x eCPM multiplier moving from Turkey to US/EU markets</li>
+        <li><strong>Premium Features (Future):</strong> Enhanced profiles, event promotion tools, analytics for power users</li>
+    </ul>
+    <div class="slide-footer">09</div>
+</div>
+
+<!-- Slide 10: Closing -->
+<div class="slide cover">
+    <h1 style="font-size: 80px; margin-bottom: 40px;">LET'S RECONNECT<br>THE WORLD</h1>
+    <p class="subtitle" style="font-size: 20px; margin-top: 60px;">MEETNOW! — Where spontaneity meets community</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler TR - Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-after: always;
+            position: relative;
+        }
+
+        /* Cover Slide */
+        .cover {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+
+        }
+
+        .cover h1 {
+              font-family: 'Playfair Display', serif;
+
+            font-size: 120px;
+            font-weight: 300;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+        }
+
+        .cover .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Standard Slides */
+        .slide h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+              font-family: 'Playfair Display', serif;
+
+        }
+
+        .slide h3 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+
+        .slide p {
+            font-size: 20px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .slide ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .slide ul li {
+            font-size: 20px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .slide ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: 400;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .stat-box {
+            padding: 40px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        .stat-box .number {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .stat-box .label {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .feature h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Revenue Model Table */
+        .revenue-table {
+            margin: 40px 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .revenue-table th,
+        .revenue-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .revenue-table th {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .revenue-table td {
+            font-weight: 300;
+            font-size: 17px;
+            color: #333;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: #000;
+            color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .highlight h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .highlight p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.5;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<div class="slide cover">
+    <h1>TRAVELER TR</h1>
+    <p class="subtitle">Outdoor Ecosystem</p>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide">
+    <h2>The Challenge</h2>
+    <p>Outdoor enthusiasts struggle to discover authentic experiences beyond mainstream tourist destinations. Existing platforms lack:</p>
+    <ul>
+        <li>Intelligent, context-aware location recommendations</li>
+        <li>Community-driven, visual storytelling tools</li>
+        <li>Comprehensive trip planning assistance</li>
+        <li>Curated, expert-verified adventure routes</li>
+    </ul>
+    <div class="slide-footer">02</div>
+</div>
+
+<!-- Slide 3: Solution -->
+<div class="slide">
+    <h2>Our Solution</h2>
+    <p>Traveler TR is a comprehensive outdoor ecosystem designed exclusively for Turkey's explorers. We combine AI-powered discovery, social sharing, and practical tools in one elegant platform.</p>
+    
+    <div class="highlight">
+        <h3>Core Innovation: Agentic AI Architecture</h3>
+        <p>Beyond simple natural language processing, we deploy an <strong>agentic AI system</strong> that understands context, user preferences, and environmental factors. Our AI agents autonomously:</p>
+        <ul style="margin-top: 20px;">
+            <li>Interpret conversational queries with semantic understanding</li>
+            <li>Cross-reference weather, seasons, and local conditions</li>
+            <li>Learn from user behavior to refine recommendations</li>
+            <li>Proactively suggest experiences based on patterns</li>
+        </ul>
+        <p style="margin-top: 25px; font-size: 18px; opacity: 0.9;">This isn't a search engine—it's an intelligent outdoor companion that thinks ahead.</p>
+    </div>
+    <div class="slide-footer">03</div>
+</div>
+
+<!-- Slide 4: Key Features -->
+<div class="slide">
+    <h2>Platform Ecosystem</h2>
+    
+    <div class="features-grid">
+        <div class="feature">
+            <h4>Traveler Explorer</h4>
+            <p>Agentic AI-powered discovery engine. Speak naturally: "I want to drink beer by the sea today"—receive contextually perfect locations, not generic listings.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Traveler Journeys</h4>
+            <p>Visual-first social platform. Share routes with Instagram-quality templates. Stories over check-ins, inspiration over documentation.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Traveler Landmarks</h4>
+            <p>Three-tier discovery system: community favorites, editorial picks, and expert-verified premium routes from professional outdoor specialists.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Traveler Backpacker</h4>
+            <p>Smart packing assistant. Choose your activity—camping, sailing, hiking—receive optimized gear lists. Customize, save, reuse.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Traveler MyMap</h4>
+            <p>Personal exploration archive. Pin discoveries, annotate hidden gems, build your private atlas. Your outdoor memory bank.</p>
+        </div>
+        
+        <div class="feature">
+            <h4>Traveler Store</h4>
+            <p>Curated premium gear—thermoses, buffs, camp flags. Limited quantities, high quality. Products that match our aesthetic philosophy.</p>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 50px; font-size: 28px;">Plus: Expert Guides</h3>
+    <p style="margin-top: 15px;">Camp cooking recipes, wilderness first aid, wildlife safety protocols—6-7 comprehensive guides integrated with premium routes.</p>
+    
+    <div class="slide-footer">04</div>
+</div>
+
+<!-- Slide 5: Market Opportunity -->
+<div class="slide">
+    <h2>Market Opportunity</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="number">$10.40B</div>
+            <div class="label">Turkey's travel & tourism market in 2024</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">$14.08B</div>
+            <div class="label">Projected Turkey travel & tourism market value by 2030</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">$3.55T</div>
+            <div class="label">Global travel apps market forecast for 2034</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Rising</div>
+            <div class="label">Subscription models increasingly successful in travel applications</div>
+        </div>
+    </div>
+    
+    <p style="margin-top: 40px; font-style: italic; opacity: 0.7;">Sources: IMARC Group, TechSci Research, Market.us</p>
+    <div class="slide-footer">05</div>
+</div>
+
+<!-- Slide 6: Business Model -->
+<div class="slide">
+    <h2>Revenue Streams</h2>
+    
+    <table class="revenue-table">
+        <tr>
+            <th>Stream</th>
+            <th>Model</th>
+        </tr>
+        <tr>
+            <td><strong>Premium Subscriptions</strong></td>
+            <td>₺329/month or ₺799/year — Ad-free experience, exclusive routes, enhanced features</td>
+        </tr>
+        <tr>
+            <td><strong>Premium Content</strong></td>
+            <td>Expert-verified routes and guides from professional outdoor specialists</td>
+        </tr>
+        <tr>
+            <td><strong>Traveler Store Merch</strong></td>
+            <td>High-margin outdoor products (80% margin target) — Limited, curated selection</td>
+        </tr>
+        <tr>
+            <td><strong>Partnerships</strong></td>
+            <td>Sponsored content with outdoor equipment brands and tourism destinations</td>
+        </tr>
+    </table>
+    <div class="slide-footer">06</div>
+</div>
+
+<!-- Slide 7: Growth Strategy -->
+<div class="slide">
+    <h2>Growth Strategy</h2>
+    
+    <h3>Phase 1: Community Building</h3>
+    <ul>
+        <li>Micro-influencer partnerships with outdoor enthusiasts</li>
+        <li>Seasonal campaigns targeting peak travel periods</li>
+        <li>User-generated content incentivization</li>
+    </ul>
+    
+    <h3>Phase 2: Scale & Retention</h3>
+    <ul>
+        <li>SEO-optimized editorial content for organic discovery</li>
+        <li>Local partnerships with outdoor equipment retailers</li>
+        <li>Community engagement programs and challenges</li>
+    </ul>
+    
+    <h3>Phase 3: Expansion</h3>
+    <ul>
+        <li>Geographic expansion beyond Turkey</li>
+        <li>B2B offerings for tourism boards and destinations</li>
+        <li>API platform for outdoor industry integration</li>
+    </ul>
+    <div class="slide-footer">07</div>
+</div>
+
+<!-- Slide 8: Competitive Advantage -->
+<div class="slide">
+    <h2>Why We Win</h2>
+    
+    <p style="font-size: 24px; margin-bottom: 50px;">Our differentiation is built on four pillars:</p>
+    
+    <ul style="font-size: 22px;">
+        <li><strong>Agentic AI Technology</strong> — Multi-agent architecture that understands context, learns preferences, and anticipates needs. Not just search—intelligent outdoor companionship</li>
+        <li><strong>Visual-First Experience</strong> — Instagram-quality templates and aesthetic focus appeals to modern travelers seeking inspiration, not just information</li>
+        <li><strong>Expert-Curated Content</strong> — Premium routes from real outdoor professionals create trust, authenticity, and unique value impossible to replicate</li>
+        <li><strong>Integrated Ecosystem</strong> — Six interconnected modules (Explorer, Journeys, Landmarks, Backpacker, MyMap, Store) plus guides—everything in one platform</li>
+    </ul>
+    
+    <div class="highlight" style="margin-top: 50px;">
+        <p style="font-size: 19px; margin: 0;"><strong>Technical Moat:</strong> Our agentic AI learns continuously from user interactions, weather patterns, seasonal trends, and community feedback—creating a self-improving recommendation engine competitors cannot easily replicate.</p>
+    </div>
+    <div class="slide-footer">08</div>
+</div>
+
+<!-- Slide 9: Milestones -->
+<div class="slide">
+    <h2>24-Month Targets</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="number">20,000+</div>
+            <div class="label">Premium subscribers in Turkey</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">50+</div>
+            <div class="label">Expert-verified premium routes</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">₺2.5M+</div>
+            <div class="label">Monthly recurring revenue</div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="number">Launch</div>
+            <div class="label">TravelerUS, TravelerEU</div>
+        </div>
+    </div>
+    <div class="slide-footer">09</div>
+</div>
+
+<!-- Slide 10: Closing -->
+<div class="slide cover">
+    <h1 style="font-size: 80px; margin-bottom: 40px;">LET'S BUILD<br>THE FUTURE OF<br>OUTDOOR DISCOVERY</h1>
+    <p class="subtitle" style="font-size: 18px; margin-top: 60px;">TRAVELER TR</p>
+</div>
+
+</body>
+</html>
