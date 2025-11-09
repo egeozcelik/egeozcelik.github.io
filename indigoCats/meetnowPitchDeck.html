@@ -259,6 +259,165 @@
             font-size: 18px;
         }
 
+        /* 📱 Responsive Design for Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .slide {
+        padding: 60px 25px;
+        min-height: auto;
+    }
+
+    /* ✅ Cover */
+    .cover h1 {
+        font-size: 48px !important;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+    }
+
+    .cover .subtitle {
+        font-size: 16px !important;
+        letter-spacing: 2px;
+    }
+
+    /* ✅ Headings */
+    .slide h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .slide h3 {
+        font-size: 22px;
+        margin-top: 25px;
+    }
+
+    .slide p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .slide ul li {
+        font-size: 16px;
+        line-height: 1.6;
+        padding-left: 22px;
+    }
+
+    /* ✅ Grids stack vertically */
+    .stats-grid,
+    .features-grid,
+    .three-col-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* ✅ Stat boxes / features */
+    .stat-box,
+    .feature,
+    .col-box {
+        padding: 25px;
+    }
+
+    .stat-box .number {
+        font-size: 36px;
+    }
+
+    /* ✅ Tables */
+    .revenue-table,
+    .revenue-table thead,
+    .revenue-table tbody,
+    .revenue-table th,
+    .revenue-table td,
+    .revenue-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .revenue-table tr {
+        margin-bottom: 15px;
+    }
+
+    .revenue-table th {
+        font-size: 16px;
+    }
+
+    .revenue-table td {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+
+    /* ✅ Highlight boxes */
+    .highlight {
+        padding: 25px;
+    }
+
+    .highlight h3 {
+        font-size: 22px;
+    }
+
+    /* ✅ Showcase image */
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* ✅ Footer */
+    .slide-footer {
+        position: static;
+        text-align: right;
+        font-size: 12px;
+        margin-top: 40px;
+    }
+}
+
+/* 📱 Even smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+
+    .slide {
+        padding: 40px 20px;
+    }
+
+    .cover h1 {
+        font-size: 38px !important;
+    }
+
+    .cover .subtitle {
+        font-size: 14px !important;
+        letter-spacing: 1.5px;
+    }
+
+    .slide h2 {
+        font-size: 26px;
+    }
+
+    .slide h3 {
+        font-size: 20px;
+    }
+
+    .slide p,
+    .slide ul li {
+        font-size: 15px;
+    }
+
+    .highlight {
+        padding: 20px;
+    }
+
+    .stat-box .number {
+        font-size: 28px;
+    }
+
+    .feature h4 {
+        font-size: 18px;
+    }
+
+    .slide-footer {
+        font-size: 11px;
+        margin-top: 25px;
+    }
+}
+
+
         /* Print Styles */
         @media print {
             body {
