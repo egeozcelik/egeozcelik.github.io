@@ -186,20 +186,20 @@ section {
     display: flex;
     gap: 40px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: -50px;
 }
 
-.hero-links a {
-    font-family: "Quicksand", sans-serif;
+.hero-links p {
+    font-family: 'Courier New', Courier, monospace;
     color: white;
     text-decoration: none;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 100;
     transition: all 0.3s ease;
 }
 
-.hero-links a:hover {
-    transform: scale(1.2);
+.hero-links p:hover {
+    transform: scale(1.05);
 }
 
 /* Mobil responsive */
@@ -220,7 +220,7 @@ section {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 22vw;
+        font-size: 18vw;
     }
     
     .hero-links {
@@ -306,6 +306,7 @@ section {
     .scroll-button {
         bottom: 20px;
         right: 20px;
+        display: none;
     }
     
     .scroll-button span {
@@ -593,17 +594,13 @@ footer p {
         <div class="hero-content">
             <h1 class="hero-title">IndigoCats</h1>
             <div class="hero-links">
-                <a href="/lumosAI/homepage.html">AI</a>
-                <a href="/indigoCats/indigocats-apps.html">App</a>
-                <a href="/indigoCats/indigocats-games.html">Game</a>
+                <p>Creative Software arts.</p>
+
             </div>
         </div>
     </section>
     <a href="#about" class="scroll-button">
     <span>Read the Story</span>
-    <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
 </a>
     <section id="about">
         <div class="text-content">
