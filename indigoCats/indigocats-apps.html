@@ -1,3 +1,4 @@
+<!-- indigoCats/indigocats-apps -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -7,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
     <style>
@@ -55,46 +56,74 @@
             border-bottom: 1px solid rgba(168, 147, 16, 0.1);
         }
 
-        header h1 {
-            font-size: 2rem;
-            color: white;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
+        /* Lumos Navbar Override */
+.navbar {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    border-bottom: none;
+    font-family: 'Playfair Display', serif;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-        }
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+}
 
-        nav ul li a {
-            color: var(--c4);
-            text-decoration: none;
-            font-weight: 300;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+    .navbar .logo {
+        font-weight: normal;
+        font-size: 1.7rem;
+        font-family: 'Playfair Display', serif;
+        color: black;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
 
-        nav ul li a:hover {
-            color: #ffffff;
-        }
+    .navbar .logo:hover {
+        color: #ffffff;
+    }
 
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--c4);
-            transition: width 0.3s ease;
-        }
+    .navbar h1 {
+        display: none; /* Eski h1'i gizle */
+    }
 
-        nav ul li a:hover::after {
-            width: 100%;
-        }
+    .nav-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu ul li {
+        display: inline;
+        margin: 0;
+    }
+
+    .nav-menu ul li a {
+        text-decoration: none;
+        color: #111;
+        font-weight: 400;
+        font-size: 1.5rem;
+        transition: 0.3s;
+    }
+
+    .nav-menu ul li a:hover {
+        color: #ffffff;
+    }
 
         /* Hero Section */
         .hero {
@@ -393,15 +422,17 @@
 
 </head>
 <body>
-    <header>
-        <h1>Apps</h1>
-        <nav>
-            <ul>
-                <li><a href="/indigoCats/homepage.html">Home</a></li>
-                <li><a href="/indigoCats/indigocats-games.html">Games</a></li>
-                <li><a href="/lumosAI/homepage.html">LumosAI</a></li>
-            </ul>
-        </nav>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='/indigoCats/homepage.html'">IndigoCats</div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/lumosAI/homepage.html">AI</a></li>
+                    <li><a href="/indigoCats/indigocats-apps.html">Apps</a></li>
+                    <li><a href="/indigoCats/indigocats-games.html">Games</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div class="hero">

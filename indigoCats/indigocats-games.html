@@ -1,3 +1,4 @@
+<!-- indigoCats/indigocats-games -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IndigoCats Games</title>
   <link rel="icon" type="image/png" href="/assets/indigocats-logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
   <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+/* Lumos Navbar */
+.navbar {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    font-family: 'Playfair Display', serif;
+}
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.navbar .logo {
+    font-weight: normal;
+    font-size: 1.7rem;
+    
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+    color: #ffffff;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    display: inline;
+    margin: 0;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 100;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #ffffff;
+}
   :root {
     --primary-dark: #0f0f14;
     --secondary-dark: #1a1a23;
@@ -292,12 +356,25 @@
 </head>
 <body>
 
-<header class="hero">
-    <div class="overlay">
-      <h1>FUN. DELIVERED.</h1>
-      <p>Discover our games & experience crafted moments.</p>
-    </div>
-</header>
+  <header class="navbar">
+      <div class="nav-container">
+          <div class="logo" onclick="window.location.href='/indigoCats/homepage.html'">IndigoCats</div>
+          <nav class="nav-menu">
+              <ul>
+                  <li><a href="/lumosAI/homepage.html">AI</a></li>
+                  <li><a href="/indigoCats/indigocats-apps.html">Apps</a></li>
+                  <li><a href="/indigoCats/indigocats-games.html">Games</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+  <header class="hero">
+      <div class="overlay">
+          <h1>FUN. DELIVERED.</h1>
+          <p>Discover our games & experience crafted moments.</p>
+      </div>
+  </header>
 
   <section class="featured">
     <h2>Featured Games</h2>

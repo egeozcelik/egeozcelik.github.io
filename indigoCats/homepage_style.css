@@ -36,29 +36,74 @@ header {
     align-items: center;
 }
 
-header h1 {
-    font-size: 2rem;
-    color: white;
-    font-weight: 100;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Navbar Stilleri - Lumos tarzında */
+.navbar {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
     display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    font-family: 'Playfair Display', serif;
 }
 
-nav ul li {
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.navbar .logo {
+    font-weight: normal;
+    font-size: 1.7rem;
+    font-family: 'Playfair Display', serif;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+    color: #ffffff;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0;
 }
 
-nav ul li a {
-    color: var(--c4);
+.nav-menu ul li a {
     text-decoration: none;
-    font-weight: 100;
-    font-size: 1.3rem;
-    white-space: nowrap;
+    color: #111;
+    font-weight: 400;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-menu ul li a:hover {
+    color: #ffffff;
+}
+
+/* Eski header stillerini kaldır veya override et */
+header:not(.navbar) {
+    display: none;
 }
 
 

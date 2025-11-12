@@ -1,5 +1,5 @@
 /* ===========================
-   GENEL YAPILANDIRMA
+   lumosAI, homepage stylesheet
    =========================== */
 
 * {
@@ -27,9 +27,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===========================
-   SAYFA GEÃ‡Ä°Å ANÄ°MASYONLARI
-   =========================== */
 
 .page-content {
   display: none;
@@ -72,6 +69,72 @@ body {
 /* ===========================
    NAVBAR
    =========================== */
+/* ===========================
+   LOADING SCREEN
+   =========================== */
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.loading-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ffffff;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 
 .navbar {
   position: fixed;
@@ -88,7 +151,34 @@ body {
   z-index: 100;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
 }
+/* Logo Group */
+.logo-group {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  z-index: 10;
+}
 
+.logo-divider {
+  font-weight: 200;
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: black;
+}
+
+.logo {
+  font-weight: 100;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+.logo-group .logo:first-child {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
 .nav-container {
   display: flex;
   align-items: center;
@@ -98,15 +188,7 @@ body {
   position: relative;
 }
 
-.logo {
-  font-weight: normal;
-  font-size: 1.5rem;
-  font-family: 'Playfair Display', serif;
-  color: black;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 10;
-}
+
 
 .logo:hover {
   color: #ffffff;
@@ -117,15 +199,15 @@ body {
 .nav-menu ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .nav-container a,
 .nav-container p {
   text-decoration: none;
   color: #111;
-  font-weight: 300;
-  font-size: 1.2rem;
+  font-weight: 400;
+  font-size: 1.5rem;
   transition: 0.3s;
 }
 

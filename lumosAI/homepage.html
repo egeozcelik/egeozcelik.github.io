@@ -1,3 +1,5 @@
+<!-- lumosAI/homepage -->
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -17,22 +19,34 @@
 
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="logo" onclick="showHome()">Lumos AI</div>
-      <nav class="nav-menu">
-        <ul>
-          <li><p>Generate</p></li>
-          <li><a href="#" onclick="showImagePage(event)">Image</a></li>
-          <li><a href="#video">Video</a></li>
-          <li><a href="#sound">Sound and Music</a></li>
-        </ul>
-      </nav>
-      <div class="navbar-title">
-        <h2>Generate any Image as you can Imagine</h2>
+  <!-- loading -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-logo">Lumos AI</div>
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading...</p>
       </div>
     </div>
+  <!-- Navbar -->
+  <header class="navbar">
+      <div class="nav-container">
+    <div class="logo-group">
+      <div class="logo" onclick="showHome()">Lumos AI</div>
+      <div class="logo-divider">|</div>
+      <div class="logo" onclick="window.location.href='/indigoCats/homepage.html'">IndigoCats</div>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><p>Generate</p></li>
+        <li><a href="#" onclick="showImagePage(event)">Image</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#sound">Sound and Music</a></li>
+      </ul>
+    </nav>
+    <div class="navbar-title">
+      <h2>Generate any Image as you can Imagine</h2>
+    </div>
+  </div>
   </header>
 
   <!-- Ana Sayfa -->

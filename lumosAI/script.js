@@ -1,7 +1,33 @@
 // ===========================
-// SAYFA GEÃ‡Ä°ÅLERÄ°
+// LOADING SCREEN - VIDEO YÜKLEME
 // ===========================
 
+window.addEventListener('DOMContentLoaded', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  const heroVideo = document.querySelector('.hero-video');
+  
+  if (heroVideo && loadingScreen) {
+    // Video yüklendiğinde
+    heroVideo.addEventListener('loadeddata', () => {
+      // Video tamamen yüklenip oynatılabilir durumda
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+      }, 500); // Küçük bir gecikme ile daha yumuşak geçiş
+    });
+
+    // Eğer video zaten yüklenmişse (cache'den geliyorsa)
+    if (heroVideo.readyState >= 3) {
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+      }, 500);
+    }
+
+    // Güvenlik için: 5 saniye sonra yine de loading'i kapat
+    setTimeout(() => {
+      loadingScreen.classList.add('hidden');
+    }, 5000);
+  }
+});
 function showImagePage(event) {
   event.preventDefault();
 
