@@ -1,0 +1,517 @@
+<!-- indigoCats/homepage -->
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigo Cats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <style>
+        :root{
+    --c1: #021526;
+    --c2: #03346E;
+    --c3: #6EACDA;
+    --c4: #a89310;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000000;
+    color: var(--c2);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar Stilleri - Lumos tarzında */
+.navbar {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.navbar .logo {
+    font-weight: normal;
+    font-size: 1.7rem;
+    font-family: 'Playfair Display', serif;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+    color: #ffffff;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    display: inline;
+    margin: 0;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 400;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-menu ul li a:hover {
+    color: #ffffff;
+}
+
+/* Eski header stillerini kaldır veya override et */
+header:not(.navbar) {
+    display: none;
+}
+
+
+.section-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px; 
+    background-color: #000; 
+    color: #ffffff; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    font-size: 1.5rem;
+    z-index: 1001;
+    transition: opacity 0.3s;
+    opacity: 0;
+    padding-left: 70px; 
+}
+
+section {
+    padding: 80px 20px;
+}
+
+#about {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about .text-content {
+    width: 50%; 
+}
+
+#about h2 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-weight: 400;
+}
+
+#about p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    text-align: left;
+    font-size: 21px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+#about .image-content {
+    width: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about .image-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+#about2{
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about2 .text-content {
+    width: 50%; 
+}
+
+
+#about2 p {
+    text-align: left;
+    font-size: 21px;
+    margin-top: 20px;
+    line-height: 1.6;
+    font-weight: 100;
+}
+
+#about2 .image-content {
+    width: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about2 .image-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+#projects {
+    height: 2000px;
+    background: rgb(10,38,71);
+    background: linear-gradient(0deg, rgba(10,38,71,1) 40%, rgba(0,0,0,1) 100%);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+#projects h2 {
+    font-size: 50px;
+    line-height: 3;
+    font-weight: 500;
+    font-family: 'Homemade Apple', cursive;
+    color: #2C74B3;
+    margin: 0;
+}
+
+#contact{
+    color: #000000;
+}
+
+footer {
+    /* background-color: #ffffff; */
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    /* margin-top: 10px; */
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+
+
+
+/* Mobil responsive tasarım */
+@media (max-width: 768px) {
+    /* Mobilde cursor'u kapat */
+    * {
+        cursor: auto !important;
+    }
+    
+    .cursor {
+        display: none !important;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 15px;
+        cursor: auto;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    /* Mobil navbar - scrollbar gizlendi */
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox için */
+        -ms-overflow-style: none; /* Internet Explorer ve Edge için */
+    }
+
+    /* Webkit tabanlı tarayıcılar için scrollbar gizleme */
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        min-width: 100%;
+        padding: 0 10px;
+        gap: 0;
+    }
+
+    nav ul li {
+        flex-shrink: 0;
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 8px 12px;
+        display: block;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+ 
+    .section-indicator {
+        padding-left: 20px;
+        font-size: 1.2rem;
+    }
+
+    #about, #about2 {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    /* About section - mobilde resim altta */
+    #about .text-content, #about .image-content {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    /* About2 section - mobilde yazı üstte, resim altta */
+    #about2 {
+        flex-direction: column-reverse;
+    }
+
+    #about2 .text-content, #about2 .image-content {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #about p, #about2 p {
+        font-size: 16px;
+    }
+
+    #projects h2 {
+        font-size: 30px;
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    nav ul li {
+        margin: 0 8px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    #about p, #about2 p {
+        font-size: 14px;
+    }
+
+    #projects h2 {
+        font-size: 24px;
+    }
+}
+
+/* ===========================
+   NAVBAR RESPONSIVE
+   =========================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    width: 70%;
+    padding: 15px;
+  }
+  
+  .navbar .logo {
+    font-size: 1.3rem;
+  }
+  
+  .nav-menu ul {
+    gap: 15px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 90%;
+    top: 20px;
+    padding: 12px 15px;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu ul {
+    gap: 12px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 95%;
+    top: 10px;
+    padding: 10px;
+  }
+  
+  .navbar .logo {
+    font-size: 1rem;
+  }
+  
+  .nav-menu ul {
+    gap: 10px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 0.9rem;
+  }
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='/indigoCats/indigocats-home.html'">IndigoCats</div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/lumosAI/homepage.html">AI</a></li>
+                    <li><a href="/indigoCats/indigocats-apps.html">Apps</a></li>
+                    <li><a href="/indigoCats/indigocats-games.html">Games</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+   
+    <section id="about">
+        <div class="text-content">
+            
+            <p> The Story of the Indigo Cats <br>
+
+                In a world unseen by ordinary eyes, hidden in the depths of ancient forests and shadowy corners of bustling cities, lived the Indigo Cats. These cats were unlike any others—born with eyes that glowed a deep, mesmerizing blue and hearts that pulsed with a rare, otherworldly energy. They were the guardians of a forgotten wisdom, a link between the natural and the mystical realms.
+                
+                The Indigo Cats were not born of the ordinary cycle of life. Instead, they emerged from the stars, sent to Earth with a mission to awaken and guide those who had lost their way. Their arrival was foretold in legends, whispers of mystical felines who could communicate not with words, but with the powerful energy that flowed through their very beings.
+                
+                These cats were drawn to those who needed them most—humans who had lost touch with their inner magic, their dreams, and the purpose that once gave their lives meaning. They would appear in times of darkness, their glowing eyes piercing through the veil of despair, offering a silent but profound message of hope.
+                
+                Each Indigo Cat carried within it the ability to unlock hidden potentials, to see beyond the surface, and to connect with the unseen forces of the universe. Their presence was a reminder that there was more to life than what met the eye, that the answers to the greatest mysteries lay not in the external world, but deep within.
+                
+                As they roamed the Earth, these mysterious felines left subtle marks of their existence—through a sudden shift in the wind, a ripple in the air, or a fleeting glimpse of blue eyes in the darkness. Those fortunate enough to encounter an Indigo Cat were forever changed. They would find themselves more attuned to their inner selves, more connected to the world around them, and filled with a sense of purpose that they had long forgotten.
+                
+                The Indigo Cats did not belong to anyone. They were free spirits, bound only by their mission to awaken the sleeping souls of the Earth. Wherever they went, they carried the message that every being holds a unique, powerful light inside them—a light that, once unlocked, could transform the world.
+                
+                And so, the Indigo Cats continue their quiet journey, their blue eyes ever watchful, guiding, and protecting those who are ready to rediscover their true selves. For in their mystical gaze lies the promise of a world transformed by wisdom, love, and a deep connection to the magic of the universe.</p>
+        </div>
+        <div class="image-content">
+            <img src="/assets/cat2.png" alt="Cat Image">
+        </div>
+    </section>
+
+
+<section id="about2">
+        <div class="image-content">
+            <img src="/assets/leaf1.png" alt="Its a beautiful leaf">
+        </div>
+        <div class="text-content">
+            <p>
+                The quiet journey of the Indigo Cats continued for centuries. With each passing day and night, more people found their inner enlightenment through their guidance. But over time, the world began to change. As humanity grew, so did the darkness. Greed, hatred, and despair took root so deeply that wounds opened that could no longer be healed with a single touch.
+            The Indigo Cats gathered together. Under an ancient willow tree, on a night when the moonlight was at its brightest, they assembled. Their blue eyes looked up to the stars and understood the truth the universe whispered to them: one final sacrifice was needed to save the Earth.
+            On the autumn equinox, during that delicate period when leaves began turning from green to yellow, the Indigo Cats performed their final ritual. Each scattered to the four corners of the world, and then, all at once, they released all the energy within them, all that stardust, all that mystical power. A blue light enveloped the Earth, seeping into human souls—soothing their pain, melting their hatred, reigniting forgotten love. Millions of hearts lightened at once.
+            But this miracle required a price. As each Indigo Cat gave its final energy, it lost its physical form. Their bodies slowly shimmered and turned to golden dust, mixing with the wind. That dust left its mark on every leaf it touched.
+            This is why, every autumn, leaves lose their greenness and turn to golden yellow and orange-red. This is a reminder of the Indigo Cats' sacrifice. Each yellowing leaf carries their last breath. The Indigo Cats vanished physically, but they never truly left. Sometimes, especially on autumn nights, some people still see blue eyes glowing in the darkness.
+            And when autumn comes each year, the leaves turn yellow again. This is the world's time to remember. To never forget: once, there were creatures who loved the world so much that they sacrificed themselves to save it. The legacy of the Indigo Cats lives on—in every yellow leaf, in every gentle touch, in every sudden feeling of hope. They are gone, but the light they gave never faded.
+            
+            
+            </p>
+        </div>
+    
+    </section> 
+
+    <!-- <section id="projects">
+        <h2>You can explore our projects soon here!</h2>
+    </section> --> 
+    <section id="contact">
+        <h2>İletişim</h2>
+        <p>Yazın, çizin: <a href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a></p>
+        <p>İzmir, Türkiye</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Indigo 🐈‍⬛ Cats. Tüm hakları saklıdır.</p>
+        
+    </footer>
+
+</body>
+</html>
