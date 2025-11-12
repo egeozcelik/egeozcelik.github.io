@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINGO — 1 | Oyun Senaryo Taslağı</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      margin: 0;
+      padding: 60px 12%;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+    h1 {
+      font-size: 2em;
+      letter-spacing: 0.5px;
+    }
+    h2 {
+      font-size: 1.4em;
+      margin-top: 1.8em;
+    }
+    h3 {
+      font-size: 1.1em;
+      margin-top: 1.5em;
+      font-weight: 500;
+    }
+    p, li {
+      font-weight: 300;
+      font-size: 0.95em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    strong {
+      font-weight: 600;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 3em 0;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .title h1 {
+      font-weight: 700;
+      font-size: 2.4em;
+      margin-bottom: 0.2em;
+    }
+    .title p {
+      font-weight: 300;
+      color: #444;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <section class="title">
+    <h1>MINGO — V1</h1>
+    <p>Game: Narrative Design of 5 Episode Scenario</p>
+  </section>
+
+  <section>
+    <h2>Kısa Pitch</h2>
+    <p>Sevimli ama kırılgan kahramanımız <strong>Mingo</strong>, Chirpleaf Kasabası’nda arkadaşlarının kaybolduğunu fark eder ve onların izini sürerken, Alucard ve Yaşam Cevheri etrafında dönen bir çatışmanın içine çekilir. Hiç bilmediği dünyada kötülükler ve canavarlarla karşılaşır, masumiyeti sınanır. Beş bölümün sonunda Mingo değişir, Cevher parçalanır, ölüm ortadan kalkar ve ikinci oyunun roguelike döngülerinin kapısı açılır.</p>
+    <hr>
+
+    <h2>Ton & İlham</h2>
+    <ul>
+      <li><strong>Oyun türü:</strong> 2D platformer (Ori / Inside duygusu; masalsı başlangıç → kararan dünya)</li>
+      <li><strong>Anlatı tarzı:</strong> Diyalog minimal, çevresel hikâye anlatımı güçlü. Kısa ara sahneler + görsel ipuçları + eşya açıklamaları.</li>
+      <li><strong>Duygusal seyir:</strong> Masumiyet → Şüphe → Yıkım → Öfke → Kaos</li>
+    </ul>
+    <hr>
+
+    <h2>Çekirdek Mekanik — Echo Anchor (Zaman Çapası)</h2>
+    <p><strong>Çalışma prensibi:</strong> Oyuncu istediği yüzeye bir <em>Echo Anchor</em> bırakır ve istediği anda o noktaya geri çağrılır. Bazı eylemler gecikmeli hayalet iz bırakır (ör. butona basılı tutup recall yaptığında, hayalet iz birkaç saniye daha etkin kalır). Bu sayede tek kişilik co-op bulmacalar ortaya çıkar.</p>
+    <p><strong>Savaşta kullanım:</strong> Boss saldırılarını baitlemek, arkasına dolanmak, düşen platformlardan geri sıçramak.</p>
+    <p><strong>Sınırlamalar:</strong> 1 aktif çapa; 6–8 sn cooldown; anti-ankor alanları; su altında menzili kısalır; karanlıkta hayalet izi kısa sürer.</p>
+    <hr>
+
+    <h2>Güç İlerlemesi (Eşyalara Bağlı)</h2>
+    <ul>
+      <li><strong>Kanat Kırpıntısı:</strong> Kısa süzülme; rüzgâr sütunlarıyla sinerji.</li>
+      <li><strong>Blink Step:</strong> 4–5 karo menzilli sıçrama.</li>
+      <li><strong>Whisper Veil:</strong> 2 sn yavaşlatma kabarcığı; gizli yollar görünür olur.</li>
+      <li><strong>Ember Breath:</strong> Meşale yakma, ağ temizleme, kristal patlatma.</li>
+    </ul>
+    <hr>
+
+    <h2>Bölüm Özetleri</h2>
+    <h3>1 — Kayıp Sabah</h3>
+    <p>Başlangıç köyü ve orman. Echo Anchor eğitimi. Arkadaş #1 bulunur; Kanat Kırpıntısı kazanılır.</p>
+
+    <h3>2 — Kanyonun Nabzı</h3>
+    <p>Rüzgâr sütunlarıyla süzülme; Yankı taşları; Arkadaş #2 uyandırılır, Blink Step kazanılır.</p>
+
+    <h3>3 — Gölge Manastırı</h3>
+    <p>Karanlık koridorlarda Whisper Veil kazanılır. Velcor geçmişine dair imalar belirir.</p>
+
+    <h3>4 — Kül Denizi</h3>
+    <p>Lav obrukları ve çöken mağaralar. Ember Breath kazanılır. Dramatik kayıp sahnesi.</p>
+
+    <h3>5 — Cevher Odası</h3>
+    <p>Velcor ile yüzleşme. Cevher parçalanır; ölüm ortadan kalkar.</p>
+    <hr>
+
+    <h2>Boss Dövüşü — Velcor</h2>
+    <ul>
+      <li><strong>Faz 1:</strong> Anchor bozma dalgaları; oyuncuya strateji öğretir.</li>
+      <li><strong>Faz 2:</strong> Arkadaş #2 ölür, atmosfer sertleşir.</li>
+      <li><strong>Faz 3:</strong> Cevher çatlar, kaotik yerçekimi alanı.</li>
+    </ul>
+    <hr>
+
+    <h2>Üretim Notları</h2>
+    <p>Her bölüm 2–3 özgün set-piece içerir. Bölüme özel düşman tipleri ve dinamik müzik kullanılır. Cinematic sahneler kısa ve semboliktir. UI sade ve tematik olarak uyumludur.</p>
+    <hr>
+
+    <h2>İkinci Oyuna Köprü</h2>
+    <p>Cevherin parçalanmasıyla zaman cepleri oluşur. Her ölüm yeni bir kırıntıya düşmektir; ikinci oyun roguelike döngülerle devam eder.</p>
+    <hr>
+
+    <h2>Hızlı Özet</h2>
+    <ul>
+      <li><strong>Bölümler:</strong> 1) Kayıp Sabah 2) Kanyonun Nabzı 3) Gölge Manastırı 4) Kül Denizi 5) Cevher Odası</li>
+      <li><strong>Güçler:</strong> Süzülme → Blink → Whisper → Ember → Anchor ustalığı</li>
+      <li><strong>Final:</strong> Cevher kırılır, ölüm kalkar, roguelike döngü başlar.</li>
+    </ul>
+  </section>
+</body>
+</html>
