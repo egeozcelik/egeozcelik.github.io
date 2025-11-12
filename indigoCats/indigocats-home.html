@@ -273,44 +273,7 @@ footer p {
         margin-bottom: 15px;
     }
 
-    /* Mobil navbar - scrollbar gizlendi */
-    nav {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox için */
-        -ms-overflow-style: none; /* Internet Explorer ve Edge için */
-    }
-
-    /* Webkit tabanlı tarayıcılar için scrollbar gizleme */
-    nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        width: max-content;
-        min-width: 100%;
-        padding: 0 10px;
-        gap: 0;
-    }
-
-    nav ul li {
-        flex-shrink: 0;
-        margin: 0 10px;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 8px 12px;
-        display: block;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-        cursor: pointer;
-    }
-
+    
  
     .section-indicator {
         padding-left: 20px;
@@ -350,19 +313,6 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.3rem;
-    }
-
-    nav ul li {
-        margin: 0 8px;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
-
     #about p, #about2 p {
         font-size: 14px;
     }
@@ -371,10 +321,6 @@ footer p {
         font-size: 24px;
     }
 }
-
-/* ===========================
-   NAVBAR RESPONSIVE
-   =========================== */
 
 @media (max-width: 1024px) {
   .navbar {
@@ -429,17 +375,21 @@ footer p {
   
   .navbar .logo {
     font-size: 1rem;
+    margin-bottom: -10px;
+    font-weight: 300;
   }
   
   .nav-menu ul {
-    gap: 10px;
+    gap: 25px;
   }
   
   .nav-menu ul li a {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
-    </style>
+  
+</style>
 </head>
 <body>
     <header class="navbar">
