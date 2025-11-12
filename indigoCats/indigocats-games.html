@@ -351,25 +351,73 @@
     .game-title { font-size: 1.2rem; }
     .future-text p { font-size: 0.9rem; line-height: 1.5; }
   }
-  @media (max-width: 480px) {
-    .navbar {
-      width: 95%;
-      top: 10px;
-      padding: 10px;
-    }
-    
-    .navbar .logo {
-      font-size: 1rem;
-    }
-    
-    .nav-menu ul {
-      gap: 10px;
-    }
-    
-    .nav-menu ul li a {
-      font-size: 0.9rem;
-    }
+/* ===========================
+   NAVBAR RESPONSIVE
+   =========================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    width: 70%;
+    padding: 15px;
   }
+  
+  .navbar .logo {
+    font-size: 1.3rem;
+  }
+  
+  .nav-menu ul {
+    gap: 15px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 90%;
+    top: 20px;
+    padding: 12px 15px;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu ul {
+    gap: 12px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 95%;
+    top: 10px;
+    padding: 10px;
+  }
+  
+  .navbar .logo {
+    font-size: 1rem;
+  }
+  
+  .nav-menu ul {
+    gap: 10px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 0.9rem;
+  }
+}
   
 </style>
 
