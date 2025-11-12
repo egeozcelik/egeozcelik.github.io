@@ -336,18 +336,27 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    
     header h1 {
         font-size: 1.3rem;
     }
-
-    nav ul li {
-        margin: 0 8px;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
+.navbar {
+    width: 95%;
+    top: 10px;
+    padding: 10px;
+  }
+  
+  .navbar .logo {
+    font-size: 1rem;
+  }
+  
+  .nav-menu ul {
+    gap: 10px;
+  }
+  
+  .nav-menu ul li a {
+    font-size: 0.9rem;
+  }
 
     #about p, #about2 p {
         font-size: 14px;

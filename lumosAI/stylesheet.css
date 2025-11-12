@@ -119,8 +119,8 @@ body {
 }
 
 .loading-text {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
 }

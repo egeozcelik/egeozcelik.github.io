@@ -21,23 +21,25 @@ html, body {
 /* ORTA EKRANLAR - Tablet Portrait (768px - 1024px) */
 @media (max-width: 1024px) {
   
-  /* NAVBAR */
   .navbar {
     width: 70%;
-    top: 30px;
-    padding: 16px;
+    padding: 15px;
   }
   
-  .logo {
-    font-size: 1.1rem;
+  .logo-group .logo:first-child {
+    font-size: 1rem;
+  }
+  
+  .logo-group .logo:last-child {
+    font-size: 1.3rem;
+  }
+  
+  .logo-divider {
+    font-size: 1.3rem;
   }
   
   .nav-menu ul {
     gap: 15px;
-  }
-  
-  .nav-menu ul li:first-child {
-    display: none;
   }
   
   .nav-container a,
@@ -46,7 +48,7 @@ html, body {
   }
   
   .navbar-title h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   /* HERO SECTION */
@@ -190,33 +192,47 @@ html, body {
 /* KÜÇÜK EKRANLAR - Mobil (320px - 768px) */
 @media (max-width: 768px) {
   
-  /* NAVBAR */
   .navbar {
-    width: 85%;
+    width: 90%;
     top: 20px;
-    padding: 14px 18px;
-    border-radius: 15px;
+    padding: 12px 15px;
   }
   
-  .logo {
-    font-size: 1rem;
+  .nav-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo-group {
+    gap: 10px;
+  }
+  
+  .logo-group .logo:first-child {
+    font-size: 0.9rem;
+  }
+  
+  .logo-group .logo:last-child {
+    font-size: 1.1rem;
+  }
+  
+  .logo-divider {
+    font-size: 1.1rem;
   }
   
   .nav-menu ul {
-    gap: 12px;
-  }
-  
-  .nav-menu ul li:first-child {
-    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
   
   .nav-container a,
   .nav-container p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   
   .navbar-title h2 {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-align: center;
   }
   
   /* HERO SECTION */
@@ -371,33 +387,37 @@ html, body {
 
 /* ÇOK KÜÇÜK EKRANLAR - Küçük Mobil (max 480px) */
 @media (max-width: 480px) {
-  
-  /* NAVBAR */
+
   .navbar {
-    width: 88%;
-    top: 15px;
-    padding: 12px 16px;
+    width: 95%;
+    top: 10px;
+    padding: 10px;
   }
   
-  .logo {
-    font-size: 0.9rem;
+  .logo-group .logo:first-child {
+    font-size: 0.8rem;
+  }
+  
+  .logo-group .logo:last-child {
+    font-size: 1rem;
+  }
+  
+  .logo-divider {
+    font-size: 1rem;
+    margin: 0 -3px;
   }
   
   .nav-menu ul {
-    gap: 20px;
-  }
-  
-  .nav-menu ul li:first-child {
-    display: none;
+    gap: 8px;
   }
   
   .nav-container a,
   .nav-container p {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
   
   .navbar-title h2 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
   
   /* HERO SECTION */
