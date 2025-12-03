@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gravity: Vacuum vs Atmosphere</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; overflow: hidden; background-color: #020202; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        canvas { display: block; outline: none; }
+        
+        #stats-panel {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 24px 20px;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .panel-title {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .object-section { margin-bottom: 20px; }
+        .object-section:last-child { margin-bottom: 0; }
+
+        .object-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .object-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .object-dot.heavy { background: linear-gradient(135deg, #666 0%, #333 100%); color: #555; }
+        .object-dot.light { background: linear-gradient(135deg, #fff 0%, #ccc 100%); color: #ddd; }
+
+        .object-name {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .stat-row:last-child { border-bottom: none; }
+
+        .stat-label {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            font-variant-numeric: tabular-nums;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .stat-unit {
+            font-size: 9px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            margin-left: 3px;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            margin: 16px 0;
+        }
+
+        .formula-box {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 16px;
+        }
+
+        .formula-title {
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 8px;
+        }
+
+        .formula-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+
+        #ui-layer {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+            user-select: none;
+        }
+
+        h1 {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            font-size: 1rem;
+            letter-spacing: 0.3rem;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        #status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            transition: color 0.5s ease;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        button {
+            pointer-events: auto;
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 10px 24px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(4px);
+            text-transform: uppercase;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.05);
+            transform: translateY(-1px);
+        }
+
+        button:active { transform: translateY(1px); }
+        button.active { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.6); }
+        button.vacuum.active { border-color: #44aaff; box-shadow: 0 0 15px rgba(68,170,255,0.3); }
+        button.atmosphere.active { border-color: #66bbff; box-shadow: 0 0 15px rgba(102,187,255,0.3); }
+
+        #drop-btn { padding: 12px 36px; font-size: 11px; border-radius: 10px; }
+        
+        #instruction {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+
+        #labels {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        .label {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .label.heavy { color: rgba(150,150,150,0.7); }
+        .label.light { color: rgba(220,220,220,0.7); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .simulating .stat-value { animation: pulse 0.8s ease-in-out infinite; }
+
+        /* Cinematic Camera Container */
+        #camera-container {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 560px;
+            height: 420px;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+        }
+
+        #camera-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .camera-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(30,40,50,0.9), rgba(10,15,20,0.95));
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(255,255,255,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                0 0 80px rgba(68,170,255,0.1);
+        }
+
+        .camera-glass {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+            pointer-events: none;
+            z-index: 10;
+            border-radius: 16px;
+        }
+
+        .camera-inner {
+            position: absolute;
+            inset: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #hand-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1);
+        }
+
+        #hand-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .camera-scanline {
+            position: absolute;
+            inset: 8px;
+            border-radius: 10px;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .camera-vignette {
+            position: absolute;
+            inset: 8px;
+            border-radius: 10px;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .camera-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 14px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+            z-index: 20;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .camera-title {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .camera-rec {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rec-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ff4444;
+            animation: recBlink 1s ease-in-out infinite;
+        }
+
+        @keyframes recBlink {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px #ff4444; }
+            50% { opacity: 0.4; box-shadow: none; }
+        }
+
+        .rec-text {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ff4444;
+        }
+
+        .camera-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 14px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            z-index: 20;
+            border-radius: 0 0 16px 16px;
+        }
+
+        #hand-status {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        #hand-status.armed { color: #ffaa44; }
+        #hand-status.drop { color: #ff6644; }
+        #hand-status.ready { color: #44ff88; }
+
+        .corner-bracket {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(68,170,255,0.4);
+            z-index: 15;
+        }
+        .corner-bracket.tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .corner-bracket.tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .corner-bracket.bl { bottom: 56px; left: 20px; border-right: none; border-top: none; }
+        .corner-bracket.br { bottom: 56px; right: 20px; border-left: none; border-top: none; }
+    </style>
+</head>
+<body>
+
+<div id="stats-panel">
+    <div class="panel-title">Live Statistics</div>
+    <div class="object-section" id="heavy-stats">
+        <div class="object-header">
+            <div class="object-dot heavy"></div>
+            <span class="object-name">Heavy Object</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Mass</span>
+            <span class="stat-value">10<span class="stat-unit">kg</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Velocity</span>
+            <span class="stat-value" id="heavy-vel">0.0<span class="stat-unit">m/s</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Height</span>
+            <span class="stat-value" id="heavy-height">20.0<span class="stat-unit">m</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Net Force</span>
+            <span class="stat-value" id="heavy-force">0.0<span class="stat-unit">N</span></span>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="object-section" id="light-stats">
+        <div class="object-header">
+            <div class="object-dot light"></div>
+            <span class="object-name">Light Object</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Mass</span>
+            <span class="stat-value">1<span class="stat-unit">kg</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Velocity</span>
+            <span class="stat-value" id="light-vel">0.0<span class="stat-unit">m/s</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Height</span>
+            <span class="stat-value" id="light-height">20.0<span class="stat-unit">m</span></span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Net Force</span>
+            <span class="stat-value" id="light-force">0.0<span class="stat-unit">N</span></span>
+        </div>
+    </div>
+    <div class="formula-box">
+        <div class="formula-title">Active Formula</div>
+        <div class="formula-text" id="formula">F = m × g</div>
+    </div>
+</div>
+
+<div id="ui-layer">
+    <h1 id="title">Equivalence Principle</h1>
+    <div id="status">Vacuum Environment</div>
+    <div class="btn-group">
+        <button class="vacuum active" id="vacuum-btn">Vacuum</button>
+        <button class="atmosphere" id="atmo-btn">Atmosphere</button>
+    </div>
+    <button id="drop-btn">Initiate Drop</button>
+</div>
+
+<div id="labels">
+    <span class="label heavy">Heavy</span>
+    <span class="label light">Light</span>
+</div>
+
+<div id="instruction">DRAG TO ROTATE CAMERA</div>
+
+<!-- Cinematic Camera UI -->
+<div id="camera-container">
+    <div class="camera-frame">
+        <div class="camera-glass"></div>
+        <div class="camera-header">
+            <span class="camera-title">Hand Tracking</span>
+            <div class="camera-rec">
+                <div class="rec-dot"></div>
+                <span class="rec-text">LIVE</span>
+            </div>
+        </div>
+        <div class="camera-inner">
+            <video id="hand-video" playsinline></video>
+            <canvas id="hand-canvas"></canvas>
+        </div>
+        <div class="corner-bracket tl"></div>
+        <div class="corner-bracket tr"></div>
+        <div class="corner-bracket bl"></div>
+        <div class="corner-bracket br"></div>
+        <div class="camera-footer">
+            <div id="hand-status">✋ INITIALIZING...</div>
+        </div>
+    </div>
+</div>
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+let isVacuum = true;
+let simulating = false;
+let heavyVel = 0, lightVel = 0;
+let heavyLanded = false;
+let dustParticles = [];
+
+const statsPanel = document.getElementById('stats-panel');
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0, 5, 80);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.setClearColor(0x020202);
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.enableZoom = false;
+controls.enablePan = false;
+const initialPolar = controls.getPolarAngle();
+controls.minPolarAngle = initialPolar;
+controls.maxPolarAngle = initialPolar;
+
+const ambientLight = new THREE.AmbientLight(0x222222);
+scene.add(ambientLight);
+
+const mainLight = new THREE.DirectionalLight(0xffffff, 2.5);
+mainLight.position.set(30, 50, 20);
+mainLight.castShadow = true;
+mainLight.shadow.mapSize.width = 2048;
+mainLight.shadow.mapSize.height = 2048;
+mainLight.shadow.bias = -0.0001;
+scene.add(mainLight);
+
+const bounceLight = new THREE.DirectionalLight(0x334455, 1.0);
+bounceLight.position.set(-10, -20, 10);
+scene.add(bounceLight);
+
+const atmoLight = new THREE.DirectionalLight(0x6699cc, 0);
+atmoLight.position.set(-20, 30, 30);
+scene.add(atmoLight);
+
+const starGeo = new THREE.BufferGeometry();
+const starCount = 2000;
+const starPos = new Float32Array(starCount * 3);
+for(let i = 0; i < starCount; i++) {
+    starPos[i*3] = (Math.random()-0.5) * 400;
+    starPos[i*3+1] = (Math.random()-0.5) * 400;
+    starPos[i*3+2] = (Math.random()-0.5) * 200 - 50;
+}
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.2, sizeAttenuation: true, transparent: true });
+const starSystem = new THREE.Points(starGeo, starMat);
+scene.add(starSystem);
+
+const dustGeo = new THREE.BufferGeometry();
+const dustCount = 600;
+const dustPos = new Float32Array(dustCount * 3);
+for(let i = 0; i < dustCount; i++) {
+    dustPos[i*3] = (Math.random()-0.5) * 200;
+    dustPos[i*3+1] = (Math.random()-0.5) * 200;
+    dustPos[i*3+2] = (Math.random()-0.5) * 100 + 20;
+}
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+const dustMat = new THREE.PointsMaterial({ color: 0x8899aa, size: 0.4, transparent: true, opacity: 0.4 });
+const dustSystem = new THREE.Points(dustGeo, dustMat);
+scene.add(dustSystem);
+
+const cloudGeo = new THREE.BufferGeometry();
+const cloudCount = 400;
+const cloudPos = new Float32Array(cloudCount * 3);
+for(let i = 0; i < cloudCount; i++) {
+    cloudPos[i*3] = (Math.random()-0.5) * 180;
+    cloudPos[i*3+1] = (Math.random()-0.5) * 100 + 10;
+    cloudPos[i*3+2] = (Math.random()-0.5) * 100;
+}
+cloudGeo.setAttribute('position', new THREE.BufferAttribute(cloudPos, 3));
+const cloudMat = new THREE.PointsMaterial({ color: 0x88bbdd, size: 2.0, transparent: true, opacity: 0, sizeAttenuation: true });
+const cloudSystem = new THREE.Points(cloudGeo, cloudMat);
+scene.add(cloudSystem);
+
+const moteGeo = new THREE.BufferGeometry();
+const moteCount = 500;
+const motePos = new Float32Array(moteCount * 3);
+const moteVel = new Float32Array(moteCount * 3);
+for(let i = 0; i < moteCount; i++) {
+    motePos[i*3] = (Math.random()-0.5) * 120;
+    motePos[i*3+1] = (Math.random()-0.5) * 80;
+    motePos[i*3+2] = (Math.random()-0.5) * 80 + 20;
+    moteVel[i*3] = (Math.random()-0.5) * 0.5;
+    moteVel[i*3+1] = Math.random() * 0.3 + 0.1;
+    moteVel[i*3+2] = (Math.random()-0.5) * 0.3;
+}
+moteGeo.setAttribute('position', new THREE.BufferAttribute(motePos, 3));
+const moteMat = new THREE.PointsMaterial({ color: 0xaaddff, size: 0.25, transparent: true, opacity: 0, sizeAttenuation: true });
+const moteSystem = new THREE.Points(moteGeo, moteMat);
+scene.add(moteSystem);
+
+const hazeGeo = new THREE.BufferGeometry();
+const hazeCount = 200;
+const hazePos = new Float32Array(hazeCount * 3);
+for(let i = 0; i < hazeCount; i++) {
+    hazePos[i*3] = (Math.random()-0.5) * 200;
+    hazePos[i*3+1] = (Math.random()-0.5) * 40 - 5;
+    hazePos[i*3+2] = (Math.random()-0.5) * 100 + 30;
+}
+hazeGeo.setAttribute('position', new THREE.BufferAttribute(hazePos, 3));
+const hazeMat = new THREE.PointsMaterial({ color: 0x5588aa, size: 4.0, transparent: true, opacity: 0, sizeAttenuation: true });
+const hazeSystem = new THREE.Points(hazeGeo, hazeMat);
+scene.add(hazeSystem);
+
+const planetRadius = 280;
+const planetY = -planetRadius - 15;
+const planetGeo = new THREE.SphereGeometry(planetRadius, 128, 64);
+const planetMat = new THREE.MeshStandardMaterial({ color: 0x151618, roughness: 0.9, metalness: 0.2, flatShading: true });
+const planet = new THREE.Mesh(planetGeo, planetMat);
+planet.position.y = planetY;
+planet.receiveShadow = true;
+planet.rotation.z = Math.PI / 2;
+scene.add(planet);
+
+scene.fog = new THREE.FogExp2(0x050507, 0.008);
+
+const startHeight = 20;
+const spacing = 10;
+const objSize = 3;
+const baseGeometry = new THREE.DodecahedronGeometry(objSize, 0);
+
+const heavyMat = new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.6, metalness: 0.7, flatShading: true });
+const heavyObj = new THREE.Mesh(baseGeometry, heavyMat);
+heavyObj.position.set(-spacing, startHeight, 0);
+heavyObj.castShadow = true;
+heavyObj.receiveShadow = true;
+scene.add(heavyObj);
+
+const lightMat = new THREE.MeshStandardMaterial({ color: 0xe0e0e0, roughness: 0.3, metalness: 0.1, flatShading: false });
+const lightObj = new THREE.Mesh(baseGeometry, lightMat);
+lightObj.position.set(spacing, startHeight, 0);
+lightObj.castShadow = true;
+lightObj.receiveShadow = true;
+scene.add(lightObj);
+
+const vacuumGravity = -8;
+const atmoGravity = -50;
+const gravityAccel = 10;
+const floorY = planetY + planetRadius + (objSize * 0.9);
+
+const heavyMass = 10;
+const lightMass = 1;
+const dragCoeff = 0.25;
+
+const dustCloudGroup = new THREE.Group();
+scene.add(dustCloudGroup);
+
+function createDustCloud(x, y, z) {
+    for(let i = 0; i < 30; i++) {
+        const geo = new THREE.SphereGeometry(0.15 + Math.random() * 0.2, 6, 6);
+        const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color().setHSL(0.55, 0.2, 0.4 + Math.random() * 0.2), transparent: true, opacity: 0.7 });
+        const particle = new THREE.Mesh(geo, mat);
+        particle.position.set(x, y, z);
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 2 + Math.random() * 4;
+        particle.userData = { vx: Math.cos(angle) * speed, vy: 3 + Math.random() * 5, vz: Math.sin(angle) * speed * 0.5, life: 1.0, decay: 0.015 + Math.random() * 0.01 };
+        dustCloudGroup.add(particle);
+        dustParticles.push(particle);
+    }
+}
+
+function updateDustParticles(delta) {
+    for(let i = dustParticles.length - 1; i >= 0; i--) {
+        const p = dustParticles[i];
+        const d = p.userData;
+        p.position.x += d.vx * delta;
+        p.position.y += d.vy * delta;
+        p.position.z += d.vz * delta;
+        d.vy -= 15 * delta;
+        d.vx *= 0.98;
+        d.vz *= 0.98;
+        d.life -= d.decay;
+        p.material.opacity = d.life * 0.7;
+        p.scale.setScalar(1 + (1 - d.life) * 0.5);
+        if(d.life <= 0) {
+            dustCloudGroup.remove(p);
+            p.geometry.dispose();
+            p.material.dispose();
+            dustParticles.splice(i, 1);
+        }
+    }
+}
+
+function updateStats() {
+    const heavyH = Math.max(0, heavyObj.position.y - floorY);
+    const lightH = Math.max(0, lightObj.position.y - floorY);
+    const hVel = Math.abs(heavyVel);
+    const lVel = Math.abs(lightVel);
+    let heavyForce, lightForce;
+    if(isVacuum) {
+        heavyForce = heavyMass * gravityAccel;
+        lightForce = lightMass * gravityAccel;
+    } else {
+        const hDrag = dragCoeff * heavyVel * heavyVel;
+        const lDrag = dragCoeff * lightVel * lightVel;
+        heavyForce = Math.abs(heavyMass * gravityAccel - hDrag);
+        lightForce = Math.abs(lightMass * gravityAccel - lDrag);
+    }
+    document.getElementById('heavy-vel').innerHTML = hVel.toFixed(1) + '<span class="stat-unit">m/s</span>';
+    document.getElementById('heavy-height').innerHTML = heavyH.toFixed(1) + '<span class="stat-unit">m</span>';
+    document.getElementById('heavy-force').innerHTML = heavyForce.toFixed(1) + '<span class="stat-unit">N</span>';
+    document.getElementById('light-vel').innerHTML = lVel.toFixed(1) + '<span class="stat-unit">m/s</span>';
+    document.getElementById('light-height').innerHTML = lightH.toFixed(1) + '<span class="stat-unit">m</span>';
+    document.getElementById('light-force').innerHTML = lightForce.toFixed(1) + '<span class="stat-unit">N</span>';
+}
+
+const btn = document.getElementById('drop-btn');
+window.onHandDrop = () => btn.click();
+const vacuumBtn = document.getElementById('vacuum-btn');
+const atmoBtn = document.getElementById('atmo-btn');
+const statusEl = document.getElementById('status');
+const titleEl = document.getElementById('title');
+
+function reset() {
+    simulating = false;
+    heavyVel = 0;
+    lightVel = 0;
+    heavyLanded = false;
+    heavyObj.position.y = startHeight;
+    lightObj.position.y = startHeight;
+    heavyObj.rotation.set(0, 0, 0);
+    lightObj.rotation.set(0, 0, 0);
+    btn.innerText = "INITIATE DROP";
+    btn.style.opacity = 1.0;
+    statsPanel.classList.remove('simulating');
+    updateStats();
+}
+
+btn.addEventListener('click', () => {
+    if(simulating) return;
+    if(heavyObj.position.y <= floorY + 0.1) {
+        reset();
+    } else {
+        simulating = true;
+        btn.innerText = "SIMULATING...";
+        btn.style.opacity = 0.5;
+        statsPanel.classList.add('simulating');
+    }
+});
+
+function switchToVacuum() {
+    if(isVacuum) return;
+    isVacuum = true;
+    reset();
+    vacuumBtn.classList.add('active');
+    atmoBtn.classList.remove('active');
+    statusEl.textContent = "Vacuum Environment";
+    statusEl.style.color = "#44aaff";
+    titleEl.textContent = "Equivalence Principle";
+    document.getElementById('formula').textContent = "F = m × g";
+}
+
+function switchToAtmosphere() {
+    if(!isVacuum) return;
+    isVacuum = false;
+    reset();
+    atmoBtn.classList.add('active');
+    vacuumBtn.classList.remove('active');
+    statusEl.textContent = "Atmosphere Environment";
+    statusEl.style.color = "#66bbff";
+    titleEl.textContent = "Air Resistance Demo";
+    document.getElementById('formula').textContent = "F = mg − Fd";
+}
+
+vacuumBtn.addEventListener('click', switchToVacuum);
+atmoBtn.addEventListener('click', switchToAtmosphere);
+
+const clock = new THREE.Clock();
+let transitionProgress = 0;
+
+function animate() {
+    requestAnimationFrame(animate);
+    const delta = Math.min(clock.getDelta(), 0.1);
+    const time = clock.getElapsedTime();
+
+    const targetProgress = isVacuum ? 0 : 1;
+    transitionProgress += (targetProgress - transitionProgress) * delta * 3;
+
+    const bgColor = new THREE.Color();
+    bgColor.lerpColors(new THREE.Color(0x020205), new THREE.Color(0x0a1520), transitionProgress);
+    renderer.setClearColor(bgColor);
+
+    const fogColor = new THREE.Color();
+    fogColor.lerpColors(new THREE.Color(0x050507), new THREE.Color(0x152535), transitionProgress);
+    scene.fog.color.copy(fogColor);
+    scene.fog.density = THREE.MathUtils.lerp(0.008, 0.005, transitionProgress);
+
+    const planetColor = new THREE.Color();
+    planetColor.lerpColors(new THREE.Color(0x151618), new THREE.Color(0x1a2530), transitionProgress);
+    planetMat.color.copy(planetColor);
+
+    mainLight.intensity = THREE.MathUtils.lerp(2.5, 2.0, transitionProgress);
+    atmoLight.intensity = THREE.MathUtils.lerp(0, 1.2, transitionProgress);
+    ambientLight.intensity = THREE.MathUtils.lerp(0.15, 0.25, transitionProgress);
+    
+    const mainLightColor = new THREE.Color();
+    mainLightColor.lerpColors(new THREE.Color(0xffffff), new THREE.Color(0xddeeff), transitionProgress);
+    mainLight.color.copy(mainLightColor);
+
+    starMat.opacity = THREE.MathUtils.lerp(1, 0.15, transitionProgress);
+    dustMat.opacity = THREE.MathUtils.lerp(0.4, 0.1, transitionProgress);
+    cloudMat.opacity = THREE.MathUtils.lerp(0, 0.35, transitionProgress);
+    moteMat.opacity = THREE.MathUtils.lerp(0, 0.6, transitionProgress);
+    hazeMat.opacity = THREE.MathUtils.lerp(0, 0.15, transitionProgress);
+
+    starSystem.rotation.y = time * 0.02;
+    starSystem.rotation.x = Math.sin(time * 0.1) * 0.02;
+    dustSystem.rotation.y = time * 0.05;
+    cloudSystem.rotation.y = time * 0.008;
+    hazeSystem.rotation.y = -time * 0.005;
+    
+    const motePositions = moteGeo.attributes.position.array;
+    for(let i = 0; i < moteCount; i++) {
+        motePositions[i*3] += moteVel[i*3] * delta;
+        motePositions[i*3+1] += moteVel[i*3+1] * delta;
+        motePositions[i*3+2] += moteVel[i*3+2] * delta;
+        if(motePositions[i*3+1] > 50) {
+            motePositions[i*3+1] = -40;
+            motePositions[i*3] = (Math.random()-0.5) * 120;
+        }
+    }
+    moteGeo.attributes.position.needsUpdate = true;
+
+    updateDustParticles(delta);
+
+    if(simulating) {
+        const gravity = isVacuum ? vacuumGravity : atmoGravity;
+        if(isVacuum) {
+            heavyVel += gravity * delta;
+            lightVel = heavyVel;
+        } else {
+            const heavyDrag = (dragCoeff * heavyVel * heavyVel) / heavyMass;
+            const lightDrag = (dragCoeff * lightVel * lightVel) / lightMass;
+            heavyVel += (gravity + (heavyVel < 0 ? heavyDrag : -heavyDrag)) * delta;
+            lightVel += (gravity + (lightVel < 0 ? lightDrag : -lightDrag)) * delta;
+        }
+
+        heavyObj.position.y += heavyVel * delta;
+        lightObj.position.y += lightVel * delta;
+
+        const rotSpeed = isVacuum ? 0.3 : 0.5;
+        heavyObj.rotation.x += delta * rotSpeed;
+        lightObj.rotation.x += delta * rotSpeed * 1.5;
+        heavyObj.rotation.z += delta * rotSpeed * 0.5;
+        lightObj.rotation.z += delta * rotSpeed * 0.8;
+
+        if(heavyObj.position.y <= floorY && heavyVel !== 0) {
+            heavyObj.position.y = floorY;
+            const wasMoving = heavyVel !== 0;
+            heavyVel = 0;
+            if(!isVacuum && wasMoving && !heavyLanded) {
+                heavyLanded = true;
+                createDustCloud(heavyObj.position.x, floorY + 0.5, heavyObj.position.z);
+                const originalY = controls.target.y;
+                controls.target.y -= 0.3;
+                setTimeout(() => { controls.target.y = originalY; }, 80);
+            }
+        }
+        if(lightObj.position.y <= floorY && lightVel !== 0) {
+            lightObj.position.y = floorY;
+            lightVel = 0;
+        }
+        
+        if(heavyObj.position.y <= floorY && lightObj.position.y <= floorY) {
+            simulating = false;
+            btn.innerText = "RESET";
+            btn.style.opacity = 1.0;
+            statsPanel.classList.remove('simulating');
+        }
+        updateStats();
+    } else {
+        if(heavyObj.position.y > floorY + 1) {
+            const hover = Math.sin(time * 2) * 0.02;
+            heavyObj.position.y = startHeight + hover;
+            lightObj.position.y = startHeight + hover;
+            heavyObj.rotation.y += delta * 0.2;
+            lightObj.rotation.y += delta * 0.2;
+        }
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+updateStats();
+
+// Bu kodu Three.js module script'inin içine, 
+// animate() fonksiyonundan ÖNCE ekle
+
+// Cisimler yerde mi kontrolü
+window.checkNeedsReset = function() {
+    // Cisimler floorY'ye yakınsa "yerde" sayılır
+    const threshold = 1.0;
+    const heavyOnGround = heavyObj.position.y <= floorY + threshold;
+    const lightOnGround = lightObj.position.y <= floorY + threshold;
+    return heavyOnGround && lightOnGround && !simulating;
+};
+
+// Animasyonlu reset (cisimler yukarı çıksın)
+// Animasyonlu reset (cisimler yumuşak şekilde yukarı çıksın)
+// Animasyonlu reset (cisimler yumuşak şekilde yukarı çıksın)
+window.animatedReset = function() {
+    if (simulating) return;
+    if (heavyObj.position.y > floorY + 5) return;
+    
+    simulating = false;
+    heavyVel = 0;
+    lightVel = 0;
+    heavyLanded = false;
+    
+    const duration = 800;
+    const startHeavyY = heavyObj.position.y;
+    const startLightY = lightObj.position.y;
+    const startHeavyRot = { x: heavyObj.rotation.x, y: heavyObj.rotation.y, z: heavyObj.rotation.z };
+    const startLightRot = { x: lightObj.rotation.x, y: lightObj.rotation.y, z: lightObj.rotation.z };
+    const startTime = performance.now();
+    
+    btn.innerText = "LIFTING...";
+    btn.style.opacity = 0.5;
+    
+    function animateUp() {
+        const elapsed = performance.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        
+        // Pozisyon
+        heavyObj.position.y = startHeavyY + (startHeight - startHeavyY) * eased;
+        lightObj.position.y = startLightY + (startHeight - startLightY) * eased;
+        
+        // Rotasyon yumuşak sıfırlama
+        heavyObj.rotation.x = startHeavyRot.x * (1 - eased);
+        heavyObj.rotation.y = startHeavyRot.y * (1 - eased);
+        heavyObj.rotation.z = startHeavyRot.z * (1 - eased);
+        lightObj.rotation.x = startLightRot.x * (1 - eased);
+        lightObj.rotation.y = startLightRot.y * (1 - eased);
+        lightObj.rotation.z = startLightRot.z * (1 - eased);
+        
+        updateStats();
+        
+        if (progress < 1) {
+            requestAnimationFrame(animateUp);
+        } else {
+            heavyObj.position.y = startHeight;
+            lightObj.position.y = startHeight;
+            heavyObj.rotation.set(0, 0, 0);
+            lightObj.rotation.set(0, 0, 0);
+            btn.innerText = "INITIATE DROP";
+            btn.style.opacity = 1.0;
+            statsPanel.classList.remove('simulating');
+            updateStats();
+        }
+    }
+    
+    animateUp();
+};
+
+// Drop fonksiyonu güncelleme (mevcut onHandDrop'u güncelle)
+window.onHandDrop = function() {
+    // Simülasyon zaten çalışıyorsa veya cisimler yerdeyse çık
+    if (simulating) return;
+    if (heavyObj.position.y <= floorY + 1) return;
+    
+    // Düşürme başlat
+    simulating = true;
+    btn.innerText = "SIMULATING...";
+    btn.style.opacity = 0.5;
+    statsPanel.classList.add('simulating');
+};
+
+
+animate();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script>
+    /**
+ * El Hareketiyle Cisim Kontrolü
+ * 
+ * Mantık:
+ * - Cisimler YERDE: Alt yarıda el aç→kapat = TUT, yukarı taşı (üst yarıya) = RESET
+ * - Cisimler HAVADA: Üst yarıda el kapat→aç = BIRAK (DROP)
+ */
+
+const HandGestureController = {
+    // Yapılandırma
+    config: {
+        midLine: 0.50,           // Tam ortadan böl (üst yarı < 0.50, alt yarı > 0.50)
+        cooldownMs: 500,
+        fistSensitivity: 0.55,
+        thumbSensitivity: 0.70
+    },
+
+    // Durum
+    state: {
+        isEnabled: false,
+        isGrabbing: false,       // Cismi tutuyorum mu
+        wasFist: false,          // Önceki frame yumruk muydu
+        isCooldown: false,
+        grabbedInBottom: false   // Alt bölgede tutmaya başladı mı
+    },
+
+    // DOM Elemanları
+    elements: {
+        video: null,
+        canvas: null,
+        ctx: null,
+        status: null,
+        container: null
+    },
+
+    hands: null,
+    camera: null,
+
+    init() {
+        this.elements.video = document.getElementById('hand-video');
+        this.elements.canvas = document.getElementById('hand-canvas');
+        this.elements.canvas.width = 560;
+        this.elements.canvas.height = 420;
+        this.elements.ctx = this.elements.canvas.getContext('2d');
+        this.elements.status = document.getElementById('hand-status');
+        this.elements.container = document.getElementById('camera-container');
+
+        this.hands = new Hands({
+            locateFile: (file) => 
+                `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${file}`
+        });
+
+        this.hands.setOptions({
+            maxNumHands: 1,
+            modelComplexity: 0,
+            minDetectionConfidence: 0.7,
+            minTrackingConfidence: 0.5
+        });
+
+        this.hands.onResults((results) => this.processFrame(results));
+    },
+
+    async start() {
+        if (this.state.isEnabled) return;
+
+        try {
+            this.camera = new Camera(this.elements.video, {
+                onFrame: async () => {
+                    await this.hands.send({ image: this.elements.video });
+                },
+                width: 320,
+                height: 240
+            });
+
+            await this.camera.start();
+            this.state.isEnabled = true;
+            this.elements.container.classList.add('visible');
+            this.updateStatus('✋ Elini göster', 'idle');
+
+        } catch (error) {
+            console.error('Kamera hatası:', error);
+            this.updateStatus('❌ Kamera erişimi yok', 'error');
+            this.elements.container.classList.add('visible');
+        }
+    },
+
+    processFrame(results) {
+        const ctx = this.elements.ctx;
+        ctx.clearRect(0, 0, 560, 420);
+
+        if (!results.multiHandLandmarks?.length) {
+            this.state.isGrabbing = false;
+            this.state.wasFist = false;
+            this.state.grabbedInBottom = false;
+            this.updateStatus('✋ Elini göster', 'idle');
+            return;
+        }
+
+        const landmarks = results.multiHandLandmarks[0];
+        const palm = landmarks[9];
+        const palmY = palm.y;
+        
+        const isFist = this.detectFist(landmarks);
+        const justClosed = isFist && !this.state.wasFist;
+        const justOpened = !isFist && this.state.wasFist;
+
+        // Bölge tespiti (ekranın tam ortası)
+        const inTopHalf = palmY < this.config.midLine;
+        const inBottomHalf = palmY >= this.config.midLine;
+
+        // Görselleştirme
+        this.drawHand(landmarks, palm, isFist, inTopHalf);
+
+        // Cisimler yerde mi
+        const objectsOnGround = this.checkObjectsOnGround();
+
+        if (this.state.isCooldown) {
+            this.state.wasFist = isFist;
+            return;
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // ANA MANTIK
+        // ═══════════════════════════════════════════════════════════
+        
+        if (objectsOnGround) {
+            // ▼▼▼ CİSİMLER YERDE ▼▼▼
+            
+            if (justClosed && inBottomHalf) {
+                // Alt yarıda yumruk sıktı → TUT
+                this.state.isGrabbing = true;
+                this.state.grabbedInBottom = true;
+                this.updateStatus('👊 Tutuldu — yukarı kaldır', 'armed');
+            }
+            else if (this.state.isGrabbing && this.state.grabbedInBottom && isFist && inTopHalf) {
+                // Tutarak üst yarıya ulaştı → RESET (yukarı kaldır)
+                this.triggerReset();
+            }
+            else if (this.state.isGrabbing && !isFist) {
+                // Tutarken eli açtı → bırak (iptal)
+                this.state.isGrabbing = false;
+                this.state.grabbedInBottom = false;
+                this.updateStatus('✋ Bıraktın — tekrar tut', 'idle');
+            }
+            else if (this.state.isGrabbing && isFist) {
+                // Hâlâ tutuyor
+                this.updateStatus('👊 Yukarı kaldır ⬆️', 'armed');
+            }
+            else {
+                // Bekliyor
+                this.updateStatus('✋ Aşağıda yumruk yap', 'idle');
+            }
+        } 
+        else {
+            // ▲▲▲ CİSİMLER HAVADA ▲▲▲
+            
+            if (justOpened && inTopHalf) {
+                // Üst yarıda eli açtı → DROP
+                this.triggerDrop();
+            }
+            else if (isFist) {
+                // Yumruk yapılı → tutuyor
+                this.state.isGrabbing = true;
+                this.updateStatus('👊 Tutuyor — yukarıda aç', 'ready');
+            }
+            else {
+                // El açık, bırakmak için yukarıda açması lazım
+                this.state.isGrabbing = false;
+                if (inTopHalf) {
+                    this.updateStatus('🖐️ Bırakmak için yumruk yap→aç', 'idle');
+                } else {
+                    this.updateStatus('👊 Yumruk yap', 'idle');
+                }
+            }
+        }
+
+        this.state.wasFist = isFist;
+    },
+
+    detectFist(landmarks) {
+        const palm = landmarks[9];
+        const wrist = landmarks[0];
+        const palmSize = Math.hypot(palm.x - wrist.x, palm.y - wrist.y);
+
+        const fingerTips = [8, 12, 16, 20];
+        const fingerBases = [5, 9, 13, 17];
+        let closedFingers = 0;
+
+        for (let i = 0; i < 4; i++) {
+            const tip = landmarks[fingerTips[i]];
+            const base = landmarks[fingerBases[i]];
+            const dist = Math.hypot(tip.x - base.x, tip.y - base.y);
+            if (dist < palmSize * this.config.fistSensitivity) {
+                closedFingers++;
+            }
+        }
+
+        const thumb = landmarks[4];
+        const thumbDist = Math.hypot(thumb.x - palm.x, thumb.y - palm.y);
+        const thumbClosed = thumbDist < palmSize * this.config.thumbSensitivity;
+
+        return closedFingers >= 3 && thumbClosed;
+    },
+
+    drawHand(landmarks, palm, isFist, inTopHalf) {
+        const ctx = this.elements.ctx;
+        const w = 560, h = 420;
+        const midY = this.config.midLine * 404 + 8;
+
+        // Alt yarı (turuncu - tutma alanı)
+        ctx.fillStyle = 'rgba(255, 170, 68, 0.06)';
+        ctx.fillRect(0, midY, w, h - midY);
+
+        // Orta çizgi
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.setLineDash([8, 4]);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, midY);
+        ctx.lineTo(w, midY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Bölge yazıları
+        ctx.font = '11px Arial';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.fillText('BIRAK / RESET', 12, 22);
+        ctx.fillStyle = 'rgba(255, 170, 68, 0.5)';
+        ctx.fillText('TUT', 12, h - 12);
+
+        // El bağlantıları
+        const connections = [
+            [0,1],[1,2],[2,3],[3,4],
+            [0,5],[5,6],[6,7],[7,8],
+            [5,9],[9,10],[10,11],[11,12],
+            [9,13],[13,14],[14,15],[15,16],
+            [13,17],[17,18],[18,19],[19,20],
+            [0,17]
+        ];
+
+        ctx.strokeStyle = isFist ? 'rgba(255, 170, 68, 0.7)' : 'rgba(68, 170, 255, 0.5)';
+        ctx.lineWidth = 3;
+
+        for (const [a, b] of connections) {
+            ctx.beginPath();
+            ctx.moveTo((1 - landmarks[a].x) * 544 + 8, landmarks[a].y * 404 + 8);
+            ctx.lineTo((1 - landmarks[b].x) * 544 + 8, landmarks[b].y * 404 + 8);
+            ctx.stroke();
+        }
+
+        // Noktalar
+        const tipIndices = [4, 8, 12, 16, 20];
+        const tipColor = isFist ? '#ffaa44' : '#44aaff';
+        const baseColor = isFist ? 'rgba(255,170,68,0.6)' : 'rgba(68,170,255,0.6)';
+
+        for (let i = 0; i < landmarks.length; i++) {
+            const x = (1 - landmarks[i].x) * 544 + 8;
+            const y = landmarks[i].y * 404 + 8;
+            const isTip = tipIndices.includes(i);
+
+            ctx.fillStyle = isTip ? tipColor : baseColor;
+            ctx.beginPath();
+            ctx.arc(x, y, isTip ? 8 : 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Avuç göstergesi
+        const px = (1 - palm.x) * 544 + 8;
+        const py = palm.y * 404 + 8;
+
+        let color = '#44aaff';
+        if (this.state.isGrabbing) color = '#44ff88';
+        else if (isFist) color = '#ffaa44';
+
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(px, py, isFist ? 18 : 14, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    },
+
+    triggerReset() {
+        this.updateStatus('⬆️ Kaldırıldı!', 'ready');
+        this.state.grabbedInBottom = false;
+        this.startCooldown();
+
+        if (typeof window.animatedReset === 'function') {
+            window.animatedReset();
+        }
+    },
+
+    triggerDrop() {
+        this.updateStatus('🖐️ Bırakıldı!', 'drop');
+        this.state.isGrabbing = false;
+        this.startCooldown();
+
+        if (typeof window.onHandDrop === 'function') {
+            window.onHandDrop();
+        }
+    },
+
+    startCooldown() {
+        this.state.isCooldown = true;
+        setTimeout(() => {
+            this.state.isCooldown = false;
+        }, this.config.cooldownMs);
+    },
+
+    checkObjectsOnGround() {
+        if (typeof window.checkNeedsReset === 'function') {
+            return window.checkNeedsReset();
+        }
+        return true;
+    },
+
+    updateStatus(text, className) {
+        this.elements.status.textContent = text;
+        this.elements.status.className = className;
+    }
+};
+
+window.handTracker = HandGestureController;
+HandGestureController.init();
+HandGestureController.start();
+</script>
+
+</body>
+</html>
