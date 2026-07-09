@@ -108,7 +108,8 @@
         .hero-exp .exp-group.secondary .eyebrow { color: #525252; }
 
         #education .eyebrow { margin-bottom: 26px; }
-        #education .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+        #education .edu-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 52px; align-items: start; }
+        #education .edu-list .experience-item { margin-bottom: 30px; }
 
         section {
             padding: 80px 0;
@@ -203,13 +204,14 @@
         }
 
         .contact-info {
-            margin-top: 40px;
+            margin-top: 26px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 9px;
+            line-height: 1.5;
             font-size: 1rem;
             color: #888;
         }
@@ -237,7 +239,7 @@
         .social-links {
             display: flex;
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 34px;
             flex-wrap: wrap;
             position: relative;
             z-index: 10;
@@ -397,6 +399,37 @@
         .proj-link::after { content: '\2197'; color: #ff5a36; }
         .proj-link:hover { color: #fff; border-color: #ff5a36; }
 
+        /* MIDDLE — clamp detail to the preview height; reveal the rest on expand */
+        .project-detail { position: relative; }
+        .detail-inner { position: relative; overflow: hidden; transition: max-height 0.45s ease; }
+        .detail-inner.is-clamped:not(.is-open) {
+            -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 96px), transparent);
+            mask-image: linear-gradient(to bottom, #000 calc(100% - 96px), transparent);
+        }
+        .detail-toggle {
+            margin-top: 18px;
+            background: none; border: 0; cursor: pointer; font-family: inherit;
+            color: #cfcfcf; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+            border-bottom: 1px solid #333; padding: 0 0 3px;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+        .detail-toggle::after { content: ' \2193'; color: #ff5a36; }
+        .detail-toggle.is-open::after { content: ' \2191'; }
+        .detail-toggle:hover { color: #fff; border-color: #ff5a36; }
+
+        /* CONTRIBUTED PROJECTS — compact block inside Selected Work, set apart */
+        .contributed { margin-top: 74px; padding-top: 46px; border-top: 1px solid #222; }
+        .contrib-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 34px 48px; margin-top: 6px; }
+        .contrib-name {
+            display: inline-flex; align-items: baseline; gap: 6px;
+            color: #cfcfcf; text-decoration: none; font-size: 1.02rem; font-weight: 400; line-height: 1.3;
+            transition: color 0.25s ease;
+        }
+        span.contrib-name { color: #e6e6e6; }
+        a.contrib-name::after { content: '\2197'; color: #ff5a36; font-size: 0.82em; }
+        a.contrib-name:hover { color: #fff; }
+        .contrib-desc { margin-top: 8px; font-size: 0.85rem; color: #808080; line-height: 1.6; max-width: 42ch; }
+
         /* RIGHT — visual */
         .project-visual { padding-top: 2px; }
         .visual-card {
@@ -451,7 +484,8 @@
 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            #education .edu-grid { grid-template-columns: 1fr; gap: 40px; }
+            #education .edu-list { grid-template-columns: 1fr; gap: 6px; }
+            .contrib-grid { grid-template-columns: 1fr; gap: 26px; }
             .skills { grid-template-columns: 1fr; gap: 30px; }
             .projects { grid-template-columns: 1fr; gap: 30px; }
             .project-list, .project-visual { position: static; }
@@ -553,24 +587,27 @@
                 </nav>
 
                 <div class="project-detail">
-                    <div class="detail-meta">
-                        <span class="detail-title" id="detTitle">—</span>
-                        <span class="detail-year" id="detYear"></span>
+                    <div class="detail-inner" id="detInner">
+                        <div class="detail-meta">
+                            <span class="detail-title" id="detTitle">—</span>
+                            <span class="detail-year" id="detYear"></span>
+                        </div>
+                        <div class="detail-block">
+                            <div class="chips" id="detChips"></div>
+                        </div>
+                        <div class="detail-block">
+                            <p class="detail-desc" id="detDesc"></p>
+                        </div>
+                        <div class="detail-block">
+                            <div class="eyebrow">(My Role)</div>
+                            <p class="detail-role lead" id="detRoleLabel"></p>
+                            <ul class="highlights" id="detRoleList"></ul>
+                        </div>
+                        <div class="detail-block">
+                            <div class="links" id="detLinks"></div>
+                        </div>
                     </div>
-                    <div class="detail-block">
-                        <div class="chips" id="detChips"></div>
-                    </div>
-                    <div class="detail-block">
-                        <p class="detail-desc" id="detDesc"></p>
-                    </div>
-                    <div class="detail-block">
-                        <div class="eyebrow">(My Role)</div>
-                        <p class="detail-role lead" id="detRoleLabel"></p>
-                        <ul class="highlights" id="detRoleList"></ul>
-                    </div>
-                    <div class="detail-block">
-                        <div class="links" id="detLinks"></div>
-                    </div>
+                    <button type="button" class="detail-toggle" id="detToggle" hidden>Expand</button>
                 </div>
 
                 <div class="project-visual">
@@ -579,76 +616,62 @@
                     </div>
                 </div>
             </div>
+
+            <div class="contributed">
+                <div class="eyebrow">(Contributed Projects)</div>
+                <div class="contrib-grid">
+                    <div class="contrib-item">
+                        <a class="contrib-name" href="https://www.giacreativestudio.com" target="_blank" rel="noopener noreferrer">GIA Creative Studio</a>
+                        <p class="contrib-desc">Website developed.</p>
+                    </div>
+                    <div class="contrib-item">
+                        <span class="contrib-name">Koi Academy</span>
+                        <p class="contrib-desc">Website &amp; mobile app developed.</p>
+                    </div>
+                    <div class="contrib-item">
+                        <a class="contrib-name" href="https://www.reconchillestudios.com" target="_blank" rel="noopener noreferrer">Reconchille Studios</a>
+                        <p class="contrib-desc">Mobile apps developed.</p>
+                    </div>
+                    <div class="contrib-item">
+                        <a class="contrib-name" href="https://www.youtube.com/@LumosGenerativeAI" target="_blank" rel="noopener noreferrer">Lumos Generative AI</a>
+                        <p class="contrib-desc">Custom AI-orchestration pipelines for autonomous video generation.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="education">
             <span class="section-number">03</span>
-            <h2>Education &amp; Achievements</h2>
+            <h2>Education</h2>
 
-            <div class="edu-grid">
-                <div class="edu-col">
-                    <div class="eyebrow">(Education)</div>
-
-            <div class="experience-item">
-                <span class="year">MSc.</span>
-                <div class="role">Computer Engineering</div>
-                <div class="description">
-                    <strong>Major: AI Applications, Machine Learning, Deep Learning, NLP.</strong> 
+            <div class="edu-list">
+                <div class="experience-item">
+                    <span class="year">MSc.</span>
+                    <div class="role">Electrical and Electronics Engineering</div>
+                    <div class="description">
+                        <strong>Major: Model Training, Machine Learning, Deep Learning, NLP.</strong>
+                    </div>
+                    <div class="company">Katip Çelebi University, 2025 — Today</div>
                 </div>
-                <div class="company">Katip Çelebi University, 2025 — Today </div>
-            </div>
 
-            <div class="experience-item">
-                <span class="year">Bachelor</span>
-                <div class="role">Electrical and Electronics Engineering</div>
-                <div class="description">
-                    <strong>Major: Software infrastructure of communication systems</strong> 
+                <div class="experience-item">
+                    <span class="year">Bachelor</span>
+                    <div class="role">Electrical and Electronics Engineering</div>
+                    <div class="description">
+                        <strong>Major: Communication Systems</strong>
+                    </div>
+                    <div class="company">Ege University, 2018 — 2023</div>
                 </div>
-                <div class="company">Ege University, 2018 — 2023</div>
-            </div>
 
-            <div class="experience-item">
-                <span class="year">Bilge Adam Academy, 2019 — 2020</span>
-                <div class="role">.Net Certification Program (320Hr.)</div>
-                <div class="description">
-                    20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br>
-                    20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA)
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <span class="year">Techcareer.net, 2023</span>
-                <div class="role">iOS Development Bootcamp</div>
-                <div class="company">iOS Developer Certificate (techcareer.net)</div>
-            </div>
-
-                </div>
-                <div class="edu-col">
-                    <div class="eyebrow">(Selected Engagements)</div>
-
-            <div class="experience-item">
-                <span class="year">&lt;Role&gt; · &lt;Year&gt;</span>
-                <div class="role">GIA Creative Studio</div>
-                <div class="description">&lt;One line on your role &amp; contribution — replace me.&gt;</div>
-            </div>
-
-            <div class="experience-item">
-                <span class="year">&lt;Role&gt; · &lt;Year&gt;</span>
-                <div class="role">Koi Academy</div>
-                <div class="description">&lt;One line on your role &amp; contribution — replace me.&gt;</div>
-            </div>
-
-            <div class="experience-item">
-                <span class="year">Building</span>
-                <div class="role">Reconchille Studios</div>
-                <div class="description">Independent software &amp; creative studio. &lt;Add your role / focus.&gt;</div>
-            </div>
-
-            <div class="experience-item">
-                <span class="year">2023 — Today</span>
-                <div class="role">Mobile Apps · App Store</div>
-                <div class="description">Shipped iOS apps end-to-end — Mindplace, Traveler, Pacer and more.</div>
-            </div>
+                <div class="experience-item">
+                    <span class="year">Bilge Adam Academy, 2019 — 2020</span>
+                    <div class="role">.Net Certification Program (320Hr.)</div>
+                    <div class="description">
+                        20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br>
+                        20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA) <br>
+                        UiPath RPA Education Certificate <br>
+                        Bilge Adam .Net Development Certificate
+                    </div>
                 </div>
             </div>
         </section>
@@ -667,8 +690,8 @@
                     <span>+90 553 417 5130</span>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-label">Building</span>
-                    <span><a href="https://www.mindplace.app" target="_blank" rel="noopener noreferrer"><strong>Mind</strong>place</a> , <a href="https://www.reconchillestudios.com" target="_blank" rel="noopener noreferrer">Reconchille Studios</a></span>
+                    <span class="contact-label">Location</span>
+                    <span>İzmir, Türkiye</span>
                 </div>
             </div>
 
@@ -677,7 +700,7 @@
                 <a href="https://github.com/egeozcelik" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://medium.com/@egeozcelik" target="_blank" rel="noopener noreferrer">Medium</a>
                 <a href="https://www.instagram.com/egeozcelik__/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://x.com/ozcilek__" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://x.com/ozcilek__" target="_blank" rel="noopener noreferrer">X</a>
                 <a href="https://www.hackerrank.com/profile/ege_ozcelik" target="_blank" rel="noopener noreferrer">HackerRank</a>
             </div>
         </section>
@@ -734,7 +757,7 @@
                 roleLabel: '<strong>Main System Architect</strong>',
                 roleBullets: [
                     '<strong>Project manager</strong> — owned scope, planning and delivering operations.',
-                    '<strong>Firmware Development C</strong> on the Anchor Side (C lang on QN9090)',
+                    '<strong>Firmware Development</strong> on the Anchor Side (C lang on QN9090)',
                     '<strong>Mobile Development</strong> on the tag side (Native iOS)',
                     '<strong>Python Tooling</strong> Monitoring suite, Dev. Tools, Zero-Hardware Simulator, Agentic Skills on Coding.'
                 ],
@@ -864,7 +887,44 @@
                 pre.onload = function () { bg.style.backgroundImage = 'url("' + real + '")'; card.classList.add('is-ready'); };
                 pre.onerror = function () { bg.style.backgroundImage = 'url("' + fb + '")'; card.classList.add('is-ready'); };
                 pre.src = real;
+
+                requestAnimationFrame(syncClamp);
             }
+
+            // Clamp the middle detail to the preview height; expand reveals the rest
+            const inner = el('detInner'), toggle = el('detToggle');
+            function syncClamp() {
+                if (!inner || !toggle) return;
+                const card = el('visCard');
+                if (window.innerWidth <= 900) {
+                    inner.style.maxHeight = 'none';
+                    inner.classList.remove('is-clamped', 'is-open');
+                    toggle.hidden = true;
+                    return;
+                }
+                inner.classList.remove('is-open');
+                toggle.classList.remove('is-open');
+                toggle.textContent = 'Expand';
+                const h = card.offsetHeight;
+                inner.style.maxHeight = h + 'px';
+                if (inner.scrollHeight > h + 8) {
+                    inner.classList.add('is-clamped');
+                    toggle.hidden = false;
+                } else {
+                    inner.classList.remove('is-clamped');
+                    inner.style.maxHeight = 'none';
+                    toggle.hidden = true;
+                }
+            }
+            if (toggle) toggle.addEventListener('click', function () {
+                const card = el('visCard');
+                const open = inner.classList.toggle('is-open');
+                toggle.classList.toggle('is-open', open);
+                inner.style.maxHeight = (open ? inner.scrollHeight : card.offsetHeight) + 'px';
+                toggle.textContent = open ? 'Collapse' : 'Expand';
+            });
+            let _rt;
+            window.addEventListener('resize', function () { clearTimeout(_rt); _rt = setTimeout(syncClamp, 150); });
 
             select(0);
         })();
