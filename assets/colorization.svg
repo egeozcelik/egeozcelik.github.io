@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="gMag" gradientUnits="userSpaceOnUse" x1="70" y1="0" x2="740" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="0.42" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="0.72" stop-color="#F05C9E" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F05C9E" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="gTeal" gradientUnits="userSpaceOnUse" x1="70" y1="0" x2="740" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="0.42" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.72" stop-color="#35CBBF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#35CBBF" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="aAxis" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3BD17A"/><stop offset="0.5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#F05C9E"/>
+    </linearGradient>
+    <linearGradient id="bAxis" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#3D8BFF"/><stop offset="0.5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#F2C94C"/>
+    </linearGradient>
+    <radialGradient id="coGlow" cx="60%" cy="34%" r="58%">
+      <stop offset="0" stop-color="#F05C9E" stop-opacity="0.12"/>
+      <stop offset="0.7" stop-color="#F05C9E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="470" cy="360" r="360" fill="url(#coGlow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.045" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- luminance contours becoming chrominance (grayscale -> color, L to R) -->
+  <g fill="none" stroke-width="2">
+    <path d="M70 250 C 240 214, 430 292, 560 246 S 700 262, 740 246" stroke="url(#gTeal)"/>
+    <path d="M70 292 C 240 252, 420 332, 560 288 S 700 300, 740 286" stroke="url(#gMag)"/>
+    <path d="M70 330 C 240 300, 430 372, 560 330 S 700 344, 740 330" stroke="url(#gTeal)"/>
+    <path d="M70 370 C 240 342, 420 410, 560 372 S 700 384, 740 372" stroke="url(#gMag)"/>
+    <path d="M70 410 C 240 384, 430 448, 560 412 S 700 420, 740 410" stroke="url(#gTeal)"/>
+    <path d="M70 450 C 240 424, 420 486, 560 452 S 700 460, 740 452" stroke="url(#gMag)"/>
+  </g>
+  <!-- U-Net funnel: encoder -> bottleneck -> decoder, with skip arcs -->
+  <path d="M300 548 L360 548 L400 640 L440 548 L500 548" fill="none" stroke="#c8c8c8" stroke-opacity="0.5" stroke-width="1.6"/>
+  <g fill="none" stroke="#c8c8c8" stroke-opacity="0.26" stroke-width="1">
+    <line x1="330" y1="548" x2="380" y2="596"/><line x1="470" y1="548" x2="420" y2="596"/>
+  </g>
+  <g fill="none" stroke-width="1.3">
+    <path d="M332 566 C 366 546, 434 546, 468 566" stroke="#F05C9E" stroke-opacity="0.55"/>
+    <path d="M352 592 C 380 576, 420 576, 448 592" stroke="#35CBBF" stroke-opacity="0.55"/>
+    <path d="M368 614 C 388 602, 412 602, 432 614" stroke="#F05C9E" stroke-opacity="0.5"/>
+  </g>
+  <g fill="#9a9a9a" font-family="monospace" font-size="15" fill-opacity="0.85">
+    <text x="270" y="552">L</text>
+    <text x="508" y="552">a,b</text>
+  </g>
+  <!-- Lab chrominance plane -->
+  <circle cx="400" cy="722" r="52" fill="none" stroke="#8a8a8a" stroke-opacity="0.22" stroke-width="1.2"/>
+  <rect x="330" y="716" width="140" height="11" fill="url(#aAxis)" fill-opacity="0.85"/>
+  <rect x="394" y="662" width="11" height="120" fill="url(#bAxis)" fill-opacity="0.85"/>
+  <circle cx="424" cy="700" r="4" fill="#F05C9E" fill-opacity="0.9"/>
+  <g fill="#9a9a9a" font-family="monospace" font-size="13" fill-opacity="0.85">
+    <text x="478" y="726">a</text>
+    <text x="386" y="652">b</text>
+  </g>
+  <g fill="#6f6f6f" font-family="monospace" font-size="12" fill-opacity="0.85">
+    <text x="96" y="232">L</text>
+    <text x="694" y="232">a,b</text>
+    <text x="86" y="628">PSNR</text>
+    <text x="646" y="628">SSIM</text>
+    <text x="360" y="800">128×128</text>
+  </g>
+  <text x="56" y="852" fill="#F05C9E" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">LAB · L → a·b</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">DL Image Colorization</text>
+</svg>

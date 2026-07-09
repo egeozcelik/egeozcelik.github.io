@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="fnGlow" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#2FE0C8" stop-opacity="0.15"/>
+      <stop offset="0.7" stop-color="#2FE0C8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="400" cy="430" r="360" fill="url(#fnGlow)"/>
+  <g stroke="#B36BFF" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- head + shoulders silhouette -->
+  <path d="M400 248 C 328 250, 292 312, 292 388 C 292 470, 344 540, 400 558 C 456 540, 508 470, 508 388 C 508 312, 472 250, 400 248 Z" fill="none" stroke="#B36BFF" stroke-opacity="0.5" stroke-width="1.7"/>
+  <path d="M372 556 C 360 604, 316 626, 250 664 C 226 678, 214 700, 210 732" fill="none" stroke="#B36BFF" stroke-opacity="0.4" stroke-width="1.6"/>
+  <path d="M428 556 C 440 604, 484 626, 550 664 C 574 678, 586 700, 590 732" fill="none" stroke="#B36BFF" stroke-opacity="0.4" stroke-width="1.6"/>
+  <!-- landmark mesh -->
+  <g stroke="#B36BFF" stroke-opacity="0.28" stroke-width="1">
+    <line x1="338" y1="362" x2="350" y2="392"/>
+    <line x1="394" y1="356" x2="394" y2="392"/>
+    <line x1="406" y1="356" x2="406" y2="392"/>
+    <line x1="462" y1="362" x2="450" y2="392"/>
+    <line x1="372" y1="386" x2="400" y2="398"/>
+    <line x1="428" y1="386" x2="400" y2="398"/>
+    <line x1="400" y1="398" x2="400" y2="432"/>
+    <line x1="400" y1="432" x2="384" y2="452"/>
+    <line x1="400" y1="432" x2="416" y2="452"/>
+    <line x1="384" y1="452" x2="368" y2="492"/>
+    <line x1="416" y1="452" x2="432" y2="492"/>
+    <line x1="400" y1="460" x2="400" y2="486"/>
+    <line x1="312" y1="430" x2="350" y2="392"/>
+    <line x1="488" y1="430" x2="450" y2="392"/>
+    <line x1="330" y1="478" x2="368" y2="492"/>
+    <line x1="470" y1="478" x2="432" y2="492"/>
+    <line x1="358" y1="516" x2="384" y2="504"/>
+    <line x1="442" y1="516" x2="416" y2="504"/>
+    <line x1="368" y1="492" x2="432" y2="492"/>
+  </g>
+  <!-- landmark dots -->
+  <g fill="#2FE0C8" fill-opacity="0.9">
+    <circle cx="312" cy="430" r="3.4"/><circle cx="330" cy="478" r="3.4"/><circle cx="358" cy="516" r="3.4"/><circle cx="400" cy="540" r="3.4"/><circle cx="442" cy="516" r="3.4"/><circle cx="470" cy="478" r="3.4"/><circle cx="488" cy="430" r="3.4"/>
+    <circle cx="338" cy="362" r="3.4"/><circle cx="366" cy="352" r="3.4"/><circle cx="394" cy="356" r="3.4"/><circle cx="406" cy="356" r="3.4"/><circle cx="434" cy="352" r="3.4"/><circle cx="462" cy="362" r="3.4"/>
+    <circle cx="350" cy="392" r="3.4"/><circle cx="372" cy="386" r="3.4"/><circle cx="394" cy="392" r="3.4"/><circle cx="406" cy="392" r="3.4"/><circle cx="428" cy="386" r="3.4"/><circle cx="450" cy="392" r="3.4"/>
+    <circle cx="400" cy="398" r="3.4"/><circle cx="400" cy="432" r="3.4"/><circle cx="384" cy="452" r="3.4"/><circle cx="400" cy="460" r="3.4"/><circle cx="416" cy="452" r="3.4"/>
+    <circle cx="368" cy="492" r="3.4"/><circle cx="400" cy="486" r="3.4"/><circle cx="432" cy="492" r="3.4"/><circle cx="384" cy="504" r="3.4"/><circle cx="416" cy="504" r="3.4"/>
+  </g>
+  <!-- detector bounding brackets -->
+  <g fill="none" stroke="#2FE0C8" stroke-opacity="0.6" stroke-width="2">
+    <path d="M288 368 L288 332 L324 332"/>
+    <path d="M476 332 L512 332 L512 368"/>
+    <path d="M288 520 L288 556 L324 556"/>
+    <path d="M476 556 L512 556 L512 520"/>
+  </g>
+  <!-- scan line -->
+  <line x1="288" y1="446" x2="512" y2="446" stroke="#2FE0C8" stroke-opacity="0.12" stroke-width="10"/>
+  <line x1="288" y1="446" x2="512" y2="446" stroke="#2FE0C8" stroke-opacity="0.85" stroke-width="1.6"/>
+  <!-- 128-D embedding vector -->
+  <line x1="200" y1="714" x2="592" y2="714" stroke="#2FE0C8" stroke-opacity="0.22" stroke-width="1"/>
+  <path d="M210 714 L210 700 M222 714 L222 684 M234 714 L234 694 M246 714 L246 704 M258 714 L258 688 M270 714 L270 698 M282 714 L282 680 M294 714 L294 692 M306 714 L306 702 M318 714 L318 686 M330 714 L330 696 M342 714 L342 690 M354 714 L354 700 M366 714 L366 684 M378 714 L378 694 M390 714 L390 704 M402 714 L402 688 M414 714 L414 698 M426 714 L426 680 M438 714 L438 692 M450 714 L450 702 M462 714 L462 686 M474 714 L474 696 M486 714 L486 690 M498 714 L498 700 M510 714 L510 684 M522 714 L522 694 M534 714 L534 704 M546 714 L546 688 M558 714 L558 698 M570 714 L570 680 M582 714 L582 692" stroke="#2FE0C8" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="56" y="852" fill="#2FE0C8" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">VISION · EDGE</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Face Recognition · NPU</text>
+</svg>

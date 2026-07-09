@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="cbGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0" stop-color="#34D399" stop-opacity="0.14"/>
+      <stop offset="0.7" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="400" cy="430" r="360" fill="url(#cbGlow)"/>
+  <g stroke="#34D399" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- CAN-H differential trace -->
+  <polyline points="100,340 100,300 175,300 175,340 250,340 250,300 325,300 325,340 400,340 400,300 475,300 475,340 550,340 550,300 625,300 625,340 700,340" fill="none" stroke="#34D399" stroke-opacity="0.72" stroke-width="2.2"/>
+  <!-- CAN-L differential trace (mirrored) -->
+  <polyline points="100,420 100,460 175,460 175,420 250,420 250,460 325,460 325,420 400,420 400,460 475,460 475,420 550,420 550,460 625,460 625,420 700,420" fill="none" stroke="#22D3EE" stroke-opacity="0.55" stroke-width="2.2"/>
+  <!-- 29-bit identifier bar -->
+  <rect x="110" y="560" width="580" height="56" rx="4" fill="none" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.5"/>
+  <g stroke="#34D399" stroke-opacity="0.3" stroke-width="1">
+    <line x1="170" y1="560" x2="170" y2="616"/>
+    <line x1="200" y1="560" x2="200" y2="616"/>
+    <line x1="230" y1="560" x2="230" y2="616"/>
+    <line x1="410" y1="560" x2="410" y2="616"/>
+    <line x1="590" y1="560" x2="590" y2="616"/>
+  </g>
+  <g fill="#34D399" fill-opacity="0.5" font-family="monospace" font-size="12" letter-spacing="1">
+    <text x="118" y="594">PRIO</text>
+    <text x="300" y="594">PDU-F</text>
+    <text x="480" y="594">PDU-S</text>
+    <text x="620" y="594">SA</text>
+  </g>
+  <!-- leaders to SPN cards -->
+  <g stroke="#34D399" stroke-opacity="0.35" stroke-width="1">
+    <line x1="300" y1="616" x2="260" y2="694"/>
+    <line x1="490" y1="616" x2="540" y2="694"/>
+  </g>
+  <g fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4">
+    <rect x="160" y="694" width="200" height="86" rx="6"/>
+    <rect x="440" y="694" width="200" height="86" rx="6"/>
+  </g>
+  <g fill="#22D3EE" fill-opacity="0.16"><rect x="182" y="716" width="46" height="20"/><rect x="500" y="716" width="46" height="20"/></g>
+  <g fill="#34D399" fill-opacity="0.72" font-family="monospace" font-size="15">
+    <text x="250" y="732">1350 rpm</text>
+    <text x="530" y="732">88 km/h</text>
+  </g>
+  <g fill="#8a8a8a" font-family="monospace" font-size="11">
+    <text x="182" y="766">scale·raw+offset</text>
+    <text x="462" y="766">scale·raw+offset</text>
+  </g>
+  <text x="56" y="852" fill="#34D399" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">PROTOCOL · CAN</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">CAN Bus · J1939 Simulator</text>
+</svg>

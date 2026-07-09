@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="uwGlow" cx="50%" cy="76%" r="60%">
+      <stop offset="0" stop-color="#34E0D0" stop-opacity="0.16"/>
+      <stop offset="0.7" stop-color="#34E0D0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="400" cy="770" r="380" fill="url(#uwGlow)"/>
+  <g stroke="#34E0D0" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- ranging rings -->
+  <g fill="none" stroke="#34E0D0">
+    <circle cx="400" cy="770" r="130" stroke-opacity="0.42" stroke-width="1.6"/>
+    <circle cx="400" cy="770" r="235" stroke-opacity="0.28" stroke-width="1.6"/>
+    <circle cx="400" cy="770" r="345" stroke-opacity="0.17" stroke-width="1.6"/>
+    <circle cx="400" cy="770" r="455" stroke-opacity="0.09" stroke-width="1.6"/>
+  </g>
+  <!-- boresight axis + azimuth arc + sign-change tick -->
+  <line x1="400" y1="770" x2="400" y2="300" stroke="#6C7BFF" stroke-opacity="0.5" stroke-width="1.4"/>
+  <path d="M 268 633 A 190 190 0 0 1 522 624" fill="none" stroke="#6C7BFF" stroke-opacity="0.6" stroke-width="1.7"/>
+  <line x1="400" y1="578" x2="400" y2="602" stroke="#6C7BFF" stroke-opacity="0.9" stroke-width="2.4"/>
+  <!-- Time-of-Flight sightlines -->
+  <g stroke="#34E0D0" stroke-opacity="0.5" stroke-width="1.4" stroke-dasharray="6 7">
+    <line x1="400" y1="770" x2="250" y2="430"/>
+    <line x1="400" y1="770" x2="565" y2="360"/>
+  </g>
+  <!-- anchor + tags -->
+  <circle cx="400" cy="770" r="18" fill="none" stroke="#34E0D0" stroke-opacity="0.5" stroke-width="1.6"/>
+  <circle cx="400" cy="770" r="11" fill="#34E0D0" fill-opacity="0.9"/>
+  <circle cx="250" cy="430" r="9" fill="#34E0D0" fill-opacity="0.9"/>
+  <circle cx="565" cy="360" r="9" fill="#0f0f0f" stroke="#34E0D0" stroke-opacity="0.85" stroke-width="2.4"/>
+  <text x="56" y="852" fill="#6C7BFF" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">SPATIAL · UWB</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">UWB · Nearby Interaction</text>
+</svg>

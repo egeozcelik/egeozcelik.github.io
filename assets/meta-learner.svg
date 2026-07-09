@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="mlGlow" cx="50%" cy="38%" r="58%">
+      <stop offset="0" stop-color="#7C6BF5" stop-opacity="0.16"/>
+      <stop offset="0.7" stop-color="#7C6BF5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="430" cy="400" r="360" fill="url(#mlGlow)"/>
+  <g stroke="#7C6BF5" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- 5-fold CV arcs -->
+  <g fill="none" stroke="#7C6BF5" stroke-opacity="0.1" stroke-width="1.2">
+    <path d="M250 330 A 180 180 0 0 1 610 330"/>
+    <path d="M280 350 A 150 150 0 0 1 580 350"/>
+    <path d="M310 370 A 120 120 0 0 1 550 370"/>
+  </g>
+  <!-- frozen base (CatBoost strata) -->
+  <g fill="#7C6BF5" fill-opacity="0.05" stroke="#7C6BF5" stroke-opacity="0.32" stroke-width="1.2">
+    <rect x="300" y="726" width="200" height="15"/>
+    <rect x="300" y="747" width="200" height="15"/>
+    <rect x="300" y="768" width="200" height="15"/>
+    <rect x="300" y="789" width="200" height="15"/>
+  </g>
+  <path d="M288 726 L282 726 L282 804 L288 804" fill="none" stroke="#7C6BF5" stroke-opacity="0.45" stroke-width="1.4"/>
+  <!-- original feature hairlines -->
+  <g stroke="#7C6BF5" stroke-opacity="0.14" stroke-width="1">
+    <line x1="316" y1="726" x2="316" y2="574"/><line x1="336" y1="726" x2="336" y2="574"/><line x1="356" y1="726" x2="356" y2="574"/><line x1="376" y1="726" x2="376" y2="574"/><line x1="396" y1="726" x2="396" y2="574"/><line x1="416" y1="726" x2="416" y2="574"/><line x1="436" y1="726" x2="436" y2="574"/><line x1="456" y1="726" x2="456" y2="574"/><line x1="476" y1="726" x2="476" y2="574"/>
+  </g>
+  <!-- probability streams -->
+  <path d="M360 726 C 356 660, 380 620, 388 574" fill="none" stroke="#34E0C4" stroke-opacity="0.6" stroke-width="2"/>
+  <path d="M440 726 C 444 660, 420 620, 412 574" fill="none" stroke="#34E0C4" stroke-opacity="0.6" stroke-width="2"/>
+  <!-- concat bar (61-D meta-vector) -->
+  <rect x="300" y="552" width="260" height="22" rx="3" fill="#7C6BF5" fill-opacity="0.06" stroke="#7C6BF5" stroke-opacity="0.5" stroke-width="1.4"/>
+  <!-- meta-head connections -->
+  <g stroke="#7C6BF5" stroke-opacity="0.16" stroke-width="1">
+    <line x1="320" y1="552" x2="320" y2="468"/><line x1="375" y1="552" x2="375" y2="468"/><line x1="430" y1="552" x2="430" y2="468"/><line x1="485" y1="552" x2="485" y2="468"/><line x1="540" y1="552" x2="540" y2="468"/>
+    <line x1="320" y1="468" x2="366" y2="388"/><line x1="320" y1="468" x2="430" y2="388"/><line x1="320" y1="468" x2="494" y2="388"/>
+    <line x1="375" y1="468" x2="366" y2="388"/><line x1="375" y1="468" x2="430" y2="388"/><line x1="375" y1="468" x2="494" y2="388"/>
+    <line x1="430" y1="468" x2="366" y2="388"/><line x1="430" y1="468" x2="430" y2="388"/><line x1="430" y1="468" x2="494" y2="388"/>
+    <line x1="485" y1="468" x2="366" y2="388"/><line x1="485" y1="468" x2="430" y2="388"/><line x1="485" y1="468" x2="494" y2="388"/>
+    <line x1="540" y1="468" x2="366" y2="388"/><line x1="540" y1="468" x2="430" y2="388"/><line x1="540" y1="468" x2="494" y2="388"/>
+    <line x1="366" y1="388" x2="400" y2="308"/><line x1="366" y1="388" x2="460" y2="308"/><line x1="430" y1="388" x2="400" y2="308"/><line x1="430" y1="388" x2="460" y2="308"/><line x1="494" y1="388" x2="400" y2="308"/><line x1="494" y1="388" x2="460" y2="308"/>
+  </g>
+  <!-- winning path -->
+  <g stroke="#34E0C4" stroke-opacity="0.7" stroke-width="1.6">
+    <line x1="430" y1="574" x2="430" y2="468"/><line x1="430" y1="468" x2="430" y2="388"/><line x1="430" y1="388" x2="460" y2="308"/>
+  </g>
+  <!-- nodes -->
+  <g fill="#0f0f0f" stroke="#7C6BF5" stroke-opacity="0.7" stroke-width="1.8">
+    <circle cx="320" cy="468" r="11"/><circle cx="375" cy="468" r="11"/><circle cx="430" cy="468" r="11"/><circle cx="485" cy="468" r="11"/><circle cx="540" cy="468" r="11"/>
+    <circle cx="366" cy="388" r="12"/><circle cx="430" cy="388" r="12"/><circle cx="494" cy="388" r="12"/>
+    <circle cx="400" cy="308" r="13"/>
+  </g>
+  <circle cx="460" cy="308" r="13" fill="#34E0C4" fill-opacity="0.9" stroke="#34E0C4" stroke-opacity="0.9" stroke-width="1.8"/>
+  <text x="56" y="852" fill="#7C6BF5" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">META · ENSEMBLE</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Neural Meta-Learner</text>
+</svg>

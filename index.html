@@ -1,6 +1,6 @@
 <!-- index (starting point, portfolio)-->
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,9 +44,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 56px 28px;
             position: relative;  /* z-index için gerekli */
             z-index: 1;  /* grain üzerinde olması için */
         }
@@ -84,6 +84,32 @@
             font-weight: 300;
         }
 
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+            gap: 52px;
+            align-items: start;
+            width: 100%;
+        }
+        .hero-main { max-width: 640px; }
+        .hero-exp .exp-group { margin-bottom: 34px; }
+        .hero-exp .exp-group:last-child { margin-bottom: 0; }
+        .hero-exp .eyebrow { margin-bottom: 12px; }
+        .hero-exp .exp-role { font-size: 1.05rem; color: #fff; font-weight: 300; line-height: 1.4; }
+        .hero-exp .exp-company { font-size: 0.92rem; color: #888; margin-top: 3px; }
+        .hero-exp .exp-year { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #6a6a6a; margin-top: 8px; }
+        .hero-exp .exp-note { font-size: 0.85rem; color: #6f6f6f; line-height: 1.65; margin-top: 10px; max-width: 34ch; }
+        /* Secondary (earlier / internship) experience — de-emphasized, sits back */
+        .hero-exp .exp-group.secondary { opacity: 0.82; margin-top: 30px; padding-top: 26px; border-top: 1px solid #1c1c1c; }
+        .hero-exp .exp-group.secondary .exp-role { font-size: 0.9rem; color: #b8b8b8; }
+        .hero-exp .exp-group.secondary .exp-company { font-size: 0.8rem; color: #6f6f6f; }
+        .hero-exp .exp-group.secondary .exp-year { font-size: 0.64rem; color: #565656; }
+        .hero-exp .exp-group.secondary .exp-note { font-size: 0.76rem; color: #5c5c5c; max-width: 30ch; }
+        .hero-exp .exp-group.secondary .eyebrow { color: #525252; }
+
+        #education .eyebrow { margin-bottom: 26px; }
+        #education .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+
         section {
             padding: 80px 0;
             border-bottom: 1px solid #222;
@@ -105,32 +131,32 @@
             letter-spacing: 0.2em;
         }
 
-        .skills-grid {
+        /* ===================== SPECIALITIES / SKILLS ===================== */
+        .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: minmax(180px, 0.85fr) minmax(0, 2fr);
+            gap: 52px;
+            align-items: start;
         }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            font-weight: 400;
-            margin-bottom: 15px;
-            letter-spacing: 0.05em;
-        }
-
-        .skill-category p {
+        .skill-detail { max-width: 840px; }
+        .highlights { list-style: none; }
+        .highlights li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 13px;
             font-size: 0.95rem;
-            color: #777;
+            color: #9a9a9a;
             line-height: 1.7;
-            transition: color 0.3s ease;
-            cursor: default;
+            max-width: 70ch;
         }
-
-        .skill-category p:hover {
-            color: #bbb;
+        .highlights li:last-child { margin-bottom: 0; }
+        .highlights li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: #ff5a36;
         }
+        .highlights li strong { color: #e6e6e6; font-weight: 400; }
 
         .experience-item {
             margin-bottom: 50px;
@@ -253,18 +279,196 @@
             transition: width 0.1s ease;
         }
 
+        /* ===================== SELECTED WORK / PROJECTS ===================== */
+        .work-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            border-top: 1px solid #222;
+            padding-top: 14px;
+            margin: 0 0 46px;
+        }
+        .tb-left { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #6a6a6a; }
+        .tb-right { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #4a4a4a; }
+
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #6a6a6a;
+            margin-bottom: 18px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.25fr) minmax(320px, 1.5fr);
+            gap: 52px;
+            align-items: start;
+        }
+
+        /* LEFT — index */
+        .project-list { padding-top: 2px; }
+        .project-name {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+            color: #767676;
+            font-size: 1.05rem;
+            line-height: 1.35;
+            padding: 8px 2px;
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+        .project-name:hover { color: #d0d0d0; padding-left: 7px; }
+        .project-name.is-active { color: #fff; }
+        .project-name.is-active::after {
+            content: '\25CF';
+            font-size: 0.45rem;
+            color: #ff5a36;
+            margin-left: auto;
+            align-self: center;
+        }
+
+        /* MIDDLE — detail */
+        .detail-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #222;
+        }
+        .detail-title {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+        .detail-year {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #6a6a6a;
+            margin-left: auto;
+        }
+        .detail-block { margin-bottom: 32px; }
+        .detail-block:last-child { margin-bottom: 0; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip {
+            font-size: 0.66rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #b6b6b6;
+            border: 1px solid #2f2f2f;
+            border-radius: 100px;
+            padding: 5px 12px;
+            transition: border-color 0.25s ease, color 0.25s ease;
+            cursor: default;
+        }
+        .chip:hover { border-color: #ff5a36; color: #fff; }
+        .detail-desc { font-size: 0.96rem; color: #9a9a9a; line-height: 1.75; max-width: 48ch; }
+        .detail-role { font-size: 0.92rem; color: #868686; line-height: 1.7; max-width: 48ch; }
+        .detail-role strong { color: #e6e6e6; font-weight: 400; }
+        .detail-role.lead { color: #cfcfcf; margin-bottom: 14px; }
+        .detail-role.lead strong { color: #fff; }
+        /* Skills overview reads as a short paragraph — a touch wider + warmer than project copy */
+        .skill-overview { max-width: 60ch; font-size: 1rem; color: #a8a8a8; line-height: 1.8; }
+        .links { display: flex; flex-wrap: wrap; gap: 22px; }
+        .proj-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #cfcfcf;
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 3px;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+        .proj-link::after { content: '\2197'; color: #ff5a36; }
+        .proj-link:hover { color: #fff; border-color: #ff5a36; }
+
+        /* RIGHT — visual */
+        .project-visual { padding-top: 2px; }
+        .visual-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            aspect-ratio: 4 / 5;
+            background: #141414;
+            border: 1px solid #1f1f1f;
+        }
+        .visual-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #141414;
+            filter: none;
+            opacity: 0;
+            transform: scale(1.03);
+            transition: opacity 0.5s ease, transform 8s ease;
+        }
+        .visual-card.is-ready .visual-bg { opacity: 1; transform: scale(1); }
+        /* Neutral vignette only — each cover now carries its own palette (no global orange duotone) */
+        .visual-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+            background: radial-gradient(125% 85% at 50% 22%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.3) 100%);
+        }
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.28));
+        }
+        .visual-cap {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 12px;
+            font-size: 0.66rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            #education .edu-grid { grid-template-columns: 1fr; gap: 40px; }
+            .skills { grid-template-columns: 1fr; gap: 30px; }
+            .projects { grid-template-columns: 1fr; gap: 30px; }
+            .project-list, .project-visual { position: static; }
+            .project-list { order: 1; }
+            .project-visual { order: 2; }
+            .project-detail { order: 3; }
+            .skill-detail { order: 2; }
+            .visual-card { aspect-ratio: 16 / 10; }
+        }
+
         @media (max-width: 768px) {
             .container {
-                padding: 40px 20px;
+                padding: 36px 18px;
             }
 
             section {
                 padding: 60px 0;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
             }
 
             .social-links {
@@ -284,82 +488,107 @@
     
     <div class="container">
         <header>
-            <h1 class="name">Ege Özçelik</h1>
-            <p class="title">Software Engineer / AI Enthusiast</p>
-            <p class="intro">
-                An engineer specializing in software architectures and artificial intelligence applications, 
-                developing modular designs and innovative solutions.
-            </p>
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <h1 class="name">Ege Özçelik</h1>
+                    <p class="title">Software & AI Engineer <br>Systems Architecture & Agentic Workflows</p>
+                    <p class="intro">
+                        Building software from foundational architecture to the deployment of the AI models and agents reshaping how it gets built.    
+                    </p>
+                </div>
+                <div class="hero-exp">
+                    <div class="exp-group">
+                        <div class="eyebrow">(Now)</div>
+                        <div class="exp-role">Software Engineer</div>
+                        <div class="exp-company">Kentkart R&amp;D</div>
+                        <div class="exp-year">02.2024 — Today</div>
+                        <p class="exp-note">Responsible for Python development and AI applications &amp; model training; system architect on the patented ultra-wideband program.</p>
+                    </div>
+                    <div class="exp-group secondary">
+                        <div class="eyebrow">(Previously)</div>
+                        <div class="exp-role">R&amp;D Intern Engineer</div>
+                        <div class="exp-company">Schneider Electric</div>
+                        <div class="exp-year">2023</div>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <section id="expertise">
             <span class="section-number">01</span>
             <h2>Specialities</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Software Architecture</h3>
-                    <p>
-                        - Focused on designing modular, scalable, and maintainable systems that balance performance with architectural integrity. <br>
-                        - Proficient in integrating <strong> MVC, MVVM, and VIPER within multi-layered structures </strong> to achieve clear separation of concerns and long-term stability. <br>
-                        - Experienced in the practical application of design patterns including <strong> Factory, Builder, Unit of Work, Dependency Injection, and Singleton</strong>, ensuring cohesive and extensible system behavior. <br>
-                        - Development expertise covers <strong>mobile, web, and Python-based desktop (GUI) applications,</strong> with a strong emphasis on architectural consistency and clean design principles.
-                    </p>
-                </div>
-                <div class="skill-category">
-                    <h3>AI Applications</h3>
-                    <p>
-                        - Comprehensive command of <strong>machine learning, deep learning, and natural language processing (NLP) techniques</strong>, with a focus on transforming data into adaptive, intelligent systems. <br>
-                        - Experienced in various projects of <strong>model optimization, and neural network design, applying algorithmic reasoning</strong> to real-world problems in pattern recognition and predictive analytics. <br>
-                        - My approache is, AI not as an auxiliary layer, but as a core architectural component, integrating data-driven intelligence seamlessly into modern software ecosystems.
-                    </p>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Analysis</h3>
-                    <p>
-                        - Proficient in Python (Pandas, NumPy, Matplotlib, Seaborn) and SQL for data wrangling, modeling, and visualization.
-                        Skilled at translating complex datasets into strategic insights through statistical modeling and clear visual communication. <br>
-                        - Every analysis aims to transform raw information into structured knowledge and knowledge into meaningful, actionable value.
-                    </p>
-                </div>
-                <div class="skill-category">
-                    <h3>iOS Development</h3>
-                    <p>
-                       - Developed different types of mobile apps using Swift and SwiftUI. <br>
-                       - Practical knowledge with third-party frameworks such as Firebase, RevenueCat, Alamofire, Kingfisher and etc. <br> 
-                       - Practical knowledge with iOS's built-in frameworks such as CoreML, Vision, AR, NearbyInteractions, CoreLocation and etc.<br>
-                       - Familiar with App Store submission processes, including compliance with Apple's guidelines and best practices for app optimization and user experience.<br> 
-                    </p>
+
+            <div class="skills">
+                <nav class="project-list" id="skillList" aria-label="Skill index"></nav>
+
+                <div class="skill-detail">
+                    <div class="detail-meta">
+                        <span class="detail-title" id="skTitle">—</span>
+                        <span class="detail-year" id="skTag"></span>
+                    </div>
+                    <div class="detail-block">
+                        <p class="detail-desc skill-overview" id="skOverview"></p>
+                    </div>
+                    <div class="detail-block">
+                        <div class="chips" id="skTools"></div>
+                    </div>
+                    <div class="detail-block">
+                        <ul class="highlights" id="skHighlights"></ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience">
+        <section id="projects">
             <span class="section-number">02</span>
-            <h2>Experience</h2>
-            
-            <div class="experience-item">
-                <span class="year">02.2024 — Today</span>
-                <div class="role">Software Engineer</div>
-                <div class="company">Kentkart R&D</div>
-                <div class="description">
-                     Python development and test applications responsible in R&D department.<br>Project manager and main role on the development of Kentkart's Ultra-wide Band based patented R&D project. 
-                </div>
+            <h2>Selected Work</h2>
+
+            <div class="work-topbar">
+                <span class="tb-left"></span>
+                <span class="tb-right">2023 — 2025</span>
             </div>
 
-            <div class="experience-item">
-                <span class="year">2023</span>
-                <div class="role">R&D Intern Engineer</div>
-                <div class="company">Schneider Electric</div>
-                <div class="description">
-                    Preparing the test environment, ensuring the test is performed properly, and analyzing the results.
+            <div class="projects">
+                <nav class="project-list" id="projectList" aria-label="Project index">
+                </nav>
+
+                <div class="project-detail">
+                    <div class="detail-meta">
+                        <span class="detail-title" id="detTitle">—</span>
+                        <span class="detail-year" id="detYear"></span>
+                    </div>
+                    <div class="detail-block">
+                        <div class="chips" id="detChips"></div>
+                    </div>
+                    <div class="detail-block">
+                        <p class="detail-desc" id="detDesc"></p>
+                    </div>
+                    <div class="detail-block">
+                        <div class="eyebrow">(My Role)</div>
+                        <p class="detail-role lead" id="detRoleLabel"></p>
+                        <ul class="highlights" id="detRoleList"></ul>
+                    </div>
+                    <div class="detail-block">
+                        <div class="links" id="detLinks"></div>
+                    </div>
+                </div>
+
+                <div class="project-visual">
+                    <div class="visual-card" id="visCard">
+                        <div class="visual-bg" id="visBg"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="education">
             <span class="section-number">03</span>
-            <h2>Education & Certificates</h2>
-            
+            <h2>Education &amp; Achievements</h2>
+
+            <div class="edu-grid">
+                <div class="edu-col">
+                    <div class="eyebrow">(Education)</div>
+
             <div class="experience-item">
                 <span class="year">MSc.</span>
                 <div class="role">Computer Engineering</div>
@@ -391,6 +620,36 @@
                 <span class="year">Techcareer.net, 2023</span>
                 <div class="role">iOS Development Bootcamp</div>
                 <div class="company">iOS Developer Certificate (techcareer.net)</div>
+            </div>
+
+                </div>
+                <div class="edu-col">
+                    <div class="eyebrow">(Selected Engagements)</div>
+
+            <div class="experience-item">
+                <span class="year">&lt;Role&gt; · &lt;Year&gt;</span>
+                <div class="role">GIA Creative Studio</div>
+                <div class="description">&lt;One line on your role &amp; contribution — replace me.&gt;</div>
+            </div>
+
+            <div class="experience-item">
+                <span class="year">&lt;Role&gt; · &lt;Year&gt;</span>
+                <div class="role">Koi Academy</div>
+                <div class="description">&lt;One line on your role &amp; contribution — replace me.&gt;</div>
+            </div>
+
+            <div class="experience-item">
+                <span class="year">Building</span>
+                <div class="role">Reconchille Studios</div>
+                <div class="description">Independent software &amp; creative studio. &lt;Add your role / focus.&gt;</div>
+            </div>
+
+            <div class="experience-item">
+                <span class="year">2023 — Today</span>
+                <div class="role">Mobile Apps · App Store</div>
+                <div class="description">Shipped iOS apps end-to-end — Mindplace, Traveler, Pacer and more.</div>
+            </div>
+                </div>
             </div>
         </section>
 
@@ -435,6 +694,257 @@
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollIndicator').style.width = scrolled + '%';
         });
+
+        /* ===== Selected Work ===== */
+        const PROJECTS = [
+            {
+                n: 'Mindplace', year: '2025 — Building',
+                stack: ['Multi-Agent Orchestration', 'LLM Planner / Executor', 'Role-Assigned Agent Crew', 'Agentic Pipelines', 'Model-Agnostic Dispatch', 'Vision QC & Consistency', 'Generative Image / Video / Audio', 'Next.js', 'React'],
+                desc: 'A multi-agent AI platform for film and animation production — two orchestration surfaces sitting over one generative-model layer. In the agent-driven flows (VisualStoryteller, CortexStoryteller) an LLM brain runs the whole pipeline: a Supervisor compiles the brief into an execution plan and an executor coordinates a role-assigned crew — Creative Director, Writer, Art Director, Director, Composer and a QC agent — with dependency resolution, parallel groups and per-keyframe Vision QC. The Studio modules are smaller agentic pipelines of their own, like Moodboard\'s composer→critic loop. Underneath both, a model-agnostic dispatcher maps one prompt surface onto 8+ image and video engines — manifest-driven, capability-gated, and never branching on model id.',
+                roleLabel: '<strong>End-to-End Development</strong>',
+                roleBullets: [
+                    '<strong>Agent Orchestration Layer</strong>',
+                    '<strong>Consistent & Optimized Web Infrastructure</strong> for high traffic',
+                    '<strong>Model Routing Layer</strong>',
+                    '<strong>Data Layer</strong> on LLM Memory Architecture',
+                    '<strong>Security & QC Layer</strong>',
+                    '<strong>Design</strong> UI/UX, Visuals, Videos & Short Movies'
+                    
+                ],
+                links: [{ t: 'Explore', u: 'https://www.mindplace.app' }],
+                kw: 'meditation', img: 'assets/mindplace.svg'
+            },
+            {
+                n: 'TravelerApp · Pacer', year: '2024',
+                stack: ['MVVM + Repository', 'Geo-Temporal LLM Prompting', 'Places-Grounded Retrieval', 'Kalman Filtering', 'Ramer–Douglas–Peucker', 'Encoded-Polyline Codec', 'HealthKit Sync', 'Swift / SwiftUI', 'Supabase Edge Functions'],
+                desc: 'Two companion iOS apps I build and keep shipping for myself — I travel and I camp, and these are tools I actually carry into the field, not a portfolio demo. TravelerApp\'s Explore is a two-stage Gemini pipeline: an edge function turns a plain-language wish like "a quiet cafe to read in" into structured category queries, fans them out across Google Places, and geo-fences the hits — every request carrying location, time of day, weekday and season, so a late-night ask surfaces places open now. Pacer is the field-analytics half: raw GPS runs through a Kalman filter and Ramer–Douglas–Peucker simplification into stored encoded polylines, with an anchored HealthKit sync — and I keep adding to both as an ongoing personal product.',
+                roleLabel: '<strong>End-to-End Development',
+                roleBullets: [
+                    '<strong>AI Pipelines</strong> in Supabase Edge Functions',
+                    '<strong>iOS Development</strong>',
+                    '<strong>Design</strong> UI/UX'
+                ],
+                links: [{ t: 'TravelerApp', u: 'https://github.com/egeozcelik/iOS-Collection' }, { t: 'Pacer by TravelerApp', u: 'https://github.com/egeozcelik/iOS-Collection' }] ,
+                kw: 'travel', img: 'assets/traveler.svg'
+            },
+            {
+                n: 'UWB · Nearby Interaction', year: '2024 — Today',
+                stack: ['Ultra-Wideband', 'DS-TWR Ranging', 'Time-of-Flight', 'PDoA / Angle-of-Arrival', 'FiRa · IEEE 802.15.4z', 'Nearby Interaction', 'CoreBluetooth OOB', 'UCI over SPI', 'QN9090 Firmware', 'Swift / SwiftUI', 'C', 'Python · PySide6'],
+                desc: 'A free-flow access system: a phone or Apple Watch is detected, identified and localized as it walks through a gate — no tap, no scan, no stopping. Apple Nearby Interaction bootstraps a UWB session over a Bluetooth out-of-band handshake, then double-sided two-way ranging on the UWB radios resolves Time-of-Flight distance while phase-difference-of-arrival across three antennas recovers azimuth and elevation — around 4–5 fixes per second at ±10 cm line-of-sight. Anchor firmware drives the radio over UCI/SPI and streams a CRC-framed, resync-safe telemetry protocol that a PySide6 desktop suite decodes into live tiles, time-series and a bird\'s-eye gate view — the whole pipeline runnable with zero hardware through a firmware-accurate simulator. Presence resolves across three ranges: Bluetooth discovery, UWB ranging, and a tight action zone triggered by a boresight azimuth sign-change.',
+                roleLabel: '<strong>Main System Architect</strong>',
+                roleBullets: [
+                    '<strong>Project manager</strong> — owned scope, planning and delivering operations.',
+                    '<strong>Firmware Development C</strong> on the Anchor Side (C lang on QN9090)',
+                    '<strong>Mobile Development</strong> on the tag side (Native iOS)',
+                    '<strong>Python Tooling</strong> Monitoring suite, Dev. Tools, Zero-Hardware Simulator, Agentic Skills on Coding.'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/UWB-Nearby-Interactions' }],
+                kw: 'technology', img: 'assets/uwb.svg'
+            },
+            {
+                n: 'CAN Bus · J1939 Simulator', year: '2023',
+                stack: ['SAE J1939', 'CAN Bus / 29-bit Frames', 'PGN / SPN Decoding', 'PDU1 / PDU2 Addressing', 'Vehicle-Dynamics Simulation', 'SocketCAN', 'python-can', 'Python', 'GTK 3', 'pytest'],
+                desc: 'A two-part J1939 toolkit for heavy-duty vehicle CAN buses, built as a pair of desktop apps that talk to each other over a real bus. The simulator runs a vehicle-dynamics model that broadcasts 20 PGNs and ~30 SPNs — engine and vehicle speed, fuel rate, temperatures, plus a full EV pack (voltage, current, SOC/SOH) — as genuine 29-bit J1939 frames at 250/500 kbit/s. The monitor listens on a SocketCAN interface, pulls the PGN from each identifier and resolves the SPN bit-fields back to physical values on a live dashboard, so it reads real CAN traffic off the wire rather than a canned log. Both apps follow SAE J1939-21 and J1939-71 to keep the traffic standards-correct, run on Linux and Windows, and sit behind python-can so the same code drives real adapters or a hardware-free virtual bus.',
+                roleLabel: '<strong>End-to-End Development',
+                roleBullets: [
+                    '<strong>Protocol Core</strong> J1939 encode / decode (PGN / SPN, 29-bit ID)',
+                    '<strong>Simulator & Monitor</strong> desktop apps generating & reading real CAN traffic',
+                    '<strong>SAE J1939-21 / 71 Compliance</strong>',
+                    '<strong>Cross-Platform Packaging</strong> Linux & Windows desktop builds'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/CANBus-J1939-Complete-Repo' }],
+                kw: 'truck', img: 'assets/canbus.svg'
+            },
+            {
+                n: 'Face Recognition · NPU', year: '2024',
+                stack: ['Metric Learning / Triplet Loss', 'Open-Set Recognition', 'INT8 Quantization', 'NPU Delegation', 'SSD · MobileNetV2', 'FaceNet · Inception-ResNet', 'TensorFlow Lite', 'VX Delegate / OpenVX', 'i.MX 8M Plus NPU', 'GStreamer + G2D', 'OpenCV', 'Python'],
+                desc: 'Real-time face recognition running entirely on the NPU of an NXP i.MX 8M Plus — no cloud, no GPU server. A two-stage TensorFlow Lite pipeline does the work: a fully-INT8 SSD/MobileNetV2 detector finds faces in ~10 ms, then a FaceNet embedder turns each crop into a 128-D vector matched against an enrolled gallery by cosine similarity. Getting there meant post-training INT8 quantization with representative-dataset calibration, then routing the graph onto the VeriSilicon accelerator through the VX delegate / OpenVX path — roughly 20× faster than the CPU cores — while the 2D GPU handles 1080p colorspace conversion so the CPU stays free. IoU tracking, recognition throttling and CLAHE lightness normalization keep it smooth under changing light.',
+                roleLabel: '<strong>Main System Architect</strong>',
+                roleBullets: [
+                    '<strong>Model Training</strong> metric learning with triplet loss',
+                    '<strong>Backbone Layer</strong> MobileNetV2 detector & FaceNet embedder',
+                    '<strong>Fine-Tuning</strong>',
+                    '<strong>INT8 Quantization</strong> for the NPU',
+                    '<strong>Firmware Optimization (Linux)</strong> NPU delegation & operator placement'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/face-recognition-npu' }],
+                kw: 'circuit', img: 'assets/face-npu.svg'
+            },
+            {
+                n: 'Neural Meta-Learner', year: '2025',
+                stack: ['Stacked Generalization', 'Meta-Learning', 'Model Ensembling', 'Neural Meta-Head', 'Probability Meta-Features', 'Stratified 5-Fold CV', 'PyTorch', 'CatBoost', 'LightGBM', 'scikit-learn', 'Python'],
+                desc: 'A stacked-generalization study that squeezes more out of a model I had already trained: instead of retraining, I freeze a strong CatBoost base and learn a neural meta-head on top of its class probabilities concatenated with the original features — a 61-dimensional meta-space. Three heterogeneous meta-learners compete on it (Logistic Regression, LightGBM and a shallow PyTorch network), each scored under stratified 5-fold cross-validation; the neural head wins, lifting F1 from 87.3% to 89.8% and ROC-AUC to 96% by learning to correct the base model\'s systematic, overconfident errors. Built solo as a master\'s project — developed with supervising professors, defended before a faculty jury, and written up as an academic article.',
+                roleLabel: '<strong>End-to-end &amp; solo</strong> — idea to jury defense',
+                roleBullets: [
+                    '<strong>Research</strong> stacked generalization over a frozen CatBoost base',
+                    '<strong>Neural Meta-Head</strong> in PyTorch (vs LR / LightGBM baselines)',
+                    '<strong>Evaluation</strong> stratified 5-fold CV, F1 / ROC-AUC lift',
+                    '<strong>Academic Writing & Jury Defense</strong>'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Neural-Meta-Learner-Enhancement' }],
+                kw: 'abstract', img: 'assets/meta-learner.svg'
+            },
+            {
+                n: 'Comparative ML Evaluation', year: '2025',
+                stack: ['Comparative Model Evaluation', 'Controlled Experiment Design', 'Feature Engineering', 'Leakage Control', 'Stratified 5-Fold CV', 'RandomizedSearchCV', 'ROC-AUC / Weighted F1', 'CatBoost · XGBoost · LightGBM', 'scikit-learn', 'pandas · NumPy', 'Python'],
+                desc: 'A master\'s-level study that treats model selection as a controlled experiment rather than a leaderboard chase: eight classifiers — from Logistic Regression to XGBoost, LightGBM and CatBoost — are held to one identical preprocessing and evaluation protocol, so the algorithm itself is the only variable. On a 7,439-row fight dataset I drop 42 leakage-prone columns, engineer 27 difference and advantage features, rank baselines on a stratified split, then tune the front-runner with RandomizedSearchCV and score on weighted F1 and ROC-AUC. CatBoost led at 80.6% accuracy and 0.886 ROC-AUC, with relative advantages between fighters proving more predictive than raw individual stats. I developed it end to end and solo — from research framing through implementation to a report defended before a faculty jury.',
+                roleLabel: '<strong>End-to-end &amp; solo</strong> — research, build, write, defend',
+                roleBullets: [
+                    '<strong>Experiment Design</strong> one fixed protocol, model family as the only variable',
+                    '<strong>Feature Engineering</strong> leakage control & 27 engineered features',
+                    '<strong>Benchmark & Tuning</strong> 8 classifiers, RandomizedSearchCV on F1 / ROC-AUC',
+                    '<strong>Academic Writing & Jury Defense</strong>'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Comparative-ML-Model-Evaluation' }],
+                kw: 'chart', img: 'assets/ml-eval.svg'
+            },
+            {
+                n: 'DL Image Colorization', year: '2024',
+                stack: ['CIE Lab Color Space', 'Grayscale Colorization', 'ab-Chrominance Regression', 'U-Net / Encoder–Decoder', 'Skip Connections', 'Transfer Learning (ResNet50)', 'PSNR / SSIM', 'Statistical t-test', 'TensorFlow / Keras', 'OpenCV', 'NumPy / SciPy'],
+                desc: 'A master\'s-level study of automatic grayscale colorization, framed as a/b-chrominance regression in CIE Lab — the luminance channel goes in, the two color channels come out, and a recombined image comes back. Rather than betting on one network, I built and compared three architectures in TensorFlow/Keras — a plain convolutional autoencoder, a U-Net with skip connections, and a ResNet50-UNet reusing an ImageNet-pretrained encoder — to isolate what actually moves the needle. Scored on PSNR and SSIM with a pairwise t-test on per-image results, the U-Net landed the best accuracy-to-cost ratio: skip connections gave a statistically significant lift, while transfer learning added only marginal gains. Developed end to end and solo — from the research question through the written study to the jury presentation.',
+                roleLabel: '<strong>End-to-end &amp; solo</strong> — idea → study → jury',
+                roleBullets: [
+                    '<strong>Research Design</strong> ab-chrominance regression in CIE Lab',
+                    '<strong>Architecture Comparison</strong> autoencoder vs U-Net vs ResNet50-UNet',
+                    '<strong>Evaluation</strong> PSNR / SSIM with a pairwise t-test',
+                    '<strong>Academic Writing & Jury Defense</strong>'
+                ],
+                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Deep-Learning-Architectures-for-Image-Colorization' }],
+                kw: 'colorful', img: 'assets/colorization.svg'
+            }
+        ];
+
+        (function () {
+            const list = document.getElementById('projectList');
+            if (!list) return;
+            const el = id => document.getElementById(id);
+            const pad = n => String(n).padStart(2, '0');
+            const total = PROJECTS.length;
+            const esc = x => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            function svgFor(p, i) {
+                const s = "<svg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'>"
+                    + "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>"
+                    + "<stop offset='0' stop-color='#ff7a4d'/><stop offset='.55' stop-color='#ff4d2e'/><stop offset='1' stop-color='#2a0c07'/>"
+                    + "</linearGradient></defs>"
+                    + "<rect width='800' height='1000' fill='#0f0f0f'/>"
+                    + "<rect width='800' height='1000' fill='url(#g)' opacity='.92'/>"
+                    + "<g stroke='rgba(0,0,0,.16)' stroke-width='1'><line x1='0' y1='250' x2='800' y2='250'/><line x1='0' y1='500' x2='800' y2='500'/><line x1='0' y1='750' x2='800' y2='750'/><line x1='400' y1='0' x2='400' y2='1000'/></g>"
+                    + "<text x='56' y='906' fill='#0b0b0b' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='52'>" + esc(p.n) + "</text>"
+                    + "</svg>";
+                return 'data:image/svg+xml,' + encodeURIComponent(s);
+            }
+
+            PROJECTS.forEach((p, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'project-name' + (i === 0 ? ' is-active' : '');
+                b.textContent = p.n;
+                b.addEventListener('click', () => select(i));
+                list.appendChild(b);
+            });
+            const buttons = Array.prototype.slice.call(list.querySelectorAll('.project-name'));
+
+            function select(i) {
+                const p = PROJECTS[i];
+                buttons.forEach((b, j) => b.classList.toggle('is-active', j === i));
+                el('detTitle').textContent = p.n;
+                el('detYear').textContent = p.year;
+                el('detDesc').textContent = p.desc;
+                el('detRoleLabel').innerHTML = p.roleLabel;
+                el('detRoleList').innerHTML = (p.roleBullets || []).map(b => "<li>" + b + "</li>").join('');
+                el('detChips').innerHTML = p.stack.map(s => "<span class='chip'>" + esc(s) + "</span>").join('');
+                el('detLinks').innerHTML = p.links.map(l => "<a class='proj-link' href='" + l.u + "' target='_blank' rel='noopener noreferrer'>" + esc(l.t) + "</a>").join('');
+
+                const card = el('visCard'), bg = el('visBg');
+                card.classList.remove('is-ready');
+                const fb = svgFor(p, i);
+                const real = p.img;
+                const pre = new Image();
+                pre.onload = function () { bg.style.backgroundImage = 'url("' + real + '")'; card.classList.add('is-ready'); };
+                pre.onerror = function () { bg.style.backgroundImage = 'url("' + fb + '")'; card.classList.add('is-ready'); };
+                pre.src = real;
+            }
+
+            select(0);
+        })();
+
+        /* ===== Specialities / Skills ===== */
+        const SKILLS = [
+            {
+                n: 'AI Orchestration & Applications', tag: 'Agentic · LLM-Native',
+                overview: 'This is where building has changed the most, and it is where I lead. I bring a software-architecture mindset to AI, designing how agents, orchestration and model routing fit together as real components.',
+                tools: ['Multi-Agent Orchestration', 'Agentic Pipelines', 'Role-Assigned Agents', 'Claude Code', 'Codex', 'Tool Use / Function Calling', 'Sandwich Prompting', 'Model-Aware Routing', 'RAG', 'Vision QC', 'MCP', 'Structured Output'],
+                highlights: [
+                    'Design and ship <strong>multi-agent systems</strong> — a crew of role-assigned agents (director, writer, QC) coordinated by an <strong>orchestrator and adaptive plan-mode pipeline</strong>, in production.',
+                    '<strong>Architecture-first with AI</strong> — I design the structure and let agents execute against it, instead of hoping a single prompt lands right.',
+                    'Prompt and context treated as real infrastructure — <strong>sandwich prompting, model-aware routing, structured output and vision-based QC</strong> for consistency and reliability.',
+                    '<strong>Always on the newest models</strong> — Claude Code, Codex and frontier image/video engines in the daily build loop as they ship, not months later.'
+                ]
+            },
+            {
+                n: 'Software Architecture', tag: 'Systems · Patterns',
+                overview: 'Before the AI era I spent 8+ years writing every line by hand — designing systems, making the architectural calls and living with them. That foundation is the whole point. Today I do not tell an AI what to type; I design the structure and the architecture in detail and direct the build from there.',
+                tools: ['Clean Architecture', 'Separation of Concerns', 'MVC', 'MVVM', 'VIPER', 'Dependency Injection', 'Factory', 'Builder', 'Unit of Work', 'Singleton'],
+                highlights: [
+                    'Modular, scalable and maintainable systems that keep <strong>performance and architectural integrity</strong> in balance.',
+                    'Fluent across <strong>MVC, MVVM and VIPER</strong> within layered structures with a clear separation of concerns.',
+                    'Everyday use of <strong>Factory, Builder, Unit of Work, Dependency Injection and Singleton</strong> patterns across <strong>mobile, web and Python desktop (GUI)</strong> applications.',
+                    '<strong>8+ years of hands-on coding</strong> before AI entered the loop — the engineering judgment underneath every architectural call.'
+                ]
+            },
+            {
+                n: 'Model Training & Data Analysis', tag: 'ML · DL · Research',
+                overview: 'Turning data into trained models — and into results I can stand behind. The theory comes from a master\'s in AI, machine learning, deep learning and NLP; the practice comes from Kentkart R&D and a stack of my own projects — from PC-scale training pipelines all the way down to models small enough to run on an embedded chip.',
+                tools: ['Model Training', 'Machine Learning', 'Deep Learning', 'NLP', 'Neural Networks', 'Model Optimization', 'Edge / On-Device', 'Quantization', 'PyTorch', 'Pandas', 'NumPy', 'SQL', 'Statistical Modeling'],
+                highlights: [
+                    'A range of <strong>theoretical and applied</strong> ML/DL work — theory from an <strong>AI/ML/DL/NLP master\'s</strong>, practice from <strong>Kentkart R&amp;D and personal research</strong> (meta-learning, comparative ML, image colorization, on-device vision).',
+                    'Comfortable across <strong>machine learning, deep learning and NLP</strong>, with <strong>model optimization and neural-network design</strong> applied to real problems.',
+                    'From <strong>PC-scale pipelines (PyTorch, Pandas, NumPy)</strong> down to <strong>low-power on-device inference</strong> — quantized where every milliwatt counts.',
+                    '<strong>Data analysis</strong> with Pandas, NumPy and SQL — statistical modeling and clear visualization that turn messy datasets into decisions.'
+                ]
+            },
+            {
+                n: 'Building & Shipping', tag: 'Maker · Cross-Platform',
+                overview: 'I am a builder before anything else. When something new lands — a model, an SDK, a framework — my instinct is to turn it into a real, published product. iOS, web, Android, games; usually on my own time, always end to end, from the first idea to something people can actually download.',
+                tools: ['iOS / SwiftUI', 'Web / Next.js', 'Android', 'Game Dev', 'Full-Stack', 'App Store', 'Rapid Prototyping', 'Product Delivery'],
+                highlights: [
+                    'Ship end-to-end across platforms — <strong>native iOS (Swift/SwiftUI), web (Next.js/React), Android and games</strong> — owning architecture through release.',
+                    'A steady <strong>maker cadence</strong>: newly-released tech becomes a working, published product fast — App Store apps, web platforms and beyond.',
+                    'At home across the stack and the store — <strong>App Store submission</strong>, web deployment and the full path from idea to users.',
+                    'Always building — the reflex to <strong>turn what just shipped into what I ship next</strong>.'
+                ]
+            }
+        ];
+
+        (function () {
+            const list = document.getElementById('skillList');
+            if (!list) return;
+            const el = id => document.getElementById(id);
+            const esc = x => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            SKILLS.forEach((s, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'project-name' + (i === 0 ? ' is-active' : '');
+                b.textContent = s.n;
+                b.addEventListener('click', () => select(i));
+                list.appendChild(b);
+            });
+            const buttons = Array.prototype.slice.call(list.querySelectorAll('.project-name'));
+
+            function select(i) {
+                const s = SKILLS[i];
+                buttons.forEach((b, j) => b.classList.toggle('is-active', j === i));
+                el('skTitle').textContent = s.n;
+                el('skTag').textContent = s.tag;
+                el('skOverview').textContent = s.overview;
+                el('skTools').innerHTML = s.tools.map(t => "<span class='chip'>" + esc(t) + "</span>").join('');
+                el('skHighlights').innerHTML = s.highlights.map(h => "<li>" + h + "</li>").join('');
+            }
+
+            select(0);
+        })();
     </script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="tvGlow" cx="42%" cy="60%" r="62%">
+      <stop offset="0" stop-color="#5EEAD4" stop-opacity="0.14"/>
+      <stop offset="0.7" stop-color="#5EEAD4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="360" cy="600" r="360" fill="url(#tvGlow)"/>
+  <g stroke="#5EEAD4" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- faint topographic rings -->
+  <g fill="none" stroke="#5EEAD4" stroke-opacity="0.1" stroke-width="1.2">
+    <ellipse cx="380" cy="560" rx="250" ry="210"/>
+    <ellipse cx="380" cy="560" rx="160" ry="132"/>
+  </g>
+  <!-- GPS route polyline -->
+  <path d="M 220 812 C 280 764, 306 706, 342 660 C 380 612, 460 636, 486 574 C 512 512, 452 470, 492 424 C 524 386, 590 408, 556 348" fill="none" stroke="#5EEAD4" stroke-opacity="0.72" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M 486 574 C 500 548, 470 512, 492 486" fill="none" stroke="#5EEAD4" stroke-opacity="0.35" stroke-width="1.6" stroke-dasharray="3 7"/>
+  <!-- pace-split ticks -->
+  <g stroke="#5EEAD4" stroke-opacity="0.5" stroke-width="1.4">
+    <line x1="300" y1="742" x2="284" y2="726"/>
+    <line x1="430" y1="612" x2="448" y2="600"/>
+    <line x1="470" y1="500" x2="452" y2="492"/>
+  </g>
+  <!-- waypoints -->
+  <g fill="#0f0f0f" stroke="#5EEAD4" stroke-opacity="0.75" stroke-width="2.2">
+    <circle cx="342" cy="660" r="8"/>
+    <circle cx="486" cy="574" r="8"/>
+    <circle cx="492" cy="424" r="8"/>
+  </g>
+  <circle cx="220" cy="812" r="6" fill="#5EEAD4" fill-opacity="0.9"/>
+  <!-- explore fan -> map pins -->
+  <g stroke="#FF9E80" stroke-opacity="0.45" stroke-width="1.3" stroke-dasharray="2 6">
+    <line x1="556" y1="348" x2="360" y2="250"/>
+    <line x1="556" y1="348" x2="452" y2="212"/>
+    <line x1="556" y1="348" x2="612" y2="250"/>
+  </g>
+  <g fill="none" stroke="#FF9E80" stroke-opacity="0.8" stroke-width="1.8">
+    <path d="M360 250 a14 14 0 1 1 0.1 0 M360 264 L360 286"/>
+    <path d="M452 212 a14 14 0 1 1 0.1 0 M452 226 L452 248"/>
+    <path d="M612 250 a14 14 0 1 1 0.1 0 M612 264 L612 286"/>
+  </g>
+  <g fill="#FF9E80" fill-opacity="0.85"><circle cx="360" cy="250" r="4"/><circle cx="452" cy="212" r="4"/><circle cx="612" cy="250" r="4"/></g>
+  <!-- compass rose -->
+  <g stroke="#FF9E80" stroke-opacity="0.5" stroke-width="1.2" fill="none">
+    <circle cx="512" cy="300" r="20"/>
+    <line x1="512" y1="274" x2="512" y2="326"/>
+    <line x1="486" y1="300" x2="538" y2="300"/>
+  </g>
+  <text x="56" y="852" fill="#FF9E80" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">EXPLORE · ROUTE</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">TravelerApp · Pacer</text>
+</svg>

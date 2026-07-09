@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="meGlow" cx="50%" cy="40%" r="58%">
+      <stop offset="0" stop-color="#3D8BFF" stop-opacity="0.14"/>
+      <stop offset="0.7" stop-color="#3D8BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <rect x="0" y="0" width="400" height="1000" fill="#3D8BFF" fill-opacity="0.018"/>
+  <rect x="400" y="0" width="400" height="1000" fill="#FF3B52" fill-opacity="0.018"/>
+  <circle cx="400" cy="430" r="360" fill="url(#meGlow)"/>
+  <g stroke="#3D8BFF" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="750" x2="800" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/>
+  </g>
+  <!-- ROC axes + chance line -->
+  <g stroke="#8a8a8a" stroke-opacity="0.4" stroke-width="1.4">
+    <line x1="180" y1="250" x2="180" y2="560"/>
+    <line x1="180" y1="560" x2="640" y2="560"/>
+  </g>
+  <line x1="180" y1="560" x2="640" y2="250" stroke="#8a8a8a" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="5 7"/>
+  <!-- ROC curves (baselines) -->
+  <g fill="none" stroke="#3D8BFF">
+    <path d="M180 560 C 300 508, 470 344, 640 250" stroke-opacity="0.3" stroke-width="1.5"/>
+    <path d="M180 560 C 280 492, 448 326, 640 250" stroke-opacity="0.34" stroke-width="1.5"/>
+    <path d="M180 560 C 262 474, 428 312, 640 250" stroke-opacity="0.38" stroke-width="1.5"/>
+    <path d="M180 560 C 248 458, 410 300, 640 250" stroke-opacity="0.44" stroke-width="1.5"/>
+    <path d="M180 560 C 235 440, 395 290, 640 250" stroke-opacity="0.5" stroke-width="1.5"/>
+    <path d="M180 560 C 225 420, 380 280, 640 250" stroke-opacity="0.56" stroke-width="1.6"/>
+    <path d="M180 560 C 215 400, 365 270, 640 250" stroke-opacity="0.6" stroke-width="1.6"/>
+  </g>
+  <!-- winning ROC curve (CatBoost) -->
+  <path d="M180 560 C 205 380, 350 262, 640 250" fill="none" stroke="#FF3B52" stroke-opacity="0.95" stroke-width="2.4"/>
+  <!-- leaderboard -->
+  <rect x="200" y="638" width="384" height="13" fill="#FF3B52" fill-opacity="0.8"/>
+  <rect x="200" y="660" width="352" height="13" fill="#3D8BFF" fill-opacity="0.55"/>
+  <rect x="200" y="682" width="326" height="13" fill="#3D8BFF" fill-opacity="0.5"/>
+  <rect x="200" y="704" width="300" height="13" fill="#3D8BFF" fill-opacity="0.46"/>
+  <rect x="200" y="726" width="270" height="13" fill="#3D8BFF" fill-opacity="0.42"/>
+  <rect x="200" y="748" width="238" height="13" fill="#3D8BFF" fill-opacity="0.38"/>
+  <rect x="200" y="770" width="206" height="13" fill="#3D8BFF" fill-opacity="0.34"/>
+  <rect x="200" y="792" width="176" height="13" fill="#3D8BFF" fill-opacity="0.3"/>
+  <line x1="200" y1="628" x2="200" y2="812" stroke="#8a8a8a" stroke-opacity="0.35" stroke-width="1.2"/>
+  <g fill="#8a8a8a" font-family="monospace" font-size="12" fill-opacity="0.85">
+    <text x="596" y="649">CatBoost · 0.886</text>
+    <text x="470" y="288">AUC</text>
+  </g>
+  <text x="56" y="852" fill="#3D8BFF" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">BENCHMARK · ML</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">Comparative ML Evaluation</text>
+</svg>
