@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
     <title>Ege Özçelik</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/covers.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -48,17 +50,11 @@
 
         .s-head {
             display: grid;
-            grid-template-columns: var(--rowno) 1fr auto;
+            grid-template-columns: 1fr auto;
             gap: 20px; align-items: baseline;
             border-top: 1px solid var(--line);
             padding-top: 16px;
             margin-bottom: clamp(44px, 7vh, 92px);
-        }
-        .s-no {
-            font-family: var(--font-display);
-            font-size: clamp(27px, 3.4vw, 52px); font-weight: 500;
-            line-height: 1; letter-spacing: -0.015em;
-            color: var(--ghost);
         }
         .s-title {
             font-family: var(--font-display);
@@ -66,6 +62,14 @@
             line-height: 1; letter-spacing: -0.015em; text-transform: uppercase;
         }
         .s-side { justify-self: end; align-self: baseline; }
+        .s-title .title-link {
+            color: inherit; text-decoration: none;
+            display: inline-flex; align-items: baseline; gap: 0.16em;
+            transition: color 0.25s ease;
+        }
+        .s-title .t-arrow { color: var(--red); font-size: 0.6em; transition: transform 0.25s ease; }
+        .s-title .title-link:hover { color: var(--mute); }
+        .s-title .title-link:hover .t-arrow { transform: translate(0.14em, -0.14em); }
 
         .statement {
             font-family: var(--font-display);
@@ -83,7 +87,7 @@
             background: rgba(25, 24, 21, 0.88);
             -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(237, 234, 226, 0.12);
-            font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+            font-size: 13.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
             color: #EDEAE2;
             transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
             pointer-events: none;
@@ -91,7 +95,7 @@
         .tb-in {
             display: flex; justify-content: space-between; align-items: center; gap: 20px;
             max-width: 1760px; margin: 0 auto;
-            padding: 15px clamp(20px, 3.2vw, 56px);
+            padding: 16px clamp(20px, 3.2vw, 56px);
         }
         .topbar a { color: inherit; text-decoration: none; pointer-events: auto; transition: opacity 0.2s ease; }
         .topbar a:hover { opacity: 0.55; }
@@ -122,7 +126,7 @@
             gap: 28px;
             border-bottom: 1px solid var(--line);
             padding-bottom: 18px;
-            font-size: 11px; line-height: 1.75; letter-spacing: 0.02em;
+            font-size: 14px; line-height: 1.75; letter-spacing: 0.02em;
             color: var(--mute);
         }
         .hero-meta strong { color: var(--fg); font-weight: 500; }
@@ -139,33 +143,27 @@
             font-size: 15px; line-height: 1.7; color: var(--soft);
         }
         .hero-toc {
-            align-self: flex-end;
-            margin-bottom: clamp(24px, 4vh, 56px);
+            align-self: center;
             min-width: 250px;
         }
         .hero-toc a {
-            display: grid; grid-template-columns: 44px 1fr; gap: 10px;
+            display: block;
             padding: 8px 0; border-top: 1px solid var(--line);
             color: var(--mute); text-decoration: none;
             font-family: var(--font-display); font-size: 12px; font-weight: 500;
             letter-spacing: 0.05em; text-transform: uppercase;
             transition: color 0.2s ease;
         }
-        .hero-toc a span { font-family: var(--font-body); font-size: 10px; color: var(--mute); letter-spacing: 0.04em; }
         .hero-toc a:hover { color: var(--fg); }
         .hero-name {
             font-family: var(--font-display);
-            font-size: clamp(64px, min(21.8vw, 27svh), 378px);
-            font-weight: 600; line-height: 1.04; letter-spacing: -0.052em;
+            font-size: clamp(44px, min(18vw, 30svh), 330px);
+            font-weight: 700; line-height: 1; letter-spacing: -0.045em;
             color: var(--fg);
-            margin: 0 -0.045em -0.075em;
+            margin: 0 -0.04em clamp(24px, 4.5vh, 56px);
             white-space: nowrap;
         }
-        .hero-name .hn-line { display: block; }
-        .hero-name .reg {
-            font-size: 0.11em; font-weight: 500; letter-spacing: 0;
-            color: var(--red); vertical-align: 3.4em;
-        }
+        .hero-name .hn-thin { font-weight: 200; }
 
         /* ============ PROFILE ============ */
         .cols-3 {
@@ -173,7 +171,6 @@
             gap: clamp(28px, 4vw, 64px);
             border-top: 1px solid var(--line);
             padding-top: 18px;
-            padding-left: calc(var(--rowno) + 20px);
             margin-top: clamp(52px, 8vh, 104px);
         }
         .cols-3 .lbl { display: block; margin-bottom: 16px; }
@@ -191,7 +188,6 @@
             gap: clamp(28px, 4vw, 64px);
             border-top: 1px solid var(--line);
             padding-top: 18px;
-            padding-left: calc(var(--rowno) + 20px);
             margin-top: clamp(52px, 8vh, 104px);
         }
         .stat .lbl { display: block; margin-bottom: 20px; }
@@ -205,24 +201,19 @@
         /* ============ SPECIALITIES — giant accordion rows ============ */
         /* column caption above the rows — the deck's "↳ STAGES / ↳ BRANDS" header pattern */
         .rows-cap {
-            display: grid; grid-template-columns: var(--rowno) 1fr auto;
+            display: grid; grid-template-columns: 1fr auto;
             gap: 20px; align-items: baseline;
             padding-bottom: 14px;
         }
-        .rows-cap--edu { grid-template-columns: var(--rowno) 1fr minmax(300px, 0.85fr); }
+        .rows-cap--edu { grid-template-columns: 1fr minmax(300px, 0.85fr); }
         .rows { border-bottom: 1px solid var(--line); }
         .row { border-top: 1px solid var(--line); }
         .row-head {
-            display: grid; grid-template-columns: var(--rowno) minmax(0, 1fr) auto max-content;
+            display: grid; grid-template-columns: minmax(0, 1fr) auto max-content;
             align-items: center; gap: 20px;
             width: 100%; padding: clamp(18px, 3.2vh, 32px) 0;
             background: none; border: 0; cursor: pointer; text-align: left;
             font-family: var(--font-display); color: inherit;
-        }
-        .row-no {
-            font-size: clamp(30px, 4.6vw, 68px); font-weight: 500;
-            line-height: 1; color: var(--ghost);
-            transition: color 0.3s ease;
         }
         .row-word {
             font-size: var(--rw, clamp(30px, 5.4vw, 82px)); font-weight: 600;
@@ -245,16 +236,15 @@
         }
         .row-x::after { transform: translate(-50%, -50%) rotate(90deg); }
         .row-head:hover .row-x::before, .row-head:hover .row-x::after { background: var(--fg); }
-        .row-head:hover .row-no { color: var(--red); }
         .row.is-open .row-x::before { transform: translate(-50%, -50%) rotate(45deg); background: var(--red); }
         .row.is-open .row-x::after { transform: translate(-50%, -50%) rotate(135deg); background: var(--red); }
-        .row-head:hover .row-word, .row.is-open .row-word { color: var(--fg); }
-        .row.is-open .row-no { color: var(--red); }
+        .row.is-open .row-word { color: var(--fg); }
+        .row-head:hover .row-word { color: var(--red); }
         .row-panel { overflow: hidden; max-height: 0; transition: max-height 0.55s cubic-bezier(0.2, 0.7, 0.2, 1); }
         .row-panel-in {
             display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
             gap: clamp(28px, 4vw, 72px);
-            padding: 8px 0 clamp(30px, 5vh, 52px) calc(var(--rowno) + 20px);
+            padding: 8px 0 clamp(30px, 5vh, 52px);
         }
         .row-overview { font-size: 14.5px; line-height: 1.75; color: var(--soft); max-width: 56ch; }
         .row-block { margin-top: 30px; }
@@ -279,7 +269,7 @@
         }
         .p-index { border-bottom: 1px solid var(--line); }
         .p-item {
-            display: grid; grid-template-columns: 42px 1fr auto;
+            display: grid; grid-template-columns: 1fr auto;
             align-items: baseline; gap: 8px;
             width: 100%; padding: 13px 0;
             background: none; border: 0; border-top: 1px solid var(--line);
@@ -289,11 +279,10 @@
             color: var(--mute);
             transition: color 0.2s ease;
         }
-        .p-no { font-size: 11px; color: var(--mute); font-family: var(--font-body); letter-spacing: 0.04em; }
         .p-item:hover { color: var(--fg); }
         .p-item.is-active { color: var(--fg); }
         .p-item.is-active::after { content: '\25CF'; font-size: 7px; color: var(--red); align-self: center; }
-        .p-item.is-active .p-no { color: var(--red); }
+        .p-index .pf-all { margin: 16px 0 14px; }
 
         .det-meta {
             display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
@@ -310,6 +299,7 @@
         .det-block:last-child { margin-bottom: 0; }
         .det-block > .lbl { display: block; margin-bottom: 12px; }
         .det-desc { font-size: 14px; line-height: 1.75; color: var(--soft); max-width: 62ch; }
+        .det-desc strong { color: var(--fg); font-weight: 500; }
         .rolelead { font-size: 14px; color: var(--soft); margin-bottom: 4px; }
         .rolelead strong { color: var(--fg); font-weight: 500; }
         .rolelist { list-style: none; }
@@ -373,131 +363,8 @@
             color: var(--mute);
         }
 
-        /* covers (from production site) */
-        /* ============================================================
-           ANIMATED COVERS — each preview animates what its project
-           actually DOES (signal flow, ranging, a route being traced,
-           grayscale turning to colour…). Deliberately slow, low-opacity
-           and ambient — never a generic pulse/heartbeat. Only the one
-           selected cover is ever in the DOM, so only one animates.
-           All motion is disabled under prefers-reduced-motion (below);
-           every base state below is the finished static artwork.
-           ============================================================ */
-        #visBg svg.cover { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-        .cover .flow { offset-rotate: 0deg; opacity: 0; }   /* travelling signal dots: hidden at rest */
-
-        /* 0 · Mindplace — agentic film pipeline: brief → hub → crew → engines → keyframes render one-by-one */
-        @keyframes mp-brief { 0% { offset-distance: 0%; opacity: 0; } 4% { opacity: 1; } 10% { opacity: 1; } 14% { offset-distance: 100%; opacity: 0; } 100% { opacity: 0; } }
-        .cover--mindplace .mp-brief { offset-rotate: 0deg; opacity: 0; animation: mp-brief 6s ease-in infinite; }
-        @keyframes mp-hub { 0%, 6% { opacity: 0; } 12% { opacity: 1; } 30% { opacity: .25; } 100% { opacity: 0; } }
-        .cover--mindplace .mp-hub { opacity: 0; animation: mp-hub 6s ease-in-out infinite; }
-        @keyframes mp-flow { 0%, 14% { offset-distance: 0%; opacity: 0; } 18% { opacity: .95; } 36% { offset-distance: 100%; opacity: .95; } 42% { opacity: 0; } 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--mindplace .mp-flow { animation: mp-flow 6s ease-in-out infinite; }
-        @keyframes mp-crew { 0%, 26% { opacity: 0; } 34% { opacity: 1; } 94% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--mindplace .mp-crew { opacity: 0; animation: mp-crew 6s ease-out infinite; }
-        @keyframes mp-eng { 0%, 44% { opacity: 0; } 54% { opacity: 1; } 94% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--mindplace .mp-eng { opacity: 0; animation: mp-eng 6s ease-out infinite; }
-        @keyframes mp-fr1 { 0%, 56% { opacity: 0; } 61% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes mp-fr2 { 0%, 62% { opacity: 0; } 67% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes mp-fr3 { 0%, 68% { opacity: 0; } 73% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes mp-fr4 { 0%, 74% { opacity: 0; } 79% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes mp-fr5 { 0%, 80% { opacity: 0; } 85% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--mindplace .mp-fr1 { opacity: 1; animation: mp-fr1 6s ease-out infinite; }
-        .cover--mindplace .mp-fr2 { opacity: 1; animation: mp-fr2 6s ease-out infinite; }
-        .cover--mindplace .mp-fr3 { opacity: 1; animation: mp-fr3 6s ease-out infinite; }
-        .cover--mindplace .mp-fr4 { opacity: 1; animation: mp-fr4 6s ease-out infinite; }
-        .cover--mindplace .mp-fr5 { opacity: 1; animation: mp-fr5 6s ease-out infinite; }
-
-        /* 1 · TravelerApp · Pacer — recorded track draws in, a location pin replays it, waypoints log as it passes */
-        @keyframes tv-draw { from { stroke-dashoffset: 1200; } to { stroke-dashoffset: 0; } }
-        .cover--traveler .tv-route { stroke-dasharray: 1200 1200; stroke-dashoffset: 0; animation: tv-draw 2.2s ease-out both; }
-        @keyframes tv-run { 0% { offset-distance: 0%; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { offset-distance: 100%; opacity: 1; } }
-        .cover--traveler .tv-marker { offset-rotate: 0deg; opacity: 0; animation: tv-run 6s 2.1s ease-in-out infinite; }
-        @keyframes tv-f1 { 0%, 15% { opacity: 0; transform: scale(.4); } 21% { opacity: 1; transform: scale(1); } 97% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes tv-f2 { 0%, 45% { opacity: 0; transform: scale(.4); } 51% { opacity: 1; transform: scale(1); } 97% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes tv-f3 { 0%, 71% { opacity: 0; transform: scale(.4); } 77% { opacity: 1; transform: scale(1); } 97% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--traveler .tv-f1 { opacity: 0; transform-box: fill-box; transform-origin: center; animation: tv-f1 6s 2.1s ease-out infinite; }
-        .cover--traveler .tv-f2 { opacity: 0; transform-box: fill-box; transform-origin: center; animation: tv-f2 6s 2.1s ease-out infinite; }
-        .cover--traveler .tv-f3 { opacity: 0; transform-box: fill-box; transform-origin: center; animation: tv-f3 6s 2.1s ease-out infinite; }
-        @keyframes tv-pin { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
-        .cover--traveler .tv-pin { animation: tv-pin 3.2s ease-in-out infinite; }
-
-        /* 2 · UWB · Nearby Interaction — a device walks the gate: BLE discovery → UWB ranging → ACTION access */
-        @keyframes uw-tag { 0% { offset-distance: 0%; opacity: 0; } 6% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--uwb .uw-tag { offset-rotate: 0deg; offset-distance: 100%; opacity: 1; animation: uw-tag 7s ease-in-out infinite; }
-        @keyframes uw-zBle { 0%, 4%, 40%, 100% { opacity: 0; } 12%, 34% { opacity: .85; } }
-        @keyframes uw-zUwb { 0%, 40%, 72%, 100% { opacity: 0; } 48%, 66% { opacity: .85; } }
-        @keyframes uw-zAct { 0%, 70%, 94%, 100% { opacity: 0; } 78%, 88% { opacity: 1; } }
-        .cover--uwb .uw-zBle { opacity: 0; animation: uw-zBle 7s ease-in-out infinite; }
-        .cover--uwb .uw-zUwb { opacity: 0; animation: uw-zUwb 7s ease-in-out infinite; }
-        .cover--uwb .uw-zAct { opacity: 0; animation: uw-zAct 7s ease-in-out infinite; }
-        @keyframes uw-lB { 0%, 4%, 40%, 100% { opacity: .32; } 12%, 34% { opacity: 1; } }
-        @keyframes uw-lU { 0%, 40%, 72%, 100% { opacity: .32; } 48%, 66% { opacity: 1; } }
-        @keyframes uw-lA { 0%, 70%, 94%, 100% { opacity: .32; } 78%, 88% { opacity: 1; } }
-        .cover--uwb .uw-lB { opacity: .32; animation: uw-lB 7s ease-in-out infinite; }
-        .cover--uwb .uw-lU { opacity: .32; animation: uw-lU 7s ease-in-out infinite; }
-        .cover--uwb .uw-lA { opacity: .32; animation: uw-lA 7s ease-in-out infinite; }
-        @keyframes uw-tof { 0%, 42% { offset-distance: 0%; opacity: 0; } 46% { opacity: 1; } 54% { offset-distance: 100%; } 58% { offset-distance: 100%; opacity: 1; } 66% { offset-distance: 0%; opacity: 1; } 70%, 100% { opacity: 0; } }
-        .cover--uwb .uw-tof { offset-rotate: 0deg; opacity: 0; animation: uw-tof 7s linear infinite; }
-        @keyframes uw-fire { 0%, 72%, 94%, 100% { opacity: 0; } 79%, 88% { opacity: 1; } }
-        .cover--uwb .uw-fire { opacity: 0; animation: uw-fire 7s ease-in-out infinite; }
-
-        /* 3 · CAN Bus · J1939 — bits streaming down the differential pair, identifier fields decoded left→right */
-        @keyframes cb-bit { 0% { offset-distance: 0%; opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--canbus .cb-bit { offset-rotate: 0deg; opacity: 0; animation: cb-bit 3s linear infinite; }
-        @keyframes cb-field { 0%, 100% { opacity: 0; } 50% { opacity: .5; } }
-        .cover--canbus .cb-field { opacity: 0; animation: cb-field 4s ease-in-out infinite; }
-
-        /* 4 · Face Recognition · NPU — detector scan sweep, landmark mesh live, 128-D embedding read out */
-        @keyframes fn-scan { 0% { transform: translateY(-104px); } 100% { transform: translateY(108px); } }
-        .cover--face .fn-scan { animation: fn-scan 3.8s ease-in-out infinite alternate; }
-        @keyframes fn-mesh { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
-        .cover--face .fn-mesh { animation: fn-mesh 3.4s ease-in-out infinite; }
-        @keyframes fn-embed { 0% { transform: translateX(0); opacity: 0; } 12% { opacity: .85; } 88% { opacity: .85; } 100% { transform: translateX(392px); opacity: 0; } }
-        .cover--face .fn-embed { opacity: 0; animation: fn-embed 3s linear infinite; }
-
-        /* 5 · Neural Meta-Learner — forward pass up the winning path, probability streams flowing, head firing */
-        @keyframes ml-pass { 0% { offset-distance: 0%; opacity: 0; } 14% { opacity: 1; } 86% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--meta .ml-pass { offset-rotate: 0deg; opacity: 0; animation: ml-pass 3.2s ease-in-out infinite; }
-        @keyframes ml-win { 0%, 58%, 100% { opacity: 0; } 80% { opacity: 1; } }
-        .cover--meta .ml-win { opacity: 0; animation: ml-win 3.2s ease-in-out infinite; }
-        @keyframes ml-stream { to { stroke-dashoffset: -40; } }
-        .cover--meta .ml-stream { stroke-dasharray: 5 13; animation: ml-stream 1.7s linear infinite; }
-
-        /* 6 · Comparative ML Evaluation — leaderboard fills in, operating point sweeps the winning ROC curve */
-        @keyframes me-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-        .cover--mleval .me-bar { transform-box: fill-box; transform-origin: left center; animation: me-bar 1.1s cubic-bezier(.2,.7,.2,1) both; }
-        @keyframes me-trace { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--mleval .me-trace { offset-rotate: 0deg; opacity: 0; animation: me-trace 4.6s ease-in-out infinite; }
-
-        /* 7 · DL Image Colorization — colour draws in left→right over the grayscale base; chrominance point drifts */
-        @keyframes co-draw { 0% { stroke-dashoffset: 820; } 66% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; } }
-        @keyframes co-fade { 0%, 86% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--color .co-color { stroke-dasharray: 820; stroke-dashoffset: 0; opacity: 1; animation: co-draw 5.5s ease-in-out infinite, co-fade 5.5s ease-in-out infinite; }
-        @keyframes co-front { 0% { transform: translateX(0); opacity: 0; } 8% { opacity: .9; } 58% { opacity: .9; } 66% { transform: translateX(672px); opacity: 0; } 100% { opacity: 0; } }
-        .cover--color .co-front { opacity: 0; animation: co-front 5.5s ease-in-out infinite; }
-        @keyframes co-ab { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(11px, -8px); } 50% { transform: translate(3px, -15px); } 75% { transform: translate(-9px, -6px); } }
-        .cover--color .co-ab { animation: co-ab 7s ease-in-out infinite; }
-
-        /* 8 · Other Studies — an archive: the collection stack simply settles into place (entrance only) */
-        @keyframes os-card { from { opacity: 0; transform: translateY(11px); } to { opacity: 1; transform: translateY(0); } }
-        .cover--other .os-card { animation: os-card .7s cubic-bezier(.2,.7,.2,1) both; }
-
-        /* Accessibility — no motion means the finished static cover, nothing half-drawn */
-        @media (prefers-reduced-motion: reduce) {
-            #visBg svg.cover, #visBg svg.cover * { animation: none !important; }
-            #visBg { transition: none !important; transform: none !important; }  /* freeze the slow ken-burns too */
-            .cover .flow,
-            .cover--mindplace .mp-brief, .cover--mindplace .mp-hub, .cover--mindplace .mp-flow, .cover--mindplace .mp-crew, .cover--mindplace .mp-eng,
-            .cover--traveler .tv-marker, .cover--traveler .tv-f1, .cover--traveler .tv-f2, .cover--traveler .tv-f3,
-            .cover--uwb .uw-tof, .cover--uwb .uw-fire, .cover--uwb .uw-zBle, .cover--uwb .uw-zUwb, .cover--uwb .uw-zAct,
-            .cover--canbus .cb-bit, .cover--canbus .cb-field, .cover--face .fn-embed,
-            .cover--meta .ml-pass, .cover--meta .ml-win, .cover--mleval .me-trace,
-            .cover--color .co-front { opacity: 0 !important; }
-        }
-
         /* ============ CONTRIBUTED ============ */
-        .contrib { border-top: 1px solid var(--line); padding-top: 18px; padding-left: calc(var(--rowno) + 20px); margin-top: clamp(60px, 9vh, 110px); }
+        .contrib { border-top: 1px solid var(--line); padding-top: 18px; margin-top: clamp(60px, 9vh, 110px); }
         .contrib > .lbl { display: block; margin-bottom: 26px; }
         .contrib-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 3vw, 48px); }
         .contrib-name {
@@ -512,7 +379,7 @@
 
         /* ============ EDUCATION — giant static rows ============ */
         .edurow {
-            display: grid; grid-template-columns: var(--rowno) 1fr minmax(300px, 0.85fr);
+            display: grid; grid-template-columns: 1fr minmax(300px, 0.85fr);
             gap: 20px; align-items: center;
             border-top: 1px solid var(--line);
             padding: clamp(20px, 3.6vh, 36px) 0;
@@ -530,9 +397,39 @@
         /* ============ CONTACT — red closing slide ============ */
         .contact-giant {
             font-family: var(--font-display);
-            font-size: clamp(60px, 12.5vw, 230px); font-weight: 600;
-            line-height: 0.92; letter-spacing: -0.045em;
+            font-size: clamp(44px, 9.2vw, 170px); font-weight: 600;
+            line-height: 0.95; letter-spacing: -0.045em;
             margin: clamp(10px, 2vh, 30px) -0.04em clamp(44px, 8vh, 100px);
+        }
+        /* "about" stays put in the headline colour; only the topic rotates —
+           both at half size, baselines aligned with the giant line */
+        .talk-suffix { white-space: nowrap; }
+        .talk-about {
+            font-size: 0.5em; font-weight: 500; letter-spacing: -0.02em;
+            color: var(--fg);
+            margin-left: 0.45em;
+        }
+        .talk-rot {
+            position: relative; display: inline-block;
+            font-size: 0.5em; font-weight: 500; letter-spacing: -0.02em;
+            line-height: 1.15; color: var(--mute);
+            margin-left: 0.28em;
+        }
+        .talk-sizer { visibility: hidden; white-space: nowrap; }
+        .talk-words { position: absolute; inset: 0; overflow: hidden; }
+        .talk-word {
+            position: absolute; inset: 0; white-space: nowrap;
+            opacity: 0; transform: translateY(-120%);
+            animation: talk-cycle 9s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+        }
+        .talk-word:nth-child(2) { animation-delay: 3s; }
+        .talk-word:nth-child(3) { animation-delay: 6s; }
+        @keyframes talk-cycle {
+            0% { transform: translateY(-120%); opacity: 0; }
+            5% { transform: translateY(0); opacity: 1; }
+            28% { transform: translateY(0); opacity: 1; }
+            33.3% { transform: translateY(120%); opacity: 0; }
+            100% { transform: translateY(120%); opacity: 0; }
         }
         .c-rows { border-bottom: 1px solid var(--line); }
         .c-row {
@@ -565,7 +462,7 @@
         /* ============ FOOTER ============ */
         .foot > .wrap { padding-top: 28px; padding-bottom: 28px; }
         .foot-grid {
-            display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px;
+            display: grid; grid-template-columns: 1fr auto; gap: 24px;
             font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--mute);
         }
@@ -579,6 +476,8 @@
             html { scroll-behavior: auto; }
             .r { opacity: 1 !important; transform: none !important; transition: none !important; }
             .visual-bg { transition: none !important; transform: none !important; }
+            .talk-word { animation: none !important; }
+            .talk-word:first-child { opacity: 1 !important; transform: none !important; }
         }
 
         /* ============ RESPONSIVE ============ */
@@ -588,12 +487,10 @@
             .project-visual { order: 2; }
             .project-detail { order: 3; }
             .visual-card, .vis-cap { max-width: min(100%, 480px); margin-inline: auto; }
-            .row-panel-in { grid-template-columns: 1fr; padding-left: 0; gap: 34px; }
-            .edurow { grid-template-columns: var(--rowno) 1fr; }
-            .edurow .edu-info { grid-column: 2; }
-            .rows-cap--edu { grid-template-columns: var(--rowno) 1fr; }
+            .row-panel-in { grid-template-columns: 1fr; gap: 34px; }
+            .edurow { grid-template-columns: 1fr; gap: 10px; }
+            .rows-cap--edu { grid-template-columns: 1fr; }
             .rows-cap--edu span:last-child { display: none; }
-            .cols-3, .stats, .contrib { padding-left: 0; }
         }
         @media (max-width: 860px) {
             .cols-3 { grid-template-columns: 1fr; gap: 34px; }
@@ -606,7 +503,7 @@
             .hero-body { flex-direction: column; }
             .hero-intro { align-self: stretch; margin-bottom: 36px; }
             .hero-toc { align-self: stretch; min-width: 0; margin-bottom: 30px; }
-            .hero-name { white-space: normal; margin-bottom: 0; font-size: clamp(56px, 19.5vw, 160px); }
+            .hero-name { margin-bottom: 24px; font-size: clamp(40px, 17.5vw, 160px); }
         }
         @media (pointer: coarse) {
             .plink, .c-social a, .topbar a, .detail-toggle { padding-block: 12px; margin-block: -12px; }
@@ -624,7 +521,7 @@
 
     <nav class="topbar" id="topbar">
         <div class="tb-in">
-            <a class="tb-brand" href="#top">Ege Özçelik<span class="reg">®</span></a>
+            <a class="tb-brand" href="#top">Ege Özçelik</a>
             <div class="tb-links">
                 <a href="#profile">Profile</a>
                 <a href="#specialities">Specialities</a>
@@ -639,22 +536,21 @@
     <header class="slide s-ink hero" id="top" data-nav="dark">
         <div class="wrap">
             <div class="hero-meta">
-                <div class="hm-1"><strong>Ege Özçelik®</strong><br>Portfolio Document<br>© 2026</div>
-                <div class="hm-2"><span class="dot">Software &amp; AI Engineer</span><br>Systems Architecture<br>Agentic Workflows</div>
-                <div class="hm-3">Currently — Kentkart R&amp;D<br>Python · AI Applications · Model Training<br>System Architect, patented UWB program</div>
-                <div class="right">İzmir, Türkiye<br>GMT+3</div>
+                <div class="hm-1"><strong>Ege Özçelik</strong><br>Portfolio</div>
+                <div class="hm-2"><span class="dot">Currently in <strong>Kentkart R&amp;D</strong><br><strong>Software &amp; AI</strong> Engineer</span><br>Python &amp; AI Applications Responsible</div>
+                <div class="right">+(90)5534175130 <br><strong>ege.ozcelik@icloud.com</strong> <br>İzmir, Türkiye GMT+3</div>
             </div>
             <div class="hero-body">
                 <p class="hero-intro r">Building software from foundational architecture to the deployment of the AI models and agents reshaping how it gets built.</p>
                 <nav class="hero-toc r" aria-label="Contents">
-                    <a href="#profile"><span>1.0</span>Profile</a>
-                    <a href="#specialities"><span>2.0</span>Specialities</a>
-                    <a href="#work"><span>3.0</span>Selected Work</a>
-                    <a href="#education"><span>4.0</span>Education</a>
-                    <a href="#contact"><span>5.0</span>Contact</a>
+                    <a href="#profile">Profile</a>
+                    <a href="#specialities">Specialities</a>
+                    <a href="#work">Selected Work</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
                 </nav>
             </div>
-            <h1 class="hero-name"><span class="hn-line">Ege</span><span class="hn-line">Özçelik<span class="reg">®</span></span></h1>
+            <h1 class="hero-name">Ege<span class="hn-thin">Özçelik</span></h1>
         </div>
     </header>
 
@@ -662,10 +558,9 @@
     <section class="slide s-paper" id="profile" data-nav="light">
         <div class="wrap">
             <div class="s-head r">
-                <span class="s-no">1.0</span>
                 <div>
                     <h2 class="s-title">Profile</h2>
-                    <p class="statement">Architecture-first engineering — <em>from the first system diagram to shipped, AI&#8209;native product.</em></p>
+                    <p class="statement">Structure before code. <em>AI&#8209;native products built on architecture that holds.</em></p>
                 </div>
                 <span class="s-side lbl">Software &amp; AI Engineer</span>
             </div>
@@ -677,7 +572,7 @@
                         <strong>Software Engineer</strong>
                         <span class="co">Kentkart R&amp;D</span><br>
                         <span class="yr">02.2024 — Today</span>
-                        <p class="note">Python development, AI applications &amp; model training; system architect on the patented ultra-wideband program.</p>
+                        <p class="note">Responsible of Python Developments; Test Applications &amp; AI Applications &amp; Model Training. <br><br>System architect on the patented ultra-wideband program. <br><br>Main role in development of CANBus Simulator (SAE J1939) both PC and Embedded Linux side.</p>
                     </div>
                 </div>
                 <div>
@@ -694,17 +589,15 @@
                         <li>AI Orchestration &amp; Agentic Systems</li>
                         <li>Software &amp; Systems Architecture</li>
                         <li>Model Training &amp; Data Analysis</li>
-                        <li>iOS · Web · Embedded</li>
-                        <li>Edge / On-Device Inference</li>
                     </ul>
                 </div>
             </div>
 
             <div class="stats r">
-                <div class="stat"><span class="lbl">Years hands-on</span><div class="stat-v">8+</div></div>
-                <div class="stat"><span class="lbl">Selected works</span><div class="stat-v">09</div></div>
-                <div class="stat"><span class="lbl">Live App Store apps</span><div class="stat-v">02</div></div>
-                <div class="stat"><span class="lbl">Patented program</span><div class="stat-v">01</div></div>
+                <div class="stat"><span class="lbl">Years hands-on Coding</span><div class="stat-v">8+</div></div>
+                <div class="stat"><span class="lbl">Years Professional Experience</span><div class="stat-v">3+</div></div>
+                <div class="stat"><span class="lbl">Published Apps</span><div class="stat-v">10+</div></div>
+                <div class="stat"><span class="lbl">Provided Companies Trainings & Consultancies</span><div class="stat-v">5+</div></div>
             </div>
         </div>
     </section>
@@ -713,12 +606,10 @@
     <section class="slide s-ink" id="specialities" data-nav="dark">
         <div class="wrap">
             <div class="s-head r">
-                <span class="s-no">2.0</span>
                 <h2 class="s-title">Specialities</h2>
                 <span class="s-side lbl">04 Disciplines</span>
             </div>
             <div class="rows-cap r">
-                <span></span>
                 <span class="lbl">Discipline</span>
                 <span class="lbl">Click to expand</span>
             </div>
@@ -730,8 +621,7 @@
     <section class="slide s-paper" id="work" data-nav="light">
         <div class="wrap">
             <div class="s-head r">
-                <span class="s-no">3.0</span>
-                <h2 class="s-title">Selected Work</h2>
+                <h2 class="s-title"><a class="title-link" href="portfolio/index.html">Selected Work<span class="t-arrow" aria-hidden="true">↗</span></a></h2>
                 <span class="s-side lbl">08 Projects + Archive</span>
             </div>
 
@@ -799,41 +689,36 @@
     <section class="slide s-ink" id="education" data-nav="dark">
         <div class="wrap">
             <div class="s-head r">
-                <span class="s-no">4.0</span>
                 <h2 class="s-title">Education</h2>
                 <span class="s-side lbl">Theory under the practice</span>
             </div>
             <div class="rows-cap rows-cap--edu r">
-                <span></span>
                 <span class="lbl">Degree</span>
                 <span class="lbl">Programme · Focus</span>
             </div>
             <div class="edurows r">
                 <div class="edurow">
-                    <span class="row-no">1</span>
                     <span class="edu-word">Master’s</span>
                     <div class="edu-info">
                         <strong>Electrical &amp; Electronics Engineering</strong>
-                        Katip Çelebi University · 2025 — Today<br>
-                        <span class="major">Major: Model Training, Machine Learning, Deep Learning, NLP</span>
+                        Katip Çelebi University · 2025 — Today<br> <br>
+                        <span class="major">Major:<strong> Model Training, Machine Learning, Deep Learning, NLP</strong></span>
                     </div>
                 </div>
                 <div class="edurow">
-                    <span class="row-no">2</span>
                     <span class="edu-word">Bachelor’s</span>
                     <div class="edu-info">
                         <strong>Electrical &amp; Electronics Engineering</strong>
-                        Ege University · 2018 — 2023<br>
-                        <span class="major">Major: Communication Systems</span>
+                        Ege University · 2018 — 2023<br> <br>
+                        <span class="major">Major: <strong>Communication Systems</strong></span>
                     </div>
                 </div>
                 <div class="edurow">
-                    <span class="row-no">3</span>
-                    <span class="edu-word">Certificates</span>
+                    <span class="edu-word">Achievements</span>
                     <div class="edu-info">
-                        <strong>.NET Certification Program — 320h</strong>
-                        Bilge Adam Academy · 2019 — 2020<br>
-                        <span class="major">ASP.NET MVC5 &amp; HTML5/JS/CSS3 (Microsoft MCA) · UiPath RPA · .NET Development</span>
+                        <strong>.NET Certification Program · 320h</strong>
+                        Bilge Adam Academy · 2019 — 2020<br> <br>
+                        <span class="major">20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br>20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA) <br>UiPath RPA Education Certificate <br>Bilge Adam .Net Development Certificate</span>
                     </div>
                 </div>
             </div>
@@ -844,11 +729,10 @@
     <section class="slide s-red" id="contact" data-nav="red">
         <div class="wrap">
             <div class="s-head r">
-                <span class="s-no">5.0</span>
                 <h2 class="s-title">Contact</h2>
                 <span class="s-side lbl">Open to serious work</span>
             </div>
-            <h2 class="contact-giant r">Let’s talk.</h2>
+            <h2 class="contact-giant r">Let’s talk<span class="talk-suffix"><span class="talk-about">about</span><span class="talk-rot"><span class="talk-sizer">job opportunities</span><span class="talk-words"><span class="talk-word">job opportunities</span><span class="talk-word">freelance work</span><span class="talk-word">consultancy</span></span></span></span></h2>
             <div class="c-rows r">
                 <div class="c-row"><span class="lbl">Email</span><a class="c-val" href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a></div>
                 <div class="c-row"><span class="lbl">Phone</span><span class="c-val">+90 553 417 5130</span></div>
@@ -869,371 +753,13 @@
         <div class="wrap">
             <div class="foot-grid">
                 <span>Ege Özçelik® © 2026</span>
-                <span>Designed as a living pitch document</span>
-                <span class="right">Made in İzmir</span>
+                <span class="right">Designed &amp; Developed by Ege Özçelik</span>
             </div>
         </div>
     </footer>
 
+    <script src="assets/site-data.js"></script>
     <script>
-        const COVERS = {
-  /* 0 · Mindplace — orchestration dispatch */
-  mindplace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--mindplace">
-  <defs>
-    <radialGradient id="mpGlow" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#8B7CF6" stop-opacity="0.18"/><stop offset="0.65" stop-color="#8B7CF6" stop-opacity="0"/></radialGradient>
-    <linearGradient id="mpFrame" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B7CF6" stop-opacity="0.55"/><stop offset="1" stop-color="#22D3C5" stop-opacity="0.5"/></linearGradient>
-  </defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="430" cy="410" r="360" fill="url(#mpGlow)"/>
-  <g stroke="#8B7CF6" stroke-opacity="0.06" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <rect x="214" y="236" width="372" height="300" rx="18" fill="#8B7CF6" fill-opacity="0.015" stroke="#8B7CF6" stroke-opacity="0.16" stroke-width="1.2"/>
-  <rect x="238" y="260" width="372" height="300" rx="18" fill="#8B7CF6" fill-opacity="0.03" stroke="#8B7CF6" stroke-opacity="0.34" stroke-width="1.4"/>
-  <g fill="#D9CCFF"><circle class="mp-brief" r="3.6" style="offset-path:path('M448,276 L448,362')"/></g>
-  <g stroke="#8B7CF6" stroke-opacity="0.38" stroke-width="1.2"><line x1="448" y1="362" x2="322" y2="470"/><line x1="448" y1="362" x2="392" y2="492"/><line x1="448" y1="362" x2="462" y2="492"/><line x1="448" y1="362" x2="532" y2="470"/></g>
-  <circle class="mp-hub" cx="448" cy="362" r="22" fill="none" stroke="#C9BEFF" stroke-width="2.4"/>
-  <circle cx="448" cy="362" r="16" fill="none" stroke="#8B7CF6" stroke-opacity="0.9" stroke-width="2.2"/>
-  <circle cx="448" cy="362" r="6" fill="#8B7CF6" fill-opacity="0.9"/>
-  <g fill="#0f0f0f" stroke="#8B7CF6" stroke-opacity="0.72" stroke-width="2"><circle cx="322" cy="470" r="12"/><circle cx="392" cy="492" r="12"/><circle cx="462" cy="492" r="12"/><circle cx="532" cy="470" r="12"/></g>
-  <g fill="#8B7CF6" fill-opacity="0.85"><circle cx="322" cy="470" r="3"/><circle cx="392" cy="492" r="3"/><circle cx="462" cy="492" r="3"/><circle cx="532" cy="470" r="3"/></g>
-  <g class="mp-crew" fill="#C9BEFF"><circle cx="322" cy="470" r="4.6"/><circle cx="392" cy="492" r="4.6"/><circle cx="462" cy="492" r="4.6"/><circle cx="532" cy="470" r="4.6"/></g>
-  <g fill="#C9BEFF"><circle class="flow mp-flow" r="3.2" style="offset-path:path('M448,362 L322,470')"/><circle class="flow mp-flow" r="3.2" style="offset-path:path('M448,362 L392,492')"/><circle class="flow mp-flow" r="3.2" style="offset-path:path('M448,362 L462,492')"/><circle class="flow mp-flow" r="3.2" style="offset-path:path('M448,362 L532,470')"/></g>
-  <g stroke="#22D3C5" stroke-opacity="0.26" stroke-width="1"><line x1="322" y1="482" x2="300" y2="566"/><line x1="392" y1="504" x2="360" y2="566"/><line x1="462" y1="504" x2="480" y2="566"/><line x1="532" y1="482" x2="540" y2="566"/></g>
-  <g fill="none" stroke="#22D3C5" stroke-opacity="0.5" stroke-width="1.6"><rect x="266" y="566" width="40" height="40" rx="4"/><rect x="320" y="566" width="40" height="40" rx="4"/><rect x="374" y="566" width="40" height="40" rx="4"/><rect x="428" y="566" width="40" height="40" rx="4"/><rect x="482" y="566" width="40" height="40" rx="4"/><rect x="536" y="566" width="40" height="40" rx="4"/></g>
-  <g class="mp-eng" fill="#22D3C5" fill-opacity="0.5"><rect x="266" y="566" width="40" height="40" rx="4"/><rect x="320" y="566" width="40" height="40" rx="4"/><rect x="374" y="566" width="40" height="40" rx="4"/><rect x="428" y="566" width="40" height="40" rx="4"/><rect x="482" y="566" width="40" height="40" rx="4"/><rect x="536" y="566" width="40" height="40" rx="4"/></g>
-  <g stroke="#22D3C5" stroke-opacity="0.22" stroke-width="1"><line x1="360" y1="606" x2="380" y2="666"/><line x1="480" y1="606" x2="460" y2="666"/></g>
-  <path d="M236 690 L226 690 L226 704 L236 704 M236 762 L226 762 L226 748 L236 748" fill="none" stroke="#8B7CF6" stroke-opacity="0.8" stroke-width="1.6"/>
-  <rect x="240" y="672" width="356" height="96" rx="6" fill="none" stroke="#8B7CF6" stroke-opacity="0.4" stroke-width="1.4"/>
-  <g fill="#8B7CF6" fill-opacity="0.5"><rect x="252" y="678" width="9" height="7" rx="1.5"/><rect x="288" y="678" width="9" height="7" rx="1.5"/><rect x="324" y="678" width="9" height="7" rx="1.5"/><rect x="360" y="678" width="9" height="7" rx="1.5"/><rect x="396" y="678" width="9" height="7" rx="1.5"/><rect x="432" y="678" width="9" height="7" rx="1.5"/><rect x="468" y="678" width="9" height="7" rx="1.5"/><rect x="504" y="678" width="9" height="7" rx="1.5"/><rect x="540" y="678" width="9" height="7" rx="1.5"/><rect x="252" y="755" width="9" height="7" rx="1.5"/><rect x="288" y="755" width="9" height="7" rx="1.5"/><rect x="324" y="755" width="9" height="7" rx="1.5"/><rect x="360" y="755" width="9" height="7" rx="1.5"/><rect x="396" y="755" width="9" height="7" rx="1.5"/><rect x="432" y="755" width="9" height="7" rx="1.5"/><rect x="468" y="755" width="9" height="7" rx="1.5"/><rect x="504" y="755" width="9" height="7" rx="1.5"/><rect x="540" y="755" width="9" height="7" rx="1.5"/></g>
-  <g fill="none" stroke="#8B7CF6" stroke-opacity="0.28" stroke-width="1"><rect x="252" y="694" width="60" height="52"/><rect x="320" y="694" width="60" height="52"/><rect x="388" y="694" width="60" height="52"/><rect x="456" y="694" width="60" height="52"/><rect x="524" y="694" width="60" height="52"/></g>
-  <rect class="mp-fr1" x="252" y="694" width="60" height="52" fill="url(#mpFrame)"/>
-  <rect class="mp-fr2" x="320" y="694" width="60" height="52" fill="url(#mpFrame)"/>
-  <rect class="mp-fr3" x="388" y="694" width="60" height="52" fill="url(#mpFrame)"/>
-  <rect class="mp-fr4" x="456" y="694" width="60" height="52" fill="url(#mpFrame)"/>
-  <rect class="mp-fr5" x="524" y="694" width="60" height="52" fill="url(#mpFrame)"/>
-  <path d="M604 710 L604 730 L620 720 Z" fill="#22D3C5" fill-opacity="0.85"/>
-  <text x="56" y="852" fill="#22D3C5" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">MULTI-AGENT ORCHESTRATION</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Mindplace</text>
-</svg>`,
-
-  /* 1 · TravelerApp · Pacer — route trace + explore pins */
-  traveler: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--traveler">
-  <defs><radialGradient id="tvGlow" cx="42%" cy="60%" r="62%"><stop offset="0" stop-color="#5EEAD4" stop-opacity="0.14"/><stop offset="0.7" stop-color="#5EEAD4" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="360" cy="600" r="360" fill="url(#tvGlow)"/>
-  <g stroke="#5EEAD4" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g fill="none" stroke="#5EEAD4" stroke-opacity="0.1" stroke-width="1.2"><ellipse cx="380" cy="560" rx="250" ry="210"/><ellipse cx="380" cy="560" rx="160" ry="132"/></g>
-  <path class="tv-route" d="M 220 812 C 280 764, 306 706, 342 660 C 380 612, 460 636, 486 574 C 512 512, 452 470, 492 424 C 524 386, 590 408, 556 348" fill="none" stroke="#5EEAD4" stroke-opacity="0.72" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M 486 574 C 500 548, 470 512, 492 486" fill="none" stroke="#5EEAD4" stroke-opacity="0.35" stroke-width="1.6" stroke-dasharray="3 7"/>
-  <g stroke="#5EEAD4" stroke-opacity="0.5" stroke-width="1.4"><line x1="300" y1="742" x2="284" y2="726"/><line x1="430" y1="612" x2="448" y2="600"/><line x1="470" y1="500" x2="452" y2="492"/></g>
-  <g fill="#0f0f0f" stroke="#5EEAD4" stroke-opacity="0.75" stroke-width="2.2"><circle cx="342" cy="660" r="8"/><circle cx="486" cy="574" r="8"/><circle cx="492" cy="424" r="8"/></g>
-  <circle class="tv-f1" cx="342" cy="660" r="8" fill="#5EEAD4"/>
-  <circle class="tv-f2" cx="486" cy="574" r="8" fill="#5EEAD4"/>
-  <circle class="tv-f3" cx="492" cy="424" r="8" fill="#5EEAD4"/>
-  <circle cx="220" cy="812" r="6" fill="#5EEAD4" fill-opacity="0.9"/>
-  <g class="tv-pin" style="animation-delay:0s"><line x1="556" y1="348" x2="360" y2="250" stroke="#FF9E80" stroke-opacity="0.45" stroke-width="1.3" stroke-dasharray="2 6"/><path d="M360 250 a14 14 0 1 1 0.1 0 M360 264 L360 286" fill="none" stroke="#FF9E80" stroke-opacity="0.8" stroke-width="1.8"/><circle cx="360" cy="250" r="4" fill="#FF9E80" fill-opacity="0.85"/></g>
-  <g class="tv-pin" style="animation-delay:.5s"><line x1="556" y1="348" x2="452" y2="212" stroke="#FF9E80" stroke-opacity="0.45" stroke-width="1.3" stroke-dasharray="2 6"/><path d="M452 212 a14 14 0 1 1 0.1 0 M452 226 L452 248" fill="none" stroke="#FF9E80" stroke-opacity="0.8" stroke-width="1.8"/><circle cx="452" cy="212" r="4" fill="#FF9E80" fill-opacity="0.85"/></g>
-  <g class="tv-pin" style="animation-delay:1s"><line x1="556" y1="348" x2="612" y2="250" stroke="#FF9E80" stroke-opacity="0.45" stroke-width="1.3" stroke-dasharray="2 6"/><path d="M612 250 a14 14 0 1 1 0.1 0 M612 264 L612 286" fill="none" stroke="#FF9E80" stroke-opacity="0.8" stroke-width="1.8"/><circle cx="612" cy="250" r="4" fill="#FF9E80" fill-opacity="0.85"/></g>
-  <path d="M512 320 C 503 306, 500 301, 500 294 A12 12 0 1 1 524 294 C 524 301, 521 306, 512 320 Z" fill="none" stroke="#5EEAD4" stroke-opacity="0.7" stroke-width="1.8"/>
-  <circle cx="512" cy="294" r="4.5" fill="#5EEAD4" fill-opacity="0.85"/>
-  <g class="tv-marker" style="offset-path:path('M 220 812 C 280 764, 306 706, 342 660 C 380 612, 460 636, 486 574 C 512 512, 452 470, 492 424 C 524 386, 590 408, 556 348')"><path d="M0 0 C -8 -13 -11 -18 -11 -23 A11 11 0 1 1 11 -23 C 11 -18 8 -13 0 0 Z" fill="#5EEAD4"/><circle cx="0" cy="-23" r="4.5" fill="#0f0f0f"/></g>
-  <text x="56" y="852" fill="#FF9E80" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">EXPLORE · ROUTE</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">TravelerApp · Pacer</text>
-</svg>`,
-
-  /* 2 · UWB · Nearby Interaction — Time-of-Flight + azimuth scan */
-  uwb: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--uwb">
-  <defs><radialGradient id="uwGlow" cx="50%" cy="76%" r="60%"><stop offset="0" stop-color="#34E0D0" stop-opacity="0.16"/><stop offset="0.7" stop-color="#34E0D0" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="770" r="380" fill="url(#uwGlow)"/>
-  <g stroke="#34E0D0" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <circle cx="400" cy="770" r="430" fill="none" stroke="#6C7BFF" stroke-opacity="0.17" stroke-width="1.5" stroke-dasharray="5 9"/>
-  <circle cx="400" cy="770" r="290" fill="none" stroke="#34E0D0" stroke-opacity="0.2" stroke-width="1.5"/>
-  <circle cx="400" cy="770" r="150" fill="none" stroke="#8FE9DE" stroke-opacity="0.26" stroke-width="1.6"/>
-  <circle class="uw-zBle" cx="400" cy="770" r="430" fill="none" stroke="#8E9BFF" stroke-width="1.8" stroke-dasharray="5 9"/>
-  <circle class="uw-zUwb" cx="400" cy="770" r="290" fill="none" stroke="#5FF0E0" stroke-width="1.8"/>
-  <circle class="uw-zAct" cx="400" cy="770" r="150" fill="#B8FBEC" fill-opacity="0.05" stroke="#B8FBEC" stroke-width="2"/>
-  <line x1="400" y1="770" x2="400" y2="332" stroke="#6C7BFF" stroke-opacity="0.4" stroke-width="1.2"/>
-  <circle cx="400" cy="770" r="18" fill="none" stroke="#34E0D0" stroke-opacity="0.5" stroke-width="1.6"/>
-  <circle cx="400" cy="770" r="11" fill="#34E0D0" fill-opacity="0.9"/>
-  <g fill="#AFFBF1"><circle class="uw-tof" r="4" style="offset-path:path('M400,770 L400,482')"/></g>
-  <line class="uw-fire" x1="400" y1="598" x2="400" y2="628" stroke="#B8FBEC" stroke-width="3.5"/>
-  <circle class="uw-fire" cx="400" cy="770" r="150" fill="#B8FBEC" fill-opacity="0.06" stroke="#B8FBEC" stroke-width="1.6"/>
-  <g class="uw-tag" style="offset-path:path('M448,306 C430,430,415,540,400,648')"><circle r="17" fill="#B8FBEC" fill-opacity="0.12"/><rect x="-11" y="-17" width="22" height="34" rx="5" fill="#0d1613" stroke="#CFFBF1" stroke-width="2.4"/><rect x="-6.5" y="-11" width="13" height="19" rx="2" fill="#B8FBEC" fill-opacity="0.9"/></g>
-  <g class="uw-lB"><circle cx="80" cy="300" r="5" fill="#8E9BFF"/><text x="94" y="305" fill="#8E9BFF" font-family="monospace" font-size="15" letter-spacing="1">BLE · discovery</text></g>
-  <g class="uw-lU"><circle cx="80" cy="326" r="5" fill="#5FF0E0"/><text x="94" y="331" fill="#5FF0E0" font-family="monospace" font-size="15" letter-spacing="1">UWB · ranging</text></g>
-  <g class="uw-lA"><circle cx="80" cy="352" r="5" fill="#B8FBEC"/><text x="94" y="357" fill="#B8FBEC" font-family="monospace" font-size="15" letter-spacing="1">ACTION · access</text></g>
-  <text x="56" y="852" fill="#6C7BFF" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">SPATIAL · UWB</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">UWB · Nearby Interaction</text>
-</svg>`,
-
-  /* 3 · CAN Bus · J1939 — bits on the differential pair + field decode */
-  canbus: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--canbus">
-  <defs><radialGradient id="cbGlow" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#34D399" stop-opacity="0.14"/><stop offset="0.7" stop-color="#34D399" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="430" r="360" fill="url(#cbGlow)"/>
-  <g stroke="#34D399" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <polyline points="100,340 100,300 175,300 175,340 250,340 250,300 325,300 325,340 400,340 400,300 475,300 475,340 550,340 550,300 625,300 625,340 700,340" fill="none" stroke="#34D399" stroke-opacity="0.72" stroke-width="2.2"/>
-  <polyline points="100,420 100,460 175,460 175,420 250,420 250,460 325,460 325,420 400,420 400,460 475,460 475,420 550,420 550,460 625,460 625,420 700,420" fill="none" stroke="#22D3EE" stroke-opacity="0.55" stroke-width="2.2"/>
-  <rect x="110" y="560" width="580" height="56" rx="4" fill="none" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.5"/>
-  <g fill="#34D399" fill-opacity="0.5"><rect class="cb-field" x="110" y="560" width="60" height="56" rx="3" style="animation-delay:0s"/><rect class="cb-field" x="170" y="560" width="240" height="56" style="animation-delay:1s"/><rect class="cb-field" x="410" y="560" width="180" height="56" style="animation-delay:2s"/><rect class="cb-field" x="590" y="560" width="100" height="56" rx="3" style="animation-delay:3s"/></g>
-  <g stroke="#34D399" stroke-opacity="0.3" stroke-width="1"><line x1="170" y1="560" x2="170" y2="616"/><line x1="200" y1="560" x2="200" y2="616"/><line x1="230" y1="560" x2="230" y2="616"/><line x1="410" y1="560" x2="410" y2="616"/><line x1="590" y1="560" x2="590" y2="616"/></g>
-  <g fill="#34D399" fill-opacity="0.5" font-family="monospace" font-size="12" letter-spacing="1"><text x="118" y="594">PRIO</text><text x="300" y="594">PDU-F</text><text x="480" y="594">PDU-S</text><text x="620" y="594">SA</text></g>
-  <g stroke="#34D399" stroke-opacity="0.35" stroke-width="1"><line x1="300" y1="616" x2="260" y2="694"/><line x1="490" y1="616" x2="540" y2="694"/></g>
-  <g fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"><rect x="160" y="694" width="200" height="86" rx="6"/><rect x="440" y="694" width="200" height="86" rx="6"/></g>
-  <g fill="#22D3EE" fill-opacity="0.16"><rect x="182" y="716" width="46" height="20"/><rect x="500" y="716" width="46" height="20"/></g>
-  <g fill="#34D399" fill-opacity="0.72" font-family="monospace" font-size="15"><text x="250" y="732">1350 rpm</text><text x="530" y="732">88 km/h</text></g>
-  <g fill="#8a8a8a" font-family="monospace" font-size="11"><text x="182" y="766">scale·raw+offset</text><text x="462" y="766">scale·raw+offset</text></g>
-  <g fill="#7DF0B8"><circle class="cb-bit" r="3.2" style="offset-path:path('M100,340 L100,300 L175,300 L175,340 L250,340 L250,300 L325,300 L325,340 L400,340 L400,300 L475,300 L475,340 L550,340 L550,300 L625,300 L625,340 L700,340');animation-delay:0s"/><circle class="cb-bit" r="3.2" style="offset-path:path('M100,340 L100,300 L175,300 L175,340 L250,340 L250,300 L325,300 L325,340 L400,340 L400,300 L475,300 L475,340 L550,340 L550,300 L625,300 L625,340 L700,340');animation-delay:1.5s"/></g>
-  <g fill="#86ECF7"><circle class="cb-bit" r="3.2" style="offset-path:path('M100,420 L100,460 L175,460 L175,420 L250,420 L250,460 L325,460 L325,420 L400,420 L400,460 L475,460 L475,420 L550,420 L550,460 L625,460 L625,420 L700,420');animation-delay:.4s"/><circle class="cb-bit" r="3.2" style="offset-path:path('M100,420 L100,460 L175,460 L175,420 L250,420 L250,460 L325,460 L325,420 L400,420 L400,460 L475,460 L475,420 L550,420 L550,460 L625,460 L625,420 L700,420');animation-delay:1.9s"/></g>
-  <text x="56" y="852" fill="#34D399" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">PROTOCOL · CAN</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">CAN Bus · J1939 Simulator</text>
-</svg>`,
-
-  /* 4 · Face Recognition · NPU — scan sweep + mesh + embedding read */
-  face: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--face">
-  <defs><radialGradient id="fnGlow" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#2FE0C8" stop-opacity="0.15"/><stop offset="0.7" stop-color="#2FE0C8" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="430" r="360" fill="url(#fnGlow)"/>
-  <g stroke="#B36BFF" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <path d="M400 248 C 328 250, 292 312, 292 388 C 292 470, 344 540, 400 558 C 456 540, 508 470, 508 388 C 508 312, 472 250, 400 248 Z" fill="none" stroke="#B36BFF" stroke-opacity="0.5" stroke-width="1.7"/>
-  <path d="M372 556 C 360 604, 316 626, 250 664 C 226 678, 214 700, 210 732" fill="none" stroke="#B36BFF" stroke-opacity="0.4" stroke-width="1.6"/>
-  <path d="M428 556 C 440 604, 484 626, 550 664 C 574 678, 586 700, 590 732" fill="none" stroke="#B36BFF" stroke-opacity="0.4" stroke-width="1.6"/>
-  <g class="fn-mesh">
-  <g stroke="#B36BFF" stroke-opacity="0.28" stroke-width="1"><line x1="338" y1="362" x2="350" y2="392"/><line x1="394" y1="356" x2="394" y2="392"/><line x1="406" y1="356" x2="406" y2="392"/><line x1="462" y1="362" x2="450" y2="392"/><line x1="372" y1="386" x2="400" y2="398"/><line x1="428" y1="386" x2="400" y2="398"/><line x1="400" y1="398" x2="400" y2="432"/><line x1="400" y1="432" x2="384" y2="452"/><line x1="400" y1="432" x2="416" y2="452"/><line x1="384" y1="452" x2="368" y2="492"/><line x1="416" y1="452" x2="432" y2="492"/><line x1="400" y1="460" x2="400" y2="486"/><line x1="312" y1="430" x2="350" y2="392"/><line x1="488" y1="430" x2="450" y2="392"/><line x1="330" y1="478" x2="368" y2="492"/><line x1="470" y1="478" x2="432" y2="492"/><line x1="358" y1="516" x2="384" y2="504"/><line x1="442" y1="516" x2="416" y2="504"/><line x1="368" y1="492" x2="432" y2="492"/></g>
-  <g fill="#2FE0C8" fill-opacity="0.9"><circle cx="312" cy="430" r="3.4"/><circle cx="330" cy="478" r="3.4"/><circle cx="358" cy="516" r="3.4"/><circle cx="400" cy="540" r="3.4"/><circle cx="442" cy="516" r="3.4"/><circle cx="470" cy="478" r="3.4"/><circle cx="488" cy="430" r="3.4"/><circle cx="338" cy="362" r="3.4"/><circle cx="366" cy="352" r="3.4"/><circle cx="394" cy="356" r="3.4"/><circle cx="406" cy="356" r="3.4"/><circle cx="434" cy="352" r="3.4"/><circle cx="462" cy="362" r="3.4"/><circle cx="350" cy="392" r="3.4"/><circle cx="372" cy="386" r="3.4"/><circle cx="394" cy="392" r="3.4"/><circle cx="406" cy="392" r="3.4"/><circle cx="428" cy="386" r="3.4"/><circle cx="450" cy="392" r="3.4"/><circle cx="400" cy="398" r="3.4"/><circle cx="400" cy="432" r="3.4"/><circle cx="384" cy="452" r="3.4"/><circle cx="400" cy="460" r="3.4"/><circle cx="416" cy="452" r="3.4"/><circle cx="368" cy="492" r="3.4"/><circle cx="400" cy="486" r="3.4"/><circle cx="432" cy="492" r="3.4"/><circle cx="384" cy="504" r="3.4"/><circle cx="416" cy="504" r="3.4"/></g>
-  </g>
-  <g fill="none" stroke="#2FE0C8" stroke-opacity="0.6" stroke-width="2"><path d="M288 368 L288 332 L324 332"/><path d="M476 332 L512 332 L512 368"/><path d="M288 520 L288 556 L324 556"/><path d="M476 556 L512 556 L512 520"/></g>
-  <g class="fn-scan"><line x1="288" y1="446" x2="512" y2="446" stroke="#2FE0C8" stroke-opacity="0.12" stroke-width="10"/><line x1="288" y1="446" x2="512" y2="446" stroke="#2FE0C8" stroke-opacity="0.85" stroke-width="1.6"/></g>
-  <line x1="200" y1="714" x2="592" y2="714" stroke="#2FE0C8" stroke-opacity="0.22" stroke-width="1"/>
-  <path d="M210 714 L210 700 M222 714 L222 684 M234 714 L234 694 M246 714 L246 704 M258 714 L258 688 M270 714 L270 698 M282 714 L282 680 M294 714 L294 692 M306 714 L306 702 M318 714 L318 686 M330 714 L330 696 M342 714 L342 690 M354 714 L354 700 M366 714 L366 684 M378 714 L378 694 M390 714 L390 704 M402 714 L402 688 M414 714 L414 698 M426 714 L426 680 M438 714 L438 692 M450 714 L450 702 M462 714 L462 686 M474 714 L474 696 M486 714 L486 690 M498 714 L498 700 M510 714 L510 684 M522 714 L522 694 M534 714 L534 704 M546 714 L546 688 M558 714 L558 698 M570 714 L570 680 M582 714 L582 692" stroke="#2FE0C8" stroke-opacity="0.55" stroke-width="2"/>
-  <rect class="fn-embed" x="200" y="674" width="16" height="46" fill="#7DF3E1" fill-opacity="0.5"/>
-  <text x="56" y="852" fill="#2FE0C8" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">VISION · EDGE</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Face Recognition · NPU</text>
-</svg>`,
-
-  /* 5 · Neural Meta-Learner — forward pass up the winning path */
-  meta: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--meta">
-  <defs><radialGradient id="mlGlow" cx="50%" cy="38%" r="58%"><stop offset="0" stop-color="#7C6BF5" stop-opacity="0.16"/><stop offset="0.7" stop-color="#7C6BF5" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="430" cy="400" r="360" fill="url(#mlGlow)"/>
-  <g stroke="#7C6BF5" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g fill="none" stroke="#7C6BF5" stroke-opacity="0.1" stroke-width="1.2"><path d="M250 330 A 180 180 0 0 1 610 330"/><path d="M280 350 A 150 150 0 0 1 580 350"/><path d="M310 370 A 120 120 0 0 1 550 370"/></g>
-  <g fill="#7C6BF5" fill-opacity="0.05" stroke="#7C6BF5" stroke-opacity="0.32" stroke-width="1.2"><rect x="300" y="726" width="200" height="15"/><rect x="300" y="747" width="200" height="15"/><rect x="300" y="768" width="200" height="15"/><rect x="300" y="789" width="200" height="15"/></g>
-  <path d="M288 726 L282 726 L282 804 L288 804" fill="none" stroke="#7C6BF5" stroke-opacity="0.45" stroke-width="1.4"/>
-  <g stroke="#7C6BF5" stroke-opacity="0.14" stroke-width="1"><line x1="316" y1="726" x2="316" y2="574"/><line x1="336" y1="726" x2="336" y2="574"/><line x1="356" y1="726" x2="356" y2="574"/><line x1="376" y1="726" x2="376" y2="574"/><line x1="396" y1="726" x2="396" y2="574"/><line x1="416" y1="726" x2="416" y2="574"/><line x1="436" y1="726" x2="436" y2="574"/><line x1="456" y1="726" x2="456" y2="574"/><line x1="476" y1="726" x2="476" y2="574"/></g>
-  <path class="ml-stream" d="M360 726 C 356 660, 380 620, 388 574" fill="none" stroke="#34E0C4" stroke-opacity="0.6" stroke-width="2"/>
-  <path class="ml-stream" d="M440 726 C 444 660, 420 620, 412 574" fill="none" stroke="#34E0C4" stroke-opacity="0.6" stroke-width="2"/>
-  <rect x="300" y="552" width="260" height="22" rx="3" fill="#7C6BF5" fill-opacity="0.06" stroke="#7C6BF5" stroke-opacity="0.5" stroke-width="1.4"/>
-  <g stroke="#7C6BF5" stroke-opacity="0.16" stroke-width="1"><line x1="320" y1="552" x2="320" y2="468"/><line x1="375" y1="552" x2="375" y2="468"/><line x1="430" y1="552" x2="430" y2="468"/><line x1="485" y1="552" x2="485" y2="468"/><line x1="540" y1="552" x2="540" y2="468"/><line x1="320" y1="468" x2="366" y2="388"/><line x1="320" y1="468" x2="430" y2="388"/><line x1="320" y1="468" x2="494" y2="388"/><line x1="375" y1="468" x2="366" y2="388"/><line x1="375" y1="468" x2="430" y2="388"/><line x1="375" y1="468" x2="494" y2="388"/><line x1="430" y1="468" x2="366" y2="388"/><line x1="430" y1="468" x2="430" y2="388"/><line x1="430" y1="468" x2="494" y2="388"/><line x1="485" y1="468" x2="366" y2="388"/><line x1="485" y1="468" x2="430" y2="388"/><line x1="485" y1="468" x2="494" y2="388"/><line x1="540" y1="468" x2="366" y2="388"/><line x1="540" y1="468" x2="430" y2="388"/><line x1="540" y1="468" x2="494" y2="388"/><line x1="366" y1="388" x2="400" y2="308"/><line x1="366" y1="388" x2="460" y2="308"/><line x1="430" y1="388" x2="400" y2="308"/><line x1="430" y1="388" x2="460" y2="308"/><line x1="494" y1="388" x2="400" y2="308"/><line x1="494" y1="388" x2="460" y2="308"/></g>
-  <g stroke="#34E0C4" stroke-opacity="0.7" stroke-width="1.6"><line x1="430" y1="574" x2="430" y2="468"/><line x1="430" y1="468" x2="430" y2="388"/><line x1="430" y1="388" x2="460" y2="308"/></g>
-  <g fill="#0f0f0f" stroke="#7C6BF5" stroke-opacity="0.7" stroke-width="1.8"><circle cx="320" cy="468" r="11"/><circle cx="375" cy="468" r="11"/><circle cx="430" cy="468" r="11"/><circle cx="485" cy="468" r="11"/><circle cx="540" cy="468" r="11"/><circle cx="366" cy="388" r="12"/><circle cx="430" cy="388" r="12"/><circle cx="494" cy="388" r="12"/><circle cx="400" cy="308" r="13"/></g>
-  <circle class="ml-win" cx="460" cy="308" r="19" fill="none" stroke="#7DF3E1" stroke-width="2.4"/>
-  <circle cx="460" cy="308" r="13" fill="#34E0C4" fill-opacity="0.9" stroke="#34E0C4" stroke-opacity="0.9" stroke-width="1.8"/>
-  <circle class="flow ml-pass" r="4" fill="#B8FBEC" style="offset-path:path('M430,574 L430,468 L430,388 L460,308')"/>
-  <text x="56" y="852" fill="#7C6BF5" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">META · ENSEMBLE</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Neural Meta-Learner</text>
-</svg>`,
-
-  /* 6 · Comparative ML Evaluation — leaderboard fill + ROC sweep */
-  mleval: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--mleval">
-  <defs><radialGradient id="meGlow" cx="50%" cy="40%" r="58%"><stop offset="0" stop-color="#3D8BFF" stop-opacity="0.14"/><stop offset="0.7" stop-color="#3D8BFF" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <rect x="0" y="0" width="400" height="1000" fill="#3D8BFF" fill-opacity="0.018"/>
-  <rect x="400" y="0" width="400" height="1000" fill="#FF3B52" fill-opacity="0.018"/>
-  <circle cx="400" cy="430" r="360" fill="url(#meGlow)"/>
-  <g stroke="#3D8BFF" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g stroke="#8a8a8a" stroke-opacity="0.4" stroke-width="1.4"><line x1="180" y1="250" x2="180" y2="560"/><line x1="180" y1="560" x2="640" y2="560"/></g>
-  <line x1="180" y1="560" x2="640" y2="250" stroke="#8a8a8a" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="5 7"/>
-  <g fill="none" stroke="#3D8BFF"><path d="M180 560 C 300 508, 470 344, 640 250" stroke-opacity="0.3" stroke-width="1.5"/><path d="M180 560 C 280 492, 448 326, 640 250" stroke-opacity="0.34" stroke-width="1.5"/><path d="M180 560 C 262 474, 428 312, 640 250" stroke-opacity="0.38" stroke-width="1.5"/><path d="M180 560 C 248 458, 410 300, 640 250" stroke-opacity="0.44" stroke-width="1.5"/><path d="M180 560 C 235 440, 395 290, 640 250" stroke-opacity="0.5" stroke-width="1.5"/><path d="M180 560 C 225 420, 380 280, 640 250" stroke-opacity="0.56" stroke-width="1.6"/><path d="M180 560 C 215 400, 365 270, 640 250" stroke-opacity="0.6" stroke-width="1.6"/></g>
-  <path d="M180 560 C 205 380, 350 262, 640 250" fill="none" stroke="#FF3B52" stroke-opacity="0.95" stroke-width="2.4"/>
-  <rect class="me-bar" x="200" y="638" width="384" height="13" fill="#FF3B52" fill-opacity="0.8" style="animation-delay:0s"/>
-  <rect class="me-bar" x="200" y="660" width="352" height="13" fill="#3D8BFF" fill-opacity="0.55" style="animation-delay:.09s"/>
-  <rect class="me-bar" x="200" y="682" width="326" height="13" fill="#3D8BFF" fill-opacity="0.5" style="animation-delay:.18s"/>
-  <rect class="me-bar" x="200" y="704" width="300" height="13" fill="#3D8BFF" fill-opacity="0.46" style="animation-delay:.27s"/>
-  <rect class="me-bar" x="200" y="726" width="270" height="13" fill="#3D8BFF" fill-opacity="0.42" style="animation-delay:.36s"/>
-  <rect class="me-bar" x="200" y="748" width="238" height="13" fill="#3D8BFF" fill-opacity="0.38" style="animation-delay:.45s"/>
-  <rect class="me-bar" x="200" y="770" width="206" height="13" fill="#3D8BFF" fill-opacity="0.34" style="animation-delay:.54s"/>
-  <rect class="me-bar" x="200" y="792" width="176" height="13" fill="#3D8BFF" fill-opacity="0.3" style="animation-delay:.63s"/>
-  <line x1="200" y1="628" x2="200" y2="812" stroke="#8a8a8a" stroke-opacity="0.35" stroke-width="1.2"/>
-  <g fill="#8a8a8a" font-family="monospace" font-size="12" fill-opacity="0.85"><text x="596" y="649">CatBoost · 0.886</text><text x="470" y="288">AUC</text></g>
-  <circle class="flow me-trace" r="4.5" fill="#FF7C8C" style="offset-path:path('M180 560 C 205 380, 350 262, 640 250')"/>
-  <text x="56" y="852" fill="#3D8BFF" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">BENCHMARK · ML</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">Comparative ML Evaluation</text>
-</svg>`,
-
-  /* 7 · DL Image Colorization — grayscale→colour wavefront + Lab drift */
-  color: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--color">
-  <defs>
-    <linearGradient id="aAxis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3BD17A"/><stop offset="0.5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#F05C9E"/></linearGradient>
-    <linearGradient id="bAxis" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#3D8BFF"/><stop offset="0.5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#F2C94C"/></linearGradient>
-    <radialGradient id="coGlow" cx="60%" cy="34%" r="58%"><stop offset="0" stop-color="#F05C9E" stop-opacity="0.12"/><stop offset="0.7" stop-color="#F05C9E" stop-opacity="0"/></radialGradient>
-  </defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="470" cy="360" r="360" fill="url(#coGlow)"/>
-  <g stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g fill="none" stroke="#9a9a9a" stroke-opacity="0.34" stroke-width="2"><path d="M70 250 C 240 214, 430 292, 560 246 S 700 262, 740 246"/><path d="M70 292 C 240 252, 420 332, 560 288 S 700 300, 740 286"/><path d="M70 330 C 240 300, 430 372, 560 330 S 700 344, 740 330"/><path d="M70 370 C 240 342, 420 410, 560 372 S 700 384, 740 372"/><path d="M70 410 C 240 384, 430 448, 560 412 S 700 420, 740 410"/><path d="M70 450 C 240 424, 420 486, 560 452 S 700 460, 740 452"/></g>
-  <g class="co-color" fill="none" stroke-width="2"><path d="M70 250 C 240 214, 430 292, 560 246 S 700 262, 740 246" stroke="#35CBBF" stroke-opacity="0.85"/><path d="M70 292 C 240 252, 420 332, 560 288 S 700 300, 740 286" stroke="#F05C9E" stroke-opacity="0.85"/><path d="M70 330 C 240 300, 430 372, 560 330 S 700 344, 740 330" stroke="#35CBBF" stroke-opacity="0.85"/><path d="M70 370 C 240 342, 420 410, 560 372 S 700 384, 740 372" stroke="#F05C9E" stroke-opacity="0.85"/><path d="M70 410 C 240 384, 430 448, 560 412 S 700 420, 740 410" stroke="#35CBBF" stroke-opacity="0.85"/><path d="M70 450 C 240 424, 420 486, 560 452 S 700 460, 740 452" stroke="#F05C9E" stroke-opacity="0.85"/></g>
-  <line class="co-front" x1="70" y1="228" x2="70" y2="470" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
-  <path d="M300 548 L360 548 L400 640 L440 548 L500 548" fill="none" stroke="#c8c8c8" stroke-opacity="0.5" stroke-width="1.6"/>
-  <g fill="none" stroke="#c8c8c8" stroke-opacity="0.26" stroke-width="1"><line x1="330" y1="548" x2="380" y2="596"/><line x1="470" y1="548" x2="420" y2="596"/></g>
-  <g fill="none" stroke-width="1.3"><path d="M332 566 C 366 546, 434 546, 468 566" stroke="#F05C9E" stroke-opacity="0.55"/><path d="M352 592 C 380 576, 420 576, 448 592" stroke="#35CBBF" stroke-opacity="0.55"/><path d="M368 614 C 388 602, 412 602, 432 614" stroke="#F05C9E" stroke-opacity="0.5"/></g>
-  <g fill="#9a9a9a" font-family="monospace" font-size="15" fill-opacity="0.85"><text x="270" y="552">L</text><text x="508" y="552">a,b</text></g>
-  <circle cx="400" cy="722" r="52" fill="none" stroke="#8a8a8a" stroke-opacity="0.22" stroke-width="1.2"/>
-  <rect x="330" y="716" width="140" height="11" fill="url(#aAxis)" fill-opacity="0.85"/>
-  <rect x="394" y="662" width="11" height="120" fill="url(#bAxis)" fill-opacity="0.85"/>
-  <circle class="co-ab" cx="424" cy="700" r="4" fill="#F05C9E" fill-opacity="0.9"/>
-  <g fill="#9a9a9a" font-family="monospace" font-size="13" fill-opacity="0.85"><text x="478" y="726">a</text><text x="386" y="652">b</text></g>
-  <g fill="#6f6f6f" font-family="monospace" font-size="12" fill-opacity="0.85"><text x="96" y="232">L</text><text x="694" y="232">a,b</text><text x="86" y="628">PSNR</text><text x="646" y="628">SSIM</text><text x="360" y="800">128×128</text></g>
-  <text x="56" y="852" fill="#F05C9E" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">LAB · L → a·b</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">DL Image Colorization</text>
-</svg>`,
-
-  /* 8 · Other Studies — archive stack settles in (entrance only) */
-  other: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--other">
-  <defs><radialGradient id="osGlow" cx="50%" cy="44%" r="60%"><stop offset="0" stop-color="#F5A524" stop-opacity="0.16"/><stop offset="0.66" stop-color="#F5A524" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="450" r="370" fill="url(#osGlow)"/>
-  <g stroke="#F5A524" stroke-opacity="0.06" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g class="os-card" style="animation-delay:0s"><rect x="214" y="250" width="340" height="150" rx="14" fill="#F5A524" fill-opacity="0.015" stroke="#F5A524" stroke-opacity="0.32" stroke-width="1.2"/><rect x="232" y="272" width="7" height="34" rx="3.5" fill="#94A3B8" fill-opacity="0.42"/><text x="254" y="296" fill="#F5A524" fill-opacity="0.55" font-family="monospace" font-size="24" letter-spacing="3">Python</text></g>
-  <g class="os-card" style="animation-delay:.1s"><rect x="224" y="320" width="340" height="150" rx="14" fill="#F5A524" fill-opacity="0.02" stroke="#F5A524" stroke-opacity="0.42" stroke-width="1.3"/><rect x="242" y="342" width="7" height="34" rx="3.5" fill="#94A3B8" fill-opacity="0.52"/><text x="264" y="366" fill="#F5A524" fill-opacity="0.63" font-family="monospace" font-size="24" letter-spacing="3">iOS · Swift</text></g>
-  <g class="os-card" style="animation-delay:.2s"><rect x="234" y="390" width="340" height="150" rx="14" fill="#F5A524" fill-opacity="0.03" stroke="#F5A524" stroke-opacity="0.54" stroke-width="1.5"/><rect x="252" y="412" width="7" height="34" rx="3.5" fill="#94A3B8" fill-opacity="0.62"/><text x="274" y="436" fill="#F5A524" fill-opacity="0.72" font-family="monospace" font-size="24" letter-spacing="3">C#</text></g>
-  <g class="os-card" style="animation-delay:.3s"><rect x="244" y="460" width="340" height="150" rx="14" fill="#F5A524" fill-opacity="0.04" stroke="#F5A524" stroke-opacity="0.68" stroke-width="1.6"/><rect x="262" y="482" width="7" height="34" rx="3.5" fill="#94A3B8" fill-opacity="0.74"/><text x="284" y="506" fill="#F5A524" fill-opacity="0.82" font-family="monospace" font-size="24" letter-spacing="3">C++</text></g>
-  <g class="os-card" style="animation-delay:.4s"><rect x="254" y="530" width="340" height="150" rx="14" fill="#F5A524" fill-opacity="0.06" stroke="#F5A524" stroke-opacity="0.92" stroke-width="1.9"/><rect x="272" y="552" width="7" height="34" rx="3.5" fill="#94A3B8" fill-opacity="0.92"/><text x="294" y="576" fill="#F5A524" fill-opacity="0.94" font-family="monospace" font-size="24" letter-spacing="3">.NET Core</text></g>
-  <text x="56" y="852" fill="#F5A524" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">PREVIOUS COLLECTIONS</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Other Studies</text>
-</svg>`
-        };
-
-        const PROJECTS = [
-            {
-                n: 'Mindplace', year: '2025 — Building',
-                stack: ['Multi-Agent Orchestration', 'LLM Planner / Executor', 'Role-Assigned Agent Crew', 'Agentic Pipelines', 'Model-Agnostic Dispatch', 'Vision QC & Consistency', 'Generative Image / Video / Audio', 'Next.js', 'React'],
-                desc: 'A multi-agent AI platform for film and animation production — two orchestration surfaces sitting over one generative-model layer. In the agent-driven flows (VisualStoryteller, CortexStoryteller) an LLM brain runs the whole pipeline: a Supervisor compiles the brief into an execution plan and an executor coordinates a role-assigned crew — Creative Director, Writer, Art Director, Director, Composer and a QC agent — with dependency resolution, parallel groups and per-keyframe Vision QC. The Studio modules are smaller agentic pipelines of their own, like Moodboard\'s composer→critic loop. Underneath both, a model-agnostic dispatcher maps one prompt surface onto 8+ image and video engines — manifest-driven, capability-gated, and never branching on model id.',
-                roleLabel: '<strong>End-to-End Development</strong>',
-                roleBullets: [
-                    '<strong>Agentic Orchestration Layer</strong> 20+ specialized Generative AI workflows & LLM Memory Architecture',
-                    '<strong>Consistent & Optimized Web Infrastructure</strong> for high traffic',
-                    '<strong>Model Routing Layer</strong>',
-                    '<strong>Data Layer</strong>',
-                    '<strong>Security & QC Layer</strong>',
-                    '<strong>Design</strong> UI/UX, Visuals, Videos & Short Movies'
-                    
-                ],
-                links: [{ t: 'Explore', u: 'https://www.mindplace.app' }],
-                kw: 'meditation', cover: 'mindplace', img: 'assets/mindplace.svg'
-            },
-            {
-                n: 'TravelerApp · Pacer', year: '2024',
-                stack: ['MVVM + Repository', 'Geo-Temporal LLM Prompting', 'Places-Grounded Retrieval', 'Kalman Filtering', 'Ramer–Douglas–Peucker', 'Encoded-Polyline Codec', 'HealthKit Sync', 'Swift / SwiftUI', 'Supabase Edge Functions'],
-                desc: 'Two companion iOS apps I build and keep shipping for myself — I travel and I camp, and these are tools I actually carry into the field, not a portfolio demo. TravelerApp\'s Explore is a two-stage Gemini pipeline: an edge function turns a plain-language wish like "a quiet cafe to read in" into structured category queries, fans them out across Google Places, and geo-fences the hits — every request carrying location, time of day, weekday and season, so a late-night ask surfaces places open now. Pacer is the field-analytics half: raw GPS runs through a Kalman filter and Ramer–Douglas–Peucker simplification into stored encoded polylines, with an anchored HealthKit sync — and I keep adding to both as an ongoing personal product.',
-                roleLabel: '<strong>End-to-End Development',
-                roleBullets: [
-                    '<strong>AI Pipelines</strong> in Supabase Edge Functions',
-                    '<strong>iOS Development</strong>',
-                    '<strong>Design</strong> UI/UX'
-                ],
-                links: [{ t: 'TravelerApp', u: 'https://apps.apple.com/us/app/travelerapp/id6761769561' }, { t: 'Pacer by TravelerApp', u: 'https://apps.apple.com/us/app/pacer-by-travelerapp/id6773798438' }] ,
-                kw: 'travel', cover: 'traveler', img: 'assets/traveler.svg'
-            },
-            {
-                n: 'UWB & CoreBluetooth · Nearby Interaction', year: '2024 — Today',
-                stack: ['Ultra-Wideband', 'DS-TWR Ranging', 'Time-of-Flight', 'PDoA / Angle-of-Arrival', 'FiRa · IEEE 802.15.4z', 'Nearby Interaction', 'CoreBluetooth OOB', 'UCI over SPI', 'QN9090 Firmware', 'Swift / SwiftUI', 'C', 'Python · PySide6'],
-                desc: 'A free-flow access system: a phone or Apple Watch is detected, identified and localized as it walks through a gate — no tap, no scan, no stopping. Apple Nearby Interaction bootstraps a UWB session over a Bluetooth out-of-band handshake, then double-sided two-way ranging on the UWB radios resolves Time-of-Flight distance while phase-difference-of-arrival across three antennas recovers azimuth and elevation — around 4–5 fixes per second at ±10 cm line-of-sight. Anchor firmware drives the radio over UCI/SPI and streams a CRC-framed, resync-safe telemetry protocol that a PySide6 desktop suite decodes into live tiles, time-series and a bird\'s-eye gate view — the whole pipeline runnable with zero hardware through a firmware-accurate simulator. Presence resolves across three ranges: Bluetooth discovery, UWB ranging, and a tight action zone triggered by a boresight azimuth sign-change.',
-                roleLabel: '<strong>Main System Architect</strong>',
-                roleBullets: [
-                    '<strong>Project manager</strong> — owned scope, planning and delivering operations.',
-                    '<strong>Firmware Development</strong> on the Anchor Side (C lang on QN9090)',
-                    '<strong>Mobile Development</strong> on the tag side (Native iOS)',
-                    '<strong>Python Tooling</strong> Monitoring suite, Dev. Tools, Zero-Hardware Simulator, Agentic Skills on Coding.'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/UWB-Nearby-Interactions' }],
-                kw: 'technology', cover: 'uwb', img: 'assets/uwb.svg'
-            },
-            {
-                n: 'CAN Bus · J1939 Generator & Simulator', year: '2023',
-                stack: ['SAE J1939', 'CAN Bus / 29-bit Frames', 'PGN / SPN Decoding', 'PDU1 / PDU2 Addressing', 'Vehicle-Dynamics Simulation', 'SocketCAN', 'python-can', 'Python', 'GTK 3', 'pytest'],
-                desc: 'A two-part J1939 toolkit for heavy-duty vehicle CAN buses, built as a pair of desktop apps that talk to each other over a real bus. The simulator runs a vehicle-dynamics model that broadcasts 20 PGNs and ~30 SPNs — engine and vehicle speed, fuel rate, temperatures, plus a full EV pack (voltage, current, SOC/SOH) — as genuine 29-bit J1939 frames at 250/500 kbit/s. The monitor listens on a SocketCAN interface, pulls the PGN from each identifier and resolves the SPN bit-fields back to physical values on a live dashboard, so it reads real CAN traffic off the wire rather than a canned log. Both apps follow SAE J1939-21 and J1939-71 to keep the traffic standards-correct, run on Linux and Windows, and sit behind python-can so the same code drives real adapters or a hardware-free virtual bus.',
-                roleLabel: '<strong>End-to-End Development',
-                roleBullets: [
-                    '<strong>Protocol Core</strong> J1939 encode / decode (PGN / SPN, 29-bit ID)',
-                    '<strong>Simulator & Monitor</strong> desktop apps generating & reading real CAN traffic',
-                    '<strong>SAE J1939-21 / 71 Compliance</strong>',
-                    '<strong>Cross-Platform Packaging</strong> Linux & Windows desktop builds'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/CANBus-J1939-Complete-Repo' }],
-                kw: 'truck', cover: 'canbus', img: 'assets/canbus.svg'
-            },
-            {
-                n: 'Face Recognition · i.MX8 NPU', year: '2024',
-                stack: ['Metric Learning / Triplet Loss', 'Open-Set Recognition', 'INT8 Quantization', 'NPU Delegation', 'SSD · MobileNetV2', 'FaceNet · Inception-ResNet', 'TensorFlow Lite', 'VX Delegate / OpenVX', 'i.MX 8M Plus NPU', 'GStreamer + G2D', 'OpenCV', 'Python'],
-                desc: 'Real-time face recognition running entirely on the NPU of an NXP i.MX 8M Plus — no cloud, no GPU server. A two-stage TensorFlow Lite pipeline does the work: a fully-INT8 SSD/MobileNetV2 detector finds faces in ~10 ms, then a FaceNet embedder turns each crop into a 128-D vector matched against an enrolled gallery by cosine similarity. Getting there meant post-training INT8 quantization with representative-dataset calibration, then routing the graph onto the VeriSilicon accelerator through the VX delegate / OpenVX path — roughly 20× faster than the CPU cores — while the 2D GPU handles 1080p colorspace conversion so the CPU stays free. IoU tracking, recognition throttling and CLAHE lightness normalization keep it smooth under changing light.',
-                roleLabel: '<strong>Main System Architect</strong>',
-                roleBullets: [
-                    '<strong>Model Training</strong> metric learning with triplet loss',
-                    '<strong>Backbone Layer</strong> MobileNetV2 detector & FaceNet embedder',
-                    '<strong>Fine-Tuning</strong>',
-                    '<strong>INT8 Quantization</strong> for the NPU',
-                    '<strong>Firmware Optimization (Linux)</strong> NPU delegation & operator placement'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/face-recognition-npu' }],
-                kw: 'circuit', cover: 'face', img: 'assets/face-npu.svg'
-            },
-            {
-                n: 'Neural Meta-Learner', year: '2025',
-                stack: ['Stacked Generalization', 'Meta-Learning', 'Model Ensembling', 'Neural Meta-Head', 'Probability Meta-Features', 'Stratified 5-Fold CV', 'PyTorch', 'CatBoost', 'LightGBM', 'scikit-learn', 'Python'],
-                desc: 'A stacked-generalization study that squeezes more out of a model I had already trained: instead of retraining, I freeze a strong CatBoost base and learn a neural meta-head on top of its class probabilities concatenated with the original features — a 61-dimensional meta-space. Three heterogeneous meta-learners compete on it (Logistic Regression, LightGBM and a shallow PyTorch network), each scored under stratified 5-fold cross-validation; the neural head wins, lifting F1 from 87.3% to 89.8% and ROC-AUC to 96% by learning to correct the base model\'s systematic, overconfident errors. Built solo as a master\'s project — developed with supervising professors, defended before a faculty jury, and written up as an academic article.',
-                roleLabel: '<strong>End-to-end &amp; solo</strong> — idea to jury defense',
-                roleBullets: [
-                    '<strong>Research</strong> stacked generalization over a frozen CatBoost base',
-                    '<strong>Neural Meta-Head</strong> in PyTorch (vs LR / LightGBM baselines)',
-                    '<strong>Evaluation</strong> stratified 5-fold CV, F1 / ROC-AUC lift',
-                    '<strong>Academic Writing & Jury Defense</strong>'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Neural-Meta-Learner-Enhancement' }],
-                kw: 'abstract', cover: 'meta', img: 'assets/meta-learner.svg'
-            },
-            {
-                n: 'Comparative Machine Learning Evaluation', year: '2025',
-                stack: ['Comparative Model Evaluation', 'Controlled Experiment Design', 'Feature Engineering', 'Leakage Control', 'Stratified 5-Fold CV', 'RandomizedSearchCV', 'ROC-AUC / Weighted F1', 'CatBoost · XGBoost · LightGBM', 'scikit-learn', 'pandas · NumPy', 'Python'],
-                desc: 'A master\'s-level study that treats model selection as a controlled experiment rather than a leaderboard chase: eight classifiers — from Logistic Regression to XGBoost, LightGBM and CatBoost — are held to one identical preprocessing and evaluation protocol, so the algorithm itself is the only variable. On a 7,439-row fight dataset I drop 42 leakage-prone columns, engineer 27 difference and advantage features, rank baselines on a stratified split, then tune the front-runner with RandomizedSearchCV and score on weighted F1 and ROC-AUC. CatBoost led at 80.6% accuracy and 0.886 ROC-AUC, with relative advantages between fighters proving more predictive than raw individual stats. I developed it end to end and solo — from research framing through implementation to a report defended before a faculty jury.',
-                roleLabel: '<strong>End-to-end &amp; solo</strong> — research, build, write, defend',
-                roleBullets: [
-                    '<strong>Experiment Design</strong> one fixed protocol, model family as the only variable',
-                    '<strong>Feature Engineering</strong> leakage control & 27 engineered features',
-                    '<strong>Benchmark & Tuning</strong> 8 classifiers, RandomizedSearchCV on F1 / ROC-AUC',
-                    '<strong>Academic Writing & Jury Defense</strong>'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Comparative-ML-Model-Evaluation' }],
-                kw: 'chart', cover: 'mleval', img: 'assets/ml-eval.svg'
-            },
-            {
-                n: 'Deep Learning Image Colorization', year: '2024',
-                stack: ['CIE Lab Color Space', 'Grayscale Colorization', 'ab-Chrominance Regression', 'U-Net / Encoder–Decoder', 'Skip Connections', 'Transfer Learning (ResNet50)', 'PSNR / SSIM', 'Statistical t-test', 'TensorFlow / Keras', 'OpenCV', 'NumPy / SciPy'],
-                desc: 'A master\'s-level study of automatic grayscale colorization, framed as a/b-chrominance regression in CIE Lab — the luminance channel goes in, the two color channels come out, and a recombined image comes back. Rather than betting on one network, I built and compared three architectures in TensorFlow/Keras — a plain convolutional autoencoder, a U-Net with skip connections, and a ResNet50-UNet reusing an ImageNet-pretrained encoder — to isolate what actually moves the needle. Scored on PSNR and SSIM with a pairwise t-test on per-image results, the U-Net landed the best accuracy-to-cost ratio: skip connections gave a statistically significant lift, while transfer learning added only marginal gains. Developed end to end and solo — from the research question through the written study to the jury presentation.',
-                roleLabel: '<strong>End-to-end &amp; solo</strong> — idea → study → jury',
-                roleBullets: [
-                    '<strong>Research Design</strong> ab-chrominance regression in CIE Lab',
-                    '<strong>Architecture Comparison</strong> autoencoder vs U-Net vs ResNet50-UNet',
-                    '<strong>Evaluation</strong> PSNR / SSIM with a pairwise t-test',
-                    '<strong>Academic Writing & Jury Defense</strong>'
-                ],
-                links: [{ t: 'Source Code', u: 'https://github.com/egeozcelik/Deep-Learning-Architectures-for-Image-Colorization' }],
-                kw: 'colorful', cover: 'color', img: 'assets/colorization.svg'
-            },
-            {
-                n: 'Other Studies', year: '', kind: 'archive',
-                stack: [],
-                desc: 'You can check out my previous studies here — earlier collections across languages and platforms, kept as public repositories.',
-                collections: [
-                    { t: 'Python Collection', u: 'https://github.com/egeozcelik/Python-Repository' },
-                    { t: 'iOS Collection', u: 'https://github.com/egeozcelik/iOS-Collection' },
-                    { t: 'C# Collection', u: 'https://github.com/egeozcelik/Other-Repositories/tree/main/C%23%20Repository' },
-                    { t: 'C++ Collection', u: 'https://github.com/egeozcelik/Other-Repositories/tree/main/C%2B%2B%20Repository' },
-                    { t: '.NET Core Collection', u: 'https://github.com/egeozcelik/Other-Repositories/tree/main/dotNetCore%20Repository' }
-                ],
-                kw: 'archive', cover: 'other', img: 'assets/other-studies.svg'
-            }
-        ];
 
         const SKILLS = [
             {
@@ -1241,43 +767,43 @@
                 overview: 'This is where building has changed the most, and it is where I lead. I bring a software-architecture mindset to AI, designing how agents, orchestration and model routing fit together as real components.',
                 tools: ['Multi-Agent Orchestration', 'Agentic Pipelines', 'Role-Assigned Agents', 'Claude Code', 'Codex', 'Tool Use / Function Calling', 'Sandwich Prompting', 'Model-Aware Routing', 'RAG', 'Vision QC', 'MCP', 'Structured Output'],
                 highlights: [
-                    'Design and ship <strong>multi-agent systems</strong> — a crew of role-assigned agents (director, writer, QC) coordinated by an <strong>orchestrator and adaptive plan-mode pipeline</strong>, in production.',
-                    '<strong>Architecture-first with AI</strong> — I design the structure and let agents execute against it, instead of hoping a single prompt lands right.',
-                    'Prompt and context treated as real infrastructure — <strong>sandwich prompting, model-aware routing, structured output and vision-based QC</strong> for consistency and reliability.',
-                    '<strong>Always on the newest models</strong> — Claude Code, Codex and frontier image/video engines in the daily build loop as they ship, not months later.'
+                    'Design and ship <strong>multi-agent systems</strong>: a crew of role-assigned agents (director, writer, QC) coordinated by an <strong>orchestrator and adaptive plan-mode pipeline</strong>, in production.',
+                    '<strong>Architecture-first with AI</strong>: I design the structure and let agents execute against it, instead of hoping a single prompt lands right.',
+                    'Prompt and context treated as real infrastructure: <strong>sandwich prompting, model-aware routing, structured output and vision-based QC</strong> for consistency and reliability.',
+                    '<strong>Always on the newest models</strong>: Claude Code, Codex and frontier image/video engines in the daily build loop as they ship, not months later.'
                 ]
             },
             {
                 n: 'Software Architecture', tag: 'Systems · Patterns',
-                overview: 'Before the AI era I spent 8+ years writing every line by hand — designing systems, making the architectural calls and living with them. That foundation is the whole point. Today I do not tell an AI what to type; I design the structure and the architecture in detail and direct the build from there.',
+                overview: 'Before the AI era I spent 8+ years writing every line by hand, designing systems, making the architectural calls and living with them. That foundation is the whole point. Today I do not tell an AI what to type; I design the structure and the architecture in detail and direct the build from there.',
                 tools: ['Clean Architecture', 'Separation of Concerns', 'MVC', 'MVVM', 'VIPER', 'Dependency Injection', 'Factory', 'Builder', 'Unit of Work', 'Singleton'],
                 highlights: [
                     'Modular, scalable and maintainable systems that keep <strong>performance and architectural integrity</strong> in balance.',
                     'Fluent across <strong>MVC, MVVM and VIPER</strong> within layered structures with a clear separation of concerns.',
                     'Everyday use of <strong>Factory, Builder, Unit of Work, Dependency Injection and Singleton</strong> patterns across <strong>mobile, web and Python desktop (GUI)</strong> applications.',
-                    '<strong>8+ years of hands-on coding</strong> before AI entered the loop — the engineering judgment underneath every architectural call.'
+                    '<strong>8+ years of hands-on coding</strong> before AI entered the loop: the engineering judgment underneath every architectural call.'
                 ]
             },
             {
                 n: 'Model Training & Data Analysis', tag: 'ML · DL · Research',
-                overview: 'Turning data into trained models — and into results I can stand behind. The theory comes from a master\'s in AI, machine learning, deep learning and NLP; the practice comes from Kentkart R&D and a stack of my own projects — from PC-scale training pipelines all the way down to models small enough to run on an embedded chip.',
+                overview: 'Turning data into trained models, and into results I can stand behind. The theory comes from a master\'s in AI, machine learning, deep learning and NLP; the practice comes from Kentkart R&D and a stack of my own projects, from PC-scale training pipelines all the way down to models small enough to run on an embedded chip.',
                 tools: ['Model Training', 'Machine Learning', 'Deep Learning', 'NLP', 'Neural Networks', 'Model Optimization', 'Edge / On-Device', 'Quantization', 'PyTorch', 'Pandas', 'NumPy', 'SQL', 'Statistical Modeling'],
                 highlights: [
-                    'A range of <strong>theoretical and applied</strong> ML/DL work — theory from an <strong>AI/ML/DL/NLP master\'s</strong>, practice from <strong>Kentkart R&amp;D and personal research</strong> (meta-learning, comparative ML, image colorization, on-device vision).',
+                    'A range of <strong>theoretical and applied</strong> ML/DL work: theory from an <strong>AI/ML/DL/NLP master\'s</strong>, practice from <strong>Kentkart R&amp;D and personal research</strong> (meta-learning, comparative ML, image colorization, on-device vision).',
                     'Comfortable across <strong>machine learning, deep learning and NLP</strong>, with <strong>model optimization and neural-network design</strong> applied to real problems.',
-                    'From <strong>PC-scale pipelines (PyTorch, Pandas, NumPy)</strong> down to <strong>low-power on-device inference</strong> — quantized where every milliwatt counts.',
-                    '<strong>Data analysis</strong> with Pandas, NumPy and SQL — statistical modeling and clear visualization that turn messy datasets into decisions.'
+                    'From <strong>PC-scale pipelines (PyTorch, Pandas, NumPy)</strong> down to <strong>low-power on-device inference</strong>, quantized where every milliwatt counts.',
+                    '<strong>Data analysis</strong> with Pandas, NumPy and SQL: statistical modeling and clear visualization that turn messy datasets into decisions.'
                 ]
             },
             {
                 n: 'Building & Shipping', tag: 'Maker · Cross-Platform',
-                overview: 'I am a builder before anything else. When something new lands — a model, an SDK, a framework — my instinct is to turn it into a real, published product. iOS, web, Android, games; usually on my own time, always end to end, from the first idea to something people can actually download.',
-                tools: ['iOS / SwiftUI', 'Web / Next.js', 'Android', 'Game Dev', 'Full-Stack', 'App Store', 'Rapid Prototyping', 'Product Delivery'],
+                overview: 'I am a builder before anything else. When something new lands (a model, an SDK, a framework) my instinct is to turn it into a real, published product. iOS, web, Android, games; usually on my own time, always end to end, from the first idea to something people can actually download.',
+                tools: ['Web: React / Next.js, .Net Core', 'iOS: Swift, SwiftUI',  'Android: Jetpack Compose', 'Game Dev: Unity', 'Database: Firebase Firestore, Supabase, MSSQL Server', 'Machine Learning: Scikit-learn', 'Deep Learning: TensorFlow, Keras, PyTorch', 'Data Analyses: NumPy, Pandas, Seaborn', 'Fal AI / Google FLow / Higgsfield', 'Claude Code / Codex'],
                 highlights: [
-                    'Ship end-to-end across platforms — <strong>native iOS (Swift/SwiftUI), web (Next.js/React), Android and games</strong> — owning architecture through release.',
-                    'A steady <strong>maker cadence</strong>: newly-released tech becomes a working, published product fast — App Store apps, web platforms and beyond.',
-                    'At home across the stack and the store — <strong>App Store submission</strong>, web deployment and the full path from idea to users.',
-                    'Always building — the reflex to <strong>turn what just shipped into what I ship next</strong>.'
+                    'Ship end-to-end across <strong>cross platforms</strong> applications depends on the needing, owning architecture through release.',
+                    'A steady <strong>maker cadence</strong>: newly-released tech becomes a working, published product fast; App Store apps, web platforms and beyond.',
+                    'At home across the stack and the store: <strong>App Store submission</strong>, web deployment and the full path from idea to users.',
+                    'Always building: the reflex to <strong>turn what just shipped into what I ship next</strong>. I’ve really started wondering if I could have paid off a car loan instead of Claude Code 10x subscription and the extra top-ups..'
                 ]
             }
         ];
@@ -1331,7 +857,6 @@
                 row.className = 'row';
                 row.innerHTML =
                     '<button type="button" class="row-head" aria-expanded="false">' +
-                        '<span class="row-no">' + (i + 1) + '</span>' +
                         '<span class="row-word">' + esc(WORDS[i] || s.n) + '</span>' +
                         '<span class="row-tag lbl">' + esc(s.tag) + '</span>' +
                         '<span class="row-x" aria-hidden="true"></span>' +
@@ -1415,10 +940,15 @@
                 const b = document.createElement('button');
                 b.type = 'button';
                 b.className = 'p-item' + (i === 0 ? ' is-active' : '');
-                b.innerHTML = '<span class="p-no">3.' + (i + 1) + '</span><span>' + esc(p.n) + '</span>';
+                b.innerHTML = '<span>' + esc(p.n) + '</span>';
                 b.addEventListener('click', () => select(i, true));
                 list.appendChild(b);
             });
+            const allLink = document.createElement('a');
+            allLink.className = 'plink pf-all';
+            allLink.href = 'portfolio/index.html';
+            allLink.textContent = 'Full Portfolio';
+            list.appendChild(allLink);
             const buttons = Array.prototype.slice.call(list.querySelectorAll('.p-item'));
 
             function select(i, fromUser) {
@@ -1427,8 +957,8 @@
                 buttons.forEach((b, j) => b.classList.toggle('is-active', j === i));
                 el('detTitle').textContent = p.n;
                 el('detYear').textContent = p.year || '';
-                el('detDesc').textContent = p.desc;
-                el('capL').textContent = '↳ 3.' + (i + 1) + ' — ' + p.n;
+                el('detDesc').innerHTML = p.desc;
+                el('capL').textContent = '↳ ' + p.n;
                 el('capR').textContent = p.year || 'Archive';
                 if (fromUser && window.innerWidth <= 1080) {
                     el('visCard').scrollIntoView({ behavior: 'smooth', block: 'start' });

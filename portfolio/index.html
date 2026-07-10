@@ -1,0 +1,463 @@
+<!-- Ege Özçelik — full portfolio, every project expanded as a themed deck slide -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>Selected Work · Ege Özçelik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/covers.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-display: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --red: #F0371C;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: #191815;
+            color: #17150F;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ SLIDE THEMES — every project is a deck slide ============ */
+        .slide { background: var(--bg); color: var(--fg); position: relative; }
+        .s-white  { --bg:#FFFFFF; --fg:#17150F; --mute:#6E6A5F; --soft:#55524A; --ghost:#DEDAD1; --line:rgba(23,21,15,0.14); }
+        .s-ink    { --bg:#191815; --fg:#EDEAE2; --mute:#8E8B81; --soft:#B3B0A7; --ghost:#3B3933; --line:rgba(237,234,226,0.15); }
+        .s-red    { --bg:#F0371C; --fg:#FBF7EF; --mute:#17150F; --soft:#17150F; --ghost:#D6300F; --line:rgba(251,247,239,0.38); }
+
+        .wrap { max-width: 1760px; margin: 0 auto; padding: 0 clamp(20px, 3.2vw, 56px); }
+        .slide > .wrap { padding-top: clamp(76px, 9vh, 128px); padding-bottom: clamp(76px, 9vh, 128px); }
+        .pf-slide > .wrap { padding-top: clamp(60px, 8vh, 104px); padding-bottom: clamp(60px, 8vh, 104px); }
+
+        /* ============ SHARED TYPE SYSTEM ============ */
+        .lbl {
+            font-family: var(--font-body);
+            font-size: 10.5px; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .lbl::before { content: '\21B3\00A0\00A0'; }
+
+        .s-head {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px; align-items: baseline;
+            border-top: 1px solid var(--line);
+            padding-top: 16px;
+            margin-bottom: clamp(44px, 7vh, 92px);
+        }
+        .s-title {
+            font-family: var(--font-display);
+            font-size: clamp(27px, 3.4vw, 52px); font-weight: 500;
+            line-height: 1; letter-spacing: -0.015em; text-transform: uppercase;
+        }
+        .s-side { justify-self: end; align-self: baseline; }
+
+        .statement {
+            font-family: var(--font-display);
+            font-size: clamp(27px, 3.4vw, 52px); font-weight: 500;
+            line-height: 1.1; letter-spacing: -0.015em; text-transform: uppercase;
+            color: var(--fg);
+            margin-top: clamp(18px, 3vh, 34px);
+            max-width: 30ch;
+        }
+        .statement em { font-style: normal; color: var(--mute); }
+        .statement a {
+            color: inherit; text-decoration: none;
+            border-bottom: 0.06em solid var(--red);
+            transition: color 0.2s ease;
+        }
+        .statement a:hover { color: var(--red); }
+
+        /* ============ TOPBAR — adapts to the slide beneath it ============ */
+        .topbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+            background: rgba(25, 24, 21, 0.88);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(237, 234, 226, 0.12);
+            font-size: 13.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #EDEAE2;
+            transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            pointer-events: none;
+        }
+        .tb-in {
+            display: flex; justify-content: space-between; align-items: center; gap: 20px;
+            max-width: 1760px; margin: 0 auto;
+            padding: 16px clamp(20px, 3.2vw, 56px);
+        }
+        .topbar a { color: inherit; text-decoration: none; pointer-events: auto; transition: opacity 0.2s ease; }
+        .topbar a:hover { opacity: 0.55; }
+        .tb-links { display: flex; gap: clamp(14px, 2.2vw, 34px); }
+        .topbar.on-light { color: #17150F; background: rgba(255, 255, 255, 0.9); border-color: rgba(23, 21, 15, 0.14); }
+        .topbar.on-red { background: rgba(240, 55, 28, 0.9); border-color: rgba(251, 247, 239, 0.3); }
+        .topbar .reg { color: var(--red); }
+        .topbar.on-red .reg { color: #FBF7EF; }
+
+        .progress {
+            position: fixed; top: 0; left: 0; height: 2px; width: 0;
+            background: var(--red); z-index: 100;
+        }
+
+        ::selection { background: var(--red); color: #FBF7EF; }
+
+        /* ============ PROJECT CASE FILES — one themed slide each ============ */
+        .pf-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1.22fr) minmax(320px, 1fr);
+            gap: clamp(32px, 4.5vw, 88px);
+        }
+        /* the preview column fills the row: the framed card stretches down to the
+           bottom of the text column (links row), the caption sits under it */
+        .pf-vis { display: flex; flex-direction: column; min-height: 100%; }
+
+        .det-meta {
+            display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 18px; margin-bottom: 26px;
+        }
+        .det-title {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 44px); font-weight: 500;
+            line-height: 1.05; letter-spacing: -0.012em; text-transform: uppercase;
+        }
+        .det-year { margin-left: auto; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+        .det-block { margin-bottom: 28px; }
+        .det-block:last-child { margin-bottom: 0; }
+        .det-block > .lbl { display: block; margin-bottom: 12px; }
+        .det-desc { font-size: 14px; line-height: 1.75; color: var(--soft); max-width: 62ch; }
+        .det-desc strong { color: var(--fg); font-weight: 500; }
+        .rolelead { font-size: 14px; color: var(--soft); margin-bottom: 4px; }
+        .rolelead strong { color: var(--fg); font-weight: 500; }
+        .rolelist { list-style: none; }
+        .rolelist li { border-top: 1px solid var(--line); padding: 11px 0; font-size: 13px; line-height: 1.6; color: var(--mute); }
+        .rolelist li strong { color: var(--fg); font-weight: 500; }
+
+        .microlist { list-style: none; columns: 2; column-gap: 36px; }
+        .microlist li { font-size: 12.5px; line-height: 1.5; color: var(--soft); padding: 3.5px 0; break-inside: avoid; }
+
+        .links { display: flex; flex-wrap: wrap; gap: 22px; }
+        .plink {
+            display: inline-flex; align-items: baseline; gap: 7px;
+            color: var(--fg); text-decoration: none;
+            font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            border-bottom: 1px solid var(--line); padding-bottom: 4px;
+            transition: border-color 0.25s ease, color 0.25s ease;
+        }
+        .plink::after { content: '\2197'; color: var(--red); }
+        .plink:hover { border-color: var(--red); }
+        .s-red .plink::after { color: #FBF7EF; }
+        .s-red .plink:hover { border-color: #FBF7EF; }
+
+        .arch-list { list-style: none; border-bottom: 1px solid var(--line); }
+        .arch-list a {
+            display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+            padding: 12px 0; border-top: 1px solid var(--line);
+            color: var(--fg); text-decoration: none;
+            font-family: var(--font-display); font-size: 14.5px; font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .arch-list a::after { content: '\2197'; color: var(--red); font-size: 12px; }
+        .arch-list a:hover { color: var(--mute); }
+
+        /* ============ COVERS — transparent, re-toned per slide theme ============ */
+        .visual-card {
+            position: relative; overflow: hidden;
+            flex: 1;
+            min-height: 420px;
+            background: transparent;
+            border: 1px solid var(--line);
+        }
+        .visual-bg { position: absolute; inset: 0; z-index: 1; opacity: 0; transform: scale(1.02); transition: opacity 0.5s ease, transform 6s ease; }
+        .visual-card.is-ready .visual-bg { opacity: 1; transform: scale(1); }
+        /* white slides: same animated covers, inverted to a light theme (canvas is
+           stripped at inject, so the white page shows through) */
+        .s-white .visual-bg svg.cover { filter: invert(1) hue-rotate(180deg); }
+        .vis-cap {
+            display: flex; justify-content: space-between; gap: 12px;
+            margin-top: 12px;
+            font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--mute);
+        }
+
+        /* ============ CONTRIBUTED — one red slide, giant hairline rows ============ */
+        .ctb-rows { border-bottom: 1px solid var(--line); }
+        .ctb-row {
+            display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) auto;
+            gap: clamp(16px, 3vw, 48px); align-items: baseline;
+            padding: clamp(18px, 3vh, 30px) 0;
+            border-top: 1px solid var(--line);
+            color: var(--fg); text-decoration: none;
+        }
+        .ctb-name {
+            font-family: var(--font-display);
+            font-size: clamp(20px, 2.4vw, 36px); font-weight: 500;
+            line-height: 1.05; letter-spacing: -0.012em;
+            transition: opacity 0.2s ease;
+        }
+        .ctb-desc { font-size: 13px; line-height: 1.6; color: var(--mute); }
+        .ctb-x { justify-self: end; font-size: clamp(15px, 1.4vw, 20px); color: #FBF7EF; transition: transform 0.25s ease; }
+        .ctb-tag {
+            justify-self: end;
+            font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        a.ctb-row:hover .ctb-name { opacity: 0.55; }
+        a.ctb-row:hover .ctb-x { transform: translate(4px, -4px); }
+
+        /* ============ FOOTER ============ */
+        .foot > .wrap { padding-top: 28px; padding-bottom: 28px; }
+        .foot-grid {
+            display: grid; grid-template-columns: 1fr auto; gap: 24px;
+            font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .foot-grid .right { text-align: right; }
+
+        /* ============ REVEALS ============ */
+        .r { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+        .r.in { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .r { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .visual-bg { transition: none !important; transform: none !important; }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1080px) {
+            .pf-item { grid-template-columns: 1fr; gap: 36px; }
+            .pf-vis { min-height: 0; }
+            .visual-card { flex: none; aspect-ratio: 4 / 5; min-height: 0; }
+            .visual-card, .vis-cap { max-width: min(100%, 480px); }
+        }
+        @media (max-width: 860px) {
+            .s-side { display: none; }
+            .tb-links a:not(.tb-contact) { display: none; }
+            .ctb-row { grid-template-columns: 1fr auto; }
+            .ctb-desc { grid-column: 1 / -1; }
+        }
+        @media (pointer: coarse) {
+            .plink, .topbar a { padding-block: 12px; margin-block: -12px; }
+            .links { gap: 28px; }
+        }
+        @media (max-width: 640px) {
+            .microlist { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+
+    <nav class="topbar" id="topbar">
+        <div class="tb-in">
+            <a class="tb-brand" href="../index.html">Ege Özçelik</a>
+            <div class="tb-links">
+                <a href="../index.html#profile">Profile</a>
+                <a href="../index.html#specialities">Specialities</a>
+                <a href="../index.html#education">Education</a>
+                <a class="tb-contact" href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="slide s-white" data-nav="light">
+        <div class="wrap">
+            <div class="s-head r">
+                <div>
+                    <h1 class="s-title">Selected Work</h1>
+                    <p class="statement">The most comprehensive work of each discipline. <em>the rest lives on <a href="https://github.com/egeozcelik" target="_blank" rel="noopener noreferrer">GitHub</a>.</em></p>
+                </div>
+                <span class="s-side lbl">08 Projects + Archive</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- project slides are injected here -->
+    <main id="pfProjects"></main>
+
+    <!-- ================= CONTRIBUTED — red slide ================= -->
+    <section class="slide s-red" data-nav="red">
+        <div class="wrap">
+            <div class="s-head r">
+                <h2 class="s-title">Contributed</h2>
+                <span class="s-side lbl">04 Collaborations</span>
+            </div>
+            <div class="ctb-rows r">
+                <a class="ctb-row" href="https://www.giacreativestudio.com" target="_blank" rel="noopener noreferrer">
+                    <span class="ctb-name">GIA Creative Studio</span>
+                    <span class="ctb-desc">Developed website &amp; exhibition simulation.</span>
+                    <span class="ctb-x" aria-hidden="true">↗</span>
+                </a>
+                <a class="ctb-row" href="https://www.reconchillestudios.com" target="_blank" rel="noopener noreferrer">
+                    <span class="ctb-name">Reconchille Studios</span>
+                    <span class="ctb-desc">Developed &amp; shipped mobile apps.</span>
+                    <span class="ctb-x" aria-hidden="true">↗</span>
+                </a>
+                <a class="ctb-row" href="https://www.youtube.com/@LumosGenerativeAI" target="_blank" rel="noopener noreferrer">
+                    <span class="ctb-name">Lumos Generative AI</span>
+                    <span class="ctb-desc">Custom AI-orchestration pipelines for autonomous video generation.</span>
+                    <span class="ctb-x" aria-hidden="true">↗</span>
+                </a>
+                <div class="ctb-row">
+                    <span class="ctb-name">Koi Academy</span>
+                    <span class="ctb-desc">Website &amp; mobile app.</span>
+                    <span class="ctb-tag">Under NDA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- the archive (Other Studies) slide is injected here -->
+    <div id="pfArchive"></div>
+
+    <footer class="slide s-ink foot" data-nav="dark">
+        <div class="wrap">
+            <div class="foot-grid">
+                <span>Ege Özçelik® © 2026</span>
+                <span class="right">Designed &amp; Developed by Ege Özçelik</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/site-data.js"></script>
+    <script>
+        /* ===== scroll progress ===== */
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('progress').style.width = (winScroll / height) * 100 + '%';
+        }, { passive: true });
+
+        /* ===== render every project as its own themed slide ===== */
+        (function () {
+            const projMount = document.getElementById('pfProjects');
+            const archMount = document.getElementById('pfArchive');
+            if (!projMount || typeof PROJECTS === 'undefined') return;
+            const esc = x => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            /* slide theme per project — edit here to recolour a project */
+            const THEMES = {
+                mindplace: 'ink',
+                traveler: 'red',
+                uwb: 'ink',
+                canbus: 'white',
+                face: 'ink',
+                meta: 'white',
+                mleval: 'ink',
+                color: 'white',
+                other: 'white'
+            };
+            const SLIDE = { white: 's-white', ink: 's-ink', red: 's-red' };
+            const NAV = { white: 'light', ink: 'dark', red: 'red' };
+
+            PROJECTS.forEach(p => {
+                const theme = THEMES[p.cover] || 'white';
+                let det =
+                    '<div class="det-meta"><h2 class="det-title">' + esc(p.n) + '</h2>' +
+                    '<span class="det-year">' + esc(p.year || 'Archive') + '</span></div>' +
+                    '<div class="det-block"><p class="det-desc">' + p.desc + '</p></div>';
+                if (p.kind === 'archive') {
+                    det += '<div class="det-block"><ul class="arch-list">' +
+                        (p.collections || []).map(l => '<li><a href="' + l.u + '" target="_blank" rel="noopener noreferrer">' + esc(l.t) + '</a></li>').join('') +
+                        '</ul></div>';
+                } else {
+                    det += '<div class="det-block"><span class="lbl">Stack</span><ul class="microlist">' +
+                        p.stack.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul></div>';
+                    det += '<div class="det-block"><span class="lbl">My Role</span>' +
+                        '<p class="rolelead">' + (p.roleLabel || '') + '</p>' +
+                        '<ul class="rolelist">' + (p.roleBullets || []).map(b => '<li>' + b + '</li>').join('') + '</ul></div>';
+                    det += '<div class="det-block"><div class="links">' +
+                        p.links.map(l => '<a class="plink" href="' + l.u + '" target="_blank" rel="noopener noreferrer">' + esc(l.t) + '</a>').join('') + '</div></div>';
+                }
+                const sec = document.createElement('section');
+                sec.className = 'slide pf-slide ' + SLIDE[theme];
+                sec.dataset.nav = NAV[theme];
+                sec.dataset.theme = theme;
+                sec.innerHTML =
+                    '<div class="wrap"><article class="pf-item r">' +
+                        '<div class="pf-det">' + det + '</div>' +
+                        '<div class="pf-vis">' +
+                            '<div class="visual-card" data-cover="' + esc(p.cover) + '"><div class="visual-bg"></div></div>' +
+                            '<div class="vis-cap"><span>↳ ' + esc(p.n) + '</span><span>' + esc(p.year || 'Archive') + '</span></div>' +
+                        '</div>' +
+                    '</article></div>';
+                (p.kind === 'archive' ? archMount : projMount).appendChild(sec);
+            });
+
+            /* cover prep per theme — the dark canvas rect is stripped so the slide
+               shows through; #0f0f0f knockout fills are re-toned to keep masking:
+               white → #000 (the invert filter renders it white), ink → slide ink;
+               red slides keep the original cover as a dark plate. */
+            const BG = '<rect width="800" height="1000" fill="#0f0f0f"/>';
+            /* the card is taller than the 4:5 artwork here, so switch the svg from
+               slice (crop-to-fill) to meet: the composition keeps its ratio and
+               centers inside the full-height frame instead of cropping its edges */
+            const fit = m => m.replace('preserveAspectRatio="xMidYMid slice"', 'preserveAspectRatio="xMidYMid meet"');
+            const PREP = {
+                white: m => fit(m).replace(BG, '').replaceAll('#0f0f0f', '#000000'),
+                ink: m => fit(m).replace(BG, '').replaceAll('#0f0f0f', '#191815'),
+                red: m => fit(m)
+            };
+
+            const cards = document.querySelectorAll('.visual-card[data-cover]');
+            const inject = card => {
+                const theme = (card.closest('.pf-slide') || {}).dataset ? card.closest('.pf-slide').dataset.theme : 'white';
+                const markup = typeof COVERS !== 'undefined' && COVERS[card.dataset.cover];
+                if (markup) {
+                    card.querySelector('.visual-bg').innerHTML = (PREP[theme] || PREP.white)(markup);
+                    requestAnimationFrame(() => card.classList.add('is-ready'));
+                } else {
+                    card.classList.add('is-ready');
+                }
+            };
+            if ('IntersectionObserver' in window) {
+                const cio = new IntersectionObserver(entries => {
+                    entries.forEach(en => { if (en.isIntersecting) { inject(en.target); cio.unobserve(en.target); } });
+                }, { rootMargin: '200px 0px' });
+                cards.forEach(c => cio.observe(c));
+            } else {
+                cards.forEach(inject);
+            }
+        })();
+
+        /* ===== topbar adapts to the slide beneath it ===== */
+        (function () {
+            const bar = document.getElementById('topbar');
+            const slides = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+            function sync() {
+                const y = 26;
+                let theme = 'dark';
+                for (const s of slides) {
+                    const r = s.getBoundingClientRect();
+                    if (r.top <= y && r.bottom > y) { theme = s.getAttribute('data-nav'); break; }
+                }
+                bar.classList.toggle('on-light', theme === 'light');
+                bar.classList.toggle('on-red', theme === 'red');
+            }
+            window.addEventListener('scroll', sync, { passive: true });
+            window.addEventListener('resize', sync);
+            sync();
+        })();
+
+        /* ===== reveal on scroll ===== */
+        (function () {
+            const els = document.querySelectorAll('.r');
+            if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+            }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+            els.forEach(e => io.observe(e));
+        })();
+    </script>
+</body>
+</html>
