@@ -622,36 +622,6 @@
         .collection-link::after { content: '\2197'; color: #ff5a36; }
         .collection-link:hover { color: #fff; border-color: #ff5a36; background: rgba(255,90,54,0.06); }
 
-        /* ===================== LANGUAGE SWITCH (front layer, bottom-right) ===================== */
-        .lang-switch {
-            position: fixed;
-            bottom: 22px;
-            right: 22px;
-            z-index: 1000;
-            display: flex;
-            padding: 3px;
-            border: 1px solid #2f2f2f;
-            border-radius: 100px;
-            background: rgba(10,10,10,0.72);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-        }
-        .lang-btn {
-            font-family: inherit;
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #8a8a8a;
-            background: none;
-            border: 0;
-            cursor: pointer;
-            padding: 6px 14px;
-            border-radius: 100px;
-            transition: color 0.25s ease, background 0.25s ease;
-        }
-        .lang-btn:hover { color: #fff; }
-        .lang-btn.is-active { color: #0a0a0a; background: #ff5a36; }
-
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             #education .edu-list { grid-template-columns: 1fr; gap: 6px; }
@@ -695,20 +665,20 @@
             <div class="hero-grid">
                 <div class="hero-main">
                     <h1 class="name">Ege Özçelik</h1>
-                    <p class="title" data-i18n="hero.title">Software & AI Engineer <br>Systems Architecture & Agentic Workflows</p>
-                    <p class="intro" data-i18n="hero.intro">Building software from foundational architecture to the deployment of the AI models and agents reshaping how it gets built.</p>
+                    <p class="title">Software & AI Engineer <br>Systems Architecture & Agentic Workflows</p>
+                    <p class="intro">Building software from foundational architecture to the deployment of the AI models and agents reshaping how it gets built.</p>
                 </div>
                 <div class="hero-exp">
                     <div class="exp-group">
-                        <div class="eyebrow" data-i18n="hero.now">(Now)</div>
-                        <div class="exp-role" data-i18n="hero.role1">Software Engineer</div>
-                        <div class="exp-company" data-i18n="hero.company1">Kentkart R&amp;D</div>
-                        <div class="exp-year" data-i18n="hero.year1">02.2024 — Today</div>
-                        <p class="exp-note" data-i18n="hero.note1">Responsible for Python development and AI applications &amp; model training; system architect on the patented ultra-wideband program.</p>
+                        <div class="eyebrow">(Now)</div>
+                        <div class="exp-role">Software Engineer</div>
+                        <div class="exp-company">Kentkart R&amp;D</div>
+                        <div class="exp-year">02.2024 — Today</div>
+                        <p class="exp-note">Responsible for Python development and AI applications &amp; model training; system architect on the patented ultra-wideband program.</p>
                     </div>
                     <div class="exp-group secondary">
-                        <div class="eyebrow" data-i18n="hero.prev">(Previously)</div>
-                        <div class="exp-role" data-i18n="hero.role2">R&amp;D Intern Engineer</div>
+                        <div class="eyebrow">(Previously)</div>
+                        <div class="exp-role">R&amp;D Intern Engineer</div>
                         <div class="exp-company">Schneider Electric</div>
                         <div class="exp-year">2023</div>
                     </div>
@@ -718,7 +688,7 @@
 
         <section id="expertise">
             <span class="section-number">01</span>
-            <h2 data-i18n="sec.specialities">Specialities</h2>
+            <h2>Specialities</h2>
 
             <div class="skills">
                 <nav class="project-list" id="skillList" aria-label="Skill index"></nav>
@@ -743,7 +713,7 @@
 
         <section id="projects">
             <span class="section-number">02</span>
-            <h2 data-i18n="sec.portfolio">Portfolio</h2>
+            <h2>Portfolio</h2>
 
          
 
@@ -764,7 +734,7 @@
                             <p class="detail-desc" id="detDesc"></p>
                         </div>
                         <div class="detail-block" id="detRoleBlock">
-                            <div class="eyebrow" data-i18n="role.eyebrow">(My Role)</div>
+                            <div class="eyebrow">(My Role)</div>
                             <p class="detail-role lead" id="detRoleLabel"></p>
                             <ul class="highlights" id="detRoleList"></ul>
                         </div>
@@ -783,23 +753,23 @@
             </div>
 
             <div class="contributed">
-                <div class="eyebrow" data-i18n="contrib.title">Contributed Projects</div>
+                <div class="eyebrow">Contributed Projects</div>
                 <div class="contrib-grid">
                     <div class="contrib-item">
                         <a class="contrib-name" href="https://www.giacreativestudio.com" target="_blank" rel="noopener noreferrer">GIA Creative Studio</a>
-                        <p class="contrib-desc" data-i18n="contrib.gia">Developed Website & Exhibition Simulation.</p>
+                        <p class="contrib-desc">Developed Website & Exhibition Simulation.</p>
                     </div>
                      <div class="contrib-item">
                         <a class="contrib-name" href="https://www.reconchillestudios.com" target="_blank" rel="noopener noreferrer">Reconchille Studios</a>
-                        <p class="contrib-desc" data-i18n="contrib.reconchille">Developed & Shipped Mobile Apps.</p>
+                        <p class="contrib-desc">Developed & Shipped Mobile Apps.</p>
                     </div>
                     <div class="contrib-item">
                         <a class="contrib-name" href="https://www.youtube.com/@LumosGenerativeAI" target="_blank" rel="noopener noreferrer">Lumos Generative AI</a>
-                        <p class="contrib-desc" data-i18n="contrib.lumos">Developed custom AI-orchestration pipelines for autonomous video generation.</p>
+                        <p class="contrib-desc">Developed custom AI-orchestration pipelines for autonomous video generation.</p>
                     </div>
                     <div class="contrib-item">
                         <span class="contrib-name">Koi Academy</span>
-                        <p class="contrib-desc" data-i18n="contrib.koi">Developed website &amp; mobile app (under the NDA).</p>
+                        <p class="contrib-desc">Developed website &amp; mobile app (under the NDA).</p>
                     </div>
                    
                 </div>
@@ -808,24 +778,24 @@
 
         <section id="education">
             <span class="section-number">03</span>
-            <h2 data-i18n="sec.education">Education</h2>
+            <h2>Education</h2>
 
             <div class="edu-list">
                 <div class="experience-item">
-                    <span class="year" data-i18n="edu.msc">MSc.</span>
-                    <div class="role" data-i18n="edu.role.eee">Electrical and Electronics Engineering</div>
-                    <div class="description" data-i18n="edu.desc.msc">
+                    <span class="year">MSc.</span>
+                    <div class="role">Electrical and Electronics Engineering</div>
+                    <div class="description">
                         <strong>Major: Model Training, Machine Learning, Deep Learning, NLP.</strong>
                     </div>
-                    <div class="company" data-i18n="edu.company.msc">Katip Çelebi University, 2025 — Today</div>
+                    <div class="company">Katip Çelebi University, 2025 — Today</div>
                 </div>
 
              
 
                 <div class="experience-item">
-                    <span class="year" data-i18n="edu.year.bilgeadam">Bilge Adam Academy, 2019 — 2020</span>
-                    <div class="role" data-i18n="edu.role.bilgeadam">.Net Certification Program (320Hr.)</div>
-                    <div class="description" data-i18n="edu.desc.bilgeadam">
+                    <span class="year">Bilge Adam Academy, 2019 — 2020</span>
+                    <div class="role">.Net Certification Program (320Hr.)</div>
+                    <div class="description">
                         20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br>
                         20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA) <br>
                         UiPath RPA Education Certificate <br>
@@ -834,31 +804,31 @@
                 </div>
 
                    <div class="experience-item">
-                    <span class="year" data-i18n="edu.bachelor">Bachelor</span>
-                    <div class="role" data-i18n="edu.role.eee">Electrical and Electronics Engineering</div>
-                    <div class="description" data-i18n="edu.desc.bsc">
+                    <span class="year">Bachelor</span>
+                    <div class="role">Electrical and Electronics Engineering</div>
+                    <div class="description">
                         <strong>Major: Communication Systems</strong>
                     </div>
-                    <div class="company" data-i18n="edu.company.bsc">Ege University, 2018 — 2023</div>
+                    <div class="company">Ege University, 2018 — 2023</div>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <span class="section-number">04</span>
-            <h2 data-i18n="sec.contact">Contact</h2>
+            <h2>Contact</h2>
 
             <div class="contact-info">
                 <div class="contact-item">
-                    <span class="contact-label" data-i18n="contact.email">Email</span>
+                    <span class="contact-label">Email</span>
                     <a href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-label" data-i18n="contact.phone">Phone</span>
+                    <span class="contact-label">Phone</span>
                     <span>+90 553 417 5130</span>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-label" data-i18n="contact.location">Location</span>
+                    <span class="contact-label">Location</span>
                     <span>İzmir, Türkiye</span>
                 </div>
             </div>
@@ -874,224 +844,11 @@
         </section>
 
         <footer>
-            <p data-i18n="footer.copy">© 2025 Ege Özçelik. All rights reserved.</p>
+            <p>© 2025 Ege Özçelik. All rights reserved.</p>
         </footer>
     </div>
 
-    <div class="lang-switch" role="group" aria-label="Language / Dil">
-        <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">EN</button>
-        <button type="button" class="lang-btn" data-lang="tr" aria-label="Türkçe">TR</button>
-    </div>
-
     <script>
-        /* ===================== i18n foundation (EN / TR) =====================
-           English lives in the HTML (source of truth) and is captured from the
-           DOM on load; Turkish is provided here. Root stays lang="en" so the
-           many English tech chips keep correct casing under text-transform —
-           all Turkish that appears in uppercased UI is chosen to be I/İ-safe. */
-        window.LANG = 'en';
-        const I18N_RERENDER = [];
-        const LINK_LABELS = { 'Explore': 'İncele', 'Source Code': 'Kaynak Kod' };
-        function trLinkLabel(t) {
-            if (window.LANG !== 'tr') return t;
-            if (LINK_LABELS[t]) return LINK_LABELS[t];
-            return t.replace('Collection', 'Koleksiyonu');
-        }
-        const TOGGLE_LABELS = { en: { open: 'Expand', close: 'Collapse' }, tr: { open: 'Devamı', close: 'Kapat' } };
-        function trToggle(isOpen) { return TOGGLE_LABELS[window.LANG === 'tr' ? 'tr' : 'en'][isOpen ? 'close' : 'open']; }
-
-        const I18N_TR = {
-            'hero.title': `Yazılım & Yapay Zekâ Mühendisi<br>Sistem Mimarisi & Agentic Workflows`,
-            'hero.intro': `Yazılımı, temel mimarisinden onun nasıl geliştirildiğini yeniden tanımlayan yapay zekâ modelleri ve agent'ların devreye alınmasına kadar uçtan uca geliştirmekteyim.`,
-            'hero.now': `(Şu An)`,
-            'hero.role1': `Yazılım Mühendisi`,
-            'hero.company1': `Kentkart Ar-Ge`,
-            'hero.year1': `02.2024'ten bugüne`,
-            'hero.note1': `Python geliştirme, yapay zekâ uygulamaları ve model eğitiminden sorumlu; patentli ultra-wideband programının sistem mimarı.`,
-            'hero.prev': `(Önceden)`,
-            'hero.role2': `Ar-Ge Stajyer Mühendisi`,
-            'sec.specialities': `Uzmanlık Alanları`,
-            'sec.portfolio': `Portföy`,
-            'sec.education': `Eğitim`,
-            'sec.contact': `İletişim`,
-            'role.eyebrow': `(Rolüm)`,
-            'contrib.title': `Katkı Sağlanılan Projeler`,
-            'contrib.gia': `Web sitesi ve sergi simülasyonunun geliştirilmesi.`,
-            'contrib.reconchille': `Mobil uygulamaların geliştirilip yayınlanması.`,
-            'contrib.lumos': `Otonom video üretimi için özel AI orchestration pipeline'larının geliştirilmesi.`,
-            'contrib.koi': `Web sitesi ve mobil uygulamanın geliştirilmesi (NDA kapsamında).`,
-            'edu.msc': `Yüksek Lisans`,
-            'edu.role.eee': `Elektrik-Elektronik Mühendisliği`,
-            'edu.desc.msc': `<strong>Uzmanlık: Model Eğitimi, Makine Öğrenmesi, Derin Öğrenme, NLP.</strong>`,
-            'edu.company.msc': `Katip Çelebi Üniversitesi, 2025'ten bugüne`,
-            'edu.year.bilgeadam': `Bilge Adam Akademi, 2019–2020`,
-            'edu.role.bilgeadam': `.Net Sertifika Programı (320 Saat)`,
-            'edu.desc.bilgeadam': `20486 ASP.Net MVC5 Web Applications Certifications (Microsoft MCA) <br> 20480 HTML5 with Javascript and CSS3 Certificate (Microsoft MCA) <br> UiPath RPA Eğitim Sertifikası <br> Bilge Adam .Net Geliştirme Sertifikası`,
-            'edu.bachelor': `Lisans`,
-            'edu.desc.bsc': `<strong>Uzmanlık: Haberleşme Sistemleri</strong>`,
-            'edu.company.bsc': `Ege Üniversitesi, 2018–2023`,
-            'contact.email': `E-posta`,
-            'contact.phone': `Telefon`,
-            'contact.location': `Konum`,
-            'footer.copy': `© 2025 Ege Özçelik. Tüm hakları saklıdır.`
-        };
-
-        /* Turkish overlays for the JS-rendered data. Index-aligned to PROJECTS / SKILLS.
-           Only translated fields are listed; tech stack chips stay English on purpose. */
-        const TR_PROJECTS = [
-            { /* 0 Mindplace */
-                year: `2025 · Sürüyor`,
-                desc: `Film ve animasyon prodüksiyonu için çok-agent'lı bir yapay zekâ platformu; tek bir generative model katmanının üzerinde duran iki orchestration yüzeyinden oluşur. Agent'ların yönettiği akışlarda (VisualStoryteller, CortexStoryteller) bir LLM beyni tüm pipeline'ı yönetir: Supervisor, brief'i bir yürütme planına dönüştürür; executor ise rolleri atanmış bir ekibi (Creative Director, Writer, Art Director, Director, Composer ve bir QC agent'ı) bağımlılık çözümleme, paralel gruplar ve keyframe başına Vision QC ile koordine eder. Studio modülleri ise kendi başına daha küçük birer agentic pipeline; Moodboard'un composer→critic döngüsü gibi. İkisinin de altında, modelden bağımsız bir dispatcher tek bir prompt yüzeyini 8+ görüntü ve video motoruna eşler: manifest tabanlı, yetenek bazlı ve asla model id'sine göre dallanmaz.`,
-                roleLabel: `<strong>Uçtan Uca Geliştirme</strong>`,
-                roleBullets: [
-                    `<strong>Agentic Orchestration Katmanı</strong> 20+ özelleşmiş generative AI workflow'u & LLM Bellek Mimarisi`,
-                    `<strong>Tutarlı & Optimize Web Altyapısı</strong> yüksek trafik için`,
-                    `<strong>Model Yönlendirme Katmanı</strong>`,
-                    `<strong>Veri Katmanı</strong>`,
-                    `<strong>Güvenlik & QC Katmanı</strong>`,
-                    `<strong>Tasarım</strong> UI/UX, görseller, videolar & kısa filmler`
-                ]
-            },
-            { /* 1 TravelerApp · Pacer */
-                desc: `Kendim için geliştirip geliştirmeyi sürdürdüğüm iki tamamlayıcı iOS uygulaması. Seyahat ederim ve kamp yaparım; bunlar bir portfolyo demosu değil, sahaya gerçekten yanımda taşıdığım araçlar. TravelerApp'in Explore'u iki aşamalı bir Gemini pipeline'ı: bir edge function "okumak için sakin bir kafe" gibi gündelik bir isteği yapılandırılmış kategori sorgularına çevirir, bunları Google Places üzerinde açar ve sonuçları coğrafi olarak sınırlar; her istek konum, günün saati, haftanın günü ve mevsim bilgisini taşıdığından, gece geç saatteki bir arama o an açık olan yerleri getirir. Pacer ise saha-analitik tarafı: ham GPS verisi bir Kalman filtresi ve Ramer–Douglas–Peucker sadeleştirmesinden geçerek saklanan encoded polyline'lara dönüşür, çıpalı bir HealthKit senkronizasyonuyla birlikte. İkisini de süregelen kişisel bir ürün olarak geliştirmeyi sürdürmekteyim.`,
-                roleLabel: `<strong>Uçtan Uca Geliştirme</strong>`,
-                roleBullets: [
-                    `<strong>Yapay Zekâ Pipeline'ları</strong> Supabase Edge Functions içinde`,
-                    `<strong>iOS Geliştirme</strong>`,
-                    `<strong>Tasarım</strong> UI/UX`
-                ]
-            },
-            { /* 2 UWB & CoreBluetooth */
-                year: `2024 · Sürüyor`,
-                desc: `Serbest geçişli bir erişim sistemi: bir telefon ya da Apple Watch, bir geçitten geçerken algılanır, kimliği belirlenir ve konumlandırılır; dokunma yok, tarama yok, durma yok. Apple Nearby Interaction, bir Bluetooth out-of-band el sıkışması üzerinden bir UWB oturumu başlatır; ardından UWB radyolarındaki çift taraflı iki yönlü mesafe ölçümü (DS-TWR) Time-of-Flight mesafesini çözerken, üç anten arasındaki varış-fazı farkı (PDoA) azimut ve yüksekliği geri kazanır. Görüş hattında ±10 cm ile saniyede yaklaşık 4–5 ölçüm elde edilir. Anchor firmware'i radyoyu UCI/SPI üzerinden sürer ve CRC çerçeveli, yeniden senkronize olabilen bir telemetri protokolü yayar; bir PySide6 masaüstü paketi bunu canlı kartlara, zaman serilerine ve kuşbakışı bir geçit görünümüne dönüştürür. Tüm akış, firmware doğruluğundaki bir simülatör sayesinde sıfır donanımla çalıştırılabilir. Varlık üç menzilde çözülür: Bluetooth keşfi, UWB mesafe ölçümü ve boresight azimutundaki işaret değişimiyle tetiklenen dar bir aksiyon bölgesi.`,
-                roleLabel: `<strong>Baş Sistem Mimarı</strong>`,
-                roleBullets: [
-                    `<strong>Proje Yöneticisi</strong> kapsam, planlama ve operasyonların yürütülmesinden sorumlu.`,
-                    `<strong>Firmware Geliştirme</strong> Anchor tarafında (QN9090 üzerinde C)`,
-                    `<strong>Mobil Geliştirme</strong> tag tarafında (Native iOS)`,
-                    `<strong>Python Araçları</strong> Monitoring paketi, geliştirici araçları, sıfır-donanım simülatörü, kodlamada agentic skill'ler.`
-                ]
-            },
-            { /* 3 CAN Bus · J1939 */
-                desc: `Ağır hizmet araçlarının CAN hatları için, gerçek bir hat üzerinden birbiriyle konuşan bir çift masaüstü uygulaması olarak kurulmuş iki parçalı bir J1939 araç seti. Simülatör, 20 PGN ve ~30 SPN yayınlayan bir araç dinamiği modeli çalıştırır: motor ve araç hızı, yakıt debisi, sıcaklıklar ve tam bir EV paketi (gerilim, akım, SOC/SOH); hepsi 250/500 kbit/s'te gerçek 29-bit J1939 çerçeveleri olarak. Monitör bir SocketCAN arayüzünü dinler, her tanımlayıcıdan PGN'i çeker ve SPN bit alanlarını canlı bir gösterge panelinde fiziksel değerlere geri çözer; yani hazır bir kaydı değil, hattaki gerçek CAN trafiğini okur. Her iki uygulama da trafiği standartlara uygun tutmak için SAE J1939-21 ve J1939-71'i izler, Linux ve Windows'ta çalışır ve python-can'in arkasında durur; böylece aynı kod hem gerçek adaptörleri hem de donanımsız sanal bir hattı sürer.`,
-                roleLabel: `<strong>Uçtan Uca Geliştirme</strong>`,
-                roleBullets: [
-                    `<strong>Protokol Çekirdeği</strong> J1939 encode / decode (PGN / SPN, 29-bit ID)`,
-                    `<strong>Simülatör & Monitör</strong> gerçek CAN trafiği üreten & okuyan masaüstü uygulamaları`,
-                    `<strong>SAE J1939-21 / 71 Uyumu</strong>`,
-                    `<strong>Çapraz Platform Paketleme</strong> Linux & Windows masaüstü build'leri`
-                ]
-            },
-            { /* 4 Face Recognition · NPU */
-                desc: `Tamamen bir NXP i.MX 8M Plus'ın NPU'sunda çalışan gerçek zamanlı yüz tanıma: ne bulut var ne de GPU sunucusu. İşi iki aşamalı bir TensorFlow Lite pipeline'ı görür: tamamen INT8 bir SSD/MobileNetV2 dedektörü yüzleri ~10 ms'de bulur, ardından bir FaceNet embedder her kırpımı 128 boyutlu bir vektöre çevirip kayıtlı bir galeriyle kosinüs benzerliğine göre eşleştirir. Buraya ulaşmak, temsili veri kümesiyle kalibre edilmiş eğitim sonrası INT8 kuantizasyonunu ve grafiğin VX delegate / OpenVX yolu üzerinden VeriSilicon hızlandırıcıya yönlendirilmesini gerektirdi (CPU çekirdeklerine göre yaklaşık 20× daha hızlı); bu sırada 2D GPU, 1080p renk-uzayı dönüşümünü üstlenerek CPU'yu boşta tutar. IoU takibi, tanıma throttling'i ve CLAHE parlaklık normalizasyonu, değişen ışıkta akıcılığı korur.`,
-                roleLabel: `<strong>Baş Sistem Mimarı</strong>`,
-                roleBullets: [
-                    `<strong>Model Eğitimi</strong> triplet loss ile metric learning`,
-                    `<strong>Backbone Katmanı</strong> MobileNetV2 dedektörü & FaceNet embedder`,
-                    `<strong>Fine-Tuning</strong>`,
-                    `<strong>INT8 Kuantizasyonu</strong> NPU için`,
-                    `<strong>Firmware Optimizasyonu (Linux)</strong> NPU yönlendirme & operatör yerleşimi`
-                ]
-            },
-            { /* 5 Neural Meta-Learner */
-                desc: `Zaten eğitmiş olduğum bir modelden daha fazlasını çıkaran bir stacked-generalization çalışması: yeniden eğitmek yerine güçlü bir CatBoost tabanını dondurup, onun sınıf olasılıklarını orijinal özniteliklerle birleştirerek (61 boyutlu bir meta-uzay) üstüne bir neural meta-head öğrenmekteyim. Bu uzayda üç farklı meta-öğrenici yarışır (Logistic Regression, LightGBM ve sığ bir PyTorch ağı); her biri stratified 5-fold cross-validation altında puanlanır. Neural head kazanır ve taban modelin sistematik, aşırı özgüvenli hatalarını düzeltmeyi öğrenerek F1'i %87,3'ten %89,8'e, ROC-AUC'yi %96'ya çıkarır. Bir yüksek lisans projesi olarak tek başıma geliştirildi; danışman hocalarla yürütüldü, bir fakülte jürisi önünde savunuldu ve akademik bir makale olarak yazıldı.`,
-                roleLabel: `<strong>Uçtan uca & tek başına</strong>: fikirden jüri savunmasına`,
-                roleBullets: [
-                    `<strong>Araştırma</strong> dondurulmuş bir CatBoost tabanı üzerinde stacked generalization`,
-                    `<strong>Neural Meta-Head</strong> PyTorch (LR / LightGBM baseline'larına karşı)`,
-                    `<strong>Değerlendirme</strong> stratified 5-fold CV, F1 / ROC-AUC kazanımı`,
-                    `<strong>Akademik Yazım & Jüri Savunması</strong>`
-                ]
-            },
-            { /* 6 Comparative ML Evaluation */
-                desc: `Model seçimini bir sıralama yarışı olarak değil, kontrollü bir deney olarak ele alan yüksek lisans düzeyinde bir çalışma: sekiz sınıflandırıcı (Logistic Regression'dan XGBoost, LightGBM ve CatBoost'a kadar) tek ve aynı ön işleme ve değerlendirme protokolüne tabi tutulur; böylece tek değişken, algoritmanın kendisi olur. 7.439 satırlık bir dövüş veri kümesinde sızıntıya açık 42 sütun ayıklanır, 27 fark ve avantaj özniteliği türetilir, temel modeller stratified bir bölünmede sıralanır, ardından öndeki model RandomizedSearchCV ile ayarlanıp weighted F1 ve ROC-AUC üzerinde puanlanır. CatBoost %80,6 doğruluk ve 0,886 ROC-AUC ile öne geçti; dövüşçüler arasındaki göreli avantajların ham bireysel istatistiklerden daha belirleyici olduğu ortaya çıktı. Araştırma çerçevesinden uygulamaya, oradan bir fakülte jürisi önünde savunulan bir rapora uzanan bu çalışma uçtan uca ve tek başına yürütüldü.`,
-                roleLabel: `<strong>Uçtan uca & tek başına</strong>: araştırma, geliştirme, yazım, savunma`,
-                roleBullets: [
-                    `<strong>Deney Tasarımı</strong> tek sabit protokol, tek değişken olarak model ailesi`,
-                    `<strong>Feature Engineering</strong> sızıntı kontrolü & 27 türetilmiş öznitelik`,
-                    `<strong>Benchmark & Ayarlama</strong> 8 sınıflandırıcı, F1 / ROC-AUC üzerinde RandomizedSearchCV`,
-                    `<strong>Akademik Yazım & Jüri Savunması</strong>`
-                ]
-            },
-            { /* 7 Image Colorization */
-                desc: `Otomatik gri tonlama renklendirmesini CIE Lab uzayında a/b-krominans regresyonu olarak çerçeveleyen yüksek lisans düzeyinde bir çalışma: luminans kanalı girer, iki renk kanalı çıkar ve yeniden birleştirilmiş bir görüntü geri döner. Tek bir ağa oynamak yerine, gerçekte neyin fark yarattığını yalıtmak için TensorFlow/Keras'ta üç mimari kurulup karşılaştırıldı: düz bir convolutional autoencoder, skip bağlantılı bir U-Net ve ImageNet ön-eğitimli bir encoder'ı yeniden kullanan bir ResNet50-UNet. Görüntü başına sonuçlarda ikili bir t-testiyle PSNR ve SSIM üzerinde puanlanan U-Net, en iyi doğruluk-maliyet oranını yakaladı: skip bağlantıları istatistiksel olarak anlamlı bir kazanım sağladı, transfer learning ise yalnızca marjinal bir katkı sundu. Araştırma sorusundan yazılı çalışmaya ve jüri sunumuna uzanan süreç uçtan uca ve tek başına yürütüldü.`,
-                roleLabel: `<strong>Uçtan uca & tek başına</strong>: fikir → çalışma → jüri`,
-                roleBullets: [
-                    `<strong>Araştırma Tasarımı</strong> CIE Lab'da ab-krominans regresyonu`,
-                    `<strong>Mimari Karşılaştırması</strong> autoencoder vs U-Net vs ResNet50-UNet`,
-                    `<strong>Değerlendirme</strong> ikili t-testiyle PSNR / SSIM`,
-                    `<strong>Akademik Yazım & Jüri Savunması</strong>`
-                ]
-            },
-            { /* 8 Other Studies (archive) */
-                n: `Diğer Çalışmalar`,
-                desc: `Önceki çalışmalarıma buradan göz atabilirsiniz: farklı diller ve platformlardaki eski koleksiyonlar, herkese açık repolar hâlinde.`
-            }
-        ];
-
-        const TR_SKILLS = [
-            { /* 0 */
-                n: `Yapay Zekâ Orchestration & Uygulamaları`,
-                overview: `İnşa etmenin en çok değiştiği alan burası; öne çıktığım yer de burası. Yapay zekâya bir yazılım-mimarisi bakışı getirmekteyim; agent'ların, orchestration'ın ve model yönlendirmenin gerçek birer bileşen olarak nasıl bir araya geldiğini tasarlamaktayım.`,
-                highlights: [
-                    `Üretimde <strong>multi-agent sistemler</strong> tasarlayıp yayına almaktayım: rolleri atanmış bir agent ekibi (director, writer, QC), bir <strong>orchestrator ve uyarlanabilir plan-mode pipeline'ı</strong> tarafından koordine edilir.`,
-                    `<strong>Yapay zekâda önce mimari</strong>: tek bir prompt'un isabet etmesini ummak yerine yapıyı tasarlar, agent'ları bunun üzerinde çalıştırırım.`,
-                    `Prompt ve context gerçek birer altyapı olarak ele alınır; tutarlılık ve güvenilirlik için <strong>sandwich prompting, modele duyarlı yönlendirme, structured output ve vision tabanlı QC</strong>.`,
-                    `<strong>Her zaman en yeni modellerle</strong>: Claude Code, Codex ve öncü görüntü/video motorları, aylar sonra değil çıktıkları anda günlük geliştirme döngüsünde.`
-                ]
-            },
-            { /* 1 */
-                n: `Yazılım Mimarisi`,
-                overview: `Yapay zekâ çağından önce 8+ yıl boyunca her satırı elle yazdım; sistemleri tasarladım, mimari kararları verdim ve sonuçlarıyla yaşadım. Bütün mesele o temel. Bugün bir yapay zekâya ne yazacağını söylemem; yapıyı ve mimariyi ayrıntısıyla tasarlar, geliştirmeyi oradan yönetirim.`,
-                highlights: [
-                    `<strong>Performans ve mimari bütünlüğü</strong> dengede tutan modüler, ölçeklenebilir ve sürdürülebilir sistemler.`,
-                    `Sorumlulukların net biçimde ayrıldığı katmanlı yapılarda <strong>MVC, MVVM ve VIPER</strong> ile rahat çalışırım.`,
-                    `<strong>Mobil, web ve Python masaüstü (GUI)</strong> uygulamalarında <strong>Factory, Builder, Unit of Work, Dependency Injection ve Singleton</strong> desenlerinin günlük kullanımı.`,
-                    `Yapay zekâ döngüye girmeden önce <strong>8+ yıl uygulamalı kodlama</strong>: her mimari kararın altındaki mühendislik sezgisi.`
-                ]
-            },
-            { /* 2 */
-                n: `Model Eğitimi & Veri Analizi`,
-                overview: `Veriyi eğitilmiş modellere, arkasında durabileceğim sonuçlara dönüştürmek. Teori; yapay zekâ, makine öğrenmesi, derin öğrenme ve NLP üzerine bir yüksek lisanstan geliyor. Pratik ise Kentkart Ar-Ge'den ve bir yığın kişisel projemden: PC ölçeğindeki eğitim pipeline'larından, gömülü bir çipte çalışacak kadar küçük modellere uzanan bir yelpaze.`,
-                highlights: [
-                    `<strong>Teorik ve uygulamalı</strong> ML/DL çalışmaları: teori bir <strong>AI/ML/DL/NLP yüksek lisansından</strong>, pratik <strong>Kentkart Ar-Ge ve kişisel araştırmalardan</strong> (meta-learning, karşılaştırmalı ML, görüntü renklendirme, cihaz-üstü görü).`,
-                    `<strong>Makine öğrenmesi, derin öğrenme ve NLP</strong> alanlarında rahatım; <strong>model optimizasyonu ve sinir ağı tasarımını</strong> gerçek problemlere uygularım.`,
-                    `<strong>PC ölçeğindeki pipeline'lardan (PyTorch, Pandas, NumPy)</strong>, <strong>düşük güçlü cihaz-üstü çıkarıma</strong> kadar; her milivatın önemli olduğu yerde kuantize edilmiş.`,
-                    `<strong>Veri analizi</strong>: Pandas, NumPy ve SQL ile; dağınık veri kümelerini kararlara dönüştüren istatistiksel modelleme ve anlaşılır görselleştirme.`
-                ]
-            },
-            { /* 3 */
-                n: `Geliştirme & Yayınlama`,
-                overview: `Her şeyden önce bir yapıcıyım. Yeni bir şey çıktığında (bir model, bir SDK, bir framework) ilk içgüdüm, onu gerçek ve yayında olan bir ürüne dönüştürmek olur. iOS, web, Android, oyunlar; çoğunlukla kendi zamanımda, her zaman uçtan uca, ilk fikirden insanların gerçekten indirebileceği bir şeye kadar.`,
-                highlights: [
-                    `Platformlar arası uçtan uca yayına alma: <strong>native iOS (Swift/SwiftUI), web (Next.js/React), Android ve oyunlar</strong>; mimariden yayına kadar sahiplenerek.`,
-                    `İstikrarlı bir <strong>üretim temposu</strong>: yeni çıkan teknoloji hızla çalışan, yayında bir ürüne dönüşür; App Store uygulamaları, web platformları ve ötesi.`,
-                    `Hem stack'te hem mağazada evimdeyim: <strong>App Store gönderimi</strong>, web dağıtımı ve fikirden kullanıcıya uzanan tüm yol.`,
-                    `Her zaman üretimde: <strong>yeni yayınladığımı, bir sonraki yayınlayacağıma dönüştürme</strong> refleksi.`
-                ]
-            }
-        ];
-
-        const i18nNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
-        const I18N_EN = {};
-        i18nNodes.forEach(function (n) { if (!(n.dataset.i18n in I18N_EN)) I18N_EN[n.dataset.i18n] = n.innerHTML; });
-        function applyStaticI18n(lang) {
-            i18nNodes.forEach(function (n) {
-                const k = n.dataset.i18n;
-                const v = (lang === 'tr' && I18N_TR[k] != null) ? I18N_TR[k] : I18N_EN[k];
-                if (v != null) n.innerHTML = v;
-            });
-        }
-        function setLang(lang) {
-            window.LANG = (lang === 'tr') ? 'tr' : 'en';
-            applyStaticI18n(window.LANG);
-            I18N_RERENDER.forEach(function (fn) { try { fn(); } catch (e) {} });
-            Array.prototype.slice.call(document.querySelectorAll('.lang-btn')).forEach(function (b) {
-                b.classList.toggle('is-active', b.dataset.lang === window.LANG);
-            });
-            try { localStorage.setItem('site-lang', window.LANG); } catch (e) {}
-        }
-
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1485,8 +1242,7 @@
             }
 
             let current = 0;
-            const trProj = i => (window.LANG === 'tr' && TR_PROJECTS[i]) ? Object.assign({}, PROJECTS[i], TR_PROJECTS[i]) : PROJECTS[i];
-            const labelFor = i => trProj(i).n;
+            const labelFor = i => PROJECTS[i].n;
 
             PROJECTS.forEach((p, i) => {
                 const b = document.createElement('button');
@@ -1497,11 +1253,10 @@
                 list.appendChild(b);
             });
             const buttons = Array.prototype.slice.call(list.querySelectorAll('.project-name'));
-            function refreshLabels() { buttons.forEach((b, i) => { b.textContent = labelFor(i); }); }
 
             function select(i) {
                 current = i;
-                const p = trProj(i);
+                const p = PROJECTS[i];
                 buttons.forEach((b, j) => b.classList.toggle('is-active', j === i));
                 el('detTitle').textContent = p.n;
                 el('detYear').textContent = p.year || '';
@@ -1511,7 +1266,7 @@
                     el('detRoleBlock').hidden = true;
                     el('detDesc').textContent = p.desc;
                     el('detLinks').className = 'collection-links';
-                    el('detLinks').innerHTML = (p.collections || []).map(l => "<a class='collection-link' href='" + l.u + "' target='_blank' rel='noopener noreferrer'>" + esc(trLinkLabel(l.t)) + "</a>").join('');
+                    el('detLinks').innerHTML = (p.collections || []).map(l => "<a class='collection-link' href='" + l.u + "' target='_blank' rel='noopener noreferrer'>" + esc(l.t) + "</a>").join('');
                 } else {
                     el('detChipsBlock').hidden = false;
                     el('detRoleBlock').hidden = false;
@@ -1520,7 +1275,7 @@
                     el('detRoleList').innerHTML = (p.roleBullets || []).map(b => "<li>" + b + "</li>").join('');
                     el('detChips').innerHTML = p.stack.map(s => "<span class='chip'>" + esc(s) + "</span>").join('');
                     el('detLinks').className = 'links';
-                    el('detLinks').innerHTML = p.links.map(l => "<a class='proj-link' href='" + l.u + "' target='_blank' rel='noopener noreferrer'>" + esc(trLinkLabel(l.t)) + "</a>").join('');
+                    el('detLinks').innerHTML = p.links.map(l => "<a class='proj-link' href='" + l.u + "' target='_blank' rel='noopener noreferrer'>" + esc(l.t) + "</a>").join('');
                 }
 
                 const card = el('visCard'), bg = el('visBg');
@@ -1544,14 +1299,12 @@
                 requestAnimationFrame(syncClamp);
             }
 
-            I18N_RERENDER.push(function () { refreshLabels(); select(current); });
-
             // Clamp the middle detail to the preview height; expand reveals the rest
             const inner = el('detInner'), toggle = el('detToggle');
             function syncClamp() {
                 if (!inner || !toggle) return;
                 const card = el('visCard');
-                if (window.innerWidth <= 900 || (PROJECTS[current] && trProj(current).kind === 'archive')) {
+                if (window.innerWidth <= 900 || (PROJECTS[current] && PROJECTS[current].kind === 'archive')) {
                     inner.style.maxHeight = 'none';
                     inner.classList.remove('is-clamped', 'is-open');
                     toggle.hidden = true;
@@ -1559,7 +1312,7 @@
                 }
                 inner.classList.remove('is-open');
                 toggle.classList.remove('is-open');
-                toggle.textContent = trToggle(false);
+                toggle.textContent = 'Expand';
                 const h = card.offsetHeight;
                 inner.style.maxHeight = h + 'px';
                 if (inner.scrollHeight > h + 8) {
@@ -1576,7 +1329,7 @@
                 const open = inner.classList.toggle('is-open');
                 toggle.classList.toggle('is-open', open);
                 inner.style.maxHeight = (open ? inner.scrollHeight : card.offsetHeight) + 'px';
-                toggle.textContent = trToggle(open);
+                toggle.textContent = open ? 'Collapse' : 'Expand';
             });
             let _rt;
             window.addEventListener('resize', function () { clearTimeout(_rt); _rt = setTimeout(syncClamp, 150); });
@@ -1639,8 +1392,7 @@
             const esc = x => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
             let current = 0;
-            const trSkill = i => (window.LANG === 'tr' && TR_SKILLS[i]) ? Object.assign({}, SKILLS[i], TR_SKILLS[i]) : SKILLS[i];
-            const labelFor = i => trSkill(i).n;
+            const labelFor = i => SKILLS[i].n;
 
             SKILLS.forEach((s, i) => {
                 const b = document.createElement('button');
@@ -1651,11 +1403,10 @@
                 list.appendChild(b);
             });
             const buttons = Array.prototype.slice.call(list.querySelectorAll('.project-name'));
-            function refreshLabels() { buttons.forEach((b, i) => { b.textContent = labelFor(i); }); }
 
             function select(i) {
                 current = i;
-                const s = trSkill(i);
+                const s = SKILLS[i];
                 buttons.forEach((b, j) => b.classList.toggle('is-active', j === i));
                 el('skTitle').textContent = s.n;
                 el('skTag').textContent = s.tag;
@@ -1664,18 +1415,7 @@
                 el('skHighlights').innerHTML = s.highlights.map(h => "<li>" + h + "</li>").join('');
             }
 
-            I18N_RERENDER.push(function () { refreshLabels(); select(current); });
             select(0);
-        })();
-
-        /* ===================== language switch wiring ===================== */
-        (function () {
-            Array.prototype.slice.call(document.querySelectorAll('.lang-btn')).forEach(function (b) {
-                b.addEventListener('click', function () { setLang(b.dataset.lang); });
-            });
-            var saved = 'en';
-            try { saved = localStorage.getItem('site-lang') || 'en'; } catch (e) {}
-            setLang(saved);
         })();
     </script>
 </body>
