@@ -1,0 +1,526 @@
+<!-- Ege Özçelik — Özgeçmiş (TR) · two A4 sheets set in the site's editorial deck language -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>Özgeçmiş · Ege Özçelik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-display: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --red: #F0371C;
+            --paper: #E9E6E0; --fg: #17150F; --mute: #676357; --soft: #55524A;
+            --line: rgba(23, 21, 15, 0.16);
+        }
+
+        body { font-family: var(--font-body); background: #191815; color: var(--fg); -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--red); color: #FBF7EF; }
+
+        /* ============ TOPBAR — document toolbar ============ */
+        .topbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+            background: rgba(25, 24, 21, 0.88);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(237, 234, 226, 0.12);
+            font-size: 13.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #EDEAE2;
+        }
+        .tb-in {
+            display: flex; justify-content: space-between; align-items: center; gap: 20px;
+            max-width: 1760px; margin: 0 auto;
+            padding: 16px clamp(20px, 3.2vw, 56px);
+        }
+        .topbar a { color: inherit; text-decoration: none; cursor: pointer; transition: opacity 0.2s ease; }
+        .topbar a:hover { opacity: 0.55; }
+        .tb-links { display: flex; gap: clamp(14px, 2.2vw, 34px); }
+        .tb-links .arr { color: var(--red); }
+
+        /* ============ STAGE — two sheets on the ink desk ============ */
+        .stage { padding: 108px 16px 90px; }
+        #scaler {
+            width: 210mm; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 44px;
+            transform-origin: top center;
+        }
+        .sheet {
+            position: relative; width: 210mm; height: 297mm; overflow: hidden;
+            background: var(--paper); color: var(--fg);
+            border: 1px solid rgba(237, 234, 226, 0.08);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+            padding: 40px 54px 74px;
+        }
+        .sheet a { color: inherit; text-decoration: none; }
+
+        /* ============ SHARED TYPE ============ */
+        .lbl {
+            font-family: var(--font-body);
+            font-size: 8px; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .lbl::before { content: '\21B3\00A0\00A0'; color: var(--red); }
+
+        .cv-name {
+            font-family: var(--font-display);
+            font-size: 42px; font-weight: 700; line-height: 1; letter-spacing: -0.045em;
+            white-space: nowrap;
+        }
+        .cv-name .thin { font-weight: 200; }
+
+        /* ============ SHEET HEADER ============ */
+        .cv-head {
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 24px; align-items: end;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 15px;
+        }
+        .cv-head .lbl { display: block; margin-top: 8px; }
+
+        .cv-head--slim { align-items: center; padding-bottom: 14px; }
+        .cv-name.sm { font-size: 22px; }
+        .cv-head--slim .lbl { margin-top: 6px; }
+        .slim-right { text-align: right; font-size: 9.2px; line-height: 1.8; color: var(--soft); }
+        .slim-right strong { color: var(--fg); font-weight: 600; }
+
+        /* ============ PROFILE BAND ============ */
+        .band {
+            display: grid; grid-template-columns: 1.35fr 0.85fr;
+            gap: 46px; align-items: start;
+            padding-top: 13px; margin-bottom: 10px;
+        }
+        .band .lbl { display: block; }
+        .band-txt { font-size: 10.7px; line-height: 1.7; color: var(--soft); margin-top: 9px; max-width: 66ch; }
+        .band-txt strong { color: var(--fg); font-weight: 500; }
+        .stats-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; margin-top: 10px; }
+        .sm-v { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
+        .sm-l { font-size: 7.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mute); margin-top: 4px; }
+
+        /* ============ COLUMNS ============ */
+        .cv-grid { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 46px; align-items: start; }
+
+        .sec {
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 12px; align-items: baseline;
+            border-top: 1px solid var(--line);
+            padding-top: 9px; margin-bottom: 11px;
+        }
+        .sec .lbl { white-space: nowrap; }
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: 16px; font-weight: 500;
+            line-height: 1; letter-spacing: -0.01em; text-transform: uppercase;
+        }
+        .blk { margin-bottom: 14px; }
+        .blk:last-child { margin-bottom: 0; }
+
+        /* ============ EXPERIENCE ============ */
+        .xp-head { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .xp-title { font-family: var(--font-display); font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .xp-co { display: block; font-size: 9.8px; color: var(--mute); margin-top: 3px; }
+        .xp-date { font-size: 8.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+        .xp-date .now::before { content: '\25CF\00A0'; font-size: 6px; color: var(--red); vertical-align: 2px; }
+        .xp-lead { font-size: 10.2px; line-height: 1.55; color: var(--soft); margin-top: 6px; }
+        .xp-lead strong { color: var(--fg); font-weight: 500; }
+
+        .rows { list-style: none; margin-top: 7px; }
+        .rows li { border-top: 1px solid var(--line); padding: 5.5px 0; font-size: 9.6px; line-height: 1.52; color: var(--mute); }
+        .rows li strong { color: var(--fg); font-weight: 500; }
+        .rows--tight li { padding: 4.5px 0; }
+        .rows--split li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .rows .yr { font-size: 8.2px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: var(--mute); }
+
+        /* ============ EDUCATION ============ */
+        .edu { border-top: 1px solid var(--line); padding: 6px 0; }
+        .edu:first-of-type { border-top: 0; padding-top: 0; }
+        .edu-head { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .edu-deg { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .edu-school { font-size: 9.7px; color: var(--mute); margin-top: 2px; }
+        .edu-focus { font-size: 9.6px; line-height: 1.55; color: var(--soft); margin-top: 4px; }
+        .edu-focus strong { color: var(--fg); font-weight: 500; }
+
+        /* ============ SKILLS ============ */
+        .skill { margin-top: 9px; }
+        .skill:first-of-type { margin-top: 0; }
+        .sk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+        .sk-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .sk-tag { font-size: 7.8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+
+        /* ============ PROJECTS (sheet 02) ============ */
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 44px; }
+        .proj { border-top: 1px solid var(--line); padding: 10px 0 13px; }
+        .pj-head { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
+        .pj-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .pj-year { font-size: 8px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+        .proj p { font-size: 9.7px; line-height: 1.55; color: var(--mute); margin-top: 5px; }
+        .proj p strong { color: var(--fg); font-weight: 500; }
+        .pj-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 7px; }
+        .pj-links a {
+            font-size: 8px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase;
+            color: var(--fg); border-bottom: 1px solid var(--line); padding-bottom: 2px;
+        }
+        .pj-links a::after { content: '\00A0\2197'; color: var(--red); }
+        .sec-links { display: flex; gap: 18px; align-items: baseline; }
+        .sec-links a {
+            font-size: 8px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase;
+            color: var(--fg); border-bottom: 1px solid var(--line); padding-bottom: 2px;
+            white-space: nowrap;
+        }
+        .sec-links a::after { content: '\00A0\2197'; color: var(--red); }
+
+        /* ============ CONTRIBUTED (sheet 02) ============ */
+        .contrib-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .cb-name { font-family: var(--font-display); font-size: 11px; font-weight: 600; line-height: 1.3; }
+        a.cb-name::after { content: '\00A0\2197'; color: var(--red); font-size: 9px; }
+        .cb-desc { font-size: 9px; line-height: 1.5; color: var(--mute); margin-top: 4px; }
+
+        /* ============ CLOSE (sheet 02) ============ */
+        .close { border-top: 1px solid var(--line); padding-top: 13px; margin-top: 4px; }
+        .close .lbl { display: block; }
+        .close-line { font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: -0.02em; margin-top: 8px; }
+        .close-line a { border-bottom: 2px solid var(--red); }
+        .close-links { display: flex; flex-wrap: wrap; gap: 5px 18px; margin-top: 12px; font-size: 8.6px; color: var(--soft); }
+
+        /* ============ SHEET 02 — airier rhythm ============ */
+        .s2 .cv-head--slim { padding-bottom: 20px; }
+        .s2 .sec--flush { border-top: 0; padding-top: 0; }
+        .s2 .sec { margin-bottom: 12px; }
+        .s2 .proj { padding: 12px 0 14px; }
+        .s2 .proj p { font-size: 9.7px; line-height: 1.52; margin-top: 6px; }
+        .s2 .pj-links { margin-top: 8px; }
+        .s2 .cb-desc { font-size: 9px; margin-top: 5px; }
+        .s2 .close { padding-top: 16px; }
+        .s2 .close-line { font-size: 24px; margin-top: 8px; }
+        .s2 .close-links { margin-top: 14px; font-size: 9px; }
+
+        /* ============ SHEET FOOTER ============ */
+        .sfoot {
+            position: absolute; left: 54px; right: 54px; bottom: 28px;
+            border-top: 1px solid var(--line); padding-top: 9px;
+            display: flex; justify-content: space-between; gap: 16px;
+            font-size: 7.8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--mute);
+        }
+
+        @media (max-width: 860px) {
+            .tb-links a:not(.tb-dl) { display: none; }
+        }
+
+        /* ============ PRINT — exact A4 ============ */
+        @page { size: A4; margin: 0; }
+        @media print {
+            html, body { background: #fff; }
+            .topbar { display: none !important; }
+            .stage { padding: 0 !important; }
+            #scaler { transform: none !important; margin: 0 !important; width: auto !important; display: block !important; }
+            .sheet { margin: 0 !important; border: 0 !important; box-shadow: none !important; break-inside: avoid; page-break-inside: avoid; }
+            .sheet + .sheet { break-before: page; page-break-before: always; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="tb-in">
+            <a href="../../index.html">EGE ÖZÇELİK</a>
+            <div class="tb-links">
+                <a href="../index.html">English</a>
+                <a href="../../index.html">ANA SAYFA</a>
+                <a id="printBtn" href="#">YAZDIR</a>
+                <a class="tb-dl" href="../../assets/Ege_Ozcelik_CV_TR.pdf" download="Ege Özçelik — CV (Türkçe).pdf">PDF İNDİR<span class="arr">&nbsp;&darr;</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="stage">
+        <div id="scaler">
+
+            <!-- ================= SAYFA 01 ================= -->
+            <section class="sheet">
+                <header class="cv-head">
+                    <div>
+                        <h1 class="cv-name">Ege<span class="thin">Özçelik</span></h1>
+                        <span class="lbl">SOFTWARE &amp; AI ENGINEER</span>
+                    </div>
+                    <div class="slim-right">
+                        <a href="mailto:ege.ozcelik@icloud.com"><strong>ege.ozcelik@icloud.com</strong></a> · +90 553 417 5130<br>
+                        İzmir, Türkiye · GMT+3 · egeozcelik.github.io
+                    </div>
+                </header>
+
+                <div class="band">
+                    <div>
+                        <span class="lbl">PROFİL</span>
+                        <p class="band-txt">Toplamda 8+ yıllık yazılım mimarlığına ve ürün geliştirmeye odaklıyım. Farklı tarzdaki projelerde ve ekiplerle çalışma fırsatım oldu. Geniş çaplı projelerde sorumluluk almayı ve kritik roller üstlenmeyi seviyorum. <strong>Yazılım &amp; Yapay Zeka Mühendisliğini</strong>: önce sağlam bir mimari, sonra AI ajanlarının teknik yönlendirilmesi anlayışıyla sürdürüyorum. </p>                     </div>
+                    <div>
+                        <span class="lbl">RAKAMLARLA</span>
+                        <div class="stats-mini">
+                            <div><div class="sm-v">8+</div><div class="sm-l">YIL HANDS-ON KODLAMA</div></div>
+                            <div><div class="sm-v">3+</div><div class="sm-l">YIL PROFESYONEL DENEYİM</div></div>
+                            <div><div class="sm-v">10+</div><div class="sm-l">YAYINLANMIŞ UYGULAMA</div></div>
+                            <div><div class="sm-v">5+</div><div class="sm-l">EĞİTİM &amp; DANIŞMANLIK VERİLEN ŞİRKET</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-grid">
+                    <!-- SOL — deneyim + eğitim -->
+                    <div>
+
+                        <div class="sec">
+                            <h2 class="sec-title">DENEYİM</h2>
+                            <span class="lbl">3+ YIL PROFESYONEL</span>
+                        </div>
+
+                        <article class="blk">
+                            <div class="xp-head">
+                                <div>
+                                    <h3 class="xp-title">SOFTWARE &amp; AI ENGINEER</h3>
+                                    <span class="xp-co">Kentkart Ar-Ge · İzmir</span>
+                                </div>
+                                <span class="xp-date"><span class="now"></span>02.2024'TEN BUGÜNE</span>
+                            </div>
+                            <p class="xp-lead">Ar-Ge departmanı genelinde <strong>AI & Python geliştirmelerinin</strong> sorumlusu: test uygulamaları, <strong>Yapay zeka tabanlı uygulamalar ve model eğitimi işlemleri</strong>.</p>
+                            <ul class="rows">
+                                <li><strong>Test &amp; simülasyon araçları:</strong> üretim, teknik servis ve yurt içi / yurt dışı saha ekiplerinin günlük kullandığı masaüstü simülatörler ve test araçları ihtiyaçlarının saptanması ve geliştirilmesinin sorumlusu.</li>
+                                <li><strong>UWB free-flow programı:</strong> Tübitak ve Teydeb destekli ve patentli ultra-wideband konumlandırma Ar&#8209;Ge'sinde sistem mimarlığı ve proje yönetimi görevini üstleniyorum; C ile anchor firmware, native iOS Nearby Interaction tag tarafı, zero-hardware simülatörlü PySide6 monitoring uygulamalarının geliştirilmesi gibi yazılım ve mimari süreçlerin sorumlusu.</li>
+                                <li><strong>AI &amp; model training:</strong> i.MX 8M Plus NPU üzerinde tamamen cihaz üstü gerçek zamanlı yüz tanıma platformunun geliştirilmesi sorumlusu; INT8-quantized SSD/MobileNetV2 + FaceNet, linux seviyesi özel CPU optimizasyonu.</li>
+                                <li><strong>CAN Bus · J1939:</strong> PC ve gömülü Linux tabanlı, standartlara birebir uyumlu generator &amp; simulator ikilisinin (20 PGN / ~30 SPN) geliştirme sorumlusu.</li>
+                            </ul>
+                        </article>
+
+                        <article class="blk">
+                            <div class="xp-head">
+                                <div>
+                                    <h3 class="xp-title">AR-GE STAJYER MÜHENDİSİ</h3>
+                                    <span class="xp-co">Schneider Electric</span>
+                                </div>
+                                <span class="xp-date">07.2023–10.2023</span>
+                            </div>
+                            <ul class="rows">
+                                <li>Test ortamının hazırlanması, testlerin yürütülmesi ve sonuçların analizi (MATLAB, LabVIEW, Excel makroları).</li>
+                            </ul>
+                        </article>
+
+
+                        <div class="sec">
+                            <h2 class="sec-title">EĞİTİM</h2>
+                            <span class="lbl">PRATİĞİN ALTINDAKİ TEORİ</span>
+                        </div>
+                        <div class="blk">
+                            <div class="edu">
+                                <div class="edu-head">
+                                    <h3 class="edu-deg">ELEKTRİK-ELEKTRONİK MÜH.<br>YÜKSEK LİSANS</h3>
+                                    <span class="xp-date"><span class="now"></span>2025'TEN BUGÜNE</span>
+                                </div>
+                                <span class="edu-school">Katip Çelebi Üniversitesi</span>
+                                <p class="edu-focus">Odak: <strong>Model Training · Machine Learning · Deep Learning · NLP</strong></p>
+                            </div>
+                            <div class="edu">
+                                <div class="edu-head">
+                                    <h3 class="edu-deg">ELEKTRİK-ELEKTRONİK MÜH.<br>LİSANS</h3>
+                                    <span class="xp-date">2018–2023</span>
+                                </div>
+                                <span class="edu-school">Ege Üniversitesi</span>
+                                <p class="edu-focus">Uzmanlık: <strong>Haberleşme Sistemleri</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAĞ — yetkinlikler + sertifikalar -->
+                    <div>
+<div class="sec">
+                            <h2 class="sec-title">YETKİNLİKLER</h2>
+                            <span class="lbl">ÖNE ÇIKAN DİSİPLİNLER</span>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">AI ORCHESTRATION &amp; AGENTIC SYSTEMS</h3>
+                                <span class="sk-tag">AGENTIC · LLM-NATIVE</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Production Ortamında Multi-Agent Mimarileri:</strong> LLM planlayıcı/yürütücü (planner/executor) mimarisi altında özelleşmiş ajan ekiplerinin yönetimi; bağımlılık yönetimi (dependency resolution), paralel işlem grupları ve Vision QC süreçlerinin tasarımı.</li>
+<li><strong>Gelişmiş Prompt & Context Altyapısı:</strong> Memory Architecture, Structured output, model-aware routing, sandwich prompting, RAG, MCP ve Tool Use konseptleri ile ölçeklenebilir sistem kurgusu.</li>
+<li><strong>Model-Agnostic Dağıtım (Dispatch) Sistemleri:</strong> 8'den fazla image/video engine'i tek bir prompt arayüzünde birleştiren; manifest-driven ve rol odaklı (capability-gated) orkestrasyon.</li>
+<li><strong>Frontier Araçlarla Modern İş Akışı:</strong> Claude Code, Codex ve GEN AI teknolojileri ile günlük geliştirme döngüsüne aktif entegrasyonu.</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">SOFTWARE ENGINEERING &amp; ARCHITECTURE</h3>
+                                <span class="sk-tag">SYSTEMS · PATTERNS</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Diller &amp; platformlar:</strong> Python · Swift / SwiftUI · C# · JavaScript (React, Next.js) · C/C++; iOS, web, masaüstü.</li>
+                                <li><strong>Mimari öncelikli yaklaşım:</strong> temiz N-katmanlı tasarım, MVC / MVVM / VIPER; DI, Factory, Builder, Unit of Work.</li>
+                                <li><strong>Sistemler:</strong> RESTful API tasarımı, async &amp; event-driven programlama, gerçek zamanlı veri, gömülü Linux.</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">MODEL TRAINING &amp; DATA</h3>
+                                <span class="sk-tag">ML · DL · RESEARCH</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Model eğitimi &amp; fine-tune işlemleri:</strong> PyTorch, TensorFlow/Keras, scikit-learn, CatBoost / LightGBM / XGBoost; stratified CV, ROC-AUC.</li>
+                                <li><strong>Edge &amp; optimizasyon:</strong> metric learning, stacked generalization, INT8 quantization, NPU / Core ML deployment.</li>
+                                <li><strong>Veri Analizi ve diğer işlemler için:</strong> pandas, NumPy, ileri düzey SQL (window functions, CTE); MSSQL, MongoDB, Firestore, Supabase.</li>
+                            </ul>
+                        </div>
+
+<div class="sec" style="margin-top: 16px;">
+                            <h2 class="sec-title">SERTİFİKALAR</h2>
+                            <span class="lbl">TEMELLER</span>
+                        </div>
+                        <ul class="rows rows--tight rows--split" style="margin-top: 0;">
+                            <li style="border-top: 0;"><span><strong>.NET Sertifika Programı</strong> Bilge Adam Akademi · 320 saat</span><span class="yr">2020–2021</span></li>
+                            <li><span><strong>20486 ASP.NET MVC 5</strong> Web Applications · Microsoft MCA</span><span class="yr">2020</span></li>
+                            <li><span><strong>20480 HTML5</strong> with JavaScript &amp; CSS3 · Microsoft MCA</span><span class="yr">2020</span></li>
+                            <li><span><strong>UiPath RPA</strong> Eğitim Sertifikası</span><span class="yr">2020</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <footer class="sfoot">
+                    <span>EGE ÖZÇELİK · ÖZGEÇMİŞ</span>
+                    <span>EGEOZCELIK.GITHUB.IO</span>
+                    <span>01 / 02</span>
+                </footer>
+            </section>
+
+            <!-- ================= SAYFA 02 ================= -->
+            <section class="sheet s2">
+                <header class="cv-head cv-head--slim">
+                    <div>
+                        <h2 class="cv-name sm">Ege<span class="thin">Özçelik</span></h2>
+                        <span class="lbl">SOFTWARE &amp; AI ENGINEER</span>
+                    </div>
+                    <div class="slim-right">
+                        <strong>ege.ozcelik@icloud.com</strong> · +90 553 417 5130<br>
+                        İzmir, Türkiye · GMT+3 · egeozcelik.github.io
+                    </div>
+                </header>
+
+                <div style="margin-top: 14px;">
+                    <div class="sec sec--flush">
+                        <h2 class="sec-title">PORTFOLYO</h2>
+                        <div class="sec-links">
+                            <a href="https://egeozcelik.github.io/portfolio/">PROJELERİN DETAYLARI</a>
+                            <a href="https://github.com/egeozcelik?tab=repositories">TÜM PROJELER</a>
+                        </div>
+                    </div>
+
+                    <div class="proj-grid">
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">MINDPLACE</h3><span class="pj-year">2025 · SÜRÜYOR</span></div>
+<p>Film ve animasyon prodüksiyon süreçleri için 20'den fazla özelleşmiş pipeline barındıran <strong>kapsamlı multi-agent AI platformu</strong>. Bu mimari; LLM planner/executor tabanlı görev odaklı ajan ekiplerini, keyframe düzeyinde Vision QC (Kalite Kontrol) mekanizmalarını ve 8'i aşkın generative engine üzerinde çalışan model-agnostic dispatch altyapısını içermektedir.</p>                            <div class="pj-links"><a href="https://www.mindplace.app">İNCELE</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">TRAVELERAPP · PACER</h3><span class="pj-year">2024'TEN BUGÜNE</span></div>
+                            <p><strong>Geliştirmesi ve yayınlanması tamamlanmış iki yapay zeka tabanlı gezi/keşif platformu</strong>: AI-orkestrasyonlu, lokasyon tabanlı keşif pipeline'ı (edge function'larda schema-constrained LLM) ve HealthKit sync'li, Kalman filtreli rota analitiği altyapısı sağlandı.</p>
+                            <div class="pj-links"><a href="https://apps.apple.com/us/app/travelerapp/id6761769561">TRAVELERAPP</a><a href="https://apps.apple.com/us/app/pacer-by-travelerapp/id6773798438">PACER</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">UWB · NEARBY INTERACTION</h3><span class="pj-year">2024'TEN BUGÜNE</span></div>
+<p><strong>Uçtan Uca Kesintisiz (Free-Flow) Geçiş ve Konumlandırma Sistemi:</strong> DS-TWR Time-of-Flight ve PDoA azimut teknolojileriyle yüksek hassasiyetli (±10 cm, 4–5 fix/s) altyapı tasarımı. Bu mimari kapsamında; donanım (anchor) için C tabanlı firmware, kullanıcı cihazları için native iOS tag entegrasyonu, sistem yönetimi için PySide6 tabanlı izleme yazılımı ve test süreçlerini optimize eden donanım bağımsız (zero-hardware) simülatör geliştirilmiştir.</p>                            <div class="pj-links"><a href="https://github.com/egeozcelik/UWB-Nearby-Interactions">GITHUB</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">FACE RECOGNITION · I.MX8 NPU</h3><span class="pj-year">2024</span></div>
+<p><strong>NPU Hızlandırmalı Gerçek Zamanlı Tanıma (Edge AI):</strong> Tamamen yerel donanım üzerinde (bulut bağımsız) çalışan INT8 SSD/MobileNetV2 detektör ve FaceNet embedder (VX delegate) entegrasyonu. Modellerin NPU (Neural Processing Unit) üzerinde çalışacak şekilde optimize edilmesiyle, standart CPU tabanlı işlemeye kıyasla ~20 kat performans/hız artışı sağlanmıştır.</p>                            <div class="pj-links"><a href="https://github.com/egeozcelik/face-recognition-npu">GITHUB</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">NEURAL META-LEARNER</h3><span class="pj-year">2025</span></div>
+<p><strong>Stacked Generalization & Model Optimizasyonu:</strong> CatBoost tabanı üzerinde uygulanan neural meta-head mimarisi sayesinde F1 skorunda %2,5'lik artış ( %89,8 ) ve %96 ROC-AUC başarımı elde edilmiştir. Akademik jüri tarafından onaylanan, yüksek performanslı makine öğrenmesi modeli.</p>                            <div class="pj-links"><a href="https://github.com/egeozcelik/Neural-Meta-Learner-Enhancement">GITHUB</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">COMPARATIVE ML EVALUATION</h3><span class="pj-year">2025</span></div>
+<p><strong>Tekil Kontrol Protokolü ile Kapsamlı Model Değerlendirmesi:</strong> Veri sızıntısına (data leakage) karşı korumalı feature mühendisliği ve 8 farklı sınıflandırıcının sistematik analizi. RandomizedSearchCV tabanlı hiperparametre optimizasyonu (tuning) sonucunda, CatBoost modeliyle %80,6 doğruluk (accuracy) ve 0,886 ROC-AUC skoruna ulaşılarak performansta belirgin bir artış elde edilmiştir.</p>                            <div class="pj-links"><a href="https://github.com/egeozcelik/Comparative-ML-Model-Evaluation">GITHUB</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">CAN BUS · J1939 SUITE</h3><span class="pj-year">2023</span></div>
+                            <p>SocketCAN üzerinden standartlara birebir 29-bit J1939 haberleşmesi yapan <strong>generator + monitor masaüstü ikilisi</strong> (20 PGN / ~30 SPN); sektörel gerçek trafik, Linux &amp; Windows tabanlı platformlar arası haberleşen sistemler kuruldu.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/CANBus-J1939-Complete-Repo">GITHUB</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">DL IMAGE COLORIZATION</h3><span class="pj-year">2024</span></div>
+<p><strong>Derin Öğrenme ile Görüntü Renklendirme (Image Colorization):</strong> CIE LAB renk uzayında a/b krominans regresyonu yaklaşımıyla gri tonlamalı görüntülerin otonom renklendirilmesi. Bu kapsamda Autoencoder, U-Net ve ResNet50-UNet mimarileri geliştirilerek karşılaştırmalı analizi yapılmıştır. Model performansları PSNR / SSIM metrikleriyle ölçülmüş ve sonuçların istatistiksel geçerliliği "pairwise t-test" ile doğrulanmıştır.</p>                            <div class="pj-links"><a href="https://github.com/egeozcelik/Deep-Learning-Architectures-for-Image-Colorization">GITHUB</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px;">
+                    <div class="sec">
+                        <h2 class="sec-title">KATKI SAĞLANILAN PROJELER</h2>
+                        <span class="lbl">SEÇİLMİŞ İŞ BİRLİKLERİ</span>
+                    </div>
+                    <div class="contrib-grid">
+                        <div>
+                            <a class="cb-name" href="https://www.giacreativestudio.com">GIA Creative Studio</a>
+                            <p class="cb-desc">Web sitesi &amp; simülasyon geliştirildi.</p>
+                        </div>
+                        <div>
+                            <a class="cb-name" href="https://www.reconchillestudios.com">Reconchille Studios</a>
+                            <p class="cb-desc">Mobil uygulamalar geliştirildi ve yayınlandı.</p>
+                        </div>
+                        <div>
+                            <a class="cb-name" href="https://www.youtube.com/@LumosGenerativeAI">Lumos Generative AI</a>
+                            <p class="cb-desc">Otonom video üretimi için özel AI-orchestration pipeline'ları geliştirdi.</p>
+                        </div>
+                        <div>
+                            <span class="cb-name">Koi Academy</span>
+                            <p class="cb-desc">Web sitesi &amp; mobil uygulama geliştirildi (NDA kapsamında).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="close" style="margin-top: 32px;">
+                    <span class="lbl">İŞ/PROJE FIRSATLARINA AÇIĞIM</span>
+                    <p class="close-line">Aklınızda ne varsa: <a href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a></p>
+                    <div class="close-links">
+                        <a href="https://egeozcelik.github.io">egeozcelik.github.io</a>
+                        <a href="https://github.com/egeozcelik">github.com/egeozcelik</a>
+                        <a href="https://www.linkedin.com/in/egeozcelik/">linkedin.com/in/egeozcelik</a>
+                        <a href="https://medium.com/@egeozcelik">medium.com/@egeozcelik</a>
+                        <a href="https://www.hackerrank.com/profile/ege_ozcelik">hackerrank.com/profile/ege_ozcelik</a>
+                    </div>
+                </div>
+
+                <footer class="sfoot">
+                    <span>EGE ÖZÇELİK · CV</span>
+                    <span>EGEOZCELIK.GITHUB.IO</span>
+                    <span>02 / 02</span>
+                </footer>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        /* fit the A4 sheets into narrow viewports */
+        (function () {
+            const sc = document.getElementById('scaler');
+            function fit() {
+                const s = Math.min(1, (window.innerWidth - 32) / sc.offsetWidth);
+                sc.style.transform = s < 1 ? 'scale(' + s + ')' : 'none';
+                sc.style.marginBottom = s < 1 ? -(sc.offsetHeight * (1 - s)) + 'px' : '0';
+            }
+            window.addEventListener('resize', fit);
+            fit();
+        })();
+
+        document.getElementById('printBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!-- Ege Özçelik — CV · two A4 sheets set in the site's editorial deck language -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>CV · Ege Özçelik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-display: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --red: #F0371C;
+            --paper: #E9E6E0; --fg: #17150F; --mute: #676357; --soft: #55524A;
+            --line: rgba(23, 21, 15, 0.16);
+        }
+
+        body { font-family: var(--font-body); background: #191815; color: var(--fg); -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--red); color: #FBF7EF; }
+
+        /* ============ TOPBAR — document toolbar ============ */
+        .topbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+            background: rgba(25, 24, 21, 0.88);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(237, 234, 226, 0.12);
+            font-size: 13.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #EDEAE2;
+        }
+        .tb-in {
+            display: flex; justify-content: space-between; align-items: center; gap: 20px;
+            max-width: 1760px; margin: 0 auto;
+            padding: 16px clamp(20px, 3.2vw, 56px);
+        }
+        .topbar a { color: inherit; text-decoration: none; cursor: pointer; transition: opacity 0.2s ease; }
+        .topbar a:hover { opacity: 0.55; }
+        .tb-links { display: flex; gap: clamp(14px, 2.2vw, 34px); }
+        .tb-links .arr { color: var(--red); }
+
+        /* ============ STAGE — two sheets on the ink desk ============ */
+        .stage { padding: 108px 16px 90px; }
+        #scaler {
+            width: 210mm; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 44px;
+            transform-origin: top center;
+        }
+        .sheet {
+            position: relative; width: 210mm; height: 297mm; overflow: hidden;
+            background: var(--paper); color: var(--fg);
+            border: 1px solid rgba(237, 234, 226, 0.08);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+            padding: 40px 54px 74px;
+        }
+        .sheet a { color: inherit; text-decoration: none; }
+
+        /* ============ SHARED TYPE ============ */
+        .lbl {
+            font-family: var(--font-body);
+            font-size: 8px; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .lbl::before { content: '\21B3\00A0\00A0'; color: var(--red); }
+
+        .cv-name {
+            font-family: var(--font-display);
+            font-size: 42px; font-weight: 700; line-height: 1; letter-spacing: -0.045em;
+            white-space: nowrap;
+        }
+        .cv-name .thin { font-weight: 200; }
+
+        /* ============ SHEET HEADER ============ */
+        .cv-head {
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 24px; align-items: end;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 15px;
+        }
+        .cv-head .lbl { display: block; margin-top: 8px; }
+
+        .cv-head--slim { align-items: center; padding-bottom: 14px; }
+        .cv-name.sm { font-size: 22px; }
+        .cv-head--slim .lbl { margin-top: 6px; }
+        .slim-right { text-align: right; font-size: 9.2px; line-height: 1.8; color: var(--soft); }
+        .slim-right strong { color: var(--fg); font-weight: 600; }
+
+        /* ============ PROFILE BAND ============ */
+        .band {
+            display: grid; grid-template-columns: 1.35fr 0.85fr;
+            gap: 46px; align-items: start;
+            padding-top: 13px; margin-bottom: 10px;
+        }
+        .band .lbl { display: block; }
+        .band-txt { font-size: 10.7px; line-height: 1.7; color: var(--soft); margin-top: 9px; max-width: 66ch; }
+        .band-txt strong { color: var(--fg); font-weight: 500; }
+        .stats-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; margin-top: 10px; }
+        .sm-v { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
+        .sm-l { font-size: 7.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mute); margin-top: 4px; }
+
+        /* ============ COLUMNS ============ */
+        .cv-grid { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 46px; align-items: start; }
+
+        .sec {
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 12px; align-items: baseline;
+            border-top: 1px solid var(--line);
+            padding-top: 9px; margin-bottom: 11px;
+        }
+        .sec .lbl { white-space: nowrap; }
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: 16px; font-weight: 500;
+            line-height: 1; letter-spacing: -0.01em; text-transform: uppercase;
+        }
+        .blk { margin-bottom: 14px; }
+        .blk:last-child { margin-bottom: 0; }
+
+        /* ============ EXPERIENCE ============ */
+        .xp-head { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .xp-title { font-family: var(--font-display); font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .xp-co { display: block; font-size: 9.8px; color: var(--mute); margin-top: 3px; }
+        .xp-date { font-size: 8.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+        .xp-date .now::before { content: '\25CF\00A0'; font-size: 6px; color: var(--red); vertical-align: 2px; }
+        .xp-lead { font-size: 10.2px; line-height: 1.55; color: var(--soft); margin-top: 6px; }
+        .xp-lead strong { color: var(--fg); font-weight: 500; }
+
+        .rows { list-style: none; margin-top: 7px; }
+        .rows li { border-top: 1px solid var(--line); padding: 5.5px 0; font-size: 9.6px; line-height: 1.52; color: var(--mute); }
+        .rows li strong { color: var(--fg); font-weight: 500; }
+        .rows--tight li { padding: 4.5px 0; }
+        .rows--split li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .rows .yr { font-size: 8.2px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: var(--mute); }
+
+        /* ============ EDUCATION ============ */
+        .edu { border-top: 1px solid var(--line); padding: 6px 0; }
+        .edu:first-of-type { border-top: 0; padding-top: 0; }
+        .edu-head { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+        .edu-deg { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .edu-school { font-size: 9.7px; color: var(--mute); margin-top: 2px; }
+        .edu-focus { font-size: 9.6px; line-height: 1.55; color: var(--soft); margin-top: 4px; }
+        .edu-focus strong { color: var(--fg); font-weight: 500; }
+
+        /* ============ SKILLS ============ */
+        .skill { margin-top: 9px; }
+        .skill:first-of-type { margin-top: 0; }
+        .sk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+        .sk-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .sk-tag { font-size: 7.8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+
+        /* ============ PROJECTS (sheet 02) ============ */
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 44px; }
+        .proj { border-top: 1px solid var(--line); padding: 10px 0 13px; }
+        .pj-head { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
+        .pj-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; }
+        .pj-year { font-size: 8px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
+        .proj p { font-size: 9.7px; line-height: 1.55; color: var(--mute); margin-top: 5px; }
+        .proj p strong { color: var(--fg); font-weight: 500; }
+        .pj-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 7px; }
+        .pj-links a {
+            font-size: 8px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase;
+            color: var(--fg); border-bottom: 1px solid var(--line); padding-bottom: 2px;
+        }
+        .pj-links a::after { content: '\00A0\2197'; color: var(--red); }
+        .sec-links { display: flex; gap: 18px; align-items: baseline; }
+        .sec-links a {
+            font-size: 8px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase;
+            color: var(--fg); border-bottom: 1px solid var(--line); padding-bottom: 2px;
+            white-space: nowrap;
+        }
+        .sec-links a::after { content: '\00A0\2197'; color: var(--red); }
+
+        /* ============ CONTRIBUTED (sheet 02) ============ */
+        .contrib-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .cb-name { font-family: var(--font-display); font-size: 11px; font-weight: 600; line-height: 1.3; }
+        a.cb-name::after { content: '\00A0\2197'; color: var(--red); font-size: 9px; }
+        .cb-desc { font-size: 9px; line-height: 1.5; color: var(--mute); margin-top: 4px; }
+
+        /* ============ CLOSE (sheet 02) ============ */
+        .close { border-top: 1px solid var(--line); padding-top: 13px; margin-top: 4px; }
+        .close .lbl { display: block; }
+        .close-line { font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: -0.02em; margin-top: 8px; }
+        .close-line a { border-bottom: 2px solid var(--red); }
+        .close-links { display: flex; flex-wrap: wrap; gap: 5px 18px; margin-top: 12px; font-size: 8.6px; color: var(--soft); }
+
+        /* ============ SHEET 02 — airier rhythm ============ */
+        .s2 .cv-head--slim { padding-bottom: 20px; }
+        .s2 .sec--flush { border-top: 0; padding-top: 0; }
+        .s2 .sec { margin-bottom: 12px; }
+        .s2 .proj { padding: 12px 0 14px; }
+        .s2 .proj p { font-size: 9.7px; line-height: 1.52; margin-top: 6px; }
+        .s2 .pj-links { margin-top: 8px; }
+        .s2 .cb-desc { font-size: 9px; margin-top: 5px; }
+        .s2 .close { padding-top: 16px; }
+        .s2 .close-line { font-size: 24px; margin-top: 8px; }
+        .s2 .close-links { margin-top: 14px; font-size: 9px; }
+
+        /* ============ SHEET FOOTER ============ */
+        .sfoot {
+            position: absolute; left: 54px; right: 54px; bottom: 28px;
+            border-top: 1px solid var(--line); padding-top: 9px;
+            display: flex; justify-content: space-between; gap: 16px;
+            font-size: 7.8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--mute);
+        }
+
+        @media (max-width: 860px) {
+            .tb-links a:not(.tb-dl) { display: none; }
+        }
+
+        /* ============ PRINT — exact A4 ============ */
+        @page { size: A4; margin: 0; }
+        @media print {
+            html, body { background: #fff; }
+            .topbar { display: none !important; }
+            .stage { padding: 0 !important; }
+            #scaler { transform: none !important; margin: 0 !important; width: auto !important; display: block !important; }
+            .sheet { margin: 0 !important; border: 0 !important; box-shadow: none !important; break-inside: avoid; page-break-inside: avoid; }
+            .sheet + .sheet { break-before: page; page-break-before: always; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="tb-in">
+            <a href="../index.html">Ege Özçelik</a>
+            <div class="tb-links">
+                <a href="tr/index.html">Türkçe</a>
+                <a href="../index.html">Home</a>
+                <a href="../portfolio/index.html">Selected Work</a>
+                <a href="../index.html#contact">Contact</a>
+                <a id="printBtn" href="#">Print</a>
+                <a class="tb-dl" href="../assets/Ege_Ozcelik_CV.pdf" download="Ege Özçelik — CV.pdf">Download PDF<span class="arr">&nbsp;&darr;</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="stage">
+        <div id="scaler">
+
+            <!-- ================= SHEET 01 ================= -->
+            <section class="sheet">
+                <header class="cv-head">
+                    <div>
+                        <h1 class="cv-name">Ege<span class="thin">Özçelik</span></h1>
+                        <span class="lbl">Software &amp; AI Engineer</span>
+                    </div>
+                    <div class="slim-right">
+                        <a href="mailto:ege.ozcelik@icloud.com"><strong>ege.ozcelik@icloud.com</strong></a> · +90 553 417 5130<br>
+                        İzmir, Türkiye · GMT+3 · egeozcelik.github.io
+                    </div>
+                </header>
+
+                <div class="band">
+                    <div>
+                        <span class="lbl">Profile</span>
+                        <p class="band-txt">8+ years focused on software architecture and product development. I have worked across projects and teams of very different styles, and I enjoy taking ownership and critical roles in large-scale work. I practice <strong>Software &amp; AI Engineering</strong> with one principle: a solid architecture first, then the technical direction of AI agents.</p>
+                    </div>
+                    <div>
+                        <span class="lbl">In numbers</span>
+                        <div class="stats-mini">
+                            <div><div class="sm-v">8+</div><div class="sm-l">Years hands-on coding</div></div>
+                            <div><div class="sm-v">3+</div><div class="sm-l">Years professional</div></div>
+                            <div><div class="sm-v">10+</div><div class="sm-l">Published apps</div></div>
+                            <div><div class="sm-v">5+</div><div class="sm-l">Companies trained &amp; consulted</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-grid">
+                    <!-- LEFT — experience + education -->
+                    <div>
+
+                        <div class="sec">
+                            <h2 class="sec-title">Experience</h2>
+                            <span class="lbl">3+ years professional</span>
+                        </div>
+
+                        <article class="blk">
+                            <div class="xp-head">
+                                <div>
+                                    <h3 class="xp-title">Software &amp; AI Engineer</h3>
+                                    <span class="xp-co">Kentkart R&amp;D · İzmir</span>
+                                </div>
+                                <span class="xp-date"><span class="now"></span>02.2024 — Today</span>
+                            </div>
+                            <p class="xp-lead">Responsible for <strong>AI &amp; Python development</strong> across the R&amp;D department: test applications, <strong>AI-based applications and model training</strong>.</p>
+                            <ul class="rows">
+                                <li><strong>Test &amp; simulation tooling</strong> — owning the scoping and development of the desktop simulators and test tools used daily by production, technical service and domestic / international field teams.</li>
+                                <li><strong>UWB free-flow program</strong> — system architect &amp; project manager on the TÜBİTAK / TEYDEB-funded, patented ultra-wideband positioning R&amp;D; owning the software and architecture: anchor firmware in C, the native iOS Nearby Interaction tag side, and PySide6 monitoring apps with a zero-hardware simulator.</li>
+                                <li><strong>AI &amp; model training</strong> — responsible for the fully on-device, real-time face recognition platform on the i.MX 8M Plus NPU; INT8-quantized SSD/MobileNetV2 + FaceNet, custom Linux-level CPU optimization.</li>
+                                <li><strong>CAN Bus · J1939</strong> — development lead for the standards-correct generator &amp; simulator pair (20 PGNs / ~30 SPNs) on PC and embedded Linux.</li>
+                            </ul>
+                        </article>
+
+                        <article class="blk">
+                            <div class="xp-head">
+                                <div>
+                                    <h3 class="xp-title">R&amp;D Intern Engineer</h3>
+                                    <span class="xp-co">Schneider Electric</span>
+                                </div>
+                                <span class="xp-date">07.2023 — 10.2023</span>
+                            </div>
+                            <ul class="rows">
+                                <li>Test environment preparation, execution and result analysis (MATLAB, LabVIEW, Excel macros).</li>
+                            </ul>
+                        </article>
+
+
+                        <div class="sec">
+                            <h2 class="sec-title">Education</h2>
+                            <span class="lbl">Theory under the practice</span>
+                        </div>
+                        <div class="blk">
+                            <div class="edu">
+                                <div class="edu-head">
+                                    <h3 class="edu-deg">Electrical &amp; Electronics Eng.<br>M.Sc.</h3>
+                                    <span class="xp-date"><span class="now"></span>2025 — Today</span>
+                                </div>
+                                <span class="edu-school">Katip Çelebi University</span>
+                                <p class="edu-focus">Focus: <strong>Model Training · Machine Learning · Deep Learning · NLP</strong></p>
+                            </div>
+                            <div class="edu">
+                                <div class="edu-head">
+                                    <h3 class="edu-deg">Electrical &amp; Electronics Eng.<br>B.Sc.</h3>
+                                    <span class="xp-date">2018 — 2023</span>
+                                </div>
+                                <span class="edu-school">Ege University</span>
+                                <p class="edu-focus">Major: <strong>Communication Systems</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT — skills + certifications -->
+                    <div>
+<div class="sec">
+                            <h2 class="sec-title">Skills</h2>
+                            <span class="lbl">Featured disciplines</span>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">AI Orchestration &amp; Agentic Systems</h3>
+                                <span class="sk-tag">Agentic · LLM-Native</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Multi-agent architectures in production</strong> — orchestration of specialized agent crews under an LLM planner/executor architecture; dependency resolution, parallel task groups and Vision QC process design.</li>
+                                <li><strong>Advanced prompt &amp; context infrastructure</strong> — scalable system design on memory architecture, structured output, model-aware routing, sandwich prompting, RAG, MCP &amp; tool use.</li>
+                                <li><strong>Model-agnostic dispatch systems</strong> — 8+ image/video engines unified behind a single prompt surface; manifest-driven, capability-gated orchestration.</li>
+                                <li><strong>A modern workflow on frontier tooling</strong> — Claude Code, Codex and generative-AI technologies actively integrated into the daily development loop.</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">Software Engineering &amp; Architecture</h3>
+                                <span class="sk-tag">Systems · Patterns</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Languages &amp; platforms</strong> — Python · Swift / SwiftUI · C# · JavaScript (React, Next.js) · C/C++; iOS, web, desktop.</li>
+                                <li><strong>Architecture-first approach</strong> — clean N-layer design, MVC / MVVM / VIPER; DI, Factory, Builder, Unit of Work.</li>
+                                <li><strong>Systems</strong> — RESTful API design, async &amp; event-driven programming, real-time data, embedded Linux.</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill">
+                            <div class="sk-head">
+                                <h3 class="sk-name">Model Training &amp; Data</h3>
+                                <span class="sk-tag">ML · DL · Research</span>
+                            </div>
+                            <ul class="rows rows--tight">
+                                <li><strong>Model training &amp; fine-tuning</strong> — PyTorch, TensorFlow/Keras, scikit-learn, CatBoost / LightGBM / XGBoost; stratified CV, ROC-AUC.</li>
+                                <li><strong>Edge &amp; optimization</strong> — metric learning, stacked generalization, INT8 quantization, NPU / Core ML deployment.</li>
+                                <li><strong>Data analysis &amp; tooling</strong> — pandas, NumPy, advanced SQL (window functions, CTEs); MSSQL, MongoDB, Firestore, Supabase.</li>
+                            </ul>
+                        </div>
+
+<div class="sec" style="margin-top: 16px;">
+                            <h2 class="sec-title">Certifications</h2>
+                            <span class="lbl">Foundations</span>
+                        </div>
+                        <ul class="rows rows--tight rows--split" style="margin-top: 0;">
+                            <li style="border-top: 0;"><span><strong>.NET Certification Program</strong> — Bilge Adam Academy · 320h</span><span class="yr">2020–2021</span></li>
+                            <li><span><strong>20486 ASP.NET MVC 5</strong> Web Applications — Microsoft MCA</span><span class="yr">2020</span></li>
+                            <li><span><strong>20480 HTML5</strong> with JavaScript &amp; CSS3 — Microsoft MCA</span><span class="yr">2020</span></li>
+                            <li><span><strong>UiPath RPA</strong> Education Certificate</span><span class="yr">2020</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <footer class="sfoot">
+                    <span>EGE ÖZÇELİK — CURRICULUM VITAE</span>
+                    <span>egeozcelik.github.io</span>
+                    <span>01 / 02</span>
+                </footer>
+            </section>
+
+            <!-- ================= SHEET 02 ================= -->
+            <section class="sheet s2">
+                <header class="cv-head cv-head--slim">
+                    <div>
+                        <h2 class="cv-name sm">Ege<span class="thin">Özçelik</span></h2>
+                        <span class="lbl">Software &amp; AI Engineer</span>
+                    </div>
+                    <div class="slim-right">
+                        <strong>ege.ozcelik@icloud.com</strong> · +90 553 417 5130<br>
+                        İzmir, Türkiye · GMT+3 · egeozcelik.github.io
+                    </div>
+                </header>
+
+                <div style="margin-top: 14px;">
+                    <div class="sec sec--flush">
+                        <h2 class="sec-title">Portfolio</h2>
+                        <div class="sec-links">
+                            <a href="https://egeozcelik.github.io/portfolio/">Selected Works</a>
+                            <a href="https://github.com/egeozcelik?tab=repositories">All Projects</a>
+                        </div>
+                    </div>
+
+                    <div class="proj-grid">
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">Mindplace</h3><span class="pj-year">2025 — Building</span></div>
+                            <p>A comprehensive <strong>multi-agent AI platform</strong> carrying 20+ specialized pipelines for film &amp; animation production. The architecture spans task-oriented agent crews under an LLM planner/executor, per-keyframe Vision QC mechanisms, and a model-agnostic dispatch layer running across 8+ generative engines.</p>
+                            <div class="pj-links"><a href="https://www.mindplace.app">Explore</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">TravelerApp · Pacer</h3><span class="pj-year">2024 — Today</span></div>
+                            <p><strong>Two AI-based travel &amp; exploration apps, built and shipped</strong>: an AI-orchestrated, location-grounded discovery pipeline (schema-constrained LLM in edge functions) plus HealthKit-synced, Kalman-filtered route analytics.</p>
+                            <div class="pj-links"><a href="https://apps.apple.com/us/app/travelerapp/id6761769561">TravelerApp</a><a href="https://apps.apple.com/us/app/pacer-by-travelerapp/id6773798438">Pacer</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">UWB · Nearby Interaction</h3><span class="pj-year">2024 — Today</span></div>
+                            <p><strong>End-to-end free-flow access &amp; positioning system</strong>: a high-precision (±10 cm, 4–5 fixes/s) design on DS-TWR Time-of-Flight and PDoA azimuth. Within it: C firmware for the anchor hardware, native iOS tag integration on user devices, a PySide6 monitoring suite for operations, and a zero-hardware simulator that streamlines testing.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/UWB-Nearby-Interactions">GitHub</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">Face Recognition · i.MX8 NPU</h3><span class="pj-year">2024</span></div>
+                            <p><strong>NPU-accelerated real-time recognition (Edge AI)</strong>: an INT8 SSD/MobileNetV2 detector + FaceNet embedder (VX delegate) running fully on local hardware, cloud-free. Optimizing the models for the NPU yields ~20× the speed of standard CPU-based processing.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/face-recognition-npu">GitHub</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">Neural Meta-Learner</h3><span class="pj-year">2025</span></div>
+                            <p><strong>Stacked generalization &amp; model optimization</strong>: a neural meta-head over a CatBoost base lifts F1 by 2.5 points (to 89.8%) and reaches 96% ROC-AUC. A high-performing ML model approved by an academic jury.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/Neural-Meta-Learner-Enhancement">GitHub</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">Comparative ML Evaluation</h3><span class="pj-year">2025</span></div>
+                            <p><strong>Comprehensive model evaluation under a single controlled protocol</strong>: leakage-protected feature engineering and a systematic analysis of 8 classifiers. RandomizedSearchCV tuning took CatBoost to 80.6% accuracy and 0.886 ROC-AUC, a clear performance lift.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/Comparative-ML-Model-Evaluation">GitHub</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">CAN Bus · J1939 Suite</h3><span class="pj-year">2023</span></div>
+                            <p><strong>Generator + monitor desktop pair</strong> speaking standards-correct 29-bit J1939 over SocketCAN (20 PGNs / ~30 SPNs); real industry traffic, with the two systems talking across Linux &amp; Windows platforms.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/CANBus-J1939-Complete-Repo">GitHub</a></div>
+                        </div>
+                        <div class="proj">
+                            <div class="pj-head"><h3 class="pj-name">DL Image Colorization</h3><span class="pj-year">2024</span></div>
+                            <p><strong>Deep-learning image colorization</strong>: autonomous colorization of grayscale images as a/b-chrominance regression in CIE Lab. Autoencoder, U-Net and ResNet50-UNet architectures were built and compared, scored on PSNR / SSIM and validated with pairwise t-tests.</p>
+                            <div class="pj-links"><a href="https://github.com/egeozcelik/Deep-Learning-Architectures-for-Image-Colorization">GitHub</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px;">
+                    <div class="sec">
+                        <h2 class="sec-title">Contributed</h2>
+                        <span class="lbl">Selected collaborations</span>
+                    </div>
+                    <div class="contrib-grid">
+                        <div>
+                            <a class="cb-name" href="https://www.giacreativestudio.com">GIA Creative Studio</a>
+                            <p class="cb-desc">Developed website &amp; simulation.</p>
+                        </div>
+                        <div>
+                            <a class="cb-name" href="https://www.reconchillestudios.com">Reconchille Studios</a>
+                            <p class="cb-desc">Developed &amp; shipped mobile apps.</p>
+                        </div>
+                        <div>
+                            <a class="cb-name" href="https://www.youtube.com/@LumosGenerativeAI">Lumos Generative AI</a>
+                            <p class="cb-desc">Built custom AI-orchestration pipelines for autonomous video generation.</p>
+                        </div>
+                        <div>
+                            <span class="cb-name">Koi Academy</span>
+                            <p class="cb-desc">Developed website &amp; mobile app (under NDA).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="close" style="margin-top: 32px;">
+                    <span class="lbl">Open to job &amp; project opportunities</span>
+                    <p class="close-line">Whatever you have in mind — <a href="mailto:ege.ozcelik@icloud.com">ege.ozcelik@icloud.com</a></p>
+                    <div class="close-links">
+                        <a href="https://egeozcelik.github.io">egeozcelik.github.io</a>
+                        <a href="https://github.com/egeozcelik">github.com/egeozcelik</a>
+                        <a href="https://www.linkedin.com/in/egeozcelik/">linkedin.com/in/egeozcelik</a>
+                        <a href="https://medium.com/@egeozcelik">medium.com/@egeozcelik</a>
+                        <a href="https://www.hackerrank.com/profile/ege_ozcelik">hackerrank.com/profile/ege_ozcelik</a>
+                    </div>
+                </div>
+
+                <footer class="sfoot">
+                    <span>EGE ÖZÇELİK — CURRICULUM VITAE</span>
+                    <span>egeozcelik.github.io</span>
+                    <span>02 / 02</span>
+                </footer>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        /* fit the A4 sheets into narrow viewports */
+        (function () {
+            const sc = document.getElementById('scaler');
+            function fit() {
+                const s = Math.min(1, (window.innerWidth - 32) / sc.offsetWidth);
+                sc.style.transform = s < 1 ? 'scale(' + s + ')' : 'none';
+                sc.style.marginBottom = s < 1 ? -(sc.offsetHeight * (1 - s)) + 'px' : '0';
+            }
+            window.addEventListener('resize', fit);
+            fit();
+        })();
+
+        document.getElementById('printBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
+</body>
+</html>
