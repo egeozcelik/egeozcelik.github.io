@@ -38,7 +38,68 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Mindplace</text>
 </svg>`,
 
-  /* 1 · TravelerApp · Pacer — route trace + explore pins */
+  /* 1 · QPlace — sentence → select widgets → hydrate → the screen composes itself */
+  qplace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--qplace">
+  <defs><radialGradient id="qpGlow" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#F0923E" stop-opacity="0.14"/><stop offset="0.7" stop-color="#F0923E" stop-opacity="0"/></radialGradient></defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="400" cy="420" r="360" fill="url(#qpGlow)"/>
+  <g stroke="#F0923E" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
+  <g class="qp-lSel"><circle cx="76" cy="300" r="5" fill="#F0923E"/><text x="90" y="305" fill="#F0923E" font-family="monospace" font-size="15" letter-spacing="1">SELECT · widgets</text></g>
+  <g class="qp-lHyd"><circle cx="76" cy="326" r="5" fill="#8FB6F0"/><text x="90" y="331" fill="#8FB6F0" font-family="monospace" font-size="15" letter-spacing="1">HYDRATE · real data</text></g>
+  <rect x="170" y="228" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
+  <rect class="qp-caret" x="196" y="243" width="2.6" height="22" fill="#EFE7D9"/>
+  <g stroke="#EFE7D9" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round"><line class="qp-a1" x1="210" y1="254" x2="262" y2="254"/><line class="qp-a2" x1="274" y1="254" x2="320" y2="254"/><line class="qp-a3" x1="332" y1="254" x2="418" y2="254"/><line class="qp-a4" x1="430" y1="254" x2="486" y2="254"/><line class="qp-b1" x1="210" y1="254" x2="292" y2="254"/><line class="qp-b2" x1="304" y1="254" x2="356" y2="254"/></g>
+  <circle cx="598" cy="254" r="18" fill="#F0923E" fill-opacity="0.92"/>
+  <rect x="594" y="243" width="8" height="12" rx="4" fill="#0f0f0f"/>
+  <path d="M590 253 a8 8 0 0 0 16 0 M598 261 L598 266" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
+  <circle class="flow qp-send" r="3.6" fill="#FFC489" style="offset-path:path('M400,282 L400,304')"/>
+  <circle class="qp-fire" cx="400" cy="322" r="21" fill="none" stroke="#FFC489" stroke-width="2"/>
+  <rect x="386" y="308" width="28" height="28" rx="9" fill="#0f0f0f" stroke="#F0923E" stroke-opacity="0.75" stroke-width="2"/>
+  <circle cx="400" cy="322" r="4.5" fill="#F0923E" fill-opacity="0.9"/>
+  <g stroke="#EFE7D9" stroke-opacity="0.12" stroke-width="1"><line x1="400" y1="338" x2="292" y2="354"/><line x1="400" y1="338" x2="400" y2="354"/><line x1="400" y1="338" x2="508" y2="354"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.1"><rect x="269" y="358" width="24" height="24" rx="5"/><rect x="303" y="358" width="24" height="24" rx="5"/><rect x="337" y="358" width="24" height="24" rx="5"/><rect x="371" y="358" width="24" height="24" rx="5"/><rect x="405" y="358" width="24" height="24" rx="5"/><rect x="439" y="358" width="24" height="24" rx="5"/><rect x="473" y="358" width="24" height="24" rx="5"/><rect x="507" y="358" width="24" height="24" rx="5"/><rect x="269" y="392" width="24" height="24" rx="5"/><rect x="303" y="392" width="24" height="24" rx="5"/><rect x="337" y="392" width="24" height="24" rx="5"/><rect x="371" y="392" width="24" height="24" rx="5"/><rect x="405" y="392" width="24" height="24" rx="5"/><rect x="439" y="392" width="24" height="24" rx="5"/><rect x="473" y="392" width="24" height="24" rx="5"/><rect x="507" y="392" width="24" height="24" rx="5"/></g>
+  <rect class="qp-scan" x="265" y="352" width="9" height="68" rx="4.5" fill="#F0923E" fill-opacity="0.5"/>
+  <g class="qp-selA"><g fill="#F0923E" fill-opacity="0.5"><rect x="303" y="358" width="24" height="24" rx="5"/><rect x="371" y="392" width="24" height="24" rx="5"/><rect x="473" y="392" width="24" height="24" rx="5"/></g><g fill="none" stroke="#F0923E" stroke-width="2"><rect x="299" y="354" width="32" height="32" rx="8"/><rect x="367" y="388" width="32" height="32" rx="8"/><rect x="469" y="388" width="32" height="32" rx="8"/></g></g>
+  <g class="qp-selB"><g fill="#F0923E" fill-opacity="0.5"><rect x="439" y="358" width="24" height="24" rx="5"/><rect x="269" y="392" width="24" height="24" rx="5"/></g><g fill="none" stroke="#F0923E" stroke-width="2"><rect x="435" y="354" width="32" height="32" rx="8"/><rect x="265" y="388" width="32" height="32" rx="8"/></g></g>
+  <rect x="262" y="452" width="276" height="332" rx="18" fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="372" y="463" width="56" height="5" rx="2.5" fill="#EFE7D9" fill-opacity="0.22"/>
+  <g class="qp-cA1">
+  <rect x="278" y="478" width="244" height="112" rx="12" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.3" stroke-width="1.2"/>
+  <g fill="none" stroke="#8FB6F0" stroke-opacity="0.2" stroke-width="1"><path d="M278 534 L338 522 L400 540 L462 516 L522 532"/><path d="M352 478 L344 534 L364 590"/><path d="M448 478 L458 546 L442 590"/></g>
+  <g fill="#F0923E" fill-opacity="0.45"><circle cx="334" cy="560" r="4.5"/><circle cx="472" cy="500" r="4.5"/></g>
+  <path d="M400 546 C 391 532, 388 527, 388 520 A12 12 0 1 1 412 520 C 412 527, 409 532, 400 546 Z" fill="#F0923E"/>
+  <circle cx="400" cy="520" r="4.5" fill="#0f0f0f"/>
+  </g>
+  <g class="qp-cA2">
+  <rect x="278" y="600" width="244" height="76" rx="12" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.2"/>
+  <rect x="290" y="610" width="56" height="56" rx="10" fill="#F0923E" fill-opacity="0.45"/>
+  <rect x="360" y="616" width="118" height="8" rx="4" fill="#EFE7D9" fill-opacity="0.5"/>
+  <rect x="360" y="634" width="86" height="6" rx="3" fill="#EFE7D9" fill-opacity="0.26"/>
+  <g fill="#F0923E" fill-opacity="0.8"><circle cx="363" cy="654" r="3"/><circle cx="375" cy="654" r="3"/><circle cx="387" cy="654" r="3"/><circle cx="399" cy="654" r="3"/><circle cx="411" cy="654" r="3"/></g>
+  </g>
+  <g class="qp-cA3" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.2" stroke-width="1.1"><rect x="278" y="686" width="74" height="48" rx="10"/><rect x="363" y="686" width="74" height="48" rx="10"/><rect x="448" y="686" width="74" height="48" rx="10"/><rect x="278" y="744" width="72" height="22" rx="11"/><rect x="360" y="744" width="62" height="22" rx="11"/><rect x="432" y="744" width="90" height="22" rx="11"/></g>
+  <g class="qp-cB1">
+  <rect x="278" y="478" width="244" height="86" rx="12" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.28" stroke-width="1.2"/>
+  <path d="M278 512 L344 502 L410 518 L478 500 L522 510" fill="none" stroke="#8FB6F0" stroke-opacity="0.18" stroke-width="1"/>
+  <path d="M400 540 C 392 528, 389 523, 389 516 A11 11 0 1 1 411 516 C 411 523, 408 528, 400 540 Z" fill="#F0923E"/>
+  <circle cx="400" cy="516" r="4" fill="#0f0f0f"/>
+  </g>
+  <g class="qp-cB2">
+  <g fill="#EFE7D9" fill-opacity="0.42"><rect x="278" y="590" width="126" height="8" rx="4"/><rect x="278" y="626" width="104" height="8" rx="4"/><rect x="278" y="662" width="138" height="8" rx="4"/></g>
+  <g fill="#8FB6F0" fill-opacity="0.2"><rect x="470" y="587" width="52" height="15" rx="7.5"/><rect x="470" y="623" width="52" height="15" rx="7.5"/><rect x="470" y="659" width="52" height="15" rx="7.5"/></g>
+  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1"><line x1="278" y1="612" x2="522" y2="612"/><line x1="278" y1="648" x2="522" y2="648"/><line x1="278" y1="684" x2="522" y2="684"/></g>
+  </g>
+  <g class="qp-cB3">
+  <g fill="#EFE7D9" fill-opacity="0.42"><rect x="278" y="698" width="96" height="8" rx="4"/><rect x="278" y="734" width="118" height="8" rx="4"/></g>
+  <g fill="#8FB6F0" fill-opacity="0.2"><rect x="470" y="695" width="52" height="15" rx="7.5"/><rect x="470" y="731" width="52" height="15" rx="7.5"/></g>
+  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1"><line x1="278" y1="720" x2="522" y2="720"/><line x1="278" y1="756" x2="522" y2="756"/></g>
+  </g>
+  <g fill="#8FB6F0"><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M315,370 L340,470')"/><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M383,404 L395,470')"/><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M485,404 L462,470')"/><circle class="flow qp-dropB" r="3.4" style="offset-path:path('M451,370 L430,470')"/><circle class="flow qp-dropB" r="3.4" style="offset-path:path('M281,404 L322,470')"/></g>
+  <text x="56" y="852" fill="#8FB6F0" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">SDUI · SENTENCE → SCREEN</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">QPlace</text>
+</svg>`,
+
+  /* 2 · TravelerApp · Pacer — route trace + explore pins */
   traveler: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--traveler">
   <defs><radialGradient id="tvGlow" cx="42%" cy="60%" r="62%"><stop offset="0" stop-color="#5EEAD4" stop-opacity="0.14"/><stop offset="0.7" stop-color="#5EEAD4" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -63,7 +124,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">TravelerApp · Pacer</text>
 </svg>`,
 
-  /* 2 · UWB · Nearby Interaction — Time-of-Flight + azimuth scan */
+  /* 3 · UWB · Nearby Interaction — Time-of-Flight + azimuth scan */
   uwb: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--uwb">
   <defs><radialGradient id="uwGlow" cx="50%" cy="76%" r="60%"><stop offset="0" stop-color="#34E0D0" stop-opacity="0.16"/><stop offset="0.7" stop-color="#34E0D0" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -89,7 +150,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">UWB · Nearby Interaction</text>
 </svg>`,
 
-  /* 3 · CAN Bus · J1939 — bits on the differential pair + field decode */
+  /* 4 · CAN Bus · J1939 — bits on the differential pair + field decode */
   canbus: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--canbus">
   <defs><radialGradient id="cbGlow" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#34D399" stop-opacity="0.14"/><stop offset="0.7" stop-color="#34D399" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -112,7 +173,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">CAN Bus · J1939 Simulator</text>
 </svg>`,
 
-  /* 4 · Face Recognition · NPU — scan sweep + mesh + embedding read */
+  /* 5 · Face Recognition · NPU — scan sweep + mesh + embedding read */
   face: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--face">
   <defs><radialGradient id="fnGlow" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#2FE0C8" stop-opacity="0.15"/><stop offset="0.7" stop-color="#2FE0C8" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -134,7 +195,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Face Recognition · NPU</text>
 </svg>`,
 
-  /* 5 · Neural Meta-Learner — forward pass up the winning path */
+  /* 6 · Neural Meta-Learner — forward pass up the winning path */
   meta: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--meta">
   <defs><radialGradient id="mlGlow" cx="50%" cy="38%" r="58%"><stop offset="0" stop-color="#7C6BF5" stop-opacity="0.16"/><stop offset="0.7" stop-color="#7C6BF5" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -157,7 +218,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Neural Meta-Learner</text>
 </svg>`,
 
-  /* 6 · Comparative ML Evaluation — leaderboard fill + ROC sweep */
+  /* 7 · Comparative ML Evaluation — leaderboard fill + ROC sweep */
   mleval: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--mleval">
   <defs><radialGradient id="meGlow" cx="50%" cy="40%" r="58%"><stop offset="0" stop-color="#3D8BFF" stop-opacity="0.14"/><stop offset="0.7" stop-color="#3D8BFF" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -184,7 +245,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42">Comparative ML Evaluation</text>
 </svg>`,
 
-  /* 7 · DL Image Colorization — grayscale→colour wavefront + Lab drift */
+  /* 8 · DL Image Colorization — grayscale→colour wavefront + Lab drift */
   color: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--color">
   <defs>
     <linearGradient id="aAxis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3BD17A"/><stop offset="0.5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#F05C9E"/></linearGradient>
@@ -211,7 +272,7 @@
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">DL Image Colorization</text>
 </svg>`,
 
-  /* 8 · Other Studies — archive stack settles in (entrance only) */
+  /* 9 · Other Studies — archive stack settles in (entrance only) */
   other: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--other">
   <defs><radialGradient id="osGlow" cx="50%" cy="44%" r="60%"><stop offset="0" stop-color="#F5A524" stop-opacity="0.16"/><stop offset="0.66" stop-color="#F5A524" stop-opacity="0"/></radialGradient></defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
@@ -244,6 +305,21 @@
                 ],
                 links: [{ t: 'Explore', u: 'https://www.mindplace.app' }],
                 kw: 'meditation', cover: 'mindplace', img: 'assets/mindplace.svg'
+            },
+            {
+                n: 'QPlace', year: '2026 — Now Building',
+                stack: ['Server-Driven UI', 'Intent Routing & Depth Ladder', 'Schema-Constrained LLM Selection', 'Deterministic Hydration', 'Grounded Retrieval · Google Places', 'Gemini 2.5 Flash', 'On-Device Foundation Models', 'Context-Aware Prompting', 'Swift / SwiftUI', 'Supabase Edge Functions', 'Contract Testing'],
+                desc: '<strong>One sentence in, somewhere to be.</strong> QPlace reads an ordinary ask — "a cozy dinner somewhere near me", "nearest pharmacy", "three days in Rome" — and builds the answer that question actually calls for: a map with one place shown large, five ranked rows with distances, a single line back, or a trip laid out by day. No filter row, no date picker, no tab bar; the sentence carries all of it. <strong>Different question, different screen.</strong><br><br>The architecture is <strong>server-driven UI with a hard seam</strong>: Gemini writes the query and <strong>selects</strong> from a fixed <strong>16-widget catalog</strong>, then deterministic Swift <strong>hydrates</strong> each widget from real data. The model never writes a coordinate, a placeId or a photo URL — it can pick a weak combination, it can never invent a place. Every selection runs a validator: unknown id dropped, unmet data requirement dropped, nothing left falls back to a known-good recipe.<br><br><strong>The honesty is enforced in code, not in copy.</strong> Two APIs here answer a question you did not ask — Apple\'s geocoder resolves "Cappadocia" to a street in Rome, Google Places pads a sparse search with whatever is nearby — so two pure functions gate both, word-boundary matched and pinned to measured fixtures. Showing fewer results beats showing false ones. In build toward v1.1 on one rule: same input, same surface, <strong>smarter answers</strong>.',
+                roleLabel: '<strong>End-to-End Development</strong>',
+                roleBullets: [
+                    '<strong>Product &amp; Architecture</strong> the zero-configuration surface and the select ≠ hydrate seam',
+                    '<strong>AI Pipelines</strong> query writing &amp; widget selection in Supabase Edge Functions',
+                    '<strong>iOS Development</strong> SwiftUI renderer for the server-driven widget catalog',
+                    '<strong>Honesty Guards</strong> geocode &amp; place-relevance gates behind 300+ contract tests',
+                    '<strong>Design</strong> UI/UX'
+                ],
+                links: [{ t: 'Explore', u: 'https://www.reconchillestudios.com/apps/qplace' }],
+                kw: 'city', cover: 'qplace', img: 'assets/qplace.svg'
             },
             {
                 n: 'TravelerApp · Pacer', year: '2024',
