@@ -14,8 +14,10 @@
   <g class="qp-lJudge"><circle cx="64" cy="332" r="4.5" fill="#E0705C"/><text x="78" y="337" fill="#E0705C" font-family="monospace" font-size="14" letter-spacing="1">JUDGE &#183; real data</text></g>
   <g class="qp-lComp"><circle cx="64" cy="358" r="4.5" fill="#8FB6F0"/><text x="78" y="363" fill="#8FB6F0" font-family="monospace" font-size="14" letter-spacing="1">COMPOSE &#183; widgets</text></g>
   <rect x="170" y="226" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
-  <rect class="qp-caret" x="196" y="241" width="2.6" height="22" fill="#EFE7D9"/>
-  <g stroke="#EFE7D9" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round"><line class="qp-a1" x1="210" y1="252" x2="262" y2="252"/><line class="qp-a2" x1="274" y1="252" x2="330" y2="252"/><line class="qp-a3" x1="342" y1="252" x2="428" y2="252"/><line class="qp-b1" x1="210" y1="252" x2="276" y2="252"/><line class="qp-b2" x1="288" y1="252" x2="352" y2="252"/></g>
+  <text class="qp-tA" x="210" y="258" fill="#EFE7D9" fill-opacity="0.78" font-family="monospace" font-size="17" letter-spacing="0.5" textLength="331">a cozy dinner somewhere near me</text>
+  <text class="qp-tB" x="210" y="258" fill="#EFE7D9" fill-opacity="0.78" font-family="monospace" font-size="17" letter-spacing="0.5" textLength="182">is it still open?</text>
+  <g class="qp-carA"><rect class="qp-carAM" x="545" y="241" width="2.6" height="22" fill="#EFE7D9"/></g>
+  <g class="qp-carB"><rect class="qp-carBM" x="396" y="241" width="2.6" height="22" fill="#EFE7D9"/></g>
   <circle cx="598" cy="252" r="18" fill="#F0923E" fill-opacity="0.92"/>
   <rect x="594" y="241" width="8" height="12" rx="4" fill="#0f0f0f"/>
   <path d="M590 251 a8 8 0 0 0 16 0 M598 259 L598 264" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
