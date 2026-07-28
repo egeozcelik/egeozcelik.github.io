@@ -12,7 +12,86 @@
         .visual-bg svg.cover { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
         .cover .flow { offset-rotate: 0deg; opacity: 0; }   /* travelling signal dots: hidden at rest */
 
-        /* 0 · Mindplace — agentic film pipeline: brief → hub → crew → engines → keyframes render one-by-one */
+        /* 0 · QPlace — the brain runs one turn, twice. A sentence types and fires
+           into the constellation; candidate routes flicker and die while the winning
+           path draws down to the depth ladder (DISCOVER); the query arcs out, real
+           data arrives at the honesty gate, one padded result flushes red and falls,
+           the survivors drop into the widgets and the screen composes. The second,
+           shorter question routes to a different exit (DETAIL) and composes a
+           different screen: one capsule. 12s, two halves; at rest the finished
+           half-one answer. */
+        @keyframes qp-caret { 0%, 48% { opacity: 1; } 52%, 100% { opacity: 0; } }
+        .cover--qplace .qp-caret { opacity: 1; animation: qp-caret 1.06s linear -5s infinite; }
+        @keyframes qp-a1 { 0%, 2% { opacity: 0; } 4%, 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        @keyframes qp-a2 { 0%, 4% { opacity: 0; } 6%, 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        @keyframes qp-a3 { 0%, 6% { opacity: 0; } 8%, 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        .cover--qplace .qp-a1 { opacity: 1; animation: qp-a1 12s ease-out -5s infinite; }
+        .cover--qplace .qp-a2 { opacity: 1; animation: qp-a2 12s ease-out -5s infinite; }
+        .cover--qplace .qp-a3 { opacity: 1; animation: qp-a3 12s ease-out -5s infinite; }
+        @keyframes qp-b1 { 0%, 51% { opacity: 0; } 53%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+        @keyframes qp-b2 { 0%, 53% { opacity: 0; } 55%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+        .cover--qplace .qp-b1 { opacity: 0; animation: qp-b1 12s ease-out -5s infinite; }
+        .cover--qplace .qp-b2 { opacity: 0; animation: qp-b2 12s ease-out -5s infinite; }
+        @keyframes qp-send { 0%, 8.5% { offset-distance: 0%; opacity: 0; } 9% { opacity: 1; } 11.5% { offset-distance: 100%; opacity: 1; } 12% { offset-distance: 100%; opacity: 0; } 13%, 57.5% { offset-distance: 0%; opacity: 0; } 58% { opacity: 1; } 60.5% { offset-distance: 100%; opacity: 1; } 61%, 100% { offset-distance: 100%; opacity: 0; } }
+        .cover--qplace .qp-send { animation: qp-send 12s linear -5s infinite; }
+        @keyframes qp-entry { 0%, 11% { opacity: 0; transform: scale(.5); } 13% { opacity: .85; transform: scale(1); } 17% { opacity: 0; transform: scale(1.9); } 56% { opacity: 0; transform: scale(.5); } 61.5% { opacity: .85; transform: scale(1); } 65%, 100% { opacity: 0; transform: scale(1.9); } }
+        .cover--qplace .qp-entry { opacity: 0; transform-box: fill-box; transform-origin: center; animation: qp-entry 12s ease-out -5s infinite; }
+        @keyframes qp-thinkA1 { 0%, 10.5% { opacity: 0; } 11.5% { opacity: .55; } 12.5% { opacity: .12; } 13.5% { opacity: .45; } 15.5%, 100% { opacity: 0; } }
+        @keyframes qp-thinkA2 { 0%, 11.5% { opacity: 0; } 12.5% { opacity: .5; } 13.5% { opacity: .14; } 14.5% { opacity: .4; } 16.5%, 100% { opacity: 0; } }
+        @keyframes qp-thinkB { 0%, 59% { opacity: 0; } 60% { opacity: .55; } 61% { opacity: .14; } 62% { opacity: .45; } 64%, 100% { opacity: 0; } }
+        .cover--qplace .qp-thinkA1 { opacity: 0; animation: qp-thinkA1 12s linear -5s infinite; }
+        .cover--qplace .qp-thinkA2 { opacity: 0; animation: qp-thinkA2 12s linear -5s infinite; }
+        .cover--qplace .qp-thinkB { opacity: 0; animation: qp-thinkB 12s linear -5s infinite; }
+        @keyframes qp-pathA { 0%, 12% { opacity: 0; } 14.5% { opacity: 1; } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        .cover--qplace .qp-pathA { opacity: 1; animation: qp-pathA 12s ease-out -5s infinite; }
+        @keyframes qp-drawA { 0%, 12% { stroke-dashoffset: 100; } 20%, 100% { stroke-dashoffset: 0; } }
+        .cover--qplace .qp-drawA { stroke-dasharray: 100 100; stroke-dashoffset: 0; animation: qp-drawA 12s cubic-bezier(.3,.6,.2,1) -5s infinite; }
+        @keyframes qp-pathB { 0%, 61% { opacity: 0; } 63.5% { opacity: 1; } 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+        .cover--qplace .qp-pathB { opacity: 0; animation: qp-pathB 12s ease-out -5s infinite; }
+        @keyframes qp-drawB { 0%, 61% { stroke-dashoffset: 100; } 69%, 100% { stroke-dashoffset: 0; } }
+        .cover--qplace .qp-drawB { stroke-dasharray: 100 100; stroke-dashoffset: 100; animation: qp-drawB 12s cubic-bezier(.3,.6,.2,1) -5s infinite; }
+        @keyframes qp-ladA { 0%, 19% { opacity: 0; } 22% { opacity: 1; } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        .cover--qplace .qp-ladA { opacity: 1; animation: qp-ladA 12s ease-out -5s infinite; }
+        @keyframes qp-ladB { 0%, 67% { opacity: 0; } 70% { opacity: 1; } 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+        .cover--qplace .qp-ladB { opacity: 0; animation: qp-ladB 12s ease-out -5s infinite; }
+        @keyframes qp-arcA { 0%, 20.5% { opacity: 0; } 23% { opacity: 1; } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        .cover--qplace .qp-arcA { opacity: 1; animation: qp-arcA 12s ease-out -5s infinite; }
+        @keyframes qp-arcDrawA { 0%, 21% { stroke-dashoffset: 100; } 25%, 100% { stroke-dashoffset: 0; } }
+        .cover--qplace .qp-arcDrawA { stroke-dasharray: 100 100; stroke-dashoffset: 0; animation: qp-arcDrawA 12s ease-out -5s infinite; }
+        @keyframes qp-arcB { 0%, 68% { opacity: 0; } 70% { opacity: 1; } 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+        .cover--qplace .qp-arcB { opacity: 0; animation: qp-arcB 12s ease-out -5s infinite; }
+        @keyframes qp-arcDrawB { 0%, 69% { stroke-dashoffset: 100; } 73%, 100% { stroke-dashoffset: 0; } }
+        .cover--qplace .qp-arcDrawB { stroke-dasharray: 100 100; stroke-dashoffset: 100; animation: qp-arcDrawB 12s ease-out -5s infinite; }
+        @keyframes qp-d1 { 0%, 24% { offset-distance: 0%; opacity: 0; } 25% { opacity: 1; } 28% { offset-distance: 72%; } 29.5% { offset-distance: 72%; } 31.5% { offset-distance: 100%; opacity: 1; } 33%, 100% { offset-distance: 100%; opacity: 0; } }
+        @keyframes qp-d2 { 0%, 25.5% { offset-distance: 0%; opacity: 0; } 26.5% { opacity: 1; } 29.5% { offset-distance: 64%; } 31% { offset-distance: 64%; } 33% { offset-distance: 100%; opacity: 1; } 34.5%, 100% { offset-distance: 100%; opacity: 0; } }
+        @keyframes qp-d3 { 0%, 27% { offset-distance: 0%; opacity: 0; } 28% { opacity: 1; } 31% { offset-distance: 51%; } 32.5% { offset-distance: 51%; } 34.5% { offset-distance: 100%; opacity: 1; } 36%, 100% { offset-distance: 100%; opacity: 0; } }
+        @keyframes qp-rej { 0%, 26% { offset-distance: 0%; opacity: 0; fill: #8FB6F0; } 27% { opacity: 1; } 29.5% { offset-distance: 64%; fill: #8FB6F0; } 31% { offset-distance: 64%; fill: #E0705C; } 34% { offset-distance: 100%; opacity: .9; fill: #E0705C; } 35.5%, 100% { offset-distance: 100%; opacity: 0; } }
+        @keyframes qp-dB { 0%, 71% { offset-distance: 0%; opacity: 0; } 72% { opacity: 1; } 75% { offset-distance: 71%; } 76.5% { offset-distance: 71%; } 78.5% { offset-distance: 100%; opacity: 1; } 80%, 100% { offset-distance: 100%; opacity: 0; } }
+        .cover--qplace .qp-d1 { animation: qp-d1 12s linear -5s infinite; }
+        .cover--qplace .qp-d2 { animation: qp-d2 12s linear -5s infinite; }
+        .cover--qplace .qp-d3 { animation: qp-d3 12s linear -5s infinite; }
+        .cover--qplace .qp-rej { animation: qp-rej 12s linear -5s infinite; }
+        .cover--qplace .qp-dB { animation: qp-dB 12s linear -5s infinite; }
+        @keyframes qp-wMap { 0%, 30% { opacity: 0; transform: translateY(8px); } 33% { opacity: 1; transform: translateY(0); } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        @keyframes qp-wHero { 0%, 32.5% { opacity: 0; transform: translateY(8px); } 35.5% { opacity: 1; transform: translateY(0); } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        @keyframes qp-wRail { 0%, 35% { opacity: 0; transform: translateY(8px); } 38% { opacity: 1; transform: translateY(0); } 46% { opacity: 1; } 49%, 100% { opacity: 0; } }
+        .cover--qplace .qp-wMap { opacity: 1; transform-box: fill-box; transform-origin: center; animation: qp-wMap 12s ease-out -5s infinite; }
+        .cover--qplace .qp-wHero { opacity: 1; transform-box: fill-box; transform-origin: center; animation: qp-wHero 12s ease-out -5s infinite; }
+        .cover--qplace .qp-wRail { opacity: 1; transform-box: fill-box; transform-origin: center; animation: qp-wRail 12s ease-out -5s infinite; }
+        @keyframes qp-wCap { 0%, 76% { opacity: 0; transform: translateY(8px); } 79% { opacity: 1; transform: translateY(0); } 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+        .cover--qplace .qp-wCap { opacity: 0; transform-box: fill-box; transform-origin: center; animation: qp-wCap 12s ease-out -5s infinite; }
+        @keyframes qp-shimA { 0%, 36% { transform: translateX(0); opacity: 0; } 37.5% { opacity: .22; } 41%, 100% { transform: translateX(236px); opacity: 0; } }
+        .cover--qplace .qp-shimA { opacity: 0; animation: qp-shimA 12s ease-in-out -5s infinite; }
+        @keyframes qp-shimB { 0%, 79.5% { transform: translateX(0); opacity: 0; } 81% { opacity: .25; } 84%, 100% { transform: translateX(184px); opacity: 0; } }
+        .cover--qplace .qp-shimB { opacity: 0; animation: qp-shimB 12s ease-in-out -5s infinite; }
+        @keyframes qp-lRoute { 0%, 9% { opacity: .3; } 12%, 20% { opacity: 1; } 24%, 57% { opacity: .3; } 60%, 67% { opacity: 1; } 71%, 100% { opacity: .3; } }
+        @keyframes qp-lJudge { 0%, 23% { opacity: .3; } 26%, 33% { opacity: 1; } 37%, 69% { opacity: .3; } 72%, 77% { opacity: 1; } 81%, 100% { opacity: .3; } }
+        @keyframes qp-lComp { 0%, 29% { opacity: .3; } 32%, 42% { opacity: 1; } 46%, 74% { opacity: .3; } 77%, 85% { opacity: 1; } 89%, 100% { opacity: .3; } }
+        .cover--qplace .qp-lRoute { opacity: .55; animation: qp-lRoute 12s ease-in-out -5s infinite; }
+        .cover--qplace .qp-lJudge { opacity: .55; animation: qp-lJudge 12s ease-in-out -5s infinite; }
+        .cover--qplace .qp-lComp { opacity: .55; animation: qp-lComp 12s ease-in-out -5s infinite; }
+
+        /* 1 · Mindplace — agentic film pipeline: brief → hub → crew → engines → keyframes render one-by-one */
         @keyframes mp-brief { 0% { offset-distance: 0%; opacity: 0; } 4% { opacity: 1; } 10% { opacity: 1; } 14% { offset-distance: 100%; opacity: 0; } 100% { opacity: 0; } }
         .cover--mindplace .mp-brief { offset-rotate: 0deg; opacity: 0; animation: mp-brief 6s ease-in infinite; }
         @keyframes mp-hub { 0%, 6% { opacity: 0; } 12% { opacity: 1; } 30% { opacity: .25; } 100% { opacity: 0; } }
@@ -33,57 +112,6 @@
         .cover--mindplace .mp-fr3 { opacity: 1; animation: mp-fr3 6s ease-out infinite; }
         .cover--mindplace .mp-fr4 { opacity: 1; animation: mp-fr4 6s ease-out infinite; }
         .cover--mindplace .mp-fr5 { opacity: 1; animation: mp-fr5 6s ease-out infinite; }
-
-        /* 1 · QPlace — a sentence is typed, the brain selects widgets out of the
-           catalog, real data drops in and hydrates them, the screen composes
-           itself; then a second, different question composes a different screen.
-           One 10s loop, two halves: 0–50% the mood ask (map · hero · rail),
-           50–100% the utility ask (one pin · ranked rows). At rest the finished
-           artwork is half one, fully assembled. */
-        @keyframes qp-caret { 0%, 48% { opacity: 1; } 52%, 100% { opacity: 0; } }
-        .cover--qplace .qp-caret { opacity: 1; animation: qp-caret 1.06s linear infinite; }
-        @keyframes qp-a1 { 0%, 1% { opacity: 0; } 4%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-a2 { 0%, 3% { opacity: 0; } 6%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-a3 { 0%, 5% { opacity: 0; } 8%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-a4 { 0%, 7% { opacity: 0; } 10%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        .cover--qplace .qp-a1 { opacity: 1; animation: qp-a1 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-a2 { opacity: 1; animation: qp-a2 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-a3 { opacity: 1; animation: qp-a3 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-a4 { opacity: 1; animation: qp-a4 10s ease-out -3.9s infinite; }
-        @keyframes qp-b1 { 0%, 51% { opacity: 0; } 54%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes qp-b2 { 0%, 53% { opacity: 0; } 56%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--qplace .qp-b1 { opacity: 0; animation: qp-b1 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-b2 { opacity: 0; animation: qp-b2 10s ease-out -3.9s infinite; }
-        @keyframes qp-send { 0%, 10% { offset-distance: 0%; opacity: 0; } 11% { offset-distance: 0%; opacity: 1; } 14% { offset-distance: 100%; opacity: 1; } 15% { offset-distance: 100%; opacity: 0; } 55% { offset-distance: 0%; opacity: 0; } 56% { offset-distance: 0%; opacity: 1; } 59% { offset-distance: 100%; opacity: 1; } 60%, 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--qplace .qp-send { animation: qp-send 10s linear -3.9s infinite; }
-        @keyframes qp-fire { 0%, 13% { opacity: 0; transform: scale(.55); } 16% { opacity: .85; } 21% { opacity: 0; transform: scale(1.4); } 57% { opacity: 0; transform: scale(.55); } 60% { opacity: .85; } 65%, 100% { opacity: 0; transform: scale(1.4); } }
-        .cover--qplace .qp-fire { opacity: 0; transform-box: fill-box; transform-origin: center; animation: qp-fire 10s ease-out -3.9s infinite; }
-        @keyframes qp-scan { 0%, 16% { transform: translateX(0); opacity: 0; } 17% { transform: translateX(0); opacity: .5; } 24% { transform: translateX(262px); opacity: .5; } 25% { transform: translateX(262px); opacity: 0; } 59% { transform: translateX(0); opacity: 0; } 60% { transform: translateX(0); opacity: .5; } 67% { transform: translateX(262px); opacity: .5; } 68%, 100% { transform: translateX(262px); opacity: 0; } }
-        .cover--qplace .qp-scan { opacity: 0; animation: qp-scan 10s ease-in-out -3.9s infinite; }
-        @keyframes qp-selA { 0%, 21% { opacity: 0; } 25%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-selB { 0%, 63% { opacity: 0; } 67%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--qplace .qp-selA { opacity: 1; animation: qp-selA 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-selB { opacity: 0; animation: qp-selB 10s ease-out -3.9s infinite; }
-        @keyframes qp-dropA { 0%, 25% { offset-distance: 0%; opacity: 0; } 27% { offset-distance: 0%; opacity: 1; } 31% { offset-distance: 100%; opacity: 1; } 33%, 100% { offset-distance: 100%; opacity: 0; } }
-        @keyframes qp-dropB { 0%, 67% { offset-distance: 0%; opacity: 0; } 69% { offset-distance: 0%; opacity: 1; } 73% { offset-distance: 100%; opacity: 1; } 75%, 100% { offset-distance: 100%; opacity: 0; } }
-        .cover--qplace .qp-dropA { animation: qp-dropA 10s ease-in -3.9s infinite; }
-        .cover--qplace .qp-dropB { animation: qp-dropB 10s ease-in -3.9s infinite; }
-        @keyframes qp-cA1 { 0%, 28% { opacity: 0; } 31%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-cA2 { 0%, 31% { opacity: 0; } 34%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        @keyframes qp-cA3 { 0%, 34% { opacity: 0; } 37%, 47% { opacity: 1; } 50%, 100% { opacity: 0; } }
-        .cover--qplace .qp-cA1 { opacity: 1; animation: qp-cA1 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-cA2 { opacity: 1; animation: qp-cA2 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-cA3 { opacity: 1; animation: qp-cA3 10s ease-out -3.9s infinite; }
-        @keyframes qp-cB1 { 0%, 70% { opacity: 0; } 73%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes qp-cB2 { 0%, 73% { opacity: 0; } 76%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes qp-cB3 { 0%, 76% { opacity: 0; } 79%, 97% { opacity: 1; } 100% { opacity: 0; } }
-        .cover--qplace .qp-cB1 { opacity: 0; animation: qp-cB1 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-cB2 { opacity: 0; animation: qp-cB2 10s ease-out -3.9s infinite; }
-        .cover--qplace .qp-cB3 { opacity: 0; animation: qp-cB3 10s ease-out -3.9s infinite; }
-        @keyframes qp-lSel { 0%, 19%, 30%, 61%, 72%, 100% { opacity: .32; } 22%, 27%, 64%, 69% { opacity: 1; } }
-        @keyframes qp-lHyd { 0%, 24%, 40%, 66%, 82%, 100% { opacity: .32; } 28%, 36%, 70%, 78% { opacity: 1; } }
-        .cover--qplace .qp-lSel { opacity: .6; animation: qp-lSel 10s ease-in-out -3.9s infinite; }
-        .cover--qplace .qp-lHyd { opacity: .6; animation: qp-lHyd 10s ease-in-out -3.9s infinite; }
 
         /* 2 · TravelerApp · Pacer — recorded track draws in, a location pin replays it, waypoints log as it passes */
         @keyframes tv-draw { from { stroke-dashoffset: 1200; } to { stroke-dashoffset: 0; } }
@@ -170,9 +198,12 @@
             .cover--uwb .uw-tof, .cover--uwb .uw-fire, .cover--uwb .uw-zBle, .cover--uwb .uw-zUwb, .cover--uwb .uw-zAct,
             .cover--canbus .cb-bit, .cover--canbus .cb-field, .cover--face .fn-embed,
             .cover--meta .ml-pass, .cover--meta .ml-win, .cover--mleval .me-trace,
-            .cover--qplace .qp-send, .cover--qplace .qp-fire, .cover--qplace .qp-scan,
-            .cover--qplace .qp-dropA, .cover--qplace .qp-dropB,
-            .cover--qplace .qp-b1, .cover--qplace .qp-b2, .cover--qplace .qp-selB,
-            .cover--qplace .qp-cB1, .cover--qplace .qp-cB2, .cover--qplace .qp-cB3,
+            .cover--qplace .qp-send, .cover--qplace .qp-entry,
+            .cover--qplace .qp-thinkA1, .cover--qplace .qp-thinkA2, .cover--qplace .qp-thinkB,
+            .cover--qplace .qp-b1, .cover--qplace .qp-b2,
+            .cover--qplace .qp-pathB, .cover--qplace .qp-ladB, .cover--qplace .qp-arcB,
+            .cover--qplace .qp-d1, .cover--qplace .qp-d2, .cover--qplace .qp-d3,
+            .cover--qplace .qp-rej, .cover--qplace .qp-dB,
+            .cover--qplace .qp-wCap, .cover--qplace .qp-shimA, .cover--qplace .qp-shimB,
             .cover--color .co-front { opacity: 0 !important; }
         }

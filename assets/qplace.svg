@@ -1,111 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
   <defs>
-    <radialGradient id="qpGlow" cx="50%" cy="42%" r="60%">
-      <stop offset="0" stop-color="#F0923E" stop-opacity="0.14"/>
+    <radialGradient id="qpGlow" cx="50%" cy="44%" r="60%">
+      <stop offset="0" stop-color="#F0923E" stop-opacity="0.15"/>
       <stop offset="0.7" stop-color="#F0923E" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="420" r="360" fill="url(#qpGlow)"/>
+  <circle cx="400" cy="440" r="370" fill="url(#qpGlow)"/>
   <g stroke="#F0923E" stroke-opacity="0.05" stroke-width="1">
     <line x1="0" y1="250" x2="800" y2="250"/>
     <line x1="0" y1="500" x2="800" y2="500"/>
     <line x1="0" y1="750" x2="800" y2="750"/>
     <line x1="400" y1="0" x2="400" y2="1000"/>
   </g>
-  <!-- the two lanes: the model selects, deterministic code hydrates -->
-  <g opacity="0.6">
-    <circle cx="76" cy="300" r="5" fill="#F0923E"/>
-    <text x="90" y="305" fill="#F0923E" font-family="monospace" font-size="15" letter-spacing="1">SELECT · widgets</text>
-    <circle cx="76" cy="326" r="5" fill="#8FB6F0"/>
-    <text x="90" y="331" fill="#8FB6F0" font-family="monospace" font-size="15" letter-spacing="1">HYDRATE · real data</text>
+  <!-- the three stages of one turn -->
+  <g opacity="0.55">
+    <circle cx="64" cy="306" r="4.5" fill="#F0923E"/>
+    <text x="78" y="311" fill="#F0923E" font-family="monospace" font-size="14" letter-spacing="1">ROUTE · intent</text>
+    <circle cx="64" cy="332" r="4.5" fill="#E0705C"/>
+    <text x="78" y="337" fill="#E0705C" font-family="monospace" font-size="14" letter-spacing="1">JUDGE · real data</text>
+    <circle cx="64" cy="358" r="4.5" fill="#8FB6F0"/>
+    <text x="78" y="363" fill="#8FB6F0" font-family="monospace" font-size="14" letter-spacing="1">COMPOSE · widgets</text>
   </g>
-  <!-- the one input: a sentence, typed or spoken -->
-  <rect x="170" y="228" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
-  <rect x="196" y="243" width="2.6" height="22" fill="#EFE7D9"/>
+  <!-- the one input -->
+  <rect x="170" y="226" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
+  <rect x="196" y="241" width="2.6" height="22" fill="#EFE7D9"/>
   <g stroke="#EFE7D9" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round">
-    <line x1="210" y1="254" x2="262" y2="254"/>
-    <line x1="274" y1="254" x2="320" y2="254"/>
-    <line x1="332" y1="254" x2="418" y2="254"/>
-    <line x1="430" y1="254" x2="486" y2="254"/>
+    <line x1="210" y1="252" x2="262" y2="252"/>
+    <line x1="274" y1="252" x2="330" y2="252"/>
+    <line x1="342" y1="252" x2="428" y2="252"/>
   </g>
-  <circle cx="598" cy="254" r="18" fill="#F0923E" fill-opacity="0.92"/>
-  <rect x="594" y="243" width="8" height="12" rx="4" fill="#0f0f0f"/>
-  <path d="M590 253 a8 8 0 0 0 16 0 M598 261 L598 266" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
-  <!-- the brain -->
-  <rect x="386" y="308" width="28" height="28" rx="9" fill="#0f0f0f" stroke="#F0923E" stroke-opacity="0.75" stroke-width="2"/>
-  <circle cx="400" cy="322" r="4.5" fill="#F0923E" fill-opacity="0.9"/>
-  <g stroke="#EFE7D9" stroke-opacity="0.12" stroke-width="1">
-    <line x1="400" y1="338" x2="292" y2="354"/>
-    <line x1="400" y1="338" x2="400" y2="354"/>
-    <line x1="400" y1="338" x2="508" y2="354"/>
+  <circle cx="598" cy="252" r="18" fill="#F0923E" fill-opacity="0.92"/>
+  <rect x="594" y="241" width="8" height="12" rx="4" fill="#0f0f0f"/>
+  <path d="M590 251 a8 8 0 0 0 16 0 M598 259 L598 264" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
+  <!-- the constellation -->
+  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1">
+    <line x1="400" y1="336" x2="296" y2="396"/><line x1="400" y1="336" x2="398" y2="382"/><line x1="400" y1="336" x2="502" y2="394"/>
+    <line x1="400" y1="336" x2="326" y2="352"/><line x1="400" y1="336" x2="476" y2="350"/>
+    <line x1="296" y1="396" x2="230" y2="390"/><line x1="502" y1="394" x2="560" y2="358"/>
+    <line x1="296" y1="396" x2="262" y2="476"/><line x1="296" y1="396" x2="352" y2="456"/>
+    <line x1="398" y1="382" x2="352" y2="456"/><line x1="398" y1="382" x2="452" y2="458"/>
+    <line x1="502" y1="394" x2="452" y2="458"/><line x1="502" y1="394" x2="542" y2="474"/>
+    <line x1="262" y1="476" x2="208" y2="428"/><line x1="542" y1="474" x2="592" y2="430"/>
+    <line x1="352" y1="456" x2="306" y2="512"/><line x1="452" y1="458" x2="498" y2="514"/>
+    <line x1="262" y1="476" x2="284" y2="560"/><line x1="352" y1="456" x2="284" y2="560"/>
+    <line x1="352" y1="456" x2="362" y2="560"/><line x1="452" y1="458" x2="362" y2="560"/>
+    <line x1="452" y1="458" x2="440" y2="560"/><line x1="542" y1="474" x2="440" y2="560"/>
+    <line x1="542" y1="474" x2="518" y2="560"/>
   </g>
-  <!-- the fixed widget catalog: 16 entries, three of them selected -->
-  <g fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.1">
-    <rect x="269" y="358" width="24" height="24" rx="5"/>
-    <rect x="303" y="358" width="24" height="24" rx="5"/>
-    <rect x="337" y="358" width="24" height="24" rx="5"/>
-    <rect x="371" y="358" width="24" height="24" rx="5"/>
-    <rect x="405" y="358" width="24" height="24" rx="5"/>
-    <rect x="439" y="358" width="24" height="24" rx="5"/>
-    <rect x="473" y="358" width="24" height="24" rx="5"/>
-    <rect x="507" y="358" width="24" height="24" rx="5"/>
-    <rect x="269" y="392" width="24" height="24" rx="5"/>
-    <rect x="303" y="392" width="24" height="24" rx="5"/>
-    <rect x="337" y="392" width="24" height="24" rx="5"/>
-    <rect x="371" y="392" width="24" height="24" rx="5"/>
-    <rect x="405" y="392" width="24" height="24" rx="5"/>
-    <rect x="439" y="392" width="24" height="24" rx="5"/>
-    <rect x="473" y="392" width="24" height="24" rx="5"/>
-    <rect x="507" y="392" width="24" height="24" rx="5"/>
+  <g fill="#EFE7D9" fill-opacity="0.3">
+    <circle cx="230" cy="390" r="2.5"/><circle cx="560" cy="358" r="2.5"/><circle cx="326" cy="352" r="2"/><circle cx="476" cy="350" r="2"/>
+    <circle cx="208" cy="428" r="2.5"/><circle cx="592" cy="430" r="2.5"/><circle cx="306" cy="512" r="2"/><circle cx="498" cy="514" r="2"/>
   </g>
-  <g fill="#F0923E" fill-opacity="0.5">
-    <rect x="303" y="358" width="24" height="24" rx="5"/>
-    <rect x="371" y="392" width="24" height="24" rx="5"/>
-    <rect x="473" y="392" width="24" height="24" rx="5"/>
+  <g fill="#EFE7D9" fill-opacity="0.42">
+    <circle cx="296" cy="396" r="4"/><circle cx="502" cy="394" r="4"/><circle cx="262" cy="476" r="4"/><circle cx="542" cy="474" r="4"/>
   </g>
-  <g fill="none" stroke="#F0923E" stroke-width="2">
-    <rect x="299" y="354" width="32" height="32" rx="8"/>
-    <rect x="367" y="388" width="32" height="32" rx="8"/>
-    <rect x="469" y="388" width="32" height="32" rx="8"/>
+  <g fill="#EFE7D9" fill-opacity="0.55">
+    <circle cx="398" cy="382" r="4.5"/><circle cx="352" cy="456" r="4.5"/><circle cx="452" cy="458" r="4.5"/>
+  </g>
+  <circle cx="400" cy="336" r="9" fill="none" stroke="#F0923E" stroke-opacity="0.35" stroke-width="1.4"/>
+  <circle cx="400" cy="336" r="5" fill="#F0923E" fill-opacity="0.9"/>
+  <!-- the winning route -->
+  <path d="M400,336 L398,382 L352,456 L284,560" fill="none" stroke="#F0923E" stroke-opacity="0.14" stroke-width="8" stroke-linecap="round"/>
+  <path d="M400,336 L398,382 L352,456 L284,560" fill="none" stroke="#F0923E" stroke-opacity="0.95" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- the depth ladder -->
+  <g fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.4">
+    <circle cx="284" cy="560" r="5.5"/><circle cx="362" cy="560" r="5.5"/><circle cx="440" cy="560" r="5.5"/><circle cx="518" cy="560" r="5.5"/>
+  </g>
+  <g fill="#EFE7D9" fill-opacity="0.4">
+    <circle cx="284" cy="560" r="2"/><circle cx="362" cy="560" r="2"/><circle cx="440" cy="560" r="2"/><circle cx="518" cy="560" r="2"/>
+  </g>
+  <g fill="#EFE7D9" fill-opacity="0.35" font-family="monospace" font-size="10" letter-spacing="1.5" text-anchor="middle">
+    <text x="362" y="586">DETAIL</text><text x="440" y="586">REFINE</text><text x="518" y="586">COMMIT</text>
+  </g>
+  <circle cx="284" cy="560" r="7.5" fill="none" stroke="#F0923E" stroke-width="2"/>
+  <circle cx="284" cy="560" r="2.6" fill="#F0923E"/>
+  <text x="284" y="586" fill="#F0923E" fill-opacity="0.95" font-family="monospace" font-size="10" letter-spacing="1.5" text-anchor="middle">DISCOVER</text>
+  <!-- the query goes out, the honesty gate holds -->
+  <path d="M284,568 C284,596 302,612 336,620" fill="none" stroke="#F0923E" stroke-opacity="0.45" stroke-width="1.4"/>
+  <line x1="240" y1="622" x2="560" y2="622" stroke="#E0705C" stroke-opacity="0.35" stroke-width="1.2"/>
+  <g stroke="#E0705C" stroke-opacity="0.5" stroke-width="1.2">
+    <line x1="300" y1="616" x2="300" y2="628"/><line x1="340" y1="616" x2="340" y2="628"/>
+    <line x1="420" y1="616" x2="420" y2="628"/><line x1="480" y1="616" x2="480" y2="628"/>
   </g>
   <!-- the composed screen -->
-  <rect x="262" y="452" width="276" height="332" rx="18" fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.5"/>
-  <rect x="372" y="463" width="56" height="5" rx="2.5" fill="#EFE7D9" fill-opacity="0.22"/>
-  <!-- map + hero pin -->
-  <rect x="278" y="478" width="244" height="112" rx="12" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.3" stroke-width="1.2"/>
-  <g fill="none" stroke="#8FB6F0" stroke-opacity="0.2" stroke-width="1">
-    <path d="M278 534 L338 522 L400 540 L462 516 L522 532"/>
-    <path d="M352 478 L344 534 L364 590"/>
-    <path d="M448 478 L458 546 L442 590"/>
+  <rect x="266" y="650" width="268" height="142" rx="14" fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="376" y="658" width="48" height="4" rx="2" fill="#EFE7D9" fill-opacity="0.22"/>
+  <rect x="282" y="668" width="236" height="54" rx="8" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.3" stroke-width="1.2"/>
+  <g fill="none" stroke="#8FB6F0" stroke-opacity="0.18" stroke-width="1">
+    <path d="M282,696 L340,688 L400,700 L462,684 L518,694"/>
+    <path d="M352,668 L346,700 L360,722"/>
+    <path d="M448,668 L456,704 L444,722"/>
   </g>
-  <g fill="#F0923E" fill-opacity="0.45">
-    <circle cx="334" cy="560" r="4.5"/>
-    <circle cx="472" cy="500" r="4.5"/>
+  <g fill="#F0923E" fill-opacity="0.45"><circle cx="330" cy="708" r="3"/><circle cx="472" cy="684" r="3"/></g>
+  <path d="M400 702 C 394 693, 392 690, 392 685 A8 8 0 1 1 408 685 C 408 690, 406 693, 400 702 Z" fill="#F0923E"/>
+  <circle cx="400" cy="685" r="3" fill="#0f0f0f"/>
+  <rect x="282" y="730" width="236" height="24" rx="7" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.1"/>
+  <rect x="288" y="734" width="16" height="16" rx="4" fill="#F0923E" fill-opacity="0.5"/>
+  <rect x="312" y="738" width="96" height="6" rx="3" fill="#EFE7D9" fill-opacity="0.45"/>
+  <g fill="#F0923E" fill-opacity="0.8"><circle cx="424" cy="741" r="2"/><circle cx="433" cy="741" r="2"/><circle cx="442" cy="741" r="2"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.22" stroke-width="1.1">
+    <rect x="282" y="762" width="68" height="16" rx="8"/><rect x="358" y="762" width="58" height="16" rx="8"/><rect x="424" y="762" width="94" height="16" rx="8"/>
   </g>
-  <path d="M400 546 C 391 532, 388 527, 388 520 A12 12 0 1 1 412 520 C 412 527, 409 532, 400 546 Z" fill="#F0923E"/>
-  <circle cx="400" cy="520" r="4.5" fill="#0f0f0f"/>
-  <!-- hero place card -->
-  <rect x="278" y="600" width="244" height="76" rx="12" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.2"/>
-  <rect x="290" y="610" width="56" height="56" rx="10" fill="#F0923E" fill-opacity="0.45"/>
-  <rect x="360" y="616" width="118" height="8" rx="4" fill="#EFE7D9" fill-opacity="0.5"/>
-  <rect x="360" y="634" width="86" height="6" rx="3" fill="#EFE7D9" fill-opacity="0.26"/>
-  <g fill="#F0923E" fill-opacity="0.8">
-    <circle cx="363" cy="654" r="3"/>
-    <circle cx="375" cy="654" r="3"/>
-    <circle cx="387" cy="654" r="3"/>
-    <circle cx="399" cy="654" r="3"/>
-    <circle cx="411" cy="654" r="3"/>
-  </g>
-  <!-- carousel + what's next rail -->
-  <g fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.2" stroke-width="1.1">
-    <rect x="278" y="686" width="74" height="48" rx="10"/>
-    <rect x="363" y="686" width="74" height="48" rx="10"/>
-    <rect x="448" y="686" width="74" height="48" rx="10"/>
-    <rect x="278" y="744" width="72" height="22" rx="11"/>
-    <rect x="360" y="744" width="62" height="22" rx="11"/>
-    <rect x="432" y="744" width="90" height="22" rx="11"/>
-  </g>
-  <text x="56" y="852" fill="#8FB6F0" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">SDUI · SENTENCE → SCREEN</text>
+  <text x="56" y="852" fill="#8FB6F0" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">ROUTE → JUDGE → COMPOSE</text>
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">QPlace</text>
 </svg>

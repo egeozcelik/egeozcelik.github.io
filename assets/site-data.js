@@ -1,6 +1,64 @@
 /* Project covers + data - shared by index.html and portfolio/ */
         window.COVERS = {
-  /* 0 · Mindplace — orchestration dispatch */
+  /* 0 · QPlace — the brain runs a turn: a sentence fires into the constellation,
+     candidate routes flicker and one wins the depth ladder, the honesty gate
+     drops the padded result, and the screen composes; a second, shorter question
+     routes to a different exit and composes a different screen. 12s, two halves;
+     at rest the finished half-one answer. */
+  qplace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--qplace">
+  <defs><radialGradient id="qpGlow" cx="50%" cy="44%" r="60%"><stop offset="0" stop-color="#F0923E" stop-opacity="0.15"/><stop offset="0.7" stop-color="#F0923E" stop-opacity="0"/></radialGradient></defs>
+  <rect width="800" height="1000" fill="#0f0f0f"/>
+  <circle cx="400" cy="440" r="370" fill="url(#qpGlow)"/>
+  <g stroke="#F0923E" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
+  <g class="qp-lRoute"><circle cx="64" cy="306" r="4.5" fill="#F0923E"/><text x="78" y="311" fill="#F0923E" font-family="monospace" font-size="14" letter-spacing="1">ROUTE &#183; intent</text></g>
+  <g class="qp-lJudge"><circle cx="64" cy="332" r="4.5" fill="#E0705C"/><text x="78" y="337" fill="#E0705C" font-family="monospace" font-size="14" letter-spacing="1">JUDGE &#183; real data</text></g>
+  <g class="qp-lComp"><circle cx="64" cy="358" r="4.5" fill="#8FB6F0"/><text x="78" y="363" fill="#8FB6F0" font-family="monospace" font-size="14" letter-spacing="1">COMPOSE &#183; widgets</text></g>
+  <rect x="170" y="226" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
+  <rect class="qp-caret" x="196" y="241" width="2.6" height="22" fill="#EFE7D9"/>
+  <g stroke="#EFE7D9" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round"><line class="qp-a1" x1="210" y1="252" x2="262" y2="252"/><line class="qp-a2" x1="274" y1="252" x2="330" y2="252"/><line class="qp-a3" x1="342" y1="252" x2="428" y2="252"/><line class="qp-b1" x1="210" y1="252" x2="276" y2="252"/><line class="qp-b2" x1="288" y1="252" x2="352" y2="252"/></g>
+  <circle cx="598" cy="252" r="18" fill="#F0923E" fill-opacity="0.92"/>
+  <rect x="594" y="241" width="8" height="12" rx="4" fill="#0f0f0f"/>
+  <path d="M590 251 a8 8 0 0 0 16 0 M598 259 L598 264" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
+  <circle class="flow qp-send" r="3.6" fill="#FFC489" style="offset-path:path('M400,280 L400,330')"/>
+  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1"><line x1="400" y1="336" x2="296" y2="396"/><line x1="400" y1="336" x2="398" y2="382"/><line x1="400" y1="336" x2="502" y2="394"/><line x1="400" y1="336" x2="326" y2="352"/><line x1="400" y1="336" x2="476" y2="350"/><line x1="296" y1="396" x2="230" y2="390"/><line x1="502" y1="394" x2="560" y2="358"/><line x1="296" y1="396" x2="262" y2="476"/><line x1="296" y1="396" x2="352" y2="456"/><line x1="398" y1="382" x2="352" y2="456"/><line x1="398" y1="382" x2="452" y2="458"/><line x1="502" y1="394" x2="452" y2="458"/><line x1="502" y1="394" x2="542" y2="474"/><line x1="262" y1="476" x2="208" y2="428"/><line x1="542" y1="474" x2="592" y2="430"/><line x1="352" y1="456" x2="306" y2="512"/><line x1="452" y1="458" x2="498" y2="514"/><line x1="262" y1="476" x2="284" y2="560"/><line x1="352" y1="456" x2="284" y2="560"/><line x1="352" y1="456" x2="362" y2="560"/><line x1="452" y1="458" x2="362" y2="560"/><line x1="452" y1="458" x2="440" y2="560"/><line x1="542" y1="474" x2="440" y2="560"/><line x1="542" y1="474" x2="518" y2="560"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.3"><circle cx="230" cy="390" r="2.5"/><circle cx="560" cy="358" r="2.5"/><circle cx="326" cy="352" r="2"/><circle cx="476" cy="350" r="2"/><circle cx="208" cy="428" r="2.5"/><circle cx="592" cy="430" r="2.5"/><circle cx="306" cy="512" r="2"/><circle cx="498" cy="514" r="2"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.42"><circle cx="296" cy="396" r="4"/><circle cx="502" cy="394" r="4"/><circle cx="262" cy="476" r="4"/><circle cx="542" cy="474" r="4"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.55"><circle cx="398" cy="382" r="4.5"/><circle cx="352" cy="456" r="4.5"/><circle cx="452" cy="458" r="4.5"/></g>
+  <circle cx="400" cy="336" r="9" fill="none" stroke="#F0923E" stroke-opacity="0.35" stroke-width="1.4"/>
+  <circle cx="400" cy="336" r="5" fill="#F0923E" fill-opacity="0.9"/>
+  <circle class="qp-entry" cx="400" cy="336" r="10" fill="none" stroke="#FFC489" stroke-width="2"/>
+  <g class="qp-thinkA1" stroke="#FFC489" stroke-width="1.4"><line x1="400" y1="336" x2="296" y2="396"/><line x1="296" y1="396" x2="262" y2="476"/></g>
+  <g class="qp-thinkA2" stroke="#FFC489" stroke-width="1.4"><line x1="400" y1="336" x2="502" y2="394"/><line x1="502" y1="394" x2="542" y2="474"/></g>
+  <g class="qp-thinkB" stroke="#FFC489" stroke-width="1.4"><line x1="400" y1="336" x2="398" y2="382"/><line x1="398" y1="382" x2="352" y2="456"/></g>
+  <g class="qp-pathA"><path class="qp-drawA" d="M400,336 L398,382 L352,456 L284,560" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.14" stroke-width="8" stroke-linecap="round"/><path class="qp-drawA" d="M400,336 L398,382 L352,456 L284,560" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.95" stroke-width="2.4" stroke-linecap="round"/></g>
+  <g class="qp-pathB"><path class="qp-drawB" d="M400,336 L502,394 L452,458 L362,560" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.14" stroke-width="8" stroke-linecap="round"/><path class="qp-drawB" d="M400,336 L502,394 L452,458 L362,560" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.95" stroke-width="2.4" stroke-linecap="round"/></g>
+  <g fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.4"><circle cx="284" cy="560" r="5.5"/><circle cx="362" cy="560" r="5.5"/><circle cx="440" cy="560" r="5.5"/><circle cx="518" cy="560" r="5.5"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.4"><circle cx="284" cy="560" r="2"/><circle cx="362" cy="560" r="2"/><circle cx="440" cy="560" r="2"/><circle cx="518" cy="560" r="2"/></g>
+  <g fill="#EFE7D9" fill-opacity="0.35" font-family="monospace" font-size="10" letter-spacing="1.5" text-anchor="middle"><text x="284" y="586">DISCOVER</text><text x="362" y="586">DETAIL</text><text x="440" y="586">REFINE</text><text x="518" y="586">COMMIT</text></g>
+  <g class="qp-ladA"><circle cx="284" cy="560" r="7.5" fill="none" stroke="#F0923E" stroke-width="2"/><circle cx="284" cy="560" r="2.6" fill="#F0923E"/><text x="284" y="586" fill="#F0923E" fill-opacity="0.95" font-family="monospace" font-size="10" letter-spacing="1.5" text-anchor="middle">DISCOVER</text></g>
+  <g class="qp-ladB"><circle cx="362" cy="560" r="7.5" fill="none" stroke="#F0923E" stroke-width="2"/><circle cx="362" cy="560" r="2.6" fill="#F0923E"/><text x="362" y="586" fill="#F0923E" fill-opacity="0.95" font-family="monospace" font-size="10" letter-spacing="1.5" text-anchor="middle">DETAIL</text></g>
+  <g class="qp-arcA"><path class="qp-arcDrawA" d="M284,568 C284,596 302,612 336,620" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.45" stroke-width="1.4"/></g>
+  <g class="qp-arcB"><path class="qp-arcDrawB" d="M362,568 C362,596 376,610 398,620" pathLength="100" fill="none" stroke="#F0923E" stroke-opacity="0.45" stroke-width="1.4"/></g>
+  <line x1="240" y1="622" x2="560" y2="622" stroke="#E0705C" stroke-opacity="0.35" stroke-width="1.2"/>
+  <g stroke="#E0705C" stroke-opacity="0.5" stroke-width="1.2"><line x1="300" y1="616" x2="300" y2="628"/><line x1="340" y1="616" x2="340" y2="628"/><line x1="420" y1="616" x2="420" y2="628"/><line x1="480" y1="616" x2="480" y2="628"/></g>
+  <circle class="flow qp-d1" r="3.4" fill="#8FB6F0" style="offset-path:path('M170,622 L340,622 L340,686')"/>
+  <circle class="flow qp-d2" r="3.4" fill="#8FB6F0" style="offset-path:path('M630,622 L420,622 L420,738')"/>
+  <circle class="flow qp-d3" r="3.4" fill="#8FB6F0" style="offset-path:path('M150,622 L300,622 L300,766')"/>
+  <circle class="flow qp-rej" r="3.4" fill="#8FB6F0" style="offset-path:path('M650,622 L480,622 C492,648 502,666 522,700')"/>
+  <circle class="flow qp-dB" r="3.4" fill="#8FB6F0" style="offset-path:path('M170,622 L400,622 L400,712')"/>
+  <rect x="266" y="650" width="268" height="142" rx="14" fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="376" y="658" width="48" height="4" rx="2" fill="#EFE7D9" fill-opacity="0.22"/>
+  <g class="qp-wMap"><rect x="282" y="668" width="236" height="54" rx="8" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.3" stroke-width="1.2"/><g fill="none" stroke="#8FB6F0" stroke-opacity="0.18" stroke-width="1"><path d="M282,696 L340,688 L400,700 L462,684 L518,694"/><path d="M352,668 L346,700 L360,722"/><path d="M448,668 L456,704 L444,722"/></g><g fill="#F0923E" fill-opacity="0.45"><circle cx="330" cy="708" r="3"/><circle cx="472" cy="684" r="3"/></g><path d="M400 702 C 394 693, 392 690, 392 685 A8 8 0 1 1 408 685 C 408 690, 406 693, 400 702 Z" fill="#F0923E"/><circle cx="400" cy="685" r="3" fill="#0f0f0f"/></g>
+  <g class="qp-wHero"><rect x="282" y="730" width="236" height="24" rx="7" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.1"/><rect x="288" y="734" width="16" height="16" rx="4" fill="#F0923E" fill-opacity="0.5"/><rect x="312" y="738" width="96" height="6" rx="3" fill="#EFE7D9" fill-opacity="0.45"/><g fill="#F0923E" fill-opacity="0.8"><circle cx="424" cy="741" r="2"/><circle cx="433" cy="741" r="2"/><circle cx="442" cy="741" r="2"/></g></g>
+  <g class="qp-wRail" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.22" stroke-width="1.1"><rect x="282" y="762" width="68" height="16" rx="8"/><rect x="358" y="762" width="58" height="16" rx="8"/><rect x="424" y="762" width="94" height="16" rx="8"/></g>
+  <g class="qp-wCap"><rect x="302" y="700" width="196" height="34" rx="17" fill="#8FB6F0" fill-opacity="0.06" stroke="#8FB6F0" stroke-opacity="0.5" stroke-width="1.3"/><circle cx="320" cy="717" r="4" fill="#F0923E" fill-opacity="0.9"/><rect x="334" y="713" width="118" height="7" rx="3.5" fill="#EFE7D9" fill-opacity="0.5"/></g>
+  <rect class="qp-shimA" x="274" y="660" width="10" height="124" rx="5" fill="#8FB6F0"/>
+  <rect class="qp-shimB" x="306" y="702" width="8" height="30" rx="4" fill="#8FB6F0"/>
+  <text x="56" y="852" fill="#8FB6F0" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">ROUTE &#8594; JUDGE &#8594; COMPOSE</text>
+  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">QPlace</text>
+</svg>`,
+
+  /* 1 · Mindplace — orchestration dispatch */
   mindplace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--mindplace">
   <defs>
     <radialGradient id="mpGlow" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#8B7CF6" stop-opacity="0.18"/><stop offset="0.65" stop-color="#8B7CF6" stop-opacity="0"/></radialGradient>
@@ -36,67 +94,6 @@
   <path d="M604 710 L604 730 L620 720 Z" fill="#22D3C5" fill-opacity="0.85"/>
   <text x="56" y="852" fill="#22D3C5" fill-opacity="0.6" font-family="monospace" font-size="16" letter-spacing="5">MULTI-AGENT ORCHESTRATION</text>
   <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">Mindplace</text>
-</svg>`,
-
-  /* 1 · QPlace — sentence → select widgets → hydrate → the screen composes itself */
-  qplace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" class="cover cover--qplace">
-  <defs><radialGradient id="qpGlow" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#F0923E" stop-opacity="0.14"/><stop offset="0.7" stop-color="#F0923E" stop-opacity="0"/></radialGradient></defs>
-  <rect width="800" height="1000" fill="#0f0f0f"/>
-  <circle cx="400" cy="420" r="360" fill="url(#qpGlow)"/>
-  <g stroke="#F0923E" stroke-opacity="0.05" stroke-width="1"><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="750" x2="800" y2="750"/><line x1="400" y1="0" x2="400" y2="1000"/></g>
-  <g class="qp-lSel"><circle cx="76" cy="300" r="5" fill="#F0923E"/><text x="90" y="305" fill="#F0923E" font-family="monospace" font-size="15" letter-spacing="1">SELECT · widgets</text></g>
-  <g class="qp-lHyd"><circle cx="76" cy="326" r="5" fill="#8FB6F0"/><text x="90" y="331" fill="#8FB6F0" font-family="monospace" font-size="15" letter-spacing="1">HYDRATE · real data</text></g>
-  <rect x="170" y="228" width="460" height="52" rx="26" fill="#F0923E" fill-opacity="0.02" stroke="#EFE7D9" stroke-opacity="0.24" stroke-width="1.3"/>
-  <rect class="qp-caret" x="196" y="243" width="2.6" height="22" fill="#EFE7D9"/>
-  <g stroke="#EFE7D9" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round"><line class="qp-a1" x1="210" y1="254" x2="262" y2="254"/><line class="qp-a2" x1="274" y1="254" x2="320" y2="254"/><line class="qp-a3" x1="332" y1="254" x2="418" y2="254"/><line class="qp-a4" x1="430" y1="254" x2="486" y2="254"/><line class="qp-b1" x1="210" y1="254" x2="292" y2="254"/><line class="qp-b2" x1="304" y1="254" x2="356" y2="254"/></g>
-  <circle cx="598" cy="254" r="18" fill="#F0923E" fill-opacity="0.92"/>
-  <rect x="594" y="243" width="8" height="12" rx="4" fill="#0f0f0f"/>
-  <path d="M590 253 a8 8 0 0 0 16 0 M598 261 L598 266" fill="none" stroke="#0f0f0f" stroke-width="1.7"/>
-  <circle class="flow qp-send" r="3.6" fill="#FFC489" style="offset-path:path('M400,282 L400,304')"/>
-  <circle class="qp-fire" cx="400" cy="322" r="21" fill="none" stroke="#FFC489" stroke-width="2"/>
-  <rect x="386" y="308" width="28" height="28" rx="9" fill="#0f0f0f" stroke="#F0923E" stroke-opacity="0.75" stroke-width="2"/>
-  <circle cx="400" cy="322" r="4.5" fill="#F0923E" fill-opacity="0.9"/>
-  <g stroke="#EFE7D9" stroke-opacity="0.12" stroke-width="1"><line x1="400" y1="338" x2="292" y2="354"/><line x1="400" y1="338" x2="400" y2="354"/><line x1="400" y1="338" x2="508" y2="354"/></g>
-  <g fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.1"><rect x="269" y="358" width="24" height="24" rx="5"/><rect x="303" y="358" width="24" height="24" rx="5"/><rect x="337" y="358" width="24" height="24" rx="5"/><rect x="371" y="358" width="24" height="24" rx="5"/><rect x="405" y="358" width="24" height="24" rx="5"/><rect x="439" y="358" width="24" height="24" rx="5"/><rect x="473" y="358" width="24" height="24" rx="5"/><rect x="507" y="358" width="24" height="24" rx="5"/><rect x="269" y="392" width="24" height="24" rx="5"/><rect x="303" y="392" width="24" height="24" rx="5"/><rect x="337" y="392" width="24" height="24" rx="5"/><rect x="371" y="392" width="24" height="24" rx="5"/><rect x="405" y="392" width="24" height="24" rx="5"/><rect x="439" y="392" width="24" height="24" rx="5"/><rect x="473" y="392" width="24" height="24" rx="5"/><rect x="507" y="392" width="24" height="24" rx="5"/></g>
-  <rect class="qp-scan" x="265" y="352" width="9" height="68" rx="4.5" fill="#F0923E" fill-opacity="0.5"/>
-  <g class="qp-selA"><g fill="#F0923E" fill-opacity="0.5"><rect x="303" y="358" width="24" height="24" rx="5"/><rect x="371" y="392" width="24" height="24" rx="5"/><rect x="473" y="392" width="24" height="24" rx="5"/></g><g fill="none" stroke="#F0923E" stroke-width="2"><rect x="299" y="354" width="32" height="32" rx="8"/><rect x="367" y="388" width="32" height="32" rx="8"/><rect x="469" y="388" width="32" height="32" rx="8"/></g></g>
-  <g class="qp-selB"><g fill="#F0923E" fill-opacity="0.5"><rect x="439" y="358" width="24" height="24" rx="5"/><rect x="269" y="392" width="24" height="24" rx="5"/></g><g fill="none" stroke="#F0923E" stroke-width="2"><rect x="435" y="354" width="32" height="32" rx="8"/><rect x="265" y="388" width="32" height="32" rx="8"/></g></g>
-  <rect x="262" y="452" width="276" height="332" rx="18" fill="#0f0f0f" stroke="#EFE7D9" stroke-opacity="0.3" stroke-width="1.5"/>
-  <rect x="372" y="463" width="56" height="5" rx="2.5" fill="#EFE7D9" fill-opacity="0.22"/>
-  <g class="qp-cA1">
-  <rect x="278" y="478" width="244" height="112" rx="12" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.3" stroke-width="1.2"/>
-  <g fill="none" stroke="#8FB6F0" stroke-opacity="0.2" stroke-width="1"><path d="M278 534 L338 522 L400 540 L462 516 L522 532"/><path d="M352 478 L344 534 L364 590"/><path d="M448 478 L458 546 L442 590"/></g>
-  <g fill="#F0923E" fill-opacity="0.45"><circle cx="334" cy="560" r="4.5"/><circle cx="472" cy="500" r="4.5"/></g>
-  <path d="M400 546 C 391 532, 388 527, 388 520 A12 12 0 1 1 412 520 C 412 527, 409 532, 400 546 Z" fill="#F0923E"/>
-  <circle cx="400" cy="520" r="4.5" fill="#0f0f0f"/>
-  </g>
-  <g class="qp-cA2">
-  <rect x="278" y="600" width="244" height="76" rx="12" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.26" stroke-width="1.2"/>
-  <rect x="290" y="610" width="56" height="56" rx="10" fill="#F0923E" fill-opacity="0.45"/>
-  <rect x="360" y="616" width="118" height="8" rx="4" fill="#EFE7D9" fill-opacity="0.5"/>
-  <rect x="360" y="634" width="86" height="6" rx="3" fill="#EFE7D9" fill-opacity="0.26"/>
-  <g fill="#F0923E" fill-opacity="0.8"><circle cx="363" cy="654" r="3"/><circle cx="375" cy="654" r="3"/><circle cx="387" cy="654" r="3"/><circle cx="399" cy="654" r="3"/><circle cx="411" cy="654" r="3"/></g>
-  </g>
-  <g class="qp-cA3" fill="#EFE7D9" fill-opacity="0.05" stroke="#EFE7D9" stroke-opacity="0.2" stroke-width="1.1"><rect x="278" y="686" width="74" height="48" rx="10"/><rect x="363" y="686" width="74" height="48" rx="10"/><rect x="448" y="686" width="74" height="48" rx="10"/><rect x="278" y="744" width="72" height="22" rx="11"/><rect x="360" y="744" width="62" height="22" rx="11"/><rect x="432" y="744" width="90" height="22" rx="11"/></g>
-  <g class="qp-cB1">
-  <rect x="278" y="478" width="244" height="86" rx="12" fill="#8FB6F0" fill-opacity="0.05" stroke="#8FB6F0" stroke-opacity="0.28" stroke-width="1.2"/>
-  <path d="M278 512 L344 502 L410 518 L478 500 L522 510" fill="none" stroke="#8FB6F0" stroke-opacity="0.18" stroke-width="1"/>
-  <path d="M400 540 C 392 528, 389 523, 389 516 A11 11 0 1 1 411 516 C 411 523, 408 528, 400 540 Z" fill="#F0923E"/>
-  <circle cx="400" cy="516" r="4" fill="#0f0f0f"/>
-  </g>
-  <g class="qp-cB2">
-  <g fill="#EFE7D9" fill-opacity="0.42"><rect x="278" y="590" width="126" height="8" rx="4"/><rect x="278" y="626" width="104" height="8" rx="4"/><rect x="278" y="662" width="138" height="8" rx="4"/></g>
-  <g fill="#8FB6F0" fill-opacity="0.2"><rect x="470" y="587" width="52" height="15" rx="7.5"/><rect x="470" y="623" width="52" height="15" rx="7.5"/><rect x="470" y="659" width="52" height="15" rx="7.5"/></g>
-  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1"><line x1="278" y1="612" x2="522" y2="612"/><line x1="278" y1="648" x2="522" y2="648"/><line x1="278" y1="684" x2="522" y2="684"/></g>
-  </g>
-  <g class="qp-cB3">
-  <g fill="#EFE7D9" fill-opacity="0.42"><rect x="278" y="698" width="96" height="8" rx="4"/><rect x="278" y="734" width="118" height="8" rx="4"/></g>
-  <g fill="#8FB6F0" fill-opacity="0.2"><rect x="470" y="695" width="52" height="15" rx="7.5"/><rect x="470" y="731" width="52" height="15" rx="7.5"/></g>
-  <g stroke="#EFE7D9" stroke-opacity="0.1" stroke-width="1"><line x1="278" y1="720" x2="522" y2="720"/><line x1="278" y1="756" x2="522" y2="756"/></g>
-  </g>
-  <g fill="#8FB6F0"><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M315,370 L340,470')"/><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M383,404 L395,470')"/><circle class="flow qp-dropA" r="3.4" style="offset-path:path('M485,404 L462,470')"/><circle class="flow qp-dropB" r="3.4" style="offset-path:path('M451,370 L430,470')"/><circle class="flow qp-dropB" r="3.4" style="offset-path:path('M281,404 L322,470')"/></g>
-  <text x="56" y="852" fill="#8FB6F0" fill-opacity="0.62" font-family="monospace" font-size="16" letter-spacing="5">SDUI · SENTENCE → SCREEN</text>
-  <text x="54" y="912" fill="#ffffff" fill-opacity="0.92" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44">QPlace</text>
 </svg>`,
 
   /* 2 · TravelerApp · Pacer — route trace + explore pins */
@@ -290,6 +287,21 @@
 
         window.PROJECTS = [
             {
+                n: 'QPlace', year: '2026 — Now Building', badge: 'Now Building',
+                stack: ['Server-Driven UI', 'Widget Catalog & Wire Contract', 'Schema-Constrained LLM Selection', 'Deterministic Hydration', 'Validator-Gated Composition', 'Intent Routing & Depth Ladder', 'Response Calibration', 'Context-Aware Prompting', 'Grounded Retrieval', 'Gemini 2.5 Flash', 'On-Device Foundation Models', 'Supabase Edge Functions', 'Swift / SwiftUI Client'],
+                desc: 'An <strong>intent-to-interface</strong> system for place discovery, built as an experiment in <strong>server-driven UI under a hard authority boundary</strong>. One natural-language turn goes in, and what comes back over the wire is not a screen but a <strong>selection</strong>: which widgets out of a fixed 16-entry catalog, in what order, at what weight. Composition becomes a decision taken per question rather than a layout committed at build time, and the client is a thin renderer for whatever that decision produced.<br><br>The load-bearing constraint is <strong>select ≠ hydrate</strong>. The model writes the query and picks the widgets; <strong>deterministic code hydrates every payload</strong> from retrieved data, and the model is structurally unable to emit a coordinate, an identifier or a URL. Each proposal then runs a validator: unknown id dropped, unmet data requirement dropped, nothing left falls back to a known-good recipe. Freedom sits in what to ask, what to retrieve, what to select and how to arrange it; determinism sits in the facts on screen. The model can pick a weak combination out of a fixed menu, never a broken one.<br><br>Around that sits the brain: a <strong>routed turn pipeline</strong> where a heuristic intent router classifies the turn, a four-level depth ladder governs how much session state that turn may move, and a composer resolves widgets, transitions and next moves. <strong>Model calls are placed, not sprinkled.</strong> Routing runs on-device at zero cost, while the LLM rides a retrieval call that was already happening, because it is the only stage that has seen the results. A relevance gate already acts as a primitive <strong>judge step</strong> over what came back; letting it re-query is the smallest real move toward an <strong>agentic loop</strong> that decides what it needs, fetches it, judges it, and only then composes.',
+                roleLabel: '<strong>End-to-End Development</strong>',
+                roleBullets: [
+                    '<strong>System Architecture</strong> the select ≠ hydrate seam and the wire contract across it',
+                    '<strong>The Brain</strong> intent router, depth ladder, composer and next-move resolution',
+                    '<strong>AI Pipelines</strong> schema-constrained selection &amp; query writing in edge functions',
+                    '<strong>Judging Layer</strong> geocode &amp; relevance gates as pure functions, behind 300+ contract tests',
+                    '<strong>Client &amp; Design</strong> SwiftUI renderer for the catalog, UI/UX'
+                ],
+                links: [{ t: 'Explore', u: 'https://www.reconchillestudios.com/apps/qplace' }],
+                kw: 'city', cover: 'qplace', img: 'assets/qplace.svg'
+            },
+            {
                 n: 'Mindplace', year: '2025 — Building',
                 stack: ['Multi-Agent Orchestration', 'LLM Planner / Executor', 'Role-Assigned Agent Crew', 'Agentic Pipelines', 'Model-Agnostic Dispatch', 'Vision QC & Consistency', 'Generative Image / Video / Audio', 'Next.js', 'React'],
                 desc: 'A <strong>multi-agent AI platform</strong> for film and animation production: two orchestration surfaces sitting over one generative-model layer.<br><br>In the agent-driven flows (VisualStoryteller, CortexStoryteller) an <strong>LLM brain runs the whole pipeline</strong>. A Supervisor compiles the brief into an execution plan, and an executor coordinates a role-assigned crew (Creative Director, Writer, Art Director, Director, Composer and a QC agent) with dependency resolution, parallel groups and <strong>per-keyframe Vision QC</strong>. The Studio modules are smaller agentic pipelines of their own, like Moodboard\'s composer→critic loop.<br><br>Underneath both, a <strong>model-agnostic dispatcher</strong> maps one prompt surface onto <strong>8+ image and video engines</strong>: manifest-driven, capability-gated, and never branching on model id.',
@@ -305,21 +317,6 @@
                 ],
                 links: [{ t: 'Explore', u: 'https://www.mindplace.app' }],
                 kw: 'meditation', cover: 'mindplace', img: 'assets/mindplace.svg'
-            },
-            {
-                n: 'QPlace', year: '2026 — Now Building',
-                stack: ['Server-Driven UI', 'Widget Catalog & Wire Contract', 'Schema-Constrained LLM Selection', 'Deterministic Hydration', 'Validator-Gated Composition', 'Intent Routing & Depth Ladder', 'Response Calibration', 'Context-Aware Prompting', 'Grounded Retrieval', 'Gemini 2.5 Flash', 'On-Device Foundation Models', 'Supabase Edge Functions', 'Swift / SwiftUI Client'],
-                desc: 'An <strong>intent-to-interface</strong> system for place discovery, built as an experiment in <strong>server-driven UI under a hard authority boundary</strong>. One natural-language turn goes in, and what comes back over the wire is not a screen but a <strong>selection</strong>: which widgets out of a fixed 16-entry catalog, in what order, at what weight. Composition becomes a decision taken per question rather than a layout committed at build time, and the client is a thin renderer for whatever that decision produced.<br><br>The load-bearing constraint is <strong>select ≠ hydrate</strong>. The model writes the query and picks the widgets; <strong>deterministic code hydrates every payload</strong> from retrieved data, and the model is structurally unable to emit a coordinate, an identifier or a URL. Each proposal then runs a validator: unknown id dropped, unmet data requirement dropped, nothing left falls back to a known-good recipe. Freedom sits in what to ask, what to retrieve, what to select and how to arrange it; determinism sits in the facts on screen. The model can pick a weak combination out of a fixed menu, never a broken one.<br><br>Around that sits the brain: a <strong>routed turn pipeline</strong> where a heuristic intent router classifies the turn, a four-level depth ladder governs how much session state that turn may move, and a composer resolves widgets, transitions and next moves. <strong>Model calls are placed, not sprinkled.</strong> Routing runs on-device at zero cost, while the LLM rides a retrieval call that was already happening, because it is the only stage that has seen the results. A relevance gate already acts as a primitive <strong>judge step</strong> over what came back; letting it re-query is the smallest real move toward an <strong>agentic loop</strong> that decides what it needs, fetches it, judges it, and only then composes.',
-                roleLabel: '<strong>End-to-End Development</strong>',
-                roleBullets: [
-                    '<strong>System Architecture</strong> the select ≠ hydrate seam and the wire contract across it',
-                    '<strong>The Brain</strong> intent router, depth ladder, composer and next-move resolution',
-                    '<strong>AI Pipelines</strong> schema-constrained selection &amp; query writing in edge functions',
-                    '<strong>Judging Layer</strong> geocode &amp; relevance gates as pure functions, behind 300+ contract tests',
-                    '<strong>Client &amp; Design</strong> SwiftUI renderer for the catalog, UI/UX'
-                ],
-                links: [{ t: 'Explore', u: 'https://www.reconchillestudios.com/apps/qplace' }],
-                kw: 'city', cover: 'qplace', img: 'assets/qplace.svg'
             },
             {
                 n: 'TravelerApp · Pacer', year: '2024',
